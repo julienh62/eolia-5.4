@@ -1,0 +1,11 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}créer Staff{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau staff</h1>
+
+    {{ include('admin/staff/_form.html.twig') }}
+
+    <a href="{{ path('admin_staff_index') }}">Retour à la liste</a>
+{% endblock %}

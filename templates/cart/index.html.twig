@@ -1,0 +1,175 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}panier{% endblock %}
+
+{% block body %}
+
+    <h1>Mon panier</h1>
+ {% if items | length > 0 %}
+  
+
+
+<div class="onlydesktop">
+    <table class="tableau">
+        <thead class="tableau">
+            <tr>
+                <th>Titre</th> 
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Prix</th>
+                <th>Unité</th>
+              <th>Stock</th>
+                <th>Total</th>
+                <th> Ajouter </th>
+                <th> Enlever </th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+         
+            <tr>
+                <td class="tableau">{{ item.calendar.title }}</td>
+            
+                <td class="tableau">{{ item.calendar.start ? item.calendar.start|date('Y-m-d H:i:s') : '' }}</td>
+           
+                <td class="tableau">{{ item.calendar.end ? item.calendar.end|date('Y-m-d H:i:s') : '' }}</td>
+           
+                <td class="tableau">{{  item.calendar.price | amount }}</td>
+           
+                <td class="tableau">{{ item.quantity }}</td>
+
+              <td class="tableau">{{ item.stock }}</td>
+           
+                <td class="tableau">{{ item.total | amount }}</td>
+
+                   <td>
+                        <a href="{{path("cart_add", {'id': item.calendar.id})}}" class="success">
+                            🛒+
+                        </a>
+                    </td>
+                          <td>
+                        <a href=" {{path("cart_decrement", {'id': item.calendar.id})}}" class="warning">
+                          🛒-
+                        </a>
+                    </td>
+                       <td>
+                       
+                        <a href="{{path("cart_delete", {'id': item.calendar.id})}}" class="danger">
+                            <i class="fas fa-trash-alt">Supprimer</i>
+                        </a>
+                    </td>
+            </tr>
+            
+          {% endfor %}
+      
+        </tbody>
+
+
+           <tfoot>
+            <tr>
+                <td>Total </td>
+                <td class="text-start">{{ total | amount }} </td>
+                <td>
+                    <a href="{{path("cart_delete_all")}}" class="danger">
+                           Vider le panier
+                    </a>
+                   
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div class="onlymobil">
+  {% for item in items %}
+       
+                <h3>Titre</h3>
+                <p>{{ item.calendar.title }}</p>
+           
+                <h3>Date de début</h3>
+                <p>{{ item.calendar.start ? item.calendar.start|date('Y-m-d H:i:s') : '' }}</p>
+           
+                <h3>Date de fin</h3>
+                <p>{{ item.calendar.end ? item.calendar.end|date('Y-m-d H:i:s') : '' }}</p>
+        
+                <h3>Prix</h3>
+                <p class="tableau">{{  item.calendar.price | amount }}</p>
+          
+                  <h3>Unité</h3>
+                <p class="tableau">{{ item.quantity }}</p>
+         
+                <h3>Total</h3>
+                <p class="tableau">{{ item.total | amount }}</p>
+          
+                <h3>Ajouter</h3>
+                   <p> <a href="{{path("cart_add", {'id': item.calendar.id})}}" class="success">
+                            🛒 + 1
+                        </a>
+                        </p>
+        
+                <h3>Soustraire</h3>
+                   <p>  <a href=" {{path("cart_decrement", {'id': item.calendar.id})}}" class="warning">
+                          🛒 - 1
+                        </a>
+                        </p>
+         
+                <h3>Supprimer</h3>
+                   <p>  <a href="{{path("cart_delete", {'id': item.calendar.id})}}" class="danger">
+                            <i class="fas fa-trash-alt">Supprimer</i>
+                        </a>
+                        </p>
+          
+                <p>
+                    <a class="milieu" href="{{path("cart_delete_all")}}" class="danger">
+                           Vider le panier
+                    </a>
+                </p>
+
+        <p class="milieu">
+                Total {{ total | amount }} 
+            </p>
+
+   {% endfor %}
+
+
+</div>
+<div class="milieu">
+    <a class="success" href="{{path("app_calendar_main")}}">
+           Compléter votre panier
+       </a>
+ </div>      
+    
+       <hr>
+      {% if app.user %}
+          {% if cartService.validateOrder() %}
+                <form method="post" action="{{ path('app_purchase_confirm') }}">
+                    {% for item in items %}
+                        <input type="hidden" name="items[{{ item.calendar.id }}][quantity]" value="{{ item.quantity }}">
+                        <input type="hidden" name="items[{{ item.calendar.id }}][calendar]" value="{{ item.calendar.title }}">
+                    {% endfor %}
+                    <button type="submit" class="success">Valider la commande</button>
+                </form>
+            {% else %} 
+                 <h2> "Stock insuffisant"</h2>
+            {% endif %} 
+        {% else %}
+            <div class="d-flex align-items-center">
+                <h2>Vous devez vous inscrire si vous n'avez pas encore de compte</h2>
+                <a href="{{ path('app_registration') }}" class="secondary">Créer un compte</a>
+            </div>
+            <div class="d-flex align-items-center">
+                <h2>Vous devez être connecté pour confirmer cette commande</h2>
+                <a href="{{ path('app_login') }}" class="success">Connexion</a>
+            </div>
+        {% endif %}
+
+    {% else %}
+        <p>Aucune séance dans le panier </p> 
+        <p> Si un lien de paiement vous a été envoyé , il vous faut tout d'abord vous connecter via l'email de confirmation de création de votre compte </p>
+        
+        <a class="btn btn-primary" href="{{ path('app_calendar_main') }}">
+            Retour aux séances
+        </a>
+    {% endif %}
+
+{% endblock %}

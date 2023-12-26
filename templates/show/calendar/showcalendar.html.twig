@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CalendarController!{% endblock %}
+
+{% block body %}
+
+
+    <div class="container">
+        <h1 class="blue-heading">{{ calendar.title }}</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <p>{{ calendar.title }}</p>
+                
+                <p>{{ calendar.start|date('Y-m-d H:i:s') }}</p>
+           
+    
+
+
+                <a href="{{ path('show_calendar_index') }}" class="btn btn-primary">Retour à la liste des Calendars</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+

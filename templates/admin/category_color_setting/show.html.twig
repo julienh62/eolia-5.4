@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CategoryColorSetting{% endblock %}
+
+{% block body %}
+    <h1>CategoryColorSetting</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ category_color_setting.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ category_color_setting.title }}</td>
+            </tr>
+            <tr>
+                <th>TextColor</th>
+                <td>{{ category_color_setting.textColor }}</td>
+            </tr>
+            <tr>
+                <th>BackGroundColor</th>
+                <td>{{ category_color_setting.backGroundColor }}</td>
+            </tr>
+            <tr>
+                <th>BorderColor</th>
+                <td>{{ category_color_setting.borderColor }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_category_color_setting_index') }}">back to list</a>
+
+    <a href="{{ path('app_category_color_setting_edit', {'id': category_color_setting.id}) }}">edit</a>
+
+    {{ include('admin/category_color_setting/_delete_form.html.twig') }}
+{% endblock %}

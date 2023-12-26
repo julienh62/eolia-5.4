@@ -1,0 +1,82 @@
+
+<header id="navbar" class="nav">
+    <a class="navbar-brand" href="/">
+			<img src="{{ asset('assets/uploads/logoeolia170px.png')}}" alt="char à voile Baie de Somme"></a>
+     
+  {#  <div class="dropdown-1">
+        <button>Nos activités</button> 
+            <div class="content">
+               <a href="{{ path('app_calendar_index') }}">Toutes les séances</a>
+               <a href="{{ path('calendar_all_char') }}">Char à voile</a>
+				<a href="{{ path('cataAll_show') }}">Catamaran</a>
+				<a href="{{ path('charkidAll_show') }}">Char à voile kid</a>
+            </div>
+    </div> #}
+     <div class="dropdown-1">
+        <button>Consulter le planning</button> 
+            <div class="content">
+              <a class="asous" href="{#{{ path('app_calendar_main') }}#} "> Toutes les activités</a>
+              <a class="asous" href="/ "> Char à voile</a>
+				<a class="asous" href="/"> Catamaran</a>
+				<a class="asous" href="/"> Char à voile Kid</a>
+            </div>
+    </div>
+
+
+	    <a class="aderoulant" href="/">Formulaire de recherche</a>
+ 		
+	
+			<a class="aderoulant" href="/">Contact</a>
+		
+		
+			<a class="aderoulant" href="/">Les users</a>
+
+			<a class="aderoulant" href="/">Les purchases</a>
+
+        <a class="aderoulant" href="/">Les calendars</a>
+
+       <a class="aderoulant" href="/">Les categories</a>
+
+			
+
+
+		{% if app.user %}
+
+			
+				<a class="aderoulant" href="/">Commandes</a>
+			
+				<a class="aderoulant" href="/">Déconnexion</a>
+			
+				{# CartService enregistré dans twig.yaml#}
+				<a class="aderoulant" href="/ "id="panier-link">🛒
+        ({#{{ cartService.total | amount }}#})
+				</a>
+			
+			{% else %}
+			
+				<a class="aderoulant" href=" {{ path('app_registration')  }}">Création compte</a>
+			
+				<a class="aderoulant" href="{{ path('app_login') }}">Connexion</a>
+			
+			{% endif %}
+
+
+       <a href="/">Admin</a>
+
+
+
+  </div>
+   
+</nav>
+
+
+     <a class="icon" onclick = "myFunction()">&#9776;</a>
+
+</header>
+
+{% block javascripts %}
+  {{ encore_entry_link_tags('app') }}
+  {# <script src="{{ asset('assets/js/cartamount.js') }}"></script> #}
+                                              
+
+{% endblock %}

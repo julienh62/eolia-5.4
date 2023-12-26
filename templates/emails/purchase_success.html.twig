@@ -1,0 +1,44 @@
+<h1> Votre commande n° {{ purchase.id  }} est bien enregistrée et payée </h1>
+
+ <p> Merci à vous {{ user.fullName }} </p>
+<table>
+  <thead>
+    <th> Activité </th>
+    <th> Quantité  </th>
+    <th> Prix.Unitaire  </th>
+    <th>  Total </th>
+    
+  </thead>
+
+  <tbody>
+     {% for item in purchase.purchaseItems %}
+       <tr>
+        
+          <td> {{ item.CalendarName }}  </td>
+         <td> {{ item.quantity }}  </td>
+         <td> {{ item.calendarPrice / 100 }} € </td>
+         <td> {{ item.total / 100  }}  € </td>
+            
+       </tr>
+      {% endfor %}
+  </tbody>
+
+  <tfoot>  
+   
+
+  <tr>
+    <th>Total</th>
+    <th>Date et heure début de la séance</th>
+    <th>Date et heure fin de la séance</th>
+  </tr>
+  <tr>
+    <td>{{ purchase.total / 100 }} € </td>
+    <td> {{ start|date('Y-m-d H:i:s') }} </td>
+    <td>{{ end|date('Y-m-d H:i:s') }} </td>
+  </tr>
+
+
+
+
+  </tfoot>
+</table>

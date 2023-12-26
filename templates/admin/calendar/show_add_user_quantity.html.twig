@@ -1,0 +1,58 @@
+
+
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Ajouter quantité{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un utilisateur/quantité</h1>
+    
+ <div id="stockErrorMessage"></div>
+
+    {# Show the form here with only one 'Enregistrer' button #}
+    {{ form_start(form, {'attr': {'id': 'quantityForm'}}) }}
+    {{ form_widget(form) }}
+
+    {# Disable the submit button if the validation conditions are not met #}
+    <button id="submitButton" type="submit" disabled>Enregistrer</button>
+    {{ form_end(form) }}
+
+<p>Un mail avec un lien de paiement sera envoyé à l'utilisateur</p>
+    <a href="{{ path('admin_calendar_show_user', {'id': calendar.id}) }}">Retour à la séance</a>
+{% endblock %}
+{% block javascripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get references to the elements
+    var quantityInput = document.getElementById('{{ form.quantity.vars.id }}');
+    var form = document.getElementById('quantityForm');
+    var submitButton = document.getElementById('submitButton');
+    var errorMessage = document.getElementById('stockErrorMessage');
+
+    // Initial validation check
+    validateForm();
+
+    // Listen for changes in the quantity input
+    quantityInput.addEventListener('input', function() {
+        validateForm();
+    });
+
+    function validateForm() {
+        var quantity = parseInt(quantityInput.value, 10);
+        var isFormValid = quantity > 0 && quantity <= {{ calendar.stock }} && {{ isStockValid ? 'true' : 'false' }};
+        submitButton.disabled = !isFormValid;
+
+        // Update error message
+        if (quantity > {{ calendar.stock }}) {
+            errorMessage.textContent = 'Stock insuffisant';
+        } else {
+            errorMessage.textContent = '';
+        }
+    }
+});
+</script>
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,149 @@
+Table des matières
+LISTE DES COMPÉTENCES DU RÉFÉRENTIEL COUVERTES PAR LE PROJET	1
+Concevoir et développer des composants d’interface utilisateur en intégrant les recommandations de sécurité	2
+Maquetter une application 	2
+Développer une interface utilisateur	2
+Développer des composants d’accès aux données 	2
+Développer la partie front-end d’une interface utilisateur web	2
+Développer la partie back-end d’une interface utilisateur web	3
+Concevoir et développer la persistance des données en intégrant les recommandations de sécurité	3
+Concevoir une base de données	3
+Mettre en place une base de données	3
+Développer des composants dans le langage d’une base de données	3
+Concevoir et développer une application multicouche répartie en intégrant les recommandations de sécurité	3
+Collaborer à la gestion d’un projet informatique et à	3
+l’organisation de l’environnement de développement	3
+Concevoir une application	3
+Développer des composants métier	4
+Construire une application organisée en couches	4
+Développer une application mobile	4
+Préparer et exécuter les plans de tests d’une application	4
+Préparer et exécuter le déploiement d’une application	4
+RÉSUMÉ DU PROJET	5
+Résumé	5
+CAHIER DES CHARGES	6
+Présentation de l'ensemble du projet	6
+Présentation de l'entreprise et du client	6
+Description de l'existant	6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LISTE DES COMPÉTENCES DU RÉFÉRENTIEL COUVERTES PAR LE PROJET
+ 
+Concevoir et développer des composants d’interface utilisateur en intégrant les recommandations de sécurité
+Maquetter une application 
+
+Développer une interface utilisateur
+J'ai créé l'application en locale , j'ai ajouté au fur et à mesure les composants dont j'avais  besoin.Doctrine ORM (couche d'abstraction à la base de données, object - relationnal-mapping)manipuler les données persister les données + mapping des objets (lier les objets avec des annotations) et du DQL  doctrine query langage pour requete d'accés et de manipulation plus complexes , précises et performantes.
+
+
+
+
+
+
+
+Développer des composants d’accès aux données 
+
+
+Développer la partie front-end d’une interface utilisateur web
+
+Développer la partie back-end d’une interface utilisateur web
+
+Concevoir et développer la persistance des données en intégrant les recommandations de sécurité
+
+Concevoir une base de données
+
+Mettre en place une base de données
+
+Développer des composants dans le langage d’une base de données
+
+
+
+
+
+Concevoir et développer une application multicouche répartie en intégrant les recommandations de sécurité
+
+
+
+
+
+Collaborer à la gestion d’un projet informatique et à l’organisation de l’environnement de développement
+
+Concevoir une application
+
+Développer des composants métier
+
+Construire une application organisée en couches
+
+Développer une application mobile
+
+Préparer et exécuter les plans de tests d’une application
+
+Préparer et exécuter le déploiement d’une application
+
+
+
+RÉSUMÉ DU PROJET
+
+Résumé
+Ma mission était de concevoir une application web qui permette la réservation en ligne des clients , la gestion du planning  et le staff.  J'ai travaillé en locale tout au long du projet avec une mise en ligne « test » avec un nom de domaine « non référence », utilisation de balise de non indexation. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CAHIER DES CHARGES
+Présentation de l'ensemble du projet
+
+Présentation de l'entreprise et du client
+L'entreprise est une structure qui compte 10 salariés au plus en haute saison, c'est une base nautique située dans la Somme à Fort Mahon (80). Elle propose diverses activités au client dont la principale est le char à voile.
+Description de l'existant
+Il n'y a pas d'existant au projet
+Objectifs du projet
+L'accueil téléphonique de la base est surchargé dés la mi-saison (avril). Il peut y avoir sur certains jours d'affluence plus de 500 appels par jours. 
+Intervenants sur le projet
+ Le responsable de la structure qui va venir contrôler et valider le projet. 
+Le secrétaire de  la direction qui va participer à la validation du projet et à la partie SEO.
+Moi même en tant qe responsable développement web,
+
+Cible adressée par le projet
+Le projet est à destination des administrateurs et des clients.
+Principes de référencement
+
+
+
+
+
+
+
+

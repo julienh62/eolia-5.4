@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Éolia{% endblock %}</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
+       {% block stylesheets %}{% endblock %}
+		<link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">{# fichiers js #}
+       
+		
+	    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css'>{# pour charger icone facebook #}
+		{# feuille de style #}
+
+      
+
+    </head>
+
+
+	<body>
+
+		{% include "_partials/_nav_nav.html.twig" %} 
+		  
+		
+			{% for rubrique, messages in app.flashes  %}
+			<main class="container">
+				<div class="alert alert-{{ rubrique }}">
+					{% for message in messages %}
+						<p>{{ message }}</p>
+					{% endfor %}
+				</div>
+     
+          </main>
+
+			{% endfor %}
+		
+		
+	<main class="container">  
+		
+		{% block body %}    {% endblock %}
+</main> 
+		  <div id="footer">
+            {% block footer %}
+ <div class="reseaux">
+                <a href="https://www.facebook.com/charavoilepicardie" target="_blank" class="fab fa-facebook-square"></a>
+                <a href="https://www.youtube.com/watch?v=suYScmKY7os" target="_blank" class="fab fa-youtube-square"></a>
+                <a href="https://www.instagram.com/eoliapicardie/?hl=fr" target="_blank" class="fab fa-instagram-square"></a>
+            </div>
+            <nav class="navfooter">
+                <ul class="légales">
+                    <li><a href="politique-confidentialite.php">POLITIQUE DE CONFIDENTIALITÉ</a></li>
+                    <li><a href="mentions-legales.php">MENTIONS LÉGALES</a></li>
+                    <li><a href="cgv.php">CGV</a></li>
+                </ul>
+            </nav>            {% endblock %}
+        </div>
+	
+		{% block javascripts %}{% endblock %}
+
+	</body>
+
+	<!--<script src="{{ asset('assets/js/slider.js') }}" defer> </script> -->
+</html>
+
+
+
+

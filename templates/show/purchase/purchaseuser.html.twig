@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PurchaseController!{% endblock %}
+
+{% block body %}
+
+
+    <div class="container">
+       
+        <div class="row">
+            <div class="col-md-12">
+                <p>{{ purchase.status }}</p>
+                <p>{{ purchase.total }}</p>
+             
+          
+         {#   {% if app.user.id == purchase.user.id %}
+      {#  {% if app.user.id  %} 
+               <a href="{{ path('editpurchase', {'id': purchase.id}) }}">Modifier Purchase</a>
+
+         <a href="{{ path('purchase_delete', {'id': purchase.id}) }}">Supprimer Purchase</a>
+
+
+        
+        {% endif %}
+                <a href="{{ path('purchase_index') }}" class="btn btn-primary">Retour à la liste des Purchases</a>#}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,13 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Edit Staff Planning{% endblock %}
+
+{% block body %}
+    <h1>Edit Staffplanning</h1>
+
+    {{ include('admin/staffplanning/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_main_calendar') }}">Retour au calendrier</a>
+
+    {{ include('admin/staffplanning/_delete_form.html.twig') }}
+{% endblock %}

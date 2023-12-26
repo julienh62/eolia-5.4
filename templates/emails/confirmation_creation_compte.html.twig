@@ -1,0 +1,11 @@
+
+
+{% block body %}
+    <p>Bonjour {{ user.getFullName() }},</p>
+    <p>Votre compte a été créé avec succès.</p>
+    <p>Voici votre mot de passe : {{ password }}</p>
+    <p> N'oubliez pas de vous connecter à votre compte si un lien de paiement vous est envoyé</p>
+    <p>Vous pouvez toujours changer votre mot de passe 
+  <a href="https://127.0.0.1:8000/forgot-mdp">Réinitialisation du mot de passe</a></p>
+    <p>Cordialement,<br>L'équipe Éolia</p>
+{% endblock %}

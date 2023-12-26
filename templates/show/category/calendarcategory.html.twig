@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello Alltagshow!{% endblock %}
+{% block body %}
+    <h1>Tags</h1>
+    <ul>
+       <h1>Calendars with category "{{ category.title }}"</h1>
+    <ul>
+        {% for calendar in calendars %}
+            <li>{{ calendar.title }}</li>
+            <li>{{ calendar.start|date('Y-m-d H:i:s') }}</li>
+           
+        {% endfor %}
+    </ul>
+    </ul>
+{% endblock %}

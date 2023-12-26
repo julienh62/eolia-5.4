@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes commandes{% endblock %}
+
+{% block body %}
+  <main class="container">
+      {#    {{ dump(listpurchase) }} #}
+    
+                                
+      <div class ="purchasedesktop">
+        <h1>Mes commandes</h1>
+          <table class="tableau">
+                <thead>
+                  <tr>
+
+                      <th>Titre  </th>
+              
+                      <th>Quantité  </th>
+
+                      <th>Début de la séance</th>
+              
+                      <th>Fin de la séance</th>
+                    
+                      <th>Total </th>
+
+                      <th>Statut</th>
+
+
+
+                    {#   <th>purchaseItemId</th> #}
+                  </tr>
+                </thead>
+      
+                               {# {{ dump(purchases) }} #}
+
+          
+                {% for purchase in purchases %} 
+                          <tr>
+                            <td>{{ purchase.title }}</td>
+                            <td>{{ purchase.quantity }}</td>
+                           
+
+                                      
+                         {#  <td>{{ purchase.calendarIds }}</td>#}
+                            <td>{{ purchase.start|date('Y-m-d H:i:s') }}</td>
+                            <td>{{ purchase.end|date('Y-m-d H:i:s') }}</td>
+                            <td>{{ purchase.total | amount }}</td>
+                            <td> {% if purchase.status == 'PENDING' %}
+                                  Non payé
+                                  {% elseif purchase.status == 'PAID' %}
+                                      Payé
+                                  {% endif %}
+                            </td>
+
+                       {# <td>{{ purchase.calendarIds }}</td> #}
+
+                          </tr>
+                {% endfor %}
+        
+          </table>
+      </div>  
+
+    <div class ="purchasemobil">
+      <h1>Mes commandes</h1>
+
+                {% for purchase in purchases %}
+              
+                    <p  class="item-mobile">Titre</p>
+                    <p class="datatitem">{{ purchase.title  }}</p>
+              
+                    <p  class="item-mobile">Date de début</p>
+                    <p class="datatitem">{{ purchase.start|date('Y-m-d H:i:s')  }}</p>
+              
+                    <p  class="item-mobile">Date de fin</h3>
+                    <p class="datatitem">{{ purchase.end|date('Y-m-d H:i:s') }}</p>
+              
+                      <p  class="item-mobile">Unité</h3>
+                    <p class="datatitem">{{ purchase.quantity }}</p>
+            
+                    <p  class="item-mobile">Total</h3>
+
+                    <p class="datatitem">{{ purchase.total | amount }}</p>
+
+                    <hr>  
+                    {# <p  class="item-mobile">purchaseItemId</p> #}
+                    <p class="datatitem">{{ purchase.calendarIds }}</p>
+
+                {%  endfor %}
+
+         
+
+
+
+            
+          
+            
+      </div>  
+</main>
+{% endblock %}

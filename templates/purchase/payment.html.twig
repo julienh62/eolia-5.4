@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Paiement stripe
+{% endblock %}
+
+{% block body %}
+    <h1>Payez votre acompte avec Stripe</h1>
+    <div class="indicationpaiement">
+        <p>Numéro de carte bancaire test : 4242 4242 4242 4242</p>
+        <p>Numéro à 3 chiffres et code postal</p>
+    </div>
+
+
+<form id="payment-form">
+    <div id="card-element"></div>
+
+    <!-- Champ pour le numéro d'échéance 
+    <div class="form-group">
+        <label for="installment-number">Numéro d'échéance :</label>
+        <input type="number" id="installment-number" name="installment-number" min="1" required>
+    </div>-->
+
+    <button id="submit" class="btn btn-success">
+        <div class="spinner hidden" id="spinner"></div>
+        <span id="button-text">Payer avec Stripe</span>
+    </button>
+    <p id="card-error" role="alert"></p>
+</form>
+
+
+
+
+  
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script>
+        const clientSecret = '{{ clientSecret }}';
+        const stripePublicKey = '{{ stripePublicKey }}';
+        const redirectAfterSuccesUrl = "{{ url('purchase_payment_success', {'id': purchase.id }) }}";
+    </script>
+    <script src="/assets/js/payment.js"></script>
+{% endblock %}

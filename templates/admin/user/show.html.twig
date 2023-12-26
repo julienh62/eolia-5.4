@@ -1,0 +1,37 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}usershow
+{% endblock %}
+
+{% block body %}
+
+	<h1>
+		Nom de l'utilisateur;  
+		{{ user.fullName }}
+	</h1>
+	<h2>E-mail:
+		{{ user.email  }}</h2>
+	
+ <h3> 
+                   <a href="{{ path('admin_user_purchase', { 'id': user.id }) }}">Afficher commandes utilisateur</a></h3>
+
+	{#}
+	<div class="action">
+		<h2>Ajout client</h2>
+		 {{ form_start(form, {'action': path('admin_calendar_show_user', {'id': calendar.id})}) }}
+		    {{ form_widget(form) }}
+		    <button type="submit" class="success">Valider</button>
+		    {{ form_end(form) }}#}
+
+		<!--<a href="{#}{{ path('admin_calendar_show_add_user', {'id': calendarId}) }}#}">Ajouter un client</a> -->
+
+		{#}<a href="{{ path('admin_calendar_show_add_user', {'id': id}) }}">Ajouter un utilisateur</a>
+
+		<a href="{{ path('admin_calendar_index') }}">Retours à la liste</a>
+
+		<a href="{{ path('admin_calendar_edit', {'id': calendar.id}) }}">edit</a>
+		{{ include('admin/calendar/_delete_form.html.twig') }}
+	</div>{#}
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello list PurchaseController!{% endblock %}
+
+{% block body %}
+
+
+    <div class="container">
+     <h1>List of Purchases</h1>
+    
+    <ul>
+        {% for purchase in purchases %}
+               
+            <li>{{ purchase.total }}</li>
+           <li> {{ purchase.status }}</li>
+      
+           
+        {% endfor %}
+    </ul>
+    </div>
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,107 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Calendar index{% endblock %}
+
+{% block body %}
+    <h1>Calendar indexs Back-office</h1>
+
+    <div class="onlydesktop">
+     <table class="tableau">
+        <thead class="tableau">
+            <tr>
+              
+                <th>Catégorie</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Prix</th>
+                <th>Stock</th>
+                <th>action</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for calendar in calendars %}
+            <tr>
+               
+                <td class="tableau">{{ calendar.category }}</td>
+                <td class="tableau">{{ calendar.start ? calendar.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td class="tableau">{{ calendar.end ? calendar.end|date('Y-m-d H:i:s') : '' }}</td>
+                 <td class="tableau">{{ calendar.price | amount
+                     }}</td>
+                <td class="tableau">{{ calendar.stock }}</td>
+               
+                <td class="tableau">
+                    <a href="{{ path('admin_calendar_show', {'id': calendar.id}) }}">show</a>
+                 
+                </td>
+                  <td class="tableau">
+               
+                    <a href="{{ path('admin_calendar_edit', {'id': calendar.id}) }}">modifier ou supprimer</a>
+                </td>
+            </tr>
+
+
+
+
+        {% else %}
+            <tr>
+                <td class="tableau">Aucune correspondance trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+   </div>
+
+
+
+    <div class="onlymobil">
+     {% for calendar in calendars %}
+           
+           
+                <h3>Catégorie</h3>
+                  <p>{{ calendar.category }}</p>
+          
+                <h3>Start</h3>
+                <p>{{ calendar.start ? calendar.start|date('Y-m-d H:i:s') : '' }}</p>
+          
+                <h3>End</h3>
+                 <p>{{ calendar.end ? calendar.end|date('Y-m-d H:i:s') : '' }}</p>
+           
+                <h3>Prix</h3>
+                 <p>{{ calendar.price }}</p>
+            
+                <h3>Stock</h3>
+                 <p>{{ calendar.stock }}</p>
+           
+              <h3>Bcg</h3>
+              <p>{{ calendar.backgroundColor }}</p>
+            
+                <h3>Border</h3>
+                <p>{{ calendar.borderColor }}</p>
+           
+                <h3>Text</h3>
+                <p>{{ calendar.textColor }}</p>
+          
+                <h3>action</h3>
+                   <p>
+                    <a href="{{ path('admin_calendar_show', {'id': calendar.id}) }}">show</a>
+                </p>
+            
+                <h3>action</h3>
+                <p> 
+                    <a href="{{ path('admin_calendar_edit', {'id': calendar.id}) }}">modifier ou supprimer</a>
+                </p>
+          
+         <hr>
+
+
+    
+        {% else %}
+           
+                <p>Aucune correspondance trouvée</p>
+            
+        {% endfor %}
+    
+   </div>
+{% endblock %}
+

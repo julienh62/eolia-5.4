@@ -1,0 +1,86 @@
+
+
+
+{% block body %}
+
+
+ 
+    <h1>  {{ calendar.title }} </h1>
+   <h2>Date: {{ calendar.start ? calendar.start|date('Y-m-d H:i:s') : '' }}</h2>
+  <h2> {{ calendar.end ? calendar.end|date('Y-m-d H:i:s') : '' }} </h2>
+
+
+
+
+    <table class="table">
+        <tbody>
+
+
+      
+
+    
+         {#   <th>Quantité-commandée</th>
+         
+           {{ dump(calendarQuantityClient.quantity) }} 
+           <td>{{ calendarQuantityClient.quantity }}</td> #}
+        
+
+  <tr>
+    <th style="font-size: 22px; text-align: center;">Nom du client</th>
+    <th style="font-size: 22px; text-align: center;">Quantité commandée</th>
+</tr>
+{% for clientName, totals in clientTotals %}
+    <tr>
+        <td style="font-size: 22px; text-align: center;">{{ clientName }}</td>
+        <td style="font-size: 22px; text-align: center;">{{ totals.totalQuantity }}</td>
+    </tr>
+{% endfor %}
+
+<hr>
+
+<tr>
+    <th style="font-size: 22px; text-align: center;">Total </th>
+    <td style="font-size: 22px; text-align: center;">{{ sommequantitecommande }}</td>
+</tr>
+<tr>
+    <th style="font-size: 22px; text-align: center;">Quantité-restante</th>
+    <td style="font-size: 22px; text-align: center;">{{ calendar.stock }}</td>
+</tr>
+
+ 
+
+<hr>
+       
+      
+  
+
+       
+
+        </tbody>
+    </table>
+<div class ="show-detail">
+
+  <button id="printButton">Imprimer</button>
+</div>
+
+
+{% endblock %}
+{% block javascripts %}
+ 
+  <script>
+        document.getElementById('printButton').addEventListener('click', function() {
+            // Utilisez la fonction d'impression du navigateur
+            window.print();
+        });
+
+        // Cacher le bouton lors de l'impression
+        window.onbeforeprint = function() {
+            document.getElementById('printButton').style.display = 'none';
+        };
+
+        // Restaurer le bouton après l'impression
+        window.onafterprint = function() {
+            document.getElementById('printButton').style.display = 'block';
+        };
+    </script>
+{% endblock %}

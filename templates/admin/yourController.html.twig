@@ -1,0 +1,23 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}user index{% endblock %}
+
+{% block body %}
+    <h1>your controller </h1>
+
+ 
+
+{% if app.environment == 'dev' %}
+    <p>Vous êtes en environnement de développement.</p>
+{% elseif app.environment == 'test' %}
+    <p>Vous êtes en environnement de test.</p>
+{% else %}
+    <p>Vous êtes dans un autre environnement (par exemple, prod pour la production).</p>
+{% endif %}
+
+   
+
+{% endblock %} 
+
+
+

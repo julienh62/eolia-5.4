@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}eoliacalendar!{% endblock %}
+
+{% block body %}
+{#me donne kle json de data#}
+{#{{dump(data)}}  #}
+<h1>Calendrier de toutes les séances </h1>
+<div class="calendaraccueil"> 
+<img src="{{ asset('assets/uploads/charbabyaccueil.jpg')}}" alt="char à voile Baie de Somme">
+<img src="{{ asset('assets/uploads/miniature-cata-accueil1.jpg')}}" alt="char à voile Baie de Somme">
+<img src="{{ asset('assets/uploads/groupe-cha-mini-1.jpg')}}" alt="char à voile Baie de Somme">
+
+<p class="milieu" >Cliquez sur la séance où vous souhaitez réserver. </p>
+</div>
+<!--<div id="search">
+    <form action='{{ path('filter') }}' method="get">
+
+      <div id="formsearch">
+         <div>
+            <label for="valeurMin">Nombre de place recherché minimum:</label>
+            <input type="number" id="min-price" name="min" min="0" value="1" max="100" step="1">
+
+
+            <label for="calendar-select">Choisis une activité:</label>
+            <select name="calendars" id="calendar-select">
+                  <option value="" selected>Toutes les activités</option>
+                  {#   {% for calendar in calendars %}
+                   <option value="{{ calendar.category }}">{{ calendar.category }}</option>
+                     {% endfor %}   #}
+            </select>
+
+         </div>
+         <div>
+  
+              <label for="begin">Date début recherche</label>
+              <input type="datetime-local" id="begin" name="begin" value="{{ "now"|date("Y-m-d\\TH:i") }}">
+
+
+         </div>
+
+
+         <div>
+            <label for="end">Date fin de recherche</label>
+            {% set nextDay = "now"|date_modify("+15 day") %}
+            <input type="datetime-local" id="end" name="end" value="{{ nextDay|date("Y-m-d\\TH:i") }}">
+
+         </div>
+         <div>
+            <button class ="button" type="submit">Valider</button>
+         </div>
+      
+        <br>
+      </div>
+    </form>
+</div> -->
+<div id="calendrier"> </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    
+   
+
+
+    <script>
+        let calendarElt = document.querySelector("#calendrier");
+
+        let mediaQuery = window.matchMedia("(max-width: 1000px)");
+        let calendar;
+
+        function updateCalendarDuration() {
+          if (mediaQuery.matches) {
+          //  console.log("CategoryColorSetting calendar duration to 3 days");
+            calendar.changeView('timeGridThreeDay');
+          } else {
+          //  console.log("CategoryColorSetting calendar duration to 7 days");
+            calendar.changeView('timeGridWeek');
+          }
+        }
+
+        window.onload = () => {
+          calendar = new FullCalendar.Calendar(calendarElt, {
+
+            eventContent: function (arg) {
+              let stock = arg.event.extendedProps.stock;
+              // let fullName = arg.event.extendedProps.staff;
+              let quantitecommande = arg.event.extendedProps.quantityCommanded;
+              let stockHtml = '<div class="event-stock"> ' + 'Il reste : '  + stock + ' places' + '</div>'; 
+             //   let fullNameHtml = '<div class="event-q"> ' + ' staff :'+ fullName + '</div>';
+             // let quantitecommandeHtml = '<div class="event-q"> ' + 'place déja prise :'+ quantitecommande + '</div>';
+             //  let idHtml = '<div class="event-stock"> ' + arg.event.id + '</div>';
+
+              return {
+                html:  arg.event.title + stockHtml 
+              //html: stockHtml + quantitecommandeHtml + arg.event.title + idHtml 
+              };
+
+            },
+
+            initialView: 'timeGridWeek',
+            views: {
+              timeGridThreeDay: {
+                type: 'timeGrid',
+                duration: { days: 3 }
+              },
+              timeGridWeek: {
+                type: 'timeGrid',
+                duration: { days: 7 }
+              }
+            },
+            locale: 'fr',
+            timeZone: 'Europe/Paris',
+            headerToolbar: {
+              start: 'prev,next today',
+              center: 'title',
+              end: 'dayGridMonth,timeGridThreeDay,timeGridWeek'
+            },
+            buttonText: {
+              today: 'Aujourd\'hui',
+              month: 'Mois',
+              timeGridThreeDay: '3 jours',
+              timeGridWeek: '7 jours'
+            },
+            events: {{ data|raw }},
+          });
+
+          calendar.on('eventClick', (e) => {
+            let donnees = {
+              "id": e.event.id
+            };
+            let id = donnees.id;
+           let url = "https://127.0.0.1:8000/calendar/" + id;
+             window.location.href = url;
+          });
+
+          calendar.render();
+          updateCalendarDuration(); // Appel initial pour mettre à jour la durée du calendrier
+        };
+
+        mediaQuery.addEventListener('change', () => {
+         // console.log("Media query changed");
+          updateCalendarDuration();
+        });
+    </script>
+{% endblock %}
+
+

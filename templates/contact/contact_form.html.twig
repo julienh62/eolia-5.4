@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  {# templates/contact/contact_form.html.twig #}
+
+{{ form_start(form, { 'attr': {'id': 'demo-form'} }) }}
+
+
+{{ form_row(form.nom) }}
+{{ form_row(form.email) }}
+ <div class="form-group">
+        {{ form_label(form.message) }}
+              {{ form_widget(form.message, { 'attr': {'rows': 5, 'cols': 50} }) }}
+        {{ form_errors(form.message) }}
+    </div>
+
+
+<div class="g-recaptcha" data-sitekey="6Lf-eLIoAAAAAMvkfpkcdpeQKN9OGXAqjUBeZ84g" data-callback="onSubmit" data-action="submit"></div>
+<button type="submit" class="btn btn-primary">{{ form_row(form.envoyer) }}</button>
+
+{{ form_end(form) }}
+
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+ <script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }defer
+ </script>
+ <script src="https://www.google.com/recaptcha/api.js">defer</script>
+ {% endblock %}
+
+
+
+
+

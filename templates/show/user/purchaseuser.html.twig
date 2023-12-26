@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello Allusershow!{% endblock %}
+{% block body %}
+    <h1>Users</h1>
+    <ul>
+       <h1>Purchases with user "{{ user.fullName }}"</h1>
+    <ul>
+        {% for purchase in purchases %}
+            <li>{{ purchase.status }}</li>
+            <li>{{ purchase.total }}</li>
+                
+            
+        {% endfor %}
+    </ul>
+    </ul>
+{% endblock %}

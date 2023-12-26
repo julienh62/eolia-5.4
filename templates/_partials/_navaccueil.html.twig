@@ -1,0 +1,88 @@
+
+
+<header id="navbar" class="nav">
+    <a class="navbar-brand" href="/">
+			<img src="{{ asset('assets/uploads/logoeolia170px.png')}}" alt="char à voile Baie de Somme"></a>
+     
+
+     <div class="dropdown-1">
+        <button>Consulter le planning</button> 
+            <div class="content">
+             <a href="{{ path('app_admin_activitie_index') }}"> Toutes les activités</a> 
+              <a href="/ "> Char à voile</a>
+				<a href="/"> Catamaran</a>
+				<a href="/"> Char à voile Kid</a>
+            </div>
+    </div>
+
+         <a class="aderoulant" href="{#{{ path('app_calendar_index') }}#}">Formulaire de recherche</a>
+
+ 			
+        <a class="aderoulant" href="/">Contact</a>
+		
+        <a class="aderoulant" href="/">Les users</a>
+      
+			  <a class="aderoulant" href="/">Les purchases</a>
+
+
+         <a class="aderoulant" href="/">Les calendars</a>
+
+       <a class="aderoulant" href="/">Les categories</a>
+
+
+
+
+		{% if app.user %}
+
+			
+				<a href="/">Commandes</a>
+			
+				<a class="aderoulant" href="{{ path('app_logout') }}">Déconnexion</a>
+			
+				{# CartService enregistré dans twig.yaml#}
+				<a href="/ "id="panier-link">🛒
+				({#{{ cartService.total | amount }}#})
+				</a>
+			
+			{% else %}
+			
+				<a href=" {{ path('app_registration')  }}">Création compte</a>
+			
+				<a href="{{ path('app_login') }}">Connexion</a>
+			
+			{% endif %}
+
+       <a href="/">Admin</a>
+
+
+
+
+  </div>
+   
+</nav>
+
+
+     <a class="icon" onclick = "myFunction()">&#9776;</a>
+
+</header>
+
+
+<div id="slider">
+                <img class ="imgslider" src="{{ asset('assets/uploads/slide/char-accueiltitregros1500.webp')}}" alt = "char à voile" id="slide">
+           
+                <div id="precedent" onclick="ChangeSlide(-1)">&lt;</div>
+                <div id="suivant" onclick="ChangeSlide(1)">&gt;</div>
+</div>
+<div id="slidermobil">
+            	<a class="slidera" href="/">  <img class ="imgslider" src="{{ asset('assets/uploads/slide/accueil-mobil-char.webp')}}" alt = "char à voile" id="slidemobil">
+              </a> 
+
+                <div id="precedentmob" onclick="ChangeSlideMob(-1)">&lt;</div>
+                <div id="suivantmob" onclick="ChangeSlideMob(1)">&gt;</div>
+</div>
+ <button class="consultplaning" type="button">
+   <a class="aderoulant" href="{{ path('app_presentation') }}">Réserver et Consulter le planing</a>
+  </button>
+{# {% block javascripts %}
+   <script src="{{ asset('assets/js/cartamount.js') }}"></script>
+{% endblock %} #}

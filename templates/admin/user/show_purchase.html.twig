@@ -1,0 +1,94 @@
+{% extends 'base.admin.html.twig' %}
+ 
+{% block title %}Commande user{% endblock %}
+
+{% block body %}
+
+ {#    {{ dump(purchases) }} 
+  #}
+{#}<main class="container">#}
+<div class ="purchasedesktop">
+  <h1>Commandes {{user.fullName}}</h1>
+    <table class="tableau">
+    <thead>
+    <tr>
+
+      <th>Titre  </th>
+       
+       <th>Quantité  </th>
+
+        <th>Début de la séance</th>
+       
+        <th>Fin de la séance</th>
+
+        <th>Statut</th>
+    </tr>
+    </thead>
+   
+{#    {{ dump(purchases) }}#}
+
+       
+             {% for purchase in purchases %}
+            <tr>
+              <td>{{ purchase.title }}</td>
+                <td>{{ purchase.quantity }}</td>
+                <td>{{ purchase.start|date('Y-m-d H:i:s') }}</td>
+                <td>{{ purchase.end|date('Y-m-d H:i:s') }}</td>
+                 <td> {% if purchase.status == 'PENDING' %}
+                        Non payé
+                    {% elseif purchase.status == 'PAID' %}
+                        Payé
+                    {% endif %}</td>
+            </tr>
+        {% endfor %}
+   
+    
+    </table>
+  </div>  
+
+ <div class ="purchasemobil">
+   <h1>Mes commandes</h1>
+
+            {% for purchase in purchases %}
+          
+                <p  class="item-mobile">Titre</p>
+                <p class="datatitem">{{ purchase.title  }}</p>
+           
+                <p  class="item-mobile">Début</p>
+                <p class="datatitem">{{ purchase.start|date('Y-m-d H:i:s')  }}</p>
+           
+                <p  class="item-mobile">Fin</h3>
+                <p class="datatitem">{{ purchase.end|date('Y-m-d H:i:s') }}</p>
+          
+                  <p  class="item-mobile">Unité</h3>
+                <p class="datatitem">{{ purchase.quantity }}</p>
+         
+                <p  class="item-mobile">Total</h3>
+
+                <p class="datatitem">{{ purchase.total | amount }}</p>
+
+                  <p  class="item-mobile">Date de création</h3>
+
+                <p  class="item-mobile">Statut</h3>
+
+                <p class="datatitem">{% if purchase.status == 'PENDING' %}
+                        Non payé
+                    {% elseif purchase.status == 'PAID' %}
+                        Payé
+                    {% endif %}</p>
+                 <hr>  
+
+
+
+         {%  endfor %}
+
+
+ 
+{#    {{ dump(purchases) }}
+#}
+         
+       
+        
+  </div>  
+</main>
+{% endblock %}

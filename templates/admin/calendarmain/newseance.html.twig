@@ -1,0 +1,52 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Créer une nouvelle séance{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle séance</h1>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Créer</button>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    console.log("coucous inputpricejs");
+
+            document.addEventListener('DOMContentLoaded', function() {
+            // Récupération de l'élément input pour le prix modifié
+            var modifiedPriceInput = document.getElementById('main_calendar_modifiedPrice');
+
+            // Désactiver l'autocomplétion en utilisant l'attribut autocomplete
+                modifiedPriceInput.setAttribute('autocomplete', 'off');
+
+                // Gérer la modification de la valeur
+                modifiedPriceInput.addEventListener('input', function() {
+                    if (modifiedPriceInput.value === '') {
+                        modifiedPriceInput.defaultValue = '';
+                    }
+                });
+            modifiedPriceInput.addEventListener('input', function() {
+            // Si l'input est vide, réinitialiser la valeur par défaut
+            if (modifiedPriceInput.value === '') {
+            modifiedPriceInput.defaultValue = '';
+        }
+        });
+
+            var form = document.querySelector('form');
+
+            form.addEventListener('submit', function(event) {
+            // Si la valeur saisie est la même que la valeur par défaut, vider l'input
+            if (modifiedPriceInput.value === modifiedPriceInput.defaultValue) {
+            modifiedPriceInput.value = '';
+        }
+
+            // Empêcher la soumission du formulaire si nécessaire
+            // event.preventDefault();
+        });
+        });
+
+
+</script>
+{% endblock %}

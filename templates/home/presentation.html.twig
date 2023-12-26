@@ -1,0 +1,39 @@
+	 {% extends 'base.html.twig' %}
+
+{% block title %}presentationeolia!{% endblock %}
+
+{% block body %}
+
+ <div class="presentation">		
+   <ul class="presentationul">
+				<li class="lipresentation">
+
+					<a href="{{ path('app_calendar_main_char') }} "> Char à voile</a>
+ 			    </li>
+                <li class="lipresentation">
+               <img src="{{ asset('assets/uploads/groupe-cha-mini-1.jpg')}}"alt ="char à voile">
+               </li>
+
+	   </ul>
+   <ul class="presentationul">
+				<li class="lipresentation">
+
+					<a href="{{ path('app_calendar_main_cata') }} "> Catamaran</a>
+ 			    </li>
+                <li class="lipresentation">
+               <img src="{{ asset('assets/uploads/miniature-cata-accueil1.jpg')}}"alt ="catamaran">
+               </li>
+
+	   </ul>
+        <ul class="presentationul">
+				<li class="lipresentation">
+
+					<a href="{{ path('app_calendar_main_kid') }} "> Char à voile Kid</a>
+ 			    </li>
+                <li class="lipresentation">
+               <img src="{{ asset('assets/uploads/charbabyaccueil.jpg')}}"alt ="char à voile enfant">
+               </li>
+
+	   </ul>
+     </div>  	
+       {% endblock %}

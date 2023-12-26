@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CategoryColorSetting index{% endblock %}
+
+{% block body %}
+    <h1>CategoryColorSetting index</h1>
+
+    <div class="onlydesktop">
+
+        <table class="tableau">
+            <thead class="tableau">
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Prix</th>
+                    <th>Picture</th>
+                    <th>TextColor</th>
+                    <th>BackGroundColor</th>
+                    <th>BorderColor</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for category_color_setting in category_color_settings %}
+                <tr>
+                    <td>{{ category_color_setting.id }}</td>
+                    <td>{{ category_color_setting.title }}<td>
+                    <td>{{ category_color_setting.price | amount }}</td>
+                    <td>{{ category_color_setting.picture }}<td>
+                    <td>{{ category_color_setting.textColor }}</td>
+                    <td>{{ category_color_setting.backGroundColor }}</td>
+                    <td>{{ category_color_setting.borderColor }}</td>
+                    <td>
+                        <a href="{{ path('app_category_color_setting_show', {'id': category_color_setting.id}) }}">show</a>
+                        <a href="{{ path('app_category_color_setting_edit', {'id': category_color_setting.id}) }}">edit</a>
+                    </td>
+                </tr>
+                {% else %}
+                  <tr>
+                    <td colspan="6">no records found</td>
+                  </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="onlymobil">
+      {% for category_color_setting in category_color_settings %}
+          <h3>Id</h3>
+            <p>{{ category_color_setting.id }}</p>
+
+            <h3> titre <</h3>
+            <p>{{ category_color_setting.title }}<</p>
+
+            <h3>Prix</h3>
+            <p>{{ category_color_setting.price | amount }}</p>
+
+            <h3>Image</h3>
+            <p>{{ category_color_setting.picture }}</p>
+
+            <h3>textColor <</h3>
+            <p>{{ category_color_setting.textColor }}<</p>
+
+            <h3>Couleur de fond</h3>
+            <p>{{ category_color_setting.backGroundColor }}</p>
+
+            <h3>couleur de bordure</h3>
+            <p>{{ category_color_setting.borderColor }}</p>
+
+     
+
+
+
+            <hr>
+
+
+
+        {% else %}
+
+            <p>Aucune correspondance trouvée</p>
+     
+        {% endfor %}
+
+          </div>
+
+
+
+
+    <a href="{{ path('app_category_color_setting_new') }}">Create new</a>
+{% endblock %}

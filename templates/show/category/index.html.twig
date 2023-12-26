@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+
+{% block body %}
+<h1>Les categorys </h1>
+  <div class="container">
+     
+    <ul>
+        {% for category in categorys %}
+            <li>
+               <h2> {{ category.title }} </h2>
+              <a href="{{ path('all_category_show', {'title': category.title}) }}">{{ category.title }}</a>
+                {# {'title': category.title} : correspond à au parametre id que l'on pase à la routeid   #} 
+            </li>
+            <h2> {{ category.title }} </h2>
+         {% endfor %}
+    </ul>
+    </div>
+
+{% endblock %}
+
+

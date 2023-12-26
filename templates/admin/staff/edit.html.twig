@@ -1,0 +1,13 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Editer Staff{% endblock %}
+
+{% block body %}
+    <h1>Modifier la staff</h1>
+
+    {{ include('admin/staff/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_staff_index') }}">Retour à la liste</a>
+
+    {{ include('admin/staff/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Calendar{% endblock %}
+
+{% block body %}
+    <h1>Détail de la séancess {{ calendar.title }}</h1>
+ 	<img class="imgsite" src="{{ calendar.picture }}" alt="Image de {{ calendar.title }}">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ calendar.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ calendar.title }}</td>
+            </tr>
+
+
+
+            <tr>
+                <th>Date de début</th>
+                <td>{{ calendar.start ? calendar.start|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date de fin</th>
+                <td>{{ calendar.end ? calendar.end|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+              <tr>
+                <th>Prix</th>
+                <td>{{ calendar.price  }}</td>
+            </tr>
+            <tr>
+                <th>Quantité</th>
+                <td>{{ calendar.stock }}</td>
+            </tr>
+            
+        
+        </tbody>
+    </table>
+    <div class="action">
+       <a href="{{ path('admin_calendar_index') }}">Retour à la liste</a>
+
+      <a href="{{ path('admin_calendar_edit', {'id': calendar.id}) }}">edit</a>
+       {{ include('admin/calendar/_delete_form.html.twig') }}
+
+       <a href="{{ path('admin_calendar_show_user', {'id': calendar.id}) }}">voir le détails des réservations</a>
+     </div>
+
+      
+{% endblock %}

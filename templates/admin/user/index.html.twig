@@ -1,0 +1,53 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}user index{% endblock %}
+
+{% block body %}
+        <h1>user index</h1>
+
+<!-- Recherche par email -->
+<label class="label" for="user-search-email">Recherche par email </label>
+<input type="text" name="recherche" id="user-search-email" />
+<div id="result-email"></div>
+
+<!-- Recherche par nom -->
+<label class="label" for="user-search-name">Recherche par nom </label>
+<input type="text" name="recherchename" id="user-search-name" />
+<div id="result-name"></div>
+
+<!-- Recherche par numéro de téléphone -->
+<label class="label" for="user-search-phone">Recherche par téléphone:</label>
+<input type="text" name="recherchephone" id="user-search-phone" />
+<div id="result-phone"></div>
+
+   {% for user in users %}
+                
+                <h3>Nom</h3>
+                  <p>{{ user.fullName }}</p>
+        
+                <h3>E-mail</h3>
+                 <p>{{ user.email }}</p>
+            
+                <h3>Role</h3>
+                 <p>{{ user.roles[0]   }}</p>
+                
+                <h3>Afficher détail</h3>
+                   <a href="{{ path('admin_user_show', { 'id': user.id }) }}">Afficher</a>
+
+
+                   <h3>Supprimer utilisateur</h3>
+           <a href="{{ path('admin_user_delete', { 'id': user.id }) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur et toutes ses commandes ?')">Supprimer</a>
+    
+             <hr>
+            
+        {% endfor %}
+ {% block javascripts %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js" defer></script>
+  {{ parent() }} {# Cela inclura les scripts définis dans le parent (base.admin.html.twig) #}
+   
+    {% endblock %}
+{% endblock %} 
+
+
+

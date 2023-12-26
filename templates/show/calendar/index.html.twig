@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CalendarController!{% endblock %}
+
+{% block body %}
+
+
+    <div class="container">
+     <h1>List of Calendars</h1>
+    
+    <ul>
+        {% for calendar in calendars %}
+            <li>
+        <h2>{{ calendar.title }}</h2>
+
+      
+        <h2>
+        
+          <p>Début de la séance : {{ calendar.start|date('Y-m-d H:i:s') }}</p> {# Use the date filter to format createdAt #}
+
+          
+                <a href="{{ path('calendar_show' , {'id': calendar.id})  }}" class="btn btn-primary">Accéder au détail de la séance</a>
+             
+    </li>
+                
+            
+           
+        {% endfor %}
+    </ul>
+    </div>
+{% endblock %}
+
+
+
+
+

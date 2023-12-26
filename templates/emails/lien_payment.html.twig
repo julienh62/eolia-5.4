@@ -1,0 +1,11 @@
+
+
+{% block body %}
+    <p>Bonjour {{ user.getFullName() }},</p>
+      <a href="https://127.0.0.1:8000/login">  1- Connectez vous </a>
+      <p> 2-  puis utilisez le lien de paiement pour valider votre commande.</p>
+    
+   
+   <a href="{{ url('purchase_payment_form', {'id': purchase.getId()}) }}">Lien de paiement</a>
+    <p>Cordialement,<br>L'équipe Éolia</p>
+{% endblock %}
