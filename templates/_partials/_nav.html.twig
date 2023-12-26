@@ -3,19 +3,11 @@
     <a class="navbar-brand" href="/">
 			<img src="{{ asset('assets/uploads/logoeolia170px.png')}}" alt="char à voile Baie de Somme"></a>
      
-  {#  <div class="dropdown-1">
-        <button>Nos activités</button> 
-            <div class="content">
-               <a href="{{ path('app_calendar_index') }}">Toutes les séances</a>
-               <a href="{{ path('calendar_all_char') }}">Char à voile</a>
-				<a href="{{ path('cataAll_show') }}">Catamaran</a>
-				<a href="{{ path('charkidAll_show') }}">Char à voile kid</a>
-            </div>
-    </div> #}
+
      <div class="dropdown-1">
         <button>Consulter le planning</button> 
             <div class="content">
-              <a class="asous" href="{#{{ path('app_calendar_main') }}#} "> Toutes les activités</a>
+              <a class="asous" href="{{ path('app_agenda')}}"> Toutes les activités</a>
               <a class="asous" href="/ "> Char à voile</a>
 				<a class="asous" href="/"> Catamaran</a>
 				<a class="asous" href="/"> Char à voile Kid</a>
@@ -23,7 +15,7 @@
     </div>
 
 
-	    <a class="aderoulant" href="/">Formulaire de recherche</a>
+	    <a class="aderoulant" href="{{ path('app_admin_activitie_index') }}">Formulaire de recherche</a>
  		
 	
 			<a class="aderoulant" href="/">Contact</a>

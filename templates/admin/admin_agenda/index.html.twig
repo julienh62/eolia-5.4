@@ -1,38 +1,40 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.admin.html.twig' %}
 
-{% block title %}Hello Admin AgendaController!{% endblock %}
+{% block title %}eoliacalendar!{% endblock %}
 
 {% block body %}
-    <h1>Calendrier de toutes les séances </h1>
-    <div id="calendrier"> </div>
+    {# me donne le json de data #}
+    {# {{dump(data)}} #}
+    <div id="calendrier"> mon calendrier</div>
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Your code that interacts with the DOM goes here
-        // For instance, initializing a FullCalendar instance
 
-            let calendarElt = document.getElementById('calendrier');
-            let calendar; // Define calendar in the outer scope
-            if (calendarElt) {
-                let mediaQuery = window.matchMedia("(max-width: 1000px)");
 
-                function updateCalendarDuration() {
-                    if (calendar && mediaQuery.matches) {
-                        calendar.changeView('timeGridThreeDay');
-                    } else if (calendar) {
-                        calendar.changeView('timeGridWeek');
-                    }
-                }
 
-                            window.onload = () => {
-                calendar = new FullCalendar.Calendar(calendarElt, {
+  <script>
+        let calendarElt = document.querySelector("#calendrier");
 
-            
-           eventContent: function (arg) {
+        let mediaQuery = window.matchMedia("(max-width: 1000px)");
+        let calendar;
+
+        function updateCalendarDuration() {
+          if (mediaQuery.matches) {
+          //  console.log("CategoryColorSetting calendar duration to 3 days");
+            calendar.changeView('timeGridThreeDay');
+          } else {
+         //   console.log("CategoryColorSetting calendar duration to 7 days");
+            calendar.changeView('timeGridWeek');
+          }
+        }
+
+        window.onload = () => {
+          calendar = new FullCalendar.Calendar(calendarElt, {
+
+          eventContent: function (arg) {
                    // Récupération de la valeur de stock depuis arg.event.extendedProps
              let stockg = arg.event.extendedProps.stock;
 
@@ -102,57 +104,63 @@
             };
         },
 
-                    initialView: 'timeGridWeek',
-                    views: {
-                        timeGridThreeDay: {
-                            type: 'timeGrid',
-                            duration: {days: 3}
-                        },
-                        timeGridWeek: {
-                            type: 'timeGrid',
-                            duration: {days: 7}
-                        }
-                    },
-                    locale: 'fr',
-                    timeZone: 'Europe/Paris',
-                    headerToolbar: {
-                        start: 'prev,next today',
-                        center: 'title',
-                        end: 'dayGridMonth,timeGridThreeDay,timeGridWeek'
-                    },
-                    buttonText: {
-                        today: 'Aujourd\'hui',
-                        month: 'Mois',
-                        timeGridThreeDay: '3 jours',
-                        timeGridWeek: '7 jours'
-                    },
-                    events: {{ data|raw }} ,
-                    {#    events: {{ dump(data|raw) }}, #}
+            initialView: 'timeGridWeek',
+            views: {
+              timeGridThreeDay: {
+                type: 'timeGrid',
+                duration: { days: 3 }
+              },
+              timeGridWeek: {
+                type: 'timeGrid',
+                duration: { days: 7 }
+              }
+            },
+            locale: 'fr',
+            timeZone: 'Europe/Paris',
+            headerToolbar: {
+              start: 'prev,next today',
+              center: 'title',
+              end: 'dayGridMonth,timeGridThreeDay,timeGridWeek'
+            },
+            buttonText: {
+              today: 'Aujourd\'hui',
+              month: 'Mois',
+              timeGridThreeDay: '3 jours',
+              timeGridWeek: '7 jours'
+            },
+      
+                //probleme secu avec raw?
+                events: {{ data|raw }},
+                //editable pour glisser deposer et agrandir
+                editable: true,
+                //agrandir depuis le haut de la cellule
+                eventResizableFromStart: true,
 
-                });
-
-                calendar.on('eventClick', (e) => {
-                    let donnees = {
-                        "id": e.event.id
-                    };
-                    let id = donnees.id;
-                    let url = "https://127.0.0.1:8000/calendar/" + id;
+                //crée un objet (event et oldevent(date d'origine)) à chaque fois que je clique un rdv
+                eventClick: function(e) {
+                    let id = e.event.id;
+                    let url = "https://127.0.0.1:8000/admin/calendarshowuser/" + id;
                     window.location.href = url;
-                });
+                },
 
-                                calendar.render();
-                                updateCalendarDuration(); // Initial call to set the calendar duration
+                // Action lors du clic sur une date
+                dateClick: function(info) {
+                    let clickedDate = moment(info.date).format('YYYY-MM-DD HH:mm');
+                    console.log('Clicked date:', clickedDate);
 
-                               // console.log('Page loaded');
-                            };
+                    // Définir un cookie avec la valeur de clickedDate
+                    document.cookie = `clickedDate=${encodeURIComponent(clickedDate)}; path=/; SameSite=None; Secure`;
 
-                    mediaQuery.addEventListener('change', () => {
-                      //  console.log('Media query change event:', mediaQuery.matches);
-                        updateCalendarDuration();
-                    });
-                } else {
-                 console.error('Calendar element not found!');
+
+
+                    // Ouvrir la page de création de séance
+              var url = 'https://127.0.0.1:8000/admin/calendar/new/Activitie';
+          window.location.href = url;
+   
                 }
-        });
+            });
+
+            calendar.render();
+        };
     </script>
 {% endblock %}

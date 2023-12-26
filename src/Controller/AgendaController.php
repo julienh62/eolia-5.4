@@ -28,21 +28,37 @@ class AgendaController extends AbstractController
         $rdvs[] = [];
 
 
-        foreach($events as $event){
-
-            $rdvs[] = [
-                //  'id' => $event->getId(),
-                'start' => $event->getStart()->format('Y-m-d H:i:s'),
-                'end' => $event->getEnd()->format('Y-m-d H:i:s'),
-                'stock' => $event->getStock(),
-                'title' => $event->getTitle(),
-                'backgroundColor' => $event->getActivitieSettings()->getBackGroundColor(),
-                'borderColor' => $event->getActivitieSettings()->getBorderColor(),
-                'textColor' => $event->getActivitieSettings()->getTextColor(),
-
-            ];
-
-
+        foreach ($events as $event) {
+            $activitieSettings = $event->getActivitieSettings();
+        
+            if ($activitieSettings !== null) {
+                $rdvs[] = [
+                    'start' => $event->getStart()->format('Y-m-d H:i:s'),
+                    'end' => $event->getEnd()->format('Y-m-d H:i:s'),
+                    'stock' => $event->getStock(),
+                    'title' => $event->getTitle(),
+                    'backgroundColor' => $activitieSettings->getBackGroundColor(),
+                    'borderColor' => $activitieSettings->getBorderColor(),
+                    'textColor' => $activitieSettings->getTextColor(),
+                ];
+            } else {
+                // Handle the case where ActivitieSettings is null
+                // Set default values or manage it accordingly
+                $backgroundColor = '#d3dce3';
+                $borderColor = '#ffffff';
+                $textColor = '#000000';
+                
+                // Use default values for this event
+                $rdvs[] = [
+                    'start' => $event->getStart()->format('Y-m-d H:i:s'),
+                    'end' => $event->getEnd()->format('Y-m-d H:i:s'),
+                    'stock' => $event->getStock(),
+                    'title' => $event->getTitle(),
+                    'backgroundColor' => $backgroundColor,
+                    'borderColor' => $borderColor,
+                    'textColor' => $textColor,
+                ];
+            }
         }
 
         $data = json_encode($rdvs);

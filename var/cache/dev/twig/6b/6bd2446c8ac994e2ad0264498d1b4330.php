@@ -33,7 +33,7 @@ class __TwigTemplate_2d9545e9cf23054ffa61b0b9ee4b7d8b extends Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "base.admin.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +45,7 @@ class __TwigTemplate_2d9545e9cf23054ffa61b0b9ee4b7d8b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "admin_calendar/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "admin_calendar/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.admin.twig", "admin_calendar/index.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -99,60 +99,59 @@ class __TwigTemplate_2d9545e9cf23054ffa61b0b9ee4b7d8b extends Template
                 <th>actions</th>
             </tr>
         </thead>
-   ";
-        // line 83
-        echo "
+ 
+
         <tbody>
         ";
-        // line 85
+        // line 22
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["calendars"]) || array_key_exists("calendars", $context) ? $context["calendars"] : (function () { throw new RuntimeError('Variable "calendars" does not exist.', 85, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["calendars"]) || array_key_exists("calendars", $context) ? $context["calendars"] : (function () { throw new RuntimeError('Variable "calendars" does not exist.', 22, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["calendar"]) {
-            // line 86
+            // line 23
             echo "            <tr>
                 <td>";
-            // line 87
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["calendar"], "id", [], "any", false, false, false, 87), "html", null, true);
+            // line 24
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["calendar"], "id", [], "any", false, false, false, 24), "html", null, true);
             echo "</td>
                 <td>";
-            // line 88
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["calendar"], "title", [], "any", false, false, false, 88), "html", null, true);
+            // line 25
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["calendar"], "title", [], "any", false, false, false, 25), "html", null, true);
             echo "</td>
 
                 <td>";
-            // line 90
+            // line 27
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["calendar"], "staffs", [], "any", false, false, false, 90));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["calendar"], "staffs", [], "any", false, false, false, 27));
             foreach ($context['_seq'] as $context["_key"] => $context["staff"]) {
-                // line 91
+                // line 28
                 echo "                        Staff:  ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["staff"], "fullName", [], "any", false, false, false, 91), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["staff"], "fullName", [], "any", false, false, false, 28), "html", null, true);
                 echo "
                     ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['staff'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 92
+            // line 29
             echo "</td>
 
                 <td>";
-            // line 94
-            ((twig_get_attribute($this->env, $this->source, $context["calendar"], "formattedStartDate", [], "any", false, false, false, 94)) ? (print (twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, $context["calendar"], "formattedStartDate", [], "any", false, false, false, 94)), "html", null, true))) : (print ("")));
+            // line 31
+            ((twig_get_attribute($this->env, $this->source, $context["calendar"], "formattedStartDate", [], "any", false, false, false, 31)) ? (print (twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, $context["calendar"], "formattedStartDate", [], "any", false, false, false, 31)), "html", null, true))) : (print ("")));
             echo "</td>
                 <td>";
-            // line 95
-            ((twig_get_attribute($this->env, $this->source, $context["calendar"], "formattedEndDate", [], "any", false, false, false, 95)) ? (print (twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, $context["calendar"], "formattedEndDate", [], "any", false, false, false, 95)), "html", null, true))) : (print ("")));
+            // line 32
+            ((twig_get_attribute($this->env, $this->source, $context["calendar"], "formattedEndDate", [], "any", false, false, false, 32)) ? (print (twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, $context["calendar"], "formattedEndDate", [], "any", false, false, false, 32)), "html", null, true))) : (print ("")));
             echo "</td>
                 <td>
                     <a href=\"";
-            // line 97
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_show", ["id" => twig_get_attribute($this->env, $this->source, $context["calendar"], "id", [], "any", false, false, false, 97)]), "html", null, true);
+            // line 34
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_show", ["id" => twig_get_attribute($this->env, $this->source, $context["calendar"], "id", [], "any", false, false, false, 34)]), "html", null, true);
             echo "\">show</a>
                     <a href=\"";
-            // line 98
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["calendar"], "id", [], "any", false, false, false, 98)]), "html", null, true);
+            // line 35
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["calendar"], "id", [], "any", false, false, false, 35)]), "html", null, true);
             echo "\">edit</a>
                 </td>
             </tr>
@@ -160,7 +159,7 @@ class __TwigTemplate_2d9545e9cf23054ffa61b0b9ee4b7d8b extends Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 102
+            // line 39
             echo "            <tr>
                 <td colspan=\"5\">no records found</td>
             </tr>
@@ -169,13 +168,13 @@ class __TwigTemplate_2d9545e9cf23054ffa61b0b9ee4b7d8b extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['calendar'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 106
+        // line 43
         echo "        </tbody>
 
     </table>
 
     <a href=\"";
-        // line 110
+        // line 47
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_formChooseCalendar");
         echo "\">Create new</a>
 
@@ -210,12 +209,12 @@ class __TwigTemplate_2d9545e9cf23054ffa61b0b9ee4b7d8b extends Template
      */
     public function getDebugInfo()
     {
-        return array (  179 => 110,  173 => 106,  164 => 102,  155 => 98,  151 => 97,  146 => 95,  142 => 94,  138 => 92,  129 => 91,  125 => 90,  120 => 88,  116 => 87,  113 => 86,  108 => 85,  104 => 83,  91 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  178 => 47,  172 => 43,  163 => 39,  154 => 35,  150 => 34,  145 => 32,  141 => 31,  137 => 29,  128 => 28,  124 => 27,  119 => 25,  115 => 24,  112 => 23,  107 => 22,  91 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'base.admin.twig' %}
 
 {% block title %}Calendar index{% endblock %}
 
@@ -233,70 +232,7 @@ class __TwigTemplate_2d9545e9cf23054ffa61b0b9ee4b7d8b extends Template
                 <th>actions</th>
             </tr>
         </thead>
-   {# <tbody>
-        {% for activitie in activities %}
-            <tr>
-                <td>{{ activitie.id }}</td>
-                <td>{{ activitie.title }}</td>
-                <td>{{ activitie.category }}</td>
-                <td>{{ activitie.category.categorySetting.borderColor }}</td>
-
-        <td>  {% for staff in activitie.staffs %}
-                {{ staff.fullName }}
-            {% endfor %}
-        </td>
-        <td>{{ activitie.formattedStartDate ? activitie.formattedStartDate| trans : '' }}</td>
-        <td>{{ activitie.formattedEndDate ? activitie.formattedEndDate| trans : ''}}</td>
-        <td>
-            <a href=\"{{ path('app_admin_calendar_show', {'id': activitie.id}) }}\">show</a>
-            <a href=\"{{ path('app_admin_calendar_edit', {'id': activitie.id}) }}\">edit</a>
-        </td>
-        </tr>
-        {% else %}
-            <tr>
-                <td colspan=\"5\">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-<table class=\"table\">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Category</th>
-        <th>BorderColor</th>
-        <th>Staff</th>
-        <th>Start</th>
-        <th>End</th>
-        <th>actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for staffSchedule in staffSchedules %}
-        <tr>
-            <td>{{ staffSchedule.id }}</td>
-            <td>{{ staffSchedule.title }}</td>
-            <td>{{ staffSchedule.category }}</td>
-            <td>{{ staffSchedule.category.categorySetting.borderColor }}</td>
-            <td>{% for staff in staffSchedule.staffs %}
-                    Staff:  {{ staff.fullName }}
-                {% endfor %}</td>
-
-            <td>{{ staffSchedule.formattedStartDate ? staffSchedule.formattedEndDate| trans : '' }}</td>
-            <td>{{ staffSchedule.formattedEndDate ? staffSchedule.formattedEndDate| trans : '' }}</td>
-            <td>
-                <a href=\"{{ path('app_admin_calendar_show', {'id': staffSchedule.id}) }}\">show</a>
-                <a href=\"{{ path('app_admin_calendar_edit', {'id': staffSchedule.id}) }}\">edit</a>
-            </td>
-        </tr>
-    {% else %}
-        <tr>
-            <td colspan=\"5\">no records found</td>
-        </tr>
-    {% endfor %}
-    </tbody> #}
+ 
 
         <tbody>
         {% for calendar in calendars %}
@@ -328,6 +264,6 @@ class __TwigTemplate_2d9545e9cf23054ffa61b0b9ee4b7d8b extends Template
 
 
     {% endblock %}
-", "admin_calendar/index.html.twig", "C:\\wamp64\\www\\symfony\\eolia-symfo-calendar - Copie\\templates\\admin_calendar\\index.html.twig");
+", "admin_calendar/index.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\admin_calendar\\index.html.twig");
     }
 }

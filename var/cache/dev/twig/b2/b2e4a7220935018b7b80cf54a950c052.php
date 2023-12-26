@@ -49,14 +49,14 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/uploads/logoeolia170px.png"), "html", null, true);
         echo "\" alt=\"char à voile Baie de Somme\"></a>
      
-  ";
-        // line 15
-        echo "     <div class=\"dropdown-1\">
+
+     <div class=\"dropdown-1\">
         <button>Consulter le planning</button> 
             <div class=\"content\">
               <a class=\"asous\" href=\"";
-        // line 18
-        echo " \"> Toutes les activités</a>
+        // line 10
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda");
+        echo "\"> Toutes les activités</a>
               <a class=\"asous\" href=\"/ \"> Char à voile</a>
 \t\t\t\t<a class=\"asous\" href=\"/\"> Catamaran</a>
 \t\t\t\t<a class=\"asous\" href=\"/\"> Char à voile Kid</a>
@@ -64,7 +64,10 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
     </div>
 
 
-\t    <a class=\"aderoulant\" href=\"/\">Formulaire de recherche</a>
+\t    <a class=\"aderoulant\" href=\"";
+        // line 18
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_activitie_index");
+        echo "\">Formulaire de recherche</a>
  \t\t
 \t
 \t\t\t<a class=\"aderoulant\" href=\"/\">Contact</a>
@@ -82,9 +85,9 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
 
 
 \t\t";
-        // line 43
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 43, $this->source); })()), "user", [], "any", false, false, false, 43)) {
-            // line 44
+        // line 35
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 35, $this->source); })()), "user", [], "any", false, false, false, 35)) {
+            // line 36
             echo "
 \t\t\t
 \t\t\t\t<a class=\"aderoulant\" href=\"/\">Commandes</a>
@@ -92,30 +95,30 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
 \t\t\t\t<a class=\"aderoulant\" href=\"/\">Déconnexion</a>
 \t\t\t
 \t\t\t\t";
-            // line 51
+            // line 43
             echo "\t\t\t\t<a class=\"aderoulant\" href=\"/ \"id=\"panier-link\">🛒
         (";
-            // line 52
+            // line 44
             echo ")
 \t\t\t\t</a>
 \t\t\t
 \t\t\t";
         } else {
-            // line 56
+            // line 48
             echo "\t\t\t
 \t\t\t\t<a class=\"aderoulant\" href=\" ";
-            // line 57
+            // line 49
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_registration");
             echo "\">Création compte</a>
 \t\t\t
 \t\t\t\t<a class=\"aderoulant\" href=\"";
-            // line 59
+            // line 51
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Connexion</a>
 \t\t\t
 \t\t\t";
         }
-        // line 62
+        // line 54
         echo "
 
        <a href=\"/\">Admin</a>
@@ -132,7 +135,7 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
 </header>
 
 ";
-        // line 77
+        // line 69
         $this->displayBlock('javascripts', $context, $blocks);
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -151,12 +154,12 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 78
+        // line 70
         echo "  ";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
         echo "
   ";
-        // line 80
+        // line 72
         echo "                                              
 
 ";
@@ -189,7 +192,7 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
      */
     public function getDebugInfo()
     {
-        return array (  160 => 80,  155 => 78,  136 => 77,  119 => 62,  113 => 59,  108 => 57,  105 => 56,  99 => 52,  96 => 51,  88 => 44,  86 => 43,  59 => 18,  54 => 15,  49 => 4,  44 => 1,);
+        return array (  163 => 72,  158 => 70,  139 => 69,  122 => 54,  116 => 51,  111 => 49,  108 => 48,  102 => 44,  99 => 43,  91 => 36,  89 => 35,  69 => 18,  58 => 10,  49 => 4,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -199,19 +202,11 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
     <a class=\"navbar-brand\" href=\"/\">
 \t\t\t<img src=\"{{ asset('assets/uploads/logoeolia170px.png')}}\" alt=\"char à voile Baie de Somme\"></a>
      
-  {#  <div class=\"dropdown-1\">
-        <button>Nos activités</button> 
-            <div class=\"content\">
-               <a href=\"{{ path('app_calendar_index') }}\">Toutes les séances</a>
-               <a href=\"{{ path('calendar_all_char') }}\">Char à voile</a>
-\t\t\t\t<a href=\"{{ path('cataAll_show') }}\">Catamaran</a>
-\t\t\t\t<a href=\"{{ path('charkidAll_show') }}\">Char à voile kid</a>
-            </div>
-    </div> #}
+
      <div class=\"dropdown-1\">
         <button>Consulter le planning</button> 
             <div class=\"content\">
-              <a class=\"asous\" href=\"{#{{ path('app_calendar_main') }}#} \"> Toutes les activités</a>
+              <a class=\"asous\" href=\"{{ path('app_agenda')}}\"> Toutes les activités</a>
               <a class=\"asous\" href=\"/ \"> Char à voile</a>
 \t\t\t\t<a class=\"asous\" href=\"/\"> Catamaran</a>
 \t\t\t\t<a class=\"asous\" href=\"/\"> Char à voile Kid</a>
@@ -219,7 +214,7 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
     </div>
 
 
-\t    <a class=\"aderoulant\" href=\"/\">Formulaire de recherche</a>
+\t    <a class=\"aderoulant\" href=\"{{ path('app_admin_activitie_index') }}\">Formulaire de recherche</a>
  \t\t
 \t
 \t\t\t<a class=\"aderoulant\" href=\"/\">Contact</a>
@@ -275,6 +270,6 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
   {# <script src=\"{{ asset('assets/js/cartamount.js') }}\"></script> #}
                                               
 
-{% endblock %}", "_partials/_nav.html.twig", "C:\\wamp64\\www\\symfony\\eolia-symfo-calendar - Copie\\templates\\_partials\\_nav.html.twig");
+{% endblock %}", "_partials/_nav.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\_partials\\_nav.html.twig");
     }
 }

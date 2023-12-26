@@ -8,14 +8,14 @@
      <div class="dropdown-1">
         <button>Consulter le planning</button> 
             <div class="content">
-             <a href="{{ path('app_admin_activitie_index') }}"> Toutes les activités</a> 
+             <a href="{{ path('app_agenda') }}"> Toutes les activités</a> 
               <a href="/ "> Char à voile</a>
 				<a href="/"> Catamaran</a>
 				<a href="/"> Char à voile Kid</a>
             </div>
     </div>
 
-         <a class="aderoulant" href="{#{{ path('app_calendar_index') }}#}">Formulaire de recherche</a>
+         <a class="aderoulant" href="{{ path('app_admin_activitie_index')}}">Formulaire de recherche</a>
 
  			
         <a class="aderoulant" href="/">Contact</a>
@@ -52,7 +52,7 @@
 			
 			{% endif %}
 
-       <a href="/">Admin</a>
+       <a href="{{ path('app_admin_agenda') }}">Admin</a>
 
 
 
