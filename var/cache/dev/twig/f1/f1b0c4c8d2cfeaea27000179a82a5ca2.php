@@ -243,7 +243,7 @@ class __TwigTemplate_6fa60ca443a272352450b720271c5367 extends Template
                 //agrandir depuis le haut de la cellule
                 eventResizableFromStart: true,
 
-                //crée un objet (event et oldevent(date d'origine)) à chaque fois que je clique un rdv
+              //crée un objet (event et oldevent(date d'origine)) à chaque fois que je clique un rdv
                 eventClick: function(e) {
                     let id = e.event.id;
                     let url = \"https://127.0.0.1:8000/admin/calendarshowuser/\" + id;
@@ -259,13 +259,27 @@ class __TwigTemplate_6fa60ca443a272352450b720271c5367 extends Template
                     document.cookie = `clickedDate=\${encodeURIComponent(clickedDate)}; path=/; SameSite=None; Secure`;
 
 
+                    // Définir un cookie avec la valeur de clickedDate
+                 //  document.cookie = `clickedDate=\${encodeURIComponent(clickedDate)}; path=/; SameSite=None; Secure`;
+               // console.log('cookie Clicked date:', document.cookie);
+                 // Récupérer la valeur du cookie
+             //  const clickedDate = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\\s*)clickedDate\\s*\\=\\s*([^;]*).*\$)|^.*\$/, \"\$1\"));
+           //  console.log('Clicked date:', clickedDate);
 
-                    // Ouvrir la page de création de séance
+
+                // Ouvrir la page de création de séance 
+           //   var url = `https://127.0.0.1:8000/admin/calendar/new/Activitie`;
+           //   window.location.href = url;
+
+
+            // Ouvrir la page de création de séance
               var url = 'https://127.0.0.1:8000/admin/calendar/new/Activitie';
           window.location.href = url;
    
                 }
             });
+
+          
 
             calendar.render();
         };
@@ -443,7 +457,7 @@ class __TwigTemplate_6fa60ca443a272352450b720271c5367 extends Template
                 //agrandir depuis le haut de la cellule
                 eventResizableFromStart: true,
 
-                //crée un objet (event et oldevent(date d'origine)) à chaque fois que je clique un rdv
+              //crée un objet (event et oldevent(date d'origine)) à chaque fois que je clique un rdv
                 eventClick: function(e) {
                     let id = e.event.id;
                     let url = \"https://127.0.0.1:8000/admin/calendarshowuser/\" + id;
@@ -459,13 +473,27 @@ class __TwigTemplate_6fa60ca443a272352450b720271c5367 extends Template
                     document.cookie = `clickedDate=\${encodeURIComponent(clickedDate)}; path=/; SameSite=None; Secure`;
 
 
+                    // Définir un cookie avec la valeur de clickedDate
+                 //  document.cookie = `clickedDate=\${encodeURIComponent(clickedDate)}; path=/; SameSite=None; Secure`;
+               // console.log('cookie Clicked date:', document.cookie);
+                 // Récupérer la valeur du cookie
+             //  const clickedDate = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\\s*)clickedDate\\s*\\=\\s*([^;]*).*\$)|^.*\$/, \"\$1\"));
+           //  console.log('Clicked date:', clickedDate);
 
-                    // Ouvrir la page de création de séance
+
+                // Ouvrir la page de création de séance 
+           //   var url = `https://127.0.0.1:8000/admin/calendar/new/Activitie`;
+           //   window.location.href = url;
+
+
+            // Ouvrir la page de création de séance
               var url = 'https://127.0.0.1:8000/admin/calendar/new/Activitie';
           window.location.href = url;
    
                 }
             });
+
+          
 
             calendar.render();
         };

@@ -35,30 +35,7 @@
           calendar = new FullCalendar.Calendar(calendarElt, {
 
          eventContent: function (arg) {
-    /*let stockg = arg.event.extendedProps.stock;
-             if (stockg === null) {
-                 stockg = 0;
-             }
-    let stock = parseInt(stockg, 10);
-             console.log('stock', stock);
-    let staffs = arg.event.extendedProps.staffs;
-    let quantityCommandedg = arg.event.extendedProps.quantityCommanded;
-             // Vérifiez si quantityCommanded est null, et si c'est le cas, affectez 0
-             if (quantityCommandedg === null) {
-                 quantityCommandedg = 0;
-             }
-     let quantityCommanded = parseInt(quantityCommandedg, 10);
-    let totalPlace =  stock + quantityCommanded;
-     console.log('totalplace', totalPlace);
-     //  console.log pour afficher le contenu de staffs
-      console.log('Contenu de staffs :', staffs);
-
-
-
-             // Vérifiez si totalPlace , et si c'est le cas, affectez 0
-             if (totalPlace === null) {
-                 totalPlace = 0;
-             }/*/
+   
 
 
              // Récupération de la valeur de stock depuis arg.event.extendedProps
@@ -171,12 +148,19 @@
 
                     // Définir un cookie avec la valeur de clickedDate
                     document.cookie = `clickedDate=${encodeURIComponent(clickedDate)}; path=/; SameSite=None; Secure`;
+                 
+                 // Récupérer la valeur du cookie
+                const clickedDate = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)clickedDate\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
+
+                // Ouvrir la page de création de séance en incluant la valeur du cookie dans l'URL
+              var url = `https://127.0.0.1:8000/admin/calendarmain/new?clickedDate=${clickedDate}`;
+              window.location.href = url;
 
 
 
                     // Ouvrir la page de création de séance
-              var url = 'https://127.0.0.1:8000/admin/calendarmain/new';
-          window.location.href = url;
+           //   var url = 'https://127.0.0.1:8000/admin/calendarmain/new';
+         // window.location.href = url;
 
 
 

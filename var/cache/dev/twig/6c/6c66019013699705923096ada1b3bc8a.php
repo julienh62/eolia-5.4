@@ -179,65 +179,7 @@ class __TwigTemplate_64d4599d78e2d59e1db5a84fd0fb9786 extends Template
                             };
 
                         },
-                        /*    eventContent: function (arg) {
-                                   // Récupération de la valeur de stock depuis arg.event.extendedProps
-                              let stockg = arg.event.extendedProps.stock;
-
-                             // Vérification si stockg est null, si oui, affecter 0
-                              if (stockg === null) {
-                                  stockg = 0;
-                              }
-                              // Conversion de stockg en entier en utilisant parseInt avec base 10
-                              let stock = parseInt(stockg, 10);
-
-                             // Affichage du résultat de la conversion de stock dans la console
-                             // console.log('stock', stock);
-
-
-
-                                // Récupération de la valeur de quantityCommanded depuis arg.event.extendedProps
-                              let quantityCommandedg = arg.event.extendedProps.quantityCommanded;
-
-                             // Vérification si quantityCommandedg est null, si oui, affecter 0
-                              if (quantityCommandedg === null) {
-                                  quantityCommandedg = 0;
-                              }
-
-                             // Conversion de quantityCommandedg en entier en utilisant parseInt avec base 10
-                              let quantityCommanded = parseInt(quantityCommandedg, 10);
-
-                             // Affichage du résultat de la conversion de quantityCommanded dans la console
-                             // console.log('quantityCommanded', quantityCommanded);
-
-                  // Calcul de totalPlace en ajoutant stock et quantityCommanded
-                              let totalPlace = stock + quantityCommanded;
-
-                             // Affichage du résultat de totalPlace dans la console
-                              console.log('totalplace', totalPlace);
-
-
-
-
-                              let stockHtml = '<div class=\"event-stock\"> '  + stock + '</div>';
-
-
-                              let totalPlaceHtml = '<div class=\"event-q\"> ' + totalPlace + '</div>';
-
-                              let placeHtml = '<div class=\"event-q\"> ' +  quantityCommanded + ' / ' +  totalPlace + '</div>';
-
-                             let quantityCommandedHtml = '';
-                             if (quantityCommanded === 0) {
-                                 quantityCommandedHtml = '<div class=\"event-quantity\"> ' + ' déjà pris: 0 ' + '</div>';
-                             } else {
-                                 quantityCommandedHtml = '<div class=\"event-quantity\"> ' + ' déjà pris : ' + quantityCommanded + '</div>';
-                             }
-                             let titleStyle = 'font-weight: bold; font-size: 20px;';
-                             return {
-                                // html:  '<div style=\"' + titleStyle + '\">' + arg.event.title + '</div>' + stockHtml + quantityCommandedHtml
-                                  html:  '<div style=\"' + titleStyle + '\">' + arg.event.title + '</div>' + placeHtml
-
-                             };
-                         },  */
+                      
                         initialView: 'timeGridWeek',
                         views: {
                             timeGridThreeDay: {
@@ -263,11 +205,11 @@ class __TwigTemplate_64d4599d78e2d59e1db5a84fd0fb9786 extends Template
                             timeGridWeek: '7 jours'
                         },
                         events: ";
-        // line 163
-        echo (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 163, $this->source); })());
+        // line 105
+        echo (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 105, $this->source); })());
         echo " ,
                         ";
-        // line 165
+        // line 107
         echo "
                     });
 
@@ -325,7 +267,7 @@ class __TwigTemplate_64d4599d78e2d59e1db5a84fd0fb9786 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  271 => 165,  267 => 163,  111 => 11,  101 => 10,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  213 => 107,  209 => 105,  111 => 11,  101 => 10,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -409,65 +351,7 @@ class __TwigTemplate_64d4599d78e2d59e1db5a84fd0fb9786 extends Template
                             };
 
                         },
-                        /*    eventContent: function (arg) {
-                                   // Récupération de la valeur de stock depuis arg.event.extendedProps
-                              let stockg = arg.event.extendedProps.stock;
-
-                             // Vérification si stockg est null, si oui, affecter 0
-                              if (stockg === null) {
-                                  stockg = 0;
-                              }
-                              // Conversion de stockg en entier en utilisant parseInt avec base 10
-                              let stock = parseInt(stockg, 10);
-
-                             // Affichage du résultat de la conversion de stock dans la console
-                             // console.log('stock', stock);
-
-
-
-                                // Récupération de la valeur de quantityCommanded depuis arg.event.extendedProps
-                              let quantityCommandedg = arg.event.extendedProps.quantityCommanded;
-
-                             // Vérification si quantityCommandedg est null, si oui, affecter 0
-                              if (quantityCommandedg === null) {
-                                  quantityCommandedg = 0;
-                              }
-
-                             // Conversion de quantityCommandedg en entier en utilisant parseInt avec base 10
-                              let quantityCommanded = parseInt(quantityCommandedg, 10);
-
-                             // Affichage du résultat de la conversion de quantityCommanded dans la console
-                             // console.log('quantityCommanded', quantityCommanded);
-
-                  // Calcul de totalPlace en ajoutant stock et quantityCommanded
-                              let totalPlace = stock + quantityCommanded;
-
-                             // Affichage du résultat de totalPlace dans la console
-                              console.log('totalplace', totalPlace);
-
-
-
-
-                              let stockHtml = '<div class=\"event-stock\"> '  + stock + '</div>';
-
-
-                              let totalPlaceHtml = '<div class=\"event-q\"> ' + totalPlace + '</div>';
-
-                              let placeHtml = '<div class=\"event-q\"> ' +  quantityCommanded + ' / ' +  totalPlace + '</div>';
-
-                             let quantityCommandedHtml = '';
-                             if (quantityCommanded === 0) {
-                                 quantityCommandedHtml = '<div class=\"event-quantity\"> ' + ' déjà pris: 0 ' + '</div>';
-                             } else {
-                                 quantityCommandedHtml = '<div class=\"event-quantity\"> ' + ' déjà pris : ' + quantityCommanded + '</div>';
-                             }
-                             let titleStyle = 'font-weight: bold; font-size: 20px;';
-                             return {
-                                // html:  '<div style=\"' + titleStyle + '\">' + arg.event.title + '</div>' + stockHtml + quantityCommandedHtml
-                                  html:  '<div style=\"' + titleStyle + '\">' + arg.event.title + '</div>' + placeHtml
-
-                             };
-                         },  */
+                      
                         initialView: 'timeGridWeek',
                         views: {
                             timeGridThreeDay: {

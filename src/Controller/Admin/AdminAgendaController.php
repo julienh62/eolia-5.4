@@ -3,9 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Repository\CalendarRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 
@@ -13,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminAgendaController extends AbstractController
 {
     #[Route('admin/agenda', name: 'app_admin_agenda')]
-      public function index(CalendarRepository $calendarRepository): Response
+      public function index(Request $request, CalendarRepository $calendarRepository): Response
       {
 
           $backgroundColor = null;
@@ -23,9 +24,7 @@ class AdminAgendaController extends AbstractController
 
           $events = $calendarRepository->findAll();
           // dd($events);
-
-         
-
+       
           //on initalise variable au cas où elle n'a pas encore de valeur
           $rdvs[] = [];
 
@@ -109,6 +108,7 @@ class AdminAgendaController extends AbstractController
           // dd($data);
           return $this->render('admin/admin_agenda/index.html.twig', [
               'data' => json_encode($rdvs),  // Incluez les données existantes
+              
           ]);
       }
     }
