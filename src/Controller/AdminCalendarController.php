@@ -2,19 +2,20 @@
 
 namespace App\Controller;
 
-use App\Entity\Activitie;
 use App\Entity\Calendar;
-use App\Entity\StaffSchedule;
+use App\Entity\Activitie;
 use App\Form\CalendarType;
-use App\Repository\ActivitieRepository;
-use App\Repository\CalendarRepository;
-use App\Repository\StaffScheduleRepository;
 use App\Service\Formatdate;
+use App\Entity\StaffSchedule;
+use App\Repository\CalendarRepository;
+use App\Repository\ActivitieRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\StaffScheduleRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 class AdminCalendarController extends AbstractController
@@ -45,9 +46,14 @@ class AdminCalendarController extends AbstractController
     }
 
     #[Route('admin/createCalendarChoose', name: 'app_admin_formChooseCalendar')]
-    public function chooseLocationForm(): Response
+    public function chooseLocationForm(Request $request): Response
     {
-        return $this->render('admin_calendar/chooseCalendar.html.twig');
+        $clickedDate = $request->cookies->get('clickedDate');
+      
+        // dd($clickedDate);
+        
+        return $this->render('admin_calendar/chooseCalendar.html.twig', [
+            'clickedDate' => $clickedDate]);
     }
 
 
@@ -55,12 +61,17 @@ class AdminCalendarController extends AbstractController
     #[Route('/admin/calendar/new/{typeCalendar}', name: 'app_admin_calendar_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager, string $typeCalendar): Response
     {
-
+     
         $calendar = new ("App\\Entity\\" . $typeCalendar)();
-
-
-            $form = $this->createForm("App\\Form\\" . $typeCalendar . "Type", $calendar);
-            //   $form = $this->createForm(ActivitieType::class, $activitie);
+     
+       $clickedDate = $request->query->get('clickedDate');
+    
+        //dd($clickedDate);
+        $form = $this->createForm(
+            "App\\Form\\" . $typeCalendar . "Type",
+            $calendar,
+            ['clickedDate' => $clickedDate] // Passer la valeur comme option
+        );
             $form->handleRequest($request);
 
 
@@ -68,8 +79,16 @@ class AdminCalendarController extends AbstractController
                 $entityManager->persist($calendar);
                 $entityManager->flush();
 
-                return $this->redirectToRoute('app_admin_calendar_index', [], Response::HTTP_SEE_OTHER);
-            }
+
+                            // Supprimer le cookie 'clickedDate'
+            $response = new RedirectResponse($this->generateUrl('admin_main_calendar'));
+            $response->headers->clearCookie('clickedDate');
+
+            return $response;
+    }
+
+             //   return $this->redirectToRoute('app_admin_calendar_index', [], Response::HTTP_SEE_OTHER);
+          //  }
                 // dd($form);
             return $this->render('admin_calendar/new.html.twig', [
                 'calendar' => $calendar,

@@ -1055,9 +1055,9 @@ Tools
       -ms-overflow-style: none;
     }
   
-    .element {
+   /* .element {
       overflow: -moz-scrollbars-none;
-    }
+    }  */
   
     .container {
       scrollbar-width: none;

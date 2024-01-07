@@ -1,5 +1,6 @@
 'use strict';
 console.log("coucous inputpricejs");
+/*
 document.addEventListener('DOMContentLoaded', function() {
     //pour vider l'input, pas de saisie automatique
     var modifiedPriceInput = document.getElementById('calendar_modifiedPrice');
@@ -17,4 +18,4 @@ document.addEventListener('DOMContentLoaded', function() {
             modifiedPriceInput.value = '';
         }
     });
-});
+});*/

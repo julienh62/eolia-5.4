@@ -116,10 +116,13 @@ class __TwigTemplate_6fa60ca443a272352450b720271c5367 extends Template
         echo "
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js\"></script>
 
-
+console.log(\"coucou\");
 
 
   <script>
+  console.log(\"coucou\");
+  console.log(\"coucou\");
+ // (alert('Message'))
         let calendarElt = document.querySelector(\"#calendrier\");
 
         let mediaQuery = window.matchMedia(\"(max-width: 1000px)\");
@@ -235,8 +238,8 @@ class __TwigTemplate_6fa60ca443a272352450b720271c5367 extends Template
       
                 //probleme secu avec raw?
                 events: ";
-        // line 133
-        echo (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 133, $this->source); })());
+        // line 136
+        echo (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 136, $this->source); })());
         echo ",
                 //editable pour glisser deposer et agrandir
                 editable: true,
@@ -258,28 +261,20 @@ class __TwigTemplate_6fa60ca443a272352450b720271c5367 extends Template
                     // Définir un cookie avec la valeur de clickedDate
                     document.cookie = `clickedDate=\${encodeURIComponent(clickedDate)}; path=/; SameSite=None; Secure`;
 
+            console.log(\"coucou\");
 
-                    // Définir un cookie avec la valeur de clickedDate
-                 //  document.cookie = `clickedDate=\${encodeURIComponent(clickedDate)}; path=/; SameSite=None; Secure`;
-               // console.log('cookie Clicked date:', document.cookie);
-                 // Récupérer la valeur du cookie
-             //  const clickedDate = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\\s*)clickedDate\\s*\\=\\s*([^;]*).*\$)|^.*\$/, \"\$1\"));
-           //  console.log('Clicked date:', clickedDate);
-
-
-                // Ouvrir la page de création de séance 
-           //   var url = `https://127.0.0.1:8000/admin/calendar/new/Activitie`;
-           //   window.location.href = url;
+               
 
 
             // Ouvrir la page de création de séance
-              var url = 'https://127.0.0.1:8000/admin/calendar/new/Activitie';
+              var url = 'https://127.0.0.1:8000/admin/createCalendarChoose';
           window.location.href = url;
-   
+            console.log(\"coucou\");
+
                 }
             });
 
-          
+          console.log(\"coucou\");
 
             calendar.render();
         };
@@ -314,7 +309,7 @@ class __TwigTemplate_6fa60ca443a272352450b720271c5367 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  239 => 133,  114 => 12,  104 => 11,  93 => 8,  91 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  242 => 136,  114 => 12,  104 => 11,  93 => 8,  91 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -333,10 +328,13 @@ class __TwigTemplate_6fa60ca443a272352450b720271c5367 extends Template
     {{ parent() }}
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js\"></script>
 
-
+console.log(\"coucou\");
 
 
   <script>
+  console.log(\"coucou\");
+  console.log(\"coucou\");
+ // (alert('Message'))
         let calendarElt = document.querySelector(\"#calendrier\");
 
         let mediaQuery = window.matchMedia(\"(max-width: 1000px)\");
@@ -472,28 +470,20 @@ class __TwigTemplate_6fa60ca443a272352450b720271c5367 extends Template
                     // Définir un cookie avec la valeur de clickedDate
                     document.cookie = `clickedDate=\${encodeURIComponent(clickedDate)}; path=/; SameSite=None; Secure`;
 
+            console.log(\"coucou\");
 
-                    // Définir un cookie avec la valeur de clickedDate
-                 //  document.cookie = `clickedDate=\${encodeURIComponent(clickedDate)}; path=/; SameSite=None; Secure`;
-               // console.log('cookie Clicked date:', document.cookie);
-                 // Récupérer la valeur du cookie
-             //  const clickedDate = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\\s*)clickedDate\\s*\\=\\s*([^;]*).*\$)|^.*\$/, \"\$1\"));
-           //  console.log('Clicked date:', clickedDate);
-
-
-                // Ouvrir la page de création de séance 
-           //   var url = `https://127.0.0.1:8000/admin/calendar/new/Activitie`;
-           //   window.location.href = url;
+               
 
 
             // Ouvrir la page de création de séance
-              var url = 'https://127.0.0.1:8000/admin/calendar/new/Activitie';
+              var url = 'https://127.0.0.1:8000/admin/createCalendarChoose';
           window.location.href = url;
-   
+            console.log(\"coucou\");
+
                 }
             });
 
-          
+          console.log(\"coucou\");
 
             calendar.render();
         };

@@ -141,7 +141,7 @@
                     window.location.href = url;
                 },
 
-                // Action lors du clic sur une date
+          /*      // Action lors du clic sur une date
                 dateClick: function(info) {
                     let clickedDate = moment(info.date).format('YYYY-MM-DD HH:mm');
                     console.log('Clicked date:', clickedDate);
@@ -160,10 +160,27 @@
 
                     // Ouvrir la page de création de séance
            //   var url = 'https://127.0.0.1:8000/admin/calendarmain/new';
-         // window.location.href = url;
+         // window.location.href = url;  */
 
 
+       // Action lors du clic sur une date
+                dateClick: function(info) {
+                    let clickedDate = moment(info.date).format('YYYY-MM-DD HH:mm');
+                    console.log('Clicked date:', clickedDate);
 
+                    // Définir un cookie avec la valeur de clickedDate
+                   doccookie = document.cookie = `clickedDate=${encodeURIComponent(clickedDate)}; path=/; SameSite=None; Secure`;
+                    console.log(doccookie);
+
+
+                    // Ouvrir la page de création de séance
+              var url = 'https://127.0.0.1:8000/admin/calendarmain/new';
+          window.location.href = url;
+   
+                }
+            });
+
+            calendar.render();
 
 
                   

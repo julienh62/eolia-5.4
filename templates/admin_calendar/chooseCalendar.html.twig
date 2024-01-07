@@ -5,16 +5,16 @@
 {% block body %}
 
     <div class="containerchooseca">
-        <h1>Choix de calendar  </h1>
+        <h1>Choix de calendar dd </h1>
 
         <!-- Content before the links -->
 
         <p>
-            <a href="{{ path('app_admin_calendar_new', {'typeCalendar': 'Activitie'}) }}" class="btn btn-success">Créer nouvelle activité</a>
+            <a href="{{ path('app_admin_calendar_new', {'typeCalendar': 'Activitie', 'clickedDate': clickedDate }) }}" class="btn btn-success">Créer nouvelle activité</a>
 
-            <a href="{{ path('app_admin_calendar_new', {'typeCalendar': 'StaffSchedule'}) }}" class="btn btn-danger">Créer Staff Calendar</a>
+            <a href="{{ path('app_admin_calendar_new', {'typeCalendar': 'StaffSchedule', 'clickedDate': clickedDate }) }}" class="btn btn-danger">Créer Staff Calendar</a>
         </p>
-
+{{clickedDate}}
     </div>
 
 

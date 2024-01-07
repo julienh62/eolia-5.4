@@ -1,7 +1,7 @@
 'use strict';
 
 console.log("coucou searchnamejs");
-
+/*
 let inputName = document.querySelector('#user-search-name');
 let resultsName = document.querySelector('#result-name');
 
@@ -31,4 +31,4 @@ function searchByName() {
                 resultsName.append(div);
             });
         });
-}
+}   */

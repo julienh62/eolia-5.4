@@ -17,6 +17,7 @@ class AdminAgendaController extends AbstractController
       public function index(Request $request, CalendarRepository $calendarRepository): Response
       {
 
+      
           $backgroundColor = null;
           $borderColor = null;
           $textColor = null;

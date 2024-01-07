@@ -87,22 +87,25 @@ class __TwigTemplate_09832f9b95006f778e657bb717819499 extends Template
         // line 6
         echo "
     <div class=\"containerchooseca\">
-        <h1>Choix de calendar  </h1>
+        <h1>Choix de calendar dd </h1>
 
         <!-- Content before the links -->
 
         <p>
             <a href=\"";
         // line 13
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_new", ["typeCalendar" => "Activitie"]);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_new", ["typeCalendar" => "Activitie", "clickedDate" => (isset($context["clickedDate"]) || array_key_exists("clickedDate", $context) ? $context["clickedDate"] : (function () { throw new RuntimeError('Variable "clickedDate" does not exist.', 13, $this->source); })())]), "html", null, true);
         echo "\" class=\"btn btn-success\">Créer nouvelle activité</a>
 
             <a href=\"";
         // line 15
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_new", ["typeCalendar" => "StaffSchedule"]);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_new", ["typeCalendar" => "StaffSchedule", "clickedDate" => (isset($context["clickedDate"]) || array_key_exists("clickedDate", $context) ? $context["clickedDate"] : (function () { throw new RuntimeError('Variable "clickedDate" does not exist.', 15, $this->source); })())]), "html", null, true);
         echo "\" class=\"btn btn-danger\">Créer Staff Calendar</a>
         </p>
-
+";
+        // line 17
+        echo twig_escape_filter($this->env, (isset($context["clickedDate"]) || array_key_exists("clickedDate", $context) ? $context["clickedDate"] : (function () { throw new RuntimeError('Variable "clickedDate" does not exist.', 17, $this->source); })()), "html", null, true);
+        echo "
     </div>
 
 
@@ -136,7 +139,7 @@ class __TwigTemplate_09832f9b95006f778e657bb717819499 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  102 => 15,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  107 => 17,  102 => 15,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -148,16 +151,16 @@ class __TwigTemplate_09832f9b95006f778e657bb717819499 extends Template
 {% block body %}
 
     <div class=\"containerchooseca\">
-        <h1>Choix de calendar  </h1>
+        <h1>Choix de calendar dd </h1>
 
         <!-- Content before the links -->
 
         <p>
-            <a href=\"{{ path('app_admin_calendar_new', {'typeCalendar': 'Activitie'}) }}\" class=\"btn btn-success\">Créer nouvelle activité</a>
+            <a href=\"{{ path('app_admin_calendar_new', {'typeCalendar': 'Activitie', 'clickedDate': clickedDate }) }}\" class=\"btn btn-success\">Créer nouvelle activité</a>
 
-            <a href=\"{{ path('app_admin_calendar_new', {'typeCalendar': 'StaffSchedule'}) }}\" class=\"btn btn-danger\">Créer Staff Calendar</a>
+            <a href=\"{{ path('app_admin_calendar_new', {'typeCalendar': 'StaffSchedule', 'clickedDate': clickedDate }) }}\" class=\"btn btn-danger\">Créer Staff Calendar</a>
         </p>
-
+{{clickedDate}}
     </div>
 
 
@@ -170,6 +173,6 @@ class __TwigTemplate_09832f9b95006f778e657bb717819499 extends Template
 
 
 
-", "admin_calendar/chooseCalendar.html.twig", "C:\\wamp64\\www\\symfony\\eolia-symfo-calendar - Copie\\templates\\admin_calendar\\chooseCalendar.html.twig");
+", "admin_calendar/chooseCalendar.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\admin_calendar\\chooseCalendar.html.twig");
     }
 }
