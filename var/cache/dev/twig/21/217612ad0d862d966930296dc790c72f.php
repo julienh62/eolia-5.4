@@ -101,6 +101,6 @@ class __TwigTemplate_e1a53532654fcb5096e4b7f1ef4baa1d extends Template
         </div>
 \t
 \t\t
-", "_partials/_footer.html.twig", "C:\\wamp64\\www\\symfony\\eolia-symfo-calendar - Copie\\templates\\_partials\\_footer.html.twig");
+", "_partials/_footer.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\_partials\\_footer.html.twig");
     }
 }

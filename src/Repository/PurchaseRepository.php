@@ -40,8 +40,8 @@ class PurchaseRepository extends ServiceEntityRepository
     }
 
 
-    //permet de recuperer les commandes concernant une session calendar donnée
-//permet de recuperer les commandes concernant une session calendar donnée
+    //permet de recuperer les commandes concernant une session activitie donnée
+//permet de recuperer les commandes concernant une session activitie donnée
  /*   public function findPurchaseDetailsSql($id)
     {
 
@@ -49,7 +49,7 @@ class PurchaseRepository extends ServiceEntityRepository
         $conn = $this->getEntityManager()->getConnection();
 
         $sql = '
-        SELECT c.start, c.end FROM calendar c JOIN purchase_item pi ON c.id = pi.calendar_id JOIN purchase p ON pi.purchase_id = p.id WHERE p.id = :id;
+        SELECT c.start, c.end FROM activitie c JOIN purchase_item pi ON c.id = pi.activitie_id JOIN purchase p ON pi.purchase_id = p.id WHERE p.id = :id;
             ';
 
         $resultSet = $conn->executeQuery($sql, ['id' => $id]);
@@ -62,14 +62,14 @@ class PurchaseRepository extends ServiceEntityRepository
 
     }*/
 
-    //permet de recuperer les commandes concernant une session calendar donnée
+    //permet de recuperer les commandes concernant une session activitie donnée
     public function findPurchaseDetails($id)
     {
         $qb = $this->createQueryBuilder('p')
 
             ->select('c.start, c.end')
             ->join('p.purchaseItems', 'pi') // jointure entre Purchase et PurchaseItem
-            ->join('pi.calendar', 'c') // jointure entre PurchaseItem et Calendar
+            ->join('pi.activitie', 'c') // jointure entre PurchaseItem et Activitie
           //  ->join('p.user', 'u') // jointure entre Purchase et User
             ->andWhere('p.id = :id') // condition pour le nom complet de l'utilisateur
             ->setParameter('id', $id);
@@ -80,7 +80,7 @@ class PurchaseRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('p')
             ->join('p.purchaseItems', 'pi') // jointure entre Purchase et PurchaseItem
-            ->join('pi.calendar', 'c') // jointure entre PurchaseItem et Calendar
+            ->join('pi.activitie', 'c') // jointure entre PurchaseItem et Activitie
             ->join('p.user', 'u') // jointure entre Purchase et User
             ->andWhere('u.fullName = :fullName')
             ->setParameter('fullName', $fullName)
@@ -98,7 +98,7 @@ class PurchaseRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('p')
             ->select('c.start, c.end, c.title, u.fullName, pi.quantity, pi.id, p.total, p.status')
             ->join('p.purchaseItems', 'pi') // jointure entre Purchase et PurchaseItem
-            ->join('pi.calendar', 'c') // jointure entre PurchaseItem et Calendar
+            ->join('pi.activitie', 'c') // jointure entre PurchaseItem et Activitie
             ->join('p.user', 'u') // jointure entre Purchase et User
             ->andWhere('u.fullName = :fullName') // condition pour le nom complet de l'utilisateur
             ->setParameter('fullName', $fullName);
@@ -110,7 +110,7 @@ class PurchaseRepository extends ServiceEntityRepository
 
 
 
-    /*//permet de recuperer les commandes concernant une session calendar donnée
+    /*//permet de recuperer les commandes concernant une session activitie donnée
         public function findPurchaseDetailsid($id)
         {
 
@@ -118,7 +118,7 @@ class PurchaseRepository extends ServiceEntityRepository
             $conn = $this->getEntityManager()->getConnection();
 
             $sql = '
-            SELECT c.start, c.end FROM calendar c JOIN purchase_item pi ON c.id = pi.calendar_id JOIN purchase p ON pi.purchase_id = p.id WHERE p.id = :id;
+            SELECT c.start, c.end FROM activitie c JOIN purchase_item pi ON c.id = pi.activitie_id JOIN purchase p ON pi.purchase_id = p.id WHERE p.id = :id;
                 ';
 
             $resultSet = $conn->executeQuery($sql, ['id' => $id]);
@@ -144,7 +144,7 @@ class PurchaseRepository extends ServiceEntityRepository
       SELECT c.start, c.end, c.title, u.full_name,  pi.quantity, pi.id, p.total, p.created_at, p.status
 FROM purchase p
 JOIN purchase_item pi ON p.id = pi.purchase_id
-JOIN calendar c ON pi.calendar_id = c.id
+JOIN activitie c ON pi.activitie_id = c.id
 JOIN user u ON p.user_id = u.id
 WHERE u.full_name = :fullName;
           ';
@@ -179,7 +179,7 @@ WHERE u.full_name = :fullName;
       SELECT c.start, c.end, c.title, c.id, pi.quantity, p.total, p.created_at, p.status
 FROM purchase p
 JOIN purchase_item pi ON p.id = pi.purchase_id
-JOIN calendar c ON pi.calendar_id = c.id
+JOIN activitie c ON pi.activitie_id = c.id
 JOIN user u ON p.user_id = u.id
 WHERE u.id = :id;
           ';
@@ -194,14 +194,14 @@ WHERE u.id = :id;
 
     }
 */
-  /*  public function deletePurchasesForUserAndCalendarId($fullName, $calendarId)
+  /*  public function deletePurchasesForUserAndActivitieId($fullName, $activitieId)
     {
         return $this->createQueryBuilder('p')
             ->delete()
             ->where('p.fullName = :fullName')
-            ->andWhere('p.calendarId = :calendarId')
+            ->andWhere('p.activitieId = :activitieId')
             ->setParameter('fullName', $fullName)
-            ->setParameter('calendarId', $calendarId)
+            ->setParameter('activitieId', $activitieId)
             ->getQuery()
             ->execute();
     }*/

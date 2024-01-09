@@ -41,7 +41,12 @@ class CalendarType extends AbstractType
                   'data' => $clickedDate ? new \DateTime($clickedDate):null, // Utiliser la valeur de 'clickedDate' pour pré-remplir le champ de date
               ])  
        
-            ->add('staffs')
+              ->add('staffs', EntityType::class, [
+                'class' => Staff::class,
+                'multiple' => true, // Pour autoriser la sélection de plusieurs membres du personnel
+                'expanded' => true, // Pour afficher les options sous forme de cases à cocher (si nécessaire)
+                'choice_label' => 'fullName', // Le champ de l'entité Staff à afficher dans le formulaire
+            ])  
             
           
 

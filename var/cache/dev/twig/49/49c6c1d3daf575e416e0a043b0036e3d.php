@@ -769,6 +769,6 @@ class __TwigTemplate_9ad85abb2a3b954c9075a67652d71191 extends Template
         </div>
     {% endfor %}
 {% endblock %}
-", "@WebProfiler/Collector/mailer.html.twig", "C:\\wamp64\\www\\symfony\\eolia-symfo-calendar - Copie\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\mailer.html.twig");
+", "@WebProfiler/Collector/mailer.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\mailer.html.twig");
     }
 }

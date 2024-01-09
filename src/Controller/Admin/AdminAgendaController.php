@@ -45,6 +45,7 @@ class AdminAgendaController extends AbstractController
                 
                 if ($activitieSettings !== null) {
                     $rdvs[] = [
+                        'id' => $event->getId(),
                         'start' => $event->getStart()->format('Y-m-d H:i:s'),
                         'end' => $event->getEnd()->format('Y-m-d H:i:s'),
                         'stock' => $event->getStock(),
@@ -62,6 +63,7 @@ class AdminAgendaController extends AbstractController
                     $textColor = '#000000';
             
                     $rdvs[] = [
+                        'id' => $event->getId(),
                         'start' => $event->getStart()->format('Y-m-d H:i:s'),
                         'end' => $event->getEnd()->format('Y-m-d H:i:s'),
                         'stock' => $event->getStock(),
@@ -77,6 +79,7 @@ class AdminAgendaController extends AbstractController
                 
                 if ($staffScheduleSettings !== null) {
                     $rdvs[] = [
+                        'id' => $event->getId(),
                         'start' => $event->getStart()->format('Y-m-d H:i:s'),
                         'end' => $event->getEnd()->format('Y-m-d H:i:s'),
                         'staffs' => $staffFullName,
@@ -93,6 +96,7 @@ class AdminAgendaController extends AbstractController
                     $textColor = '#000000';
             
                     $rdvs[] = [
+                        'id' => $event->getId(),
                         'start' => $event->getStart()->format('Y-m-d H:i:s'),
                         'end' => $event->getEnd()->format('Y-m-d H:i:s'),
                         'staffs' => $staffFullName,

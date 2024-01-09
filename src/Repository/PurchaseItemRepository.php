@@ -46,10 +46,9 @@ class PurchaseItemRepository extends ServiceEntityRepository
     //recupere la quantitté de toutes les  commandes d'un calendrier
     public function getPurchaseQuantitySum($id)
      {
-       
       return $this->createQueryBuilder('p')
        ->select('SUM(p.quantity) as quantity')
-       ->andWhere('p.calendar = :id')         
+       ->andWhere('p.activitie = :id')         
        ->setParameter('id', $id)
         ->getQuery()
         ->getSingleResult()
@@ -61,7 +60,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
         $conn = $this->getEntityManager()->getConnection();
 
         $sql = '
-        SELECT SUM(`quantity`) FROM `purchase_item` WHERE `calendar_id` = :id;
+        SELECT SUM(`quantity`) FROM `purchase_item` WHERE `activitie_id` = :id;
             ';
 
         $resultSet = $conn->executeQuery($sql, ['id' => $id]);
@@ -69,7 +68,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
         // returns an array of arrays (i.e. a raw data set)
         return $resultSet->fetchAllAssociative();
 /*
-        $query = $this->getEntityManager()->createQuery("SELECT SUM(quantity) FROM App\Entity\PurchaseItem WHERE calendar.id = $id
+        $query = $this->getEntityManager()->createQuery("SELECT SUM(quantity) FROM App\Entity\PurchaseItem WHERE activitie.id = $id
     ");
  //  return $query->getResult();
  print_r ($query->getResult());*/
@@ -86,7 +85,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
         FROM purchase_item pi 
         JOIN purchase p ON pi.purchase_id = p.id 
         JOIN user u ON p.user_id = u.id 
-        WHERE pi.calendar_id = :id
+        WHERE pi.activitie_id = :id
 
             ';
 
@@ -97,7 +96,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
      }   
 */ //recuperer les quantité commandées, nom et quantité
 // pour un calendrier donné
-   public function getPurchaseCalendar($id)
+   public function getPurchaseActivitie($id)
    {
 
        $qb = $this->createQueryBuilder('pi')
@@ -105,7 +104,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
          
            ->join('pi.purchase', 'p1') // jointure entre purchaseitem et purchase
            ->join('p1.user', 'u')//jointure entr purchase et user
-           ->andWhere('pi.calendar = :id')
+           ->andWhere('pi.activitie = :id')
            ->setParameter('id', $id);
 
        //dd($qb);
@@ -116,14 +115,14 @@ class PurchaseItemRepository extends ServiceEntityRepository
 
  //recuperer les quantité commandées, nom et quantité pur un user donné
 // pour un calendrier donné
-    public function getPurchaseCalendarUser($id)
+    public function getPurchaseActivitieUser($id)
     {
         $qb = $this->createQueryBuilder('pi')
             //->select('pi.purchase.id, user.fullName, pi.quantity')
             ->select('pi.quantity')
             ->join('pi.purchase', 'p1') // jointure entre purchaseitem et purchase
             ->join('p1.user', 'u')//jointure entr purchase et user
-            ->andWhere('pi.calendar = :id')
+            ->andWhere('pi.activitie = :id')
             ->andWhere('u.id = :id')
             ->setParameter('id', $id);
           //  ->setParameter('userId', $userId);
@@ -143,12 +142,12 @@ public function deletePurchaseUsers($id, $userId)
 
         $email = 'john doe';
         // Récupérer les informations sur les produits de la commande supprimée
-        //$sql = 'SELECT calendar_id, quantity FROM `purchase_item` WHERE `purchase_id` = :id';
+        //$sql = 'SELECT activitie_id, quantity FROM `purchase_item` WHERE `purchase_id` = :id';
     /*   $sql = 'DELETE pi
 FROM `purchase_item` pi
 JOIN purchase p ON pi.purchase_id = p.id
 JOIN user u ON p.user_id = u.id
-WHERE pi.calendar_id = :id
+WHERE pi.activitie_id = :id
    ';*/
 
        
@@ -157,20 +156,20 @@ WHERE pi.calendar_id = :id
 
         // Mettre à jour le stock des produits
    //     foreach ($purchaseItems as $purchaseItem) {
-    //        $calendarId = $purchaseItem['calendar_id'];
+    //        $activitieId = $purchaseItem['activitie_id'];
      //       $quantity = $purchaseItem['quantity'];
 
            // Récupérer la quantité en stock actuelle du produit
-     //   $sql = 'SELECT stock FROM `calendar` WHERE `id` = :calendarId';
-    //    $currentStock = $conn->executeQuery($sql, ['calendarId' => $calendarId])->fetchOne();
+     //   $sql = 'SELECT stock FROM `activitie` WHERE `id` = :activitieId';
+    //    $currentStock = $conn->executeQuery($sql, ['activitieId' => $activitieId])->fetchOne();
 
 
             // Mettre à jour le stock en soustrayant la quantité commandée
      //       $newStock = $currentStock + $quantity;
 
             // Mettre à jour le stock du produit dans la base de données
-     //       $sql = 'UPDATE `calendar` SET `stock` = :newStock WHERE `id` = :calendarId';
-      //      $conn->executeQuery($sql, ['newStock' => $newStock, 'calendarId' => $calendarId]);
+     //       $sql = 'UPDATE `activitie` SET `stock` = :newStock WHERE `id` = :activitieId';
+      //      $conn->executeQuery($sql, ['newStock' => $newStock, 'activitieId' => $activitieId]);
     //    }
 
         // Suppression des enregistrements dans purchase_item
@@ -179,7 +178,7 @@ WHERE pi.calendar_id = :id
 FROM `purchase_item` pi
 JOIN purchase p ON pi.purchase_id = p.id
 JOIN user u ON p.user_id = u.id
-WHERE pi.calendar_id = :id
+WHERE pi.activitie_id = :id
    ';
 
        // $conn->executeQuery($sql, ['id' => $id]);
@@ -206,7 +205,7 @@ WHERE pi.calendar_id = :id
 
             ->join('pi.purchase', 'p') // jointure entre purchaseitem et purchase
             ->join('p.user', 'u')//jointure entr purchase et user
-            ->andWhere('pi.calendar = :id')
+            ->andWhere('pi.activitie = :id')
             ->andWhere('u.id = :id')
            ->setParameter('userId', $userId)
            ->setParameter('id', $id);
@@ -229,7 +228,7 @@ WHERE pi.calendar_id = :id
 
        //     ->join('pi.purchase', 'p') // jointure entre purchaseitem et purchase
       //      ->join('p.user', 'u')//jointure entr purchase et user
-         //   ->andWhere('pi.calendar = :id')
+         //   ->andWhere('pi.activitie = :id')
        //     ->andWhere('u.id = :id')
       //     ->setParameter('id', $id);
 

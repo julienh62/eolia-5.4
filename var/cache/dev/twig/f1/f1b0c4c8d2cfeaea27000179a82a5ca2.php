@@ -249,7 +249,9 @@ console.log(\"coucou\");
               //crée un objet (event et oldevent(date d'origine)) à chaque fois que je clique un rdv
                 eventClick: function(e) {
                     let id = e.event.id;
-                    let url = \"https://127.0.0.1:8000/admin/calendarshowuser/\" + id;
+                 //   let url = \"https://127.0.0.1:8000/admin/calendarshowuser/\" + id;
+                    window.location.href = url;
+                       let url = \"https://127.0.0.1:8000\";
                     window.location.href = url;
                 },
 
@@ -261,7 +263,7 @@ console.log(\"coucou\");
                     // Définir un cookie avec la valeur de clickedDate
                     document.cookie = `clickedDate=\${encodeURIComponent(clickedDate)}; path=/; SameSite=None; Secure`;
 
-            console.log(\"coucou\");
+        
 
                
 
@@ -269,13 +271,12 @@ console.log(\"coucou\");
             // Ouvrir la page de création de séance
               var url = 'https://127.0.0.1:8000/admin/createCalendarChoose';
           window.location.href = url;
-            console.log(\"coucou\");
+           
 
                 }
             });
 
-          console.log(\"coucou\");
-
+         
             calendar.render();
         };
     </script>
@@ -458,7 +459,9 @@ console.log(\"coucou\");
               //crée un objet (event et oldevent(date d'origine)) à chaque fois que je clique un rdv
                 eventClick: function(e) {
                     let id = e.event.id;
-                    let url = \"https://127.0.0.1:8000/admin/calendarshowuser/\" + id;
+                 //   let url = \"https://127.0.0.1:8000/admin/calendarshowuser/\" + id;
+                    window.location.href = url;
+                       let url = \"https://127.0.0.1:8000\";
                     window.location.href = url;
                 },
 
@@ -470,7 +473,7 @@ console.log(\"coucou\");
                     // Définir un cookie avec la valeur de clickedDate
                     document.cookie = `clickedDate=\${encodeURIComponent(clickedDate)}; path=/; SameSite=None; Secure`;
 
-            console.log(\"coucou\");
+        
 
                
 
@@ -478,13 +481,12 @@ console.log(\"coucou\");
             // Ouvrir la page de création de séance
               var url = 'https://127.0.0.1:8000/admin/createCalendarChoose';
           window.location.href = url;
-            console.log(\"coucou\");
+           
 
                 }
             });
 
-          console.log(\"coucou\");
-
+         
             calendar.render();
         };
     </script>

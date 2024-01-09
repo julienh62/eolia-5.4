@@ -41,7 +41,7 @@
                            
 
                                       
-                         {#  <td>{{ purchase.calendarIds }}</td>#}
+                         {#  <td>{{ purchase.activitieIds }}</td>#}
                             <td>{{ purchase.start|date('Y-m-d H:i:s') }}</td>
                             <td>{{ purchase.end|date('Y-m-d H:i:s') }}</td>
                             <td>{{ purchase.total | amount }}</td>
@@ -52,7 +52,7 @@
                                   {% endif %}
                             </td>
 
-                       {# <td>{{ purchase.calendarIds }}</td> #}
+                       {# <td>{{ purchase.activitieIds }}</td> #}
 
                           </tr>
                 {% endfor %}
@@ -83,7 +83,7 @@
 
                     <hr>  
                     {# <p  class="item-mobile">purchaseItemId</p> #}
-                    <p class="datatitem">{{ purchase.calendarIds }}</p>
+                    <p class="datatitem">{{ purchase.activitieIds }}</p>
 
                 {%  endfor %}
 

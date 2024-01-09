@@ -6,7 +6,11 @@
 parameters:
 
 services:
-         
+  App\Entity\Activitie:
+  App\Service\CartService:
+        arguments:
+            $session: '@session'
+            $activitieRepository: '@App\Repository\ActivitieRepository'       
 
   # default configuration for services in *this* file
   _defaults:

@@ -17,7 +17,7 @@ class AdminStaffController extends AbstractController
     #[Route('/', name: 'app_admin_staff_index', methods: ['GET'])]
     public function index(StaffRepository $staffRepository): Response
     {
-        return $this->render('admin_staff/login.html.twig', [
+        return $this->render('admin/admin_staff/index.html.twig', [
             'staff' => $staffRepository->findAll(),
         ]);
     }
@@ -36,16 +36,16 @@ class AdminStaffController extends AbstractController
             return $this->redirectToRoute('app_admin_staff_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('admin_staff/new.html.twig', [
+        return $this->render('admin/admin_staff/new.html.twig', [
             'staff' => $staff,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 
     #[Route('/{id}', name: 'app_admin_staff_show', methods: ['GET'])]
     public function show(Staff $staff): Response
     {
-        return $this->render('admin_staff/show.html.twig', [
+        return $this->render('admin/admin_staff/show.html.twig', [
             'staff' => $staff,
         ]);
     }
@@ -62,9 +62,9 @@ class AdminStaffController extends AbstractController
             return $this->redirectToRoute('app_admin_staff_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('admin_staff/edit.html.twig', [
+        return $this->render('admin/admin_staff/edit.html.twig', [
             'staff' => $staff,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 

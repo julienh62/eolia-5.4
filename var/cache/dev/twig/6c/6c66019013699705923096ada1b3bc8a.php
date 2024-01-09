@@ -218,7 +218,7 @@ class __TwigTemplate_64d4599d78e2d59e1db5a84fd0fb9786 extends Template
                             \"id\": e.event.id
                         };
                         let id = donnees.id;
-                        let url = \"https://127.0.0.1:8000/calendar/\" + id;
+                        let url = \"https://127.0.0.1:8000/activitieshow/\" + id;
                         window.location.href = url;
                     });
 
@@ -386,7 +386,7 @@ class __TwigTemplate_64d4599d78e2d59e1db5a84fd0fb9786 extends Template
                             \"id\": e.event.id
                         };
                         let id = donnees.id;
-                        let url = \"https://127.0.0.1:8000/calendar/\" + id;
+                        let url = \"https://127.0.0.1:8000/activitieshow/\" + id;
                         window.location.href = url;
                     });
 

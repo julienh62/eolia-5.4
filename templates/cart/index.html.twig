@@ -29,13 +29,13 @@
         {% for item in items %}
          
             <tr>
-                <td class="tableau">{{ item.calendar.title }}</td>
+                <td class="tableau">{{ item.activitie.title }}</td>
             
-                <td class="tableau">{{ item.calendar.start ? item.calendar.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td class="tableau">{{ item.activitie.start ? item.activitie.start|date('Y-m-d H:i:s') : '' }}</td>
            
-                <td class="tableau">{{ item.calendar.end ? item.calendar.end|date('Y-m-d H:i:s') : '' }}</td>
+                <td class="tableau">{{ item.activitie.end ? item.activitie.end|date('Y-m-d H:i:s') : '' }}</td>
            
-                <td class="tableau">{{  item.calendar.price | amount }}</td>
+                <td class="tableau">{{  item.activitie.price | amount }}</td>
            
                 <td class="tableau">{{ item.quantity }}</td>
 
@@ -44,18 +44,18 @@
                 <td class="tableau">{{ item.total | amount }}</td>
 
                    <td>
-                        <a href="{{path("cart_add", {'id': item.calendar.id})}}" class="success">
+                        <a href="{{path("cart_add", {'id': item.activitie.id})}}" class="success">
                             🛒+
                         </a>
                     </td>
                           <td>
-                        <a href=" {{path("cart_decrement", {'id': item.calendar.id})}}" class="warning">
+                        <a href=" {{path("cart_decrement", {'id': item.activitie.id})}}" class="warning">
                           🛒-
                         </a>
                     </td>
                        <td>
                        
-                        <a href="{{path("cart_delete", {'id': item.calendar.id})}}" class="danger">
+                        <a href="{{path("cart_delete", {'id': item.activitie.id})}}" class="danger">
                             <i class="fas fa-trash-alt">Supprimer</i>
                         </a>
                     </td>
@@ -84,16 +84,16 @@
   {% for item in items %}
        
                 <h3>Titre</h3>
-                <p>{{ item.calendar.title }}</p>
+                <p>{{ item.activitie.title }}</p>
            
                 <h3>Date de début</h3>
-                <p>{{ item.calendar.start ? item.calendar.start|date('Y-m-d H:i:s') : '' }}</p>
+                <p>{{ item.activitie.start ? item.activitie.start|date('Y-m-d H:i:s') : '' }}</p>
            
                 <h3>Date de fin</h3>
-                <p>{{ item.calendar.end ? item.calendar.end|date('Y-m-d H:i:s') : '' }}</p>
+                <p>{{ item.activitie.end ? item.activitie.end|date('Y-m-d H:i:s') : '' }}</p>
         
                 <h3>Prix</h3>
-                <p class="tableau">{{  item.calendar.price | amount }}</p>
+                <p class="tableau">{{  item.activitie.price | amount }}</p>
           
                   <h3>Unité</h3>
                 <p class="tableau">{{ item.quantity }}</p>
@@ -102,19 +102,19 @@
                 <p class="tableau">{{ item.total | amount }}</p>
           
                 <h3>Ajouter</h3>
-                   <p> <a href="{{path("cart_add", {'id': item.calendar.id})}}" class="success">
+                   <p> <a href="{{path("cart_add", {'id': item.activitie.id})}}" class="success">
                             🛒 + 1
                         </a>
                         </p>
         
                 <h3>Soustraire</h3>
-                   <p>  <a href=" {{path("cart_decrement", {'id': item.calendar.id})}}" class="warning">
+                   <p>  <a href=" {{path("cart_decrement", {'id': item.activitie.id})}}" class="warning">
                           🛒 - 1
                         </a>
                         </p>
          
                 <h3>Supprimer</h3>
-                   <p>  <a href="{{path("cart_delete", {'id': item.calendar.id})}}" class="danger">
+                   <p>  <a href="{{path("cart_delete", {'id': item.activitie.id})}}" class="danger">
                             <i class="fas fa-trash-alt">Supprimer</i>
                         </a>
                         </p>
@@ -134,7 +134,7 @@
 
 </div>
 <div class="milieu">
-    <a class="success" href="{{path("app_calendar_main")}}">
+    <a class="success" href="{{path("app_agenda")}}">
            Compléter votre panier
        </a>
  </div>      
@@ -144,8 +144,8 @@
           {% if cartService.validateOrder() %}
                 <form method="post" action="{{ path('app_purchase_confirm') }}">
                     {% for item in items %}
-                        <input type="hidden" name="items[{{ item.calendar.id }}][quantity]" value="{{ item.quantity }}">
-                        <input type="hidden" name="items[{{ item.calendar.id }}][calendar]" value="{{ item.calendar.title }}">
+                        <input type="hidden" name="items[{{ item.activitie.id }}][quantity]" value="{{ item.quantity }}">
+                        <input type="hidden" name="items[{{ item.activitie.id }}][activitie]" value="{{ item.activitie.title }}">
                     {% endfor %}
                     <button type="submit" class="success">Valider la commande</button>
                 </form>
@@ -167,7 +167,7 @@
         <p>Aucune séance dans le panier </p> 
         <p> Si un lien de paiement vous a été envoyé , il vous faut tout d'abord vous connecter via l'email de confirmation de création de votre compte </p>
         
-        <a class="btn btn-primary" href="{{ path('app_calendar_main') }}">
+        <a class="btn btn-primary" href="{{ path('app_agenda') }}">
             Retour aux séances
         </a>
     {% endif %}

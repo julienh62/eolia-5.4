@@ -15,10 +15,10 @@ class PurchaseItem
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $calendarName = null;
+    private ?string $activitieName = null;
 
     #[ORM\Column]
-    private ?int $calendarPrice = null;
+    private ?int $activitiePrice = null;
 
     #[ORM\Column]
     private ?int $quantity = null;
@@ -34,7 +34,7 @@ class PurchaseItem
     private ?Purchase $purchase = null;
 
    // #[ORM\Column]
-   // private ?int $calendarStock = null;
+   // private ?int $activitieStock = null;
     
 
 
@@ -71,26 +71,26 @@ class PurchaseItem
         return $this;
     }
 
-    public function getCalendarName(): ?string
+    public function getActivitieName(): ?string
     {
-        return $this->calendarName;
+        return $this->activitieName;
     }
 
-    public function setCalendarName(string $calendarName): self
+    public function setActivitieName(string $activitieName): self
     {
-        $this->calendarName = $calendarName;
+        $this->activitieName = $activitieName;
 
         return $this;
     }
 
-    public function getCalendarPrice(): ?int
+    public function getActivitiePrice(): ?int
     {
-        return $this->calendarPrice;
+        return $this->activitiePrice;
     }
 
-    public function setCalendarPrice(int $calendarPrice): self
+    public function setActivitiePrice(int $activitiePrice): self
     {
-        $this->calendarPrice = $calendarPrice;
+        $this->activitiePrice = $activitiePrice;
 
         return $this;
     }
@@ -100,12 +100,12 @@ class PurchaseItem
 
  /*   public function getCalendarStock(): ?int
     {
-        return $this->calendarStock;
+        return $this->activitieStock;
     }
 
-    public function setCalendarStock(int $calendarStock): self
+    public function setCalendarStock(int $activitieStock): self
     {
-        $this->calendarStock = $calendarStock;
+        $this->activitieStock = $activitieStock;
 
         return $this;
     }

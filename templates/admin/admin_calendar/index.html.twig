@@ -1,0 +1,50 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Calendar index{% endblock %}
+
+{% block body %}
+    <h1>Calendar index</h1>
+      {#  {{dump(calendars) }} #}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Staff</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+ 
+
+        <tbody>
+        {% for calendar in calendars %}
+            <tr>
+                <td>{{ calendar.id }}</td>
+                <td>{{ calendar.title }}</td>
+
+                <td>{% for staff in calendar.staffs %}
+                        Staff:  {{ staff.fullName }}
+                    {% endfor %}</td>
+
+                <td>{{ calendar.formattedStartDate ? calendar.formattedStartDate| trans : '' }}</td>
+                <td>{{ calendar.formattedEndDate ? calendar.formattedEndDate| trans : '' }}</td>
+                <td>
+                    <a href="{{ path('app_admin_calendar_show', {'id': calendar.id}) }}">show</a>
+                    <a href="{{ path('app_admin_calendar_edit', {'id': calendar.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+    <a href="{{ path('app_admin_formChooseCalendar') }}">Create new</a>
+
+
+    {% endblock %}

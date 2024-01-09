@@ -327,6 +327,6 @@ class __TwigTemplate_d0ab25d00e13633690ac243e96dd5a96 extends Template
              {# <script src=\"{{ asset('assets/js/menu.js') }}\"></script> #}
         {% endblock %}
     </body>
-</html>", "base.html.twig", "C:\\wamp64\\www\\symfony\\eolia-symfo-calendar - Copie\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\base.html.twig");
     }
 }

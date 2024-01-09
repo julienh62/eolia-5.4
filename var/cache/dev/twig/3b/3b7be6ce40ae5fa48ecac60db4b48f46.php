@@ -53,9 +53,10 @@ class __TwigTemplate_1965481674f45e72ffc4f00c883d57d8 extends Template
         // line 7
         echo " \">Séances</a>
 \t\t\t\t\t\t
-\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"/ \">Staffs</a>
-\t\t\t\t\t\t\t\t\t   
-\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"/\"> Catégorie</a>
+\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"";
+        // line 9
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_index");
+        echo " \">Staffs</a>
 \t\t\t\t\t
 \t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"/\"> Liste des utilisateurs</a>\t
 \t\t\t\t\t\t\t
@@ -103,7 +104,7 @@ class __TwigTemplate_1965481674f45e72ffc4f00c883d57d8 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  54 => 7,  49 => 5,  43 => 1,);
+        return array (  58 => 9,  54 => 7,  49 => 5,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -116,9 +117,7 @@ class __TwigTemplate_1965481674f45e72ffc4f00c883d57d8 extends Template
       
 \t\t\t\t\t\t\t <a class=\"dropdown-item\" href=\"{#{{ path('admin_main_calendar')  }}#} \">Séances</a>
 \t\t\t\t\t\t
-\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"/ \">Staffs</a>
-\t\t\t\t\t\t\t\t\t   
-\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"/\"> Catégorie</a>
+\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"{{ path('app_admin_staff_index')  }} \">Staffs</a>
 \t\t\t\t\t
 \t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"/\"> Liste des utilisateurs</a>\t
 \t\t\t\t\t\t\t
@@ -136,6 +135,6 @@ class __TwigTemplate_1965481674f45e72ffc4f00c883d57d8 extends Template
  
 
 
-", "_partials/_nav_admin.html.twig", "C:\\wamp64\\www\\symfony\\eolia-symfo-calendar - Copie\\templates\\_partials\\_nav_admin.html.twig");
+", "_partials/_nav_admin.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\_partials\\_nav_admin.html.twig");
     }
 }

@@ -73,21 +73,14 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
 \t\t\t<a class=\"aderoulant\" href=\"/\">Contact</a>
 \t\t
 \t\t
-\t\t\t<a class=\"aderoulant\" href=\"/\">Les users</a>
-
-\t\t\t<a class=\"aderoulant\" href=\"/\">Les purchases</a>
-
-        <a class=\"aderoulant\" href=\"/\">Les calendars</a>
-
-       <a class=\"aderoulant\" href=\"/\">Les categories</a>
-
+\t\t
 \t\t\t
 
 
 \t\t";
-        // line 35
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 35, $this->source); })()), "user", [], "any", false, false, false, 35)) {
-            // line 36
+        // line 28
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 28, $this->source); })()), "user", [], "any", false, false, false, 28)) {
+            // line 29
             echo "
 \t\t\t
 \t\t\t\t<a class=\"aderoulant\" href=\"/\">Commandes</a>
@@ -95,30 +88,30 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
 \t\t\t\t<a class=\"aderoulant\" href=\"/\">Déconnexion</a>
 \t\t\t
 \t\t\t\t";
-            // line 43
+            // line 36
             echo "\t\t\t\t<a class=\"aderoulant\" href=\"/ \"id=\"panier-link\">🛒
         (";
-            // line 44
+            // line 37
             echo ")
 \t\t\t\t</a>
 \t\t\t
 \t\t\t";
         } else {
-            // line 48
+            // line 41
             echo "\t\t\t
 \t\t\t\t<a class=\"aderoulant\" href=\" ";
-            // line 49
+            // line 42
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_registration");
             echo "\">Création compte</a>
 \t\t\t
 \t\t\t\t<a class=\"aderoulant\" href=\"";
-            // line 51
+            // line 44
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Connexion</a>
 \t\t\t
 \t\t\t";
         }
-        // line 54
+        // line 47
         echo "
 
        <a href=\"/\">Admin</a>
@@ -135,7 +128,7 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
 </header>
 
 ";
-        // line 69
+        // line 62
         $this->displayBlock('javascripts', $context, $blocks);
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -154,12 +147,12 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 70
+        // line 63
         echo "  ";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
         echo "
   ";
-        // line 72
+        // line 65
         echo "                                              
 
 ";
@@ -192,7 +185,7 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
      */
     public function getDebugInfo()
     {
-        return array (  163 => 72,  158 => 70,  139 => 69,  122 => 54,  116 => 51,  111 => 49,  108 => 48,  102 => 44,  99 => 43,  91 => 36,  89 => 35,  69 => 18,  58 => 10,  49 => 4,  44 => 1,);
+        return array (  156 => 65,  151 => 63,  132 => 62,  115 => 47,  109 => 44,  104 => 42,  101 => 41,  95 => 37,  92 => 36,  84 => 29,  82 => 28,  69 => 18,  58 => 10,  49 => 4,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -220,14 +213,7 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
 \t\t\t<a class=\"aderoulant\" href=\"/\">Contact</a>
 \t\t
 \t\t
-\t\t\t<a class=\"aderoulant\" href=\"/\">Les users</a>
-
-\t\t\t<a class=\"aderoulant\" href=\"/\">Les purchases</a>
-
-        <a class=\"aderoulant\" href=\"/\">Les calendars</a>
-
-       <a class=\"aderoulant\" href=\"/\">Les categories</a>
-
+\t\t
 \t\t\t
 
 

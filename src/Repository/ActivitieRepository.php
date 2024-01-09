@@ -20,6 +20,16 @@ class ActivitieRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Activitie::class);
     }
+    //obtenir le stock d'une activité donneé
+    public function getStockById($id)
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a.stock')
+            ->andWhere('a.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 
 //    /**
 //     * @return Activitie[] Returns an array of Activitie objects
