@@ -154,11 +154,11 @@
             {% endif %} 
         {% else %}
             <div class="d-flex align-items-center">
-                <h2>Vous devez vous inscrire si vous n'avez pas encore de compte</h2>
+                <h2>Pour valider votre panier, vous devez vous inscrire </h2>
                 <a href="{{ path('app_registration') }}" class="secondary">Créer un compte</a>
             </div>
             <div class="d-flex align-items-center">
-                <h2>Vous devez être connecté pour confirmer cette commande</h2>
+                <h2>Si vous avez déja un compte, vous devez vous connecter pour valider votre panier</h2>
                 <a href="{{ path('app_login') }}" class="success">Connexion</a>
             </div>
         {% endif %}

@@ -3,11 +3,12 @@
 namespace App\Form;
 
 use App\Entity\User;
+use App\Entity\Category;
 use App\Entity\Activitie;
-use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -30,6 +31,8 @@ class ActivitieType extends CalendarType
             'label' => 'End',
             'data' => $clickedDate ? new \DateTime(urldecode($clickedDate)) : null, // Utiliser la valeur de 'clickedDate' pour pré-remplir le champ de date
         ])  
+       
+     
             ->add('stock')
             ->add('price', MoneyType::class, [
                 'label' => 'Prix de la seance',

@@ -62,7 +62,10 @@ class __TwigTemplate_1965481674f45e72ffc4f00c883d57d8 extends Template
 \t\t\t\t\t\t\t
 \t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"/\"> Créer un utilisateur</a>
 
-\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"/\"> Réglages</a>
+\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"";
+        // line 15
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_setting_index");
+        echo " \"> Réglages</a>
   </div>
    
 </nav>
@@ -104,7 +107,7 @@ class __TwigTemplate_1965481674f45e72ffc4f00c883d57d8 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  58 => 9,  54 => 7,  49 => 5,  43 => 1,);
+        return array (  67 => 15,  58 => 9,  54 => 7,  49 => 5,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -123,7 +126,7 @@ class __TwigTemplate_1965481674f45e72ffc4f00c883d57d8 extends Template
 \t\t\t\t\t\t\t
 \t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"/\"> Créer un utilisateur</a>
 
-\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"/\"> Réglages</a>
+\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"{{ path('app_admin_category_setting_index')  }} \"> Réglages</a>
   </div>
    
 </nav>

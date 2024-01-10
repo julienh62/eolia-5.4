@@ -28,46 +28,51 @@ class AgendaController extends AbstractController
         $rdvs[] = [];
 
 
+
+
         foreach ($events as $event) {
-            $activitieSettings = $event->getActivitieSettings();
-        
-            if ($activitieSettings !== null) {
-                $rdvs[] = [
-                    'id' => $event->getId(),
-                    'start' => $event->getStart()->format('Y-m-d H:i:s'),
-                    'end' => $event->getEnd()->format('Y-m-d H:i:s'),
-                    'stock' => $event->getStock(),
-                    'title' => $event->getTitle(),
-                    'backgroundColor' => $activitieSettings->getBackGroundColor(),
-                    'borderColor' => $activitieSettings->getBorderColor(),
-                    'textColor' => $activitieSettings->getTextColor(),
-                ];
-            } else {
-                // Handle the case where ActivitieSettings is null
-                // Set default values or manage it accordingly
-                $backgroundColor = '#d3dce3';
-                $borderColor = '#ffffff';
-                $textColor = '#000000';
+
+           
+
+                $colorSettings = $event->getCategory()->getCategorySetting();
+                 //dd($colorSettings);
+       
+                 if ($colorSettings) {
+                    $backGroundColor = $colorSettings->getBackGroundColor();
+                    $borderColor = $colorSettings->getBorderColor();
+                    $textColor = $colorSettings->getTextColor();
+                } else {
+                    // Définissez des valeurs par défaut au cas où CategorySetting n'est pas défini pour cette catégorie
+                    $backgroundColor = '#d3dce3';
+                    $borderColor = '#ffffff';
+                    $textColor = '#000000';
+                }
                 
-                // Use default values for this event
+
+
+
+          
+        
                 $rdvs[] = [
                     'id' => $event->getId(),
                     'start' => $event->getStart()->format('Y-m-d H:i:s'),
                     'end' => $event->getEnd()->format('Y-m-d H:i:s'),
                     'stock' => $event->getStock(),
                     'title' => $event->getTitle(),
-                    'backgroundColor' => $backgroundColor,
+                    'backgroundColor' => $backGroundColor,
                     'borderColor' => $borderColor,
-                    'textColor' => $textColor,
+                      'textColor' => $textColor,
                 ];
             }
-        }
+        
+        
+        
 
         $data = json_encode($rdvs);
        // dd($data);
         return $this->render('agenda/index.html.twig', [
             'data' => json_encode($rdvs),  // Incluez les données existantes
         ]);
-
+    
     }
 }

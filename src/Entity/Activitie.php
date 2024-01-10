@@ -21,14 +21,14 @@ class Activitie extends Calendar
     #[ORM\Column(nullable: true)]
     protected ?int $modifiedPrice = null;
 
-    #[ORM\OneToOne(mappedBy: 'activitie', cascade: ['persist', 'remove'])]
-    private ?ActivitieSettings $activitieSettings = null;
+
 
     #[ORM\OneToMany(mappedBy: 'activitie', targetEntity: PurchaseItem::class)]
     private Collection $purchaseItems;
 
     #[ORM\ManyToMany(targetEntity: User::class)]
     private Collection $users;
+
 
     public function __toString()
     {
@@ -72,23 +72,9 @@ class Activitie extends Calendar
         $this->modifiedPrice = $modifiedPrice;
         return $this;
     }
-    public function getActivitieSettings(): ?ActivitieSettings
-    {
-        return $this->activitieSettings;
-    }
 
-    public function setActivitieSettings(ActivitieSettings $activitieSettings): static
-    {
-        // set the owning side of the relation if necessary
-        if ($activitieSettings->getActivitie() !== $this) {
-            $activitieSettings->setActivitie($this);
-        }
 
-        $this->activitieSettings = $activitieSettings;
-
-        return $this;
-    }
-
+ 
      /**
      * @return Collection<int, PurchaseItem>
      */
@@ -142,6 +128,10 @@ class Activitie extends Calendar
 
         return $this;
     }
+
+   
+
+    
 
 
 }

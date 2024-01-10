@@ -213,10 +213,10 @@ header.responsive button,
 /*////////////////////////////////////// 
 //////////       body  (mobil)      //////////
 //////////////////////////////////////*/
-
+/*
 body {
   background-color: lightgray;
-}
+}*/
 
 
 #slider,
@@ -647,6 +647,25 @@ form[name="calendar"] {
   margin-left: 10rem;
 }
 
+
+
+/*//////////////////////////////////////////////////////////////////////////*/
+/*formulaire création calendar  /*/
+#staff_schedule > div:nth-child(4) > label , #activitie > div:nth-child(4) > label{
+  font-weight: 600;
+ 
+}
+
+
+/*///////////////////////////////////////////////////*/
+
+
+
+
+
+
+
+
 /****************************************************
                          page purchase
 **************************************************/
@@ -1018,6 +1037,21 @@ a.fab {
   #registration_form_phone {
     font-size: 4rem;
   }
+/*//////////////////////////////////////////////////////////////////////////*/
+/*formulaire création calendar  /*/
+#staff_schedule > div:nth-child(4) > label , #activitie > div:nth-child(4) > label{
+  font-weight: 600;
+ 
+}
+.calendarform {
+  display:flex;
+}
+
+/*///////////////////////////////////////////////////*/
+
+
+
+
 
   /********************* footer  tablette*******************/
   .reseaux {
@@ -1338,8 +1372,14 @@ a.fab {
   #formsearch {
     flex-direction:row;
   }
+/*//////////////////////////////////////////////////////////////////////////*/
+/*formulaire création calendar  /*/
+#staff_schedule > div:nth-child(4) > label , #activitie > div:nth-child(4) > label{
+  font-weight: 600;
+  display:flex;
+}
 
-
+/*///////////////////////////////////////////////////*/
 
 
 
@@ -1443,6 +1483,10 @@ a.fab {
     transform: scale(1.5);
     margin-left: 5rem;
   }
+  
+
+
+
 
   /****************************************                 page purchase
 *************************************/

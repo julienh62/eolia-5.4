@@ -350,13 +350,6 @@
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\ActivitieController"/>
       </call>
     </service>
-    <service id="App\Controller\ActivitieSettingController" class="App\Controller\ActivitieSettingController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\ActivitieSettingController"/>
-      </call>
-    </service>
     <service id="App\Controller\AdminActivitieController" class="App\Controller\AdminActivitieController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -390,6 +383,20 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\Admin\AdminCalendarController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Admin\AdminCategoryController" class="App\Controller\Admin\AdminCategoryController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\Admin\AdminCategoryController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Admin\AdminCategorySettingController" class="App\Controller\Admin\AdminCategorySettingController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\Admin\AdminCategorySettingController"/>
       </call>
     </service>
     <service id="App\Controller\AgendaController" class="App\Controller\AgendaController" public="true" autowire="true" autoconfigure="true">
@@ -502,6 +509,12 @@
     <service id="App\Form\CalendarType" class="App\Form\CalendarType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\CategorySettingType" class="App\Form\CategorySettingType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -513,6 +526,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\StaffScheduleSettingsType" class="App\Form\StaffScheduleSettingsType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\StaffScheduleType" class="App\Form\StaffScheduleType" autowire="true" autoconfigure="true">
@@ -534,11 +550,15 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\ActivitieSettingsRepository" class="App\Repository\ActivitieSettingsRepository" autowire="true" autoconfigure="true">
+    <service id="App\Repository\CalendarRepository" class="App\Repository\CalendarRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\CalendarRepository" class="App\Repository\CalendarRepository" autowire="true" autoconfigure="true">
+    <service id="App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\CategorySettingRepository" class="App\Repository\CategorySettingRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -1280,10 +1300,13 @@
       <argument type="collection">
         <argument>App\Form\ActivitieType</argument>
         <argument>App\Form\CalendarType</argument>
+        <argument>App\Form\CategorySettingType</argument>
+        <argument>App\Form\CategoryType</argument>
         <argument>App\Form\ContactType</argument>
         <argument>App\Form\RegistrationFormType</argument>
         <argument>App\Form\ResetPasswordFormType</argument>
         <argument>App\Form\ResetPasswordRequestFormType</argument>
+        <argument>App\Form\StaffScheduleSettingsType</argument>
         <argument>App\Form\StaffScheduleType</argument>
         <argument>App\Form\StaffType</argument>
         <argument>App\Form\UserType</argument>
@@ -3396,7 +3419,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.FfaOG2h"/>
+      <argument type="service" id=".service_locator.95siSkP"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5344,7 +5367,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.MgBSTzO"/>
+      <argument type="service" id=".service_locator.ZP9cekP"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -6166,9 +6189,6 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ActivitieController" class="App\Controller\ActivitieController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ActivitieController" class="App\Controller\ActivitieController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ActivitieController" class="App\Controller\ActivitieController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ActivitieSettingController" class="App\Controller\ActivitieSettingController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ActivitieSettingController" class="App\Controller\ActivitieSettingController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ActivitieSettingController" class="App\Controller\ActivitieSettingController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminActivitieController" class="App\Controller\AdminActivitieController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminActivitieController" class="App\Controller\AdminActivitieController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminActivitieController" class="App\Controller\AdminActivitieController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6184,6 +6204,12 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminCalendarController" class="App\Controller\Admin\AdminCalendarController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminCalendarController" class="App\Controller\Admin\AdminCalendarController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\AdminCalendarController" class="App\Controller\Admin\AdminCalendarController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminCategoryController" class="App\Controller\Admin\AdminCategoryController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminCategoryController" class="App\Controller\Admin\AdminCategoryController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\AdminCategoryController" class="App\Controller\Admin\AdminCategoryController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminCategorySettingController" class="App\Controller\Admin\AdminCategorySettingController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminCategorySettingController" class="App\Controller\Admin\AdminCategorySettingController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\AdminCategorySettingController" class="App\Controller\Admin\AdminCategorySettingController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AgendaController" class="App\Controller\AgendaController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AgendaController" class="App\Controller\AgendaController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AgendaController" class="App\Controller\AgendaController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6227,6 +6253,10 @@
     <service id=".abstract.instanceof.App\Form\ActivitieType" class="App\Form\ActivitieType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CalendarType" class="App\Form\CalendarType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CalendarType" class="App\Form\CalendarType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorySettingType" class="App\Form\CategorySettingType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CategorySettingType" class="App\Form\CategorySettingType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ContactType" class="App\Form\ContactType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
@@ -6235,6 +6265,8 @@
     <service id=".abstract.instanceof.App\Form\ResetPasswordFormType" class="App\Form\ResetPasswordFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\StaffScheduleSettingsType" class="App\Form\StaffScheduleSettingsType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\StaffScheduleSettingsType" class="App\Form\StaffScheduleSettingsType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\StaffScheduleType" class="App\Form\StaffScheduleType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\StaffScheduleType" class="App\Form\StaffScheduleType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\StaffType" class="App\Form\StaffType" autowire="true" abstract="true"/>
@@ -6243,10 +6275,12 @@
     <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActivitieRepository" class="App\Repository\ActivitieRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ActivitieRepository" class="App\Repository\ActivitieRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActivitieSettingsRepository" class="App\Repository\ActivitieSettingsRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\ActivitieSettingsRepository" class="App\Repository\ActivitieSettingsRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CalendarRepository" class="App\Repository\CalendarRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CalendarRepository" class="App\Repository\CalendarRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorySettingRepository" class="App\Repository\CategorySettingRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CategorySettingRepository" class="App\Repository\CategorySettingRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ContactRepository" class="App\Repository\ContactRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ContactRepository" class="App\Repository\ContactRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PaymentRepository" class="App\Repository\PaymentRepository" autowire="true" abstract="true"/>
@@ -6686,19 +6720,6 @@
         <argument key="formatdateService" type="service_closure" id="App\Service\Formatdate"/>
       </argument>
     </service>
-    <service id=".service_locator.iOTFr_E" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="activitieSettingsRepository" type="service_closure" id="App\Repository\ActivitieSettingsRepository"/>
-        <argument key="staffScheduleSettingsRepository" type="service_closure" id="App\Repository\StaffScheduleSettingsRepository"/>
-      </argument>
-    </service>
-    <service id=".service_locator.h5fXsE0" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="activitieSettingsRepository" type="service_closure" id="App\Repository\ActivitieSettingsRepository"/>
-      </argument>
-    </service>
     <service id=".service_locator._O3Wdyp" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6784,6 +6805,44 @@
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
+    <service id=".service_locator.RdVbGrJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="categoryRepository" type="service_closure" id="App\Repository\CategoryRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.7P87fGM" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="category" type="service_closure" id=".errored..service_locator.7P87fGM.App\Entity\Category"/>
+      </argument>
+    </service>
+    <service id=".service_locator.4Uu00Y_" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="category" type="service_closure" id=".errored..service_locator.4Uu00Y_.App\Entity\Category"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.rE599Xt" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="categorySettingRepository" type="service_closure" id="App\Repository\CategorySettingRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.qFIPDCn" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="categorySetting" type="service_closure" id=".errored..service_locator.qFIPDCn.App\Entity\CategorySetting"/>
+      </argument>
+    </service>
+    <service id=".service_locator.QnjRarB" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="categorySetting" type="service_closure" id=".errored..service_locator.QnjRarB.App\Entity\CategorySetting"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
     <service id=".service_locator.pfcqVkM" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6863,7 +6922,7 @@
         <argument key="staffScheduleSettingsRepository" type="service_closure" id="App\Repository\StaffScheduleSettingsRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.WCggcPJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.TaqO3ho" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ActivitieController::filterPrice" type="service_closure" id=".service_locator.vgIxo8M"/>
@@ -6872,9 +6931,6 @@
         <argument key="App\Controller\ActivitieController::listActivitieByChar" type="service_closure" id=".service_locator.Jr9_fLo"/>
         <argument key="App\Controller\ActivitieController::listActivitieByCharKid" type="service_closure" id=".service_locator.auUt45i"/>
         <argument key="App\Controller\ActivitieController::show" type="service_closure" id=".service_locator.ICcbzoU"/>
-        <argument key="App\Controller\ActivitieSettingController::chooseActivitieForm" type="service_closure" id=".service_locator.iOTFr_E"/>
-        <argument key="App\Controller\ActivitieSettingController::index" type="service_closure" id=".service_locator.iOTFr_E"/>
-        <argument key="App\Controller\ActivitieSettingController::new" type="service_closure" id=".service_locator.h5fXsE0"/>
         <argument key="App\Controller\AdminActivitieController::delete" type="service_closure" id=".service_locator.nYdzAk1"/>
         <argument key="App\Controller\AdminActivitieController::edit" type="service_closure" id=".service_locator.nYdzAk1"/>
         <argument key="App\Controller\AdminActivitieController::index" type="service_closure" id=".service_locator.Jr9_fLo"/>
@@ -6894,6 +6950,16 @@
         <argument key="App\Controller\Admin\AdminCalendarController::index" type="service_closure" id=".service_locator.vjnr.bJ"/>
         <argument key="App\Controller\Admin\AdminCalendarController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\AdminCalendarController::show" type="service_closure" id=".service_locator.8_BVbXm"/>
+        <argument key="App\Controller\Admin\AdminCategoryController::delete" type="service_closure" id=".service_locator.4Uu00Y_"/>
+        <argument key="App\Controller\Admin\AdminCategoryController::edit" type="service_closure" id=".service_locator.4Uu00Y_"/>
+        <argument key="App\Controller\Admin\AdminCategoryController::index" type="service_closure" id=".service_locator.RdVbGrJ"/>
+        <argument key="App\Controller\Admin\AdminCategoryController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\AdminCategoryController::show" type="service_closure" id=".service_locator.7P87fGM"/>
+        <argument key="App\Controller\Admin\AdminCategorySettingController::delete" type="service_closure" id=".service_locator.QnjRarB"/>
+        <argument key="App\Controller\Admin\AdminCategorySettingController::edit" type="service_closure" id=".service_locator.QnjRarB"/>
+        <argument key="App\Controller\Admin\AdminCategorySettingController::index" type="service_closure" id=".service_locator.rE599Xt"/>
+        <argument key="App\Controller\Admin\AdminCategorySettingController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\AdminCategorySettingController::show" type="service_closure" id=".service_locator.qFIPDCn"/>
         <argument key="App\Controller\AgendaController::index" type="service_closure" id=".service_locator.Jr9_fLo"/>
         <argument key="App\Controller\CartController::add" type="service_closure" id=".service_locator.pfcqVkM"/>
         <argument key="App\Controller\CartController::index" type="service_closure" id=".service_locator.8dWkn99"/>
@@ -6919,9 +6985,6 @@
         <argument key="App\Controller\ActivitieController:listActivitieByChar" type="service_closure" id=".service_locator.Jr9_fLo"/>
         <argument key="App\Controller\ActivitieController:listActivitieByCharKid" type="service_closure" id=".service_locator.auUt45i"/>
         <argument key="App\Controller\ActivitieController:show" type="service_closure" id=".service_locator.ICcbzoU"/>
-        <argument key="App\Controller\ActivitieSettingController:chooseActivitieForm" type="service_closure" id=".service_locator.iOTFr_E"/>
-        <argument key="App\Controller\ActivitieSettingController:index" type="service_closure" id=".service_locator.iOTFr_E"/>
-        <argument key="App\Controller\ActivitieSettingController:new" type="service_closure" id=".service_locator.h5fXsE0"/>
         <argument key="App\Controller\AdminActivitieController:delete" type="service_closure" id=".service_locator.nYdzAk1"/>
         <argument key="App\Controller\AdminActivitieController:edit" type="service_closure" id=".service_locator.nYdzAk1"/>
         <argument key="App\Controller\AdminActivitieController:index" type="service_closure" id=".service_locator.Jr9_fLo"/>
@@ -6941,6 +7004,16 @@
         <argument key="App\Controller\Admin\AdminCalendarController:index" type="service_closure" id=".service_locator.vjnr.bJ"/>
         <argument key="App\Controller\Admin\AdminCalendarController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\AdminCalendarController:show" type="service_closure" id=".service_locator.8_BVbXm"/>
+        <argument key="App\Controller\Admin\AdminCategoryController:delete" type="service_closure" id=".service_locator.4Uu00Y_"/>
+        <argument key="App\Controller\Admin\AdminCategoryController:edit" type="service_closure" id=".service_locator.4Uu00Y_"/>
+        <argument key="App\Controller\Admin\AdminCategoryController:index" type="service_closure" id=".service_locator.RdVbGrJ"/>
+        <argument key="App\Controller\Admin\AdminCategoryController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\AdminCategoryController:show" type="service_closure" id=".service_locator.7P87fGM"/>
+        <argument key="App\Controller\Admin\AdminCategorySettingController:delete" type="service_closure" id=".service_locator.QnjRarB"/>
+        <argument key="App\Controller\Admin\AdminCategorySettingController:edit" type="service_closure" id=".service_locator.QnjRarB"/>
+        <argument key="App\Controller\Admin\AdminCategorySettingController:index" type="service_closure" id=".service_locator.rE599Xt"/>
+        <argument key="App\Controller\Admin\AdminCategorySettingController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\Admin\AdminCategorySettingController:show" type="service_closure" id=".service_locator.qFIPDCn"/>
         <argument key="App\Controller\AgendaController:index" type="service_closure" id=".service_locator.Jr9_fLo"/>
         <argument key="App\Controller\CartController:add" type="service_closure" id=".service_locator.pfcqVkM"/>
         <argument key="App\Controller\CartController:index" type="service_closure" id=".service_locator.8dWkn99"/>
@@ -7019,15 +7092,18 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.FfaOG2h" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.95siSkP" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\ActivitieType" type="service_closure" id="App\Form\ActivitieType"/>
         <argument key="App\Form\CalendarType" type="service_closure" id="App\Form\CalendarType"/>
+        <argument key="App\Form\CategorySettingType" type="service_closure" id="App\Form\CategorySettingType"/>
+        <argument key="App\Form\CategoryType" type="service_closure" id="App\Form\CategoryType"/>
         <argument key="App\Form\ContactType" type="service_closure" id="App\Form\ContactType"/>
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
         <argument key="App\Form\ResetPasswordFormType" type="service_closure" id="App\Form\ResetPasswordFormType"/>
         <argument key="App\Form\ResetPasswordRequestFormType" type="service_closure" id="App\Form\ResetPasswordRequestFormType"/>
+        <argument key="App\Form\StaffScheduleSettingsType" type="service_closure" id="App\Form\StaffScheduleSettingsType"/>
         <argument key="App\Form\StaffScheduleType" type="service_closure" id="App\Form\StaffScheduleType"/>
         <argument key="App\Form\StaffType" type="service_closure" id="App\Form\StaffType"/>
         <argument key="App\Form\UserType" type="service_closure" id="App\Form\UserType"/>
@@ -7073,12 +7149,13 @@
         <argument key="doctrine.orm.listeners.pdo_cache_adapter_doctrine_schema_subscriber" type="service_closure" id="doctrine.orm.listeners.pdo_cache_adapter_doctrine_schema_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.MgBSTzO" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.ZP9cekP" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ActivitieRepository" type="service_closure" id="App\Repository\ActivitieRepository"/>
-        <argument key="App\Repository\ActivitieSettingsRepository" type="service_closure" id="App\Repository\ActivitieSettingsRepository"/>
         <argument key="App\Repository\CalendarRepository" type="service_closure" id="App\Repository\CalendarRepository"/>
+        <argument key="App\Repository\CategoryRepository" type="service_closure" id="App\Repository\CategoryRepository"/>
+        <argument key="App\Repository\CategorySettingRepository" type="service_closure" id="App\Repository\CategorySettingRepository"/>
         <argument key="App\Repository\ContactRepository" type="service_closure" id="App\Repository\ContactRepository"/>
         <argument key="App\Repository\PaymentRepository" type="service_closure" id="App\Repository\PaymentRepository"/>
         <argument key="App\Repository\PurchaseItemRepository" type="service_closure" id="App\Repository\PurchaseItemRepository"/>
@@ -7323,12 +7400,6 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
-    <service id=".service_locator.mx0UMmY.App\Controller\ActivitieSettingController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\ActivitieSettingController"/>
-      <argument>App\Controller\ActivitieSettingController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.mx0UMmY" method="withContext"/>
-    </service>
     <service id=".service_locator.mx0UMmY.App\Controller\AdminActivitieController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\AdminActivitieController"/>
       <argument>App\Controller\AdminActivitieController</argument>
@@ -7356,6 +7427,18 @@
     <service id=".service_locator.mx0UMmY.App\Controller\Admin\AdminCalendarController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\AdminCalendarController"/>
       <argument>App\Controller\Admin\AdminCalendarController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\Admin\AdminCategoryController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\AdminCategoryController"/>
+      <argument>App\Controller\Admin\AdminCategoryController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\Admin\AdminCategorySettingController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\AdminCategorySettingController"/>
+      <argument>App\Controller\Admin\AdminCategorySettingController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
@@ -7590,12 +7673,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.WCggcPJ"/>
+      <argument type="service" id=".service_locator.TaqO3ho"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.WCggcPJ"/>
+      <argument type="service" id=".service_locator.TaqO3ho"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -7610,6 +7693,10 @@
     <service id=".errored..service_locator.ucsB0dg.App\Entity\StaffSchedule" class="App\Entity\StaffSchedule"/>
     <service id=".errored..service_locator.8_BVbXm.App\Entity\Calendar" class="App\Entity\Calendar"/>
     <service id=".errored..service_locator.G.KaxIT.App\Entity\Calendar" class="App\Entity\Calendar"/>
+    <service id=".errored..service_locator.7P87fGM.App\Entity\Category" class="App\Entity\Category"/>
+    <service id=".errored..service_locator.4Uu00Y_.App\Entity\Category" class="App\Entity\Category"/>
+    <service id=".errored..service_locator.qFIPDCn.App\Entity\CategorySetting" class="App\Entity\CategorySetting"/>
+    <service id=".errored..service_locator.QnjRarB.App\Entity\CategorySetting" class="App\Entity\CategorySetting"/>
     <service id=".Symfony\Component\Dotenv\Command\DotenvDumpCommand.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>dotenv:dump</argument>
       <argument type="collection"/>
@@ -8595,7 +8682,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.WCggcPJ"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.TaqO3ho"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -8618,7 +8705,6 @@
     <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~_DumEha"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.y8bRGQM" alias=".service_locator.ICcbzoU"/>
-    <service id=".service_locator.pXn93_5" alias=".service_locator.iOTFr_E"/>
     <service id=".service_locator.TIECEtk" alias=".service_locator.8D0GUWz"/>
     <service id=".service_locator.Rx79IdX" alias=".service_locator.ucsB0dg"/>
     <service id=".service_locator.xS6SN0W" alias=".service_locator.vjnr.bJ"/>
@@ -8626,9 +8712,9 @@
     <service id=".service_locator.IJyWPwb" alias=".service_locator.kXtg5m1"/>
     <service id=".service_locator.j.3hYyQ" alias=".service_locator.TJOfZmJ"/>
     <service id=".service_locator.QS5ik0Z" alias=".service_locator.I__DjQ_"/>
-    <service id=".service_locator._wxKhdA" alias=".service_locator.WCggcPJ"/>
+    <service id=".service_locator.hhHuv1T" alias=".service_locator.TaqO3ho"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.l6ELYLY"/>
-    <service id=".service_locator.Sc8yMmc" alias=".service_locator.FfaOG2h"/>
+    <service id=".service_locator.PkGDA3r" alias=".service_locator.95siSkP"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.0ghLsew" alias=".service_locator.mx0UMmY"/>
@@ -8659,8 +8745,6 @@
     <service id=".service_locator.MY8rERz" alias=".service_locator.DYX9QWR"/>
     <service id=".service_locator.Lgv17DN" alias=".service_locator.auUt45i"/>
     <service id=".service_locator.VIW11oy" alias=".service_locator.vgIxo8M"/>
-    <service id=".service_locator.qfEdd7Q" alias=".service_locator.iOTFr_E"/>
-    <service id=".service_locator.q9Drn4g" alias=".service_locator.h5fXsE0"/>
     <service id=".service_locator.7T.zOaK" alias=".service_locator._O3Wdyp"/>
     <service id=".service_locator.fU6PTRU" alias=".service_locator.nYdzAk1"/>
     <service id=".service_locator.MN47NgV" alias=".service_locator.oI.7Cm2"/>
@@ -8674,6 +8758,12 @@
     <service id=".service_locator.Acc__il" alias=".service_locator.vjnr.bJ"/>
     <service id=".service_locator.dmc_kdQ" alias=".service_locator.8_BVbXm"/>
     <service id=".service_locator.J8hyprV" alias=".service_locator.G.KaxIT"/>
+    <service id=".service_locator.7u3DfCJ" alias=".service_locator.RdVbGrJ"/>
+    <service id=".service_locator.u.sw5uD" alias=".service_locator.7P87fGM"/>
+    <service id=".service_locator.dUkBKrD" alias=".service_locator.4Uu00Y_"/>
+    <service id=".service_locator.tHfupwI" alias=".service_locator.rE599Xt"/>
+    <service id=".service_locator.RFAuQ_c" alias=".service_locator.qFIPDCn"/>
+    <service id=".service_locator.Ra.zTNM" alias=".service_locator.QnjRarB"/>
     <service id=".service_locator.hdSEO9C" alias=".service_locator.pfcqVkM"/>
     <service id=".service_locator.giopyZV" alias=".service_locator.8dWkn99"/>
     <service id=".service_locator.k3yKEdo" alias=".service_locator.6E9xidT"/>

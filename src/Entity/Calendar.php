@@ -38,11 +38,17 @@ use ReflectionClass;
     #[ORM\ManyToMany(targetEntity: Staff::class, cascade: ['remove'], inversedBy: 'calendars')]
     #[ORM\JoinColumn(nullable: true)]
     protected $staffs;
+
+    #[ORM\ManyToOne(inversedBy: 'calendars')]
+    #[ORM\JoinColumn(nullable: false)]
+    protected ?Category $category = null;
+
+  
   
     public function __construct()
     {
         $this->staffs = new ArrayCollection();
-
+       
     }
 
    // 25/12#[ORM\ManyToOne(inversedBy: 'calendars')]
@@ -141,5 +147,16 @@ use ReflectionClass;
          return $class->getShortName();
      }
 
+     public function getCategory(): ?Category
+     {
+         return $this->category;
+     }
+ 
+     public function setCategory(?Category $category): self
+     {
+         $this->category = $category;
+ 
+         return $this;
+     }
 }
 

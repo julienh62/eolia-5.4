@@ -4,7 +4,9 @@ namespace App\Form;
 
 
 
+
 use App\Entity\Staff;
+use App\Entity\Category;
 use App\Entity\Calendar;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
@@ -40,14 +42,18 @@ class CalendarType extends AbstractType
                   'label' => 'End',
                   'data' => $clickedDate ? new \DateTime($clickedDate):null, // Utiliser la valeur de 'clickedDate' pour pré-remplir le champ de date
               ])  
-       
+             
               ->add('staffs', EntityType::class, [
                 'class' => Staff::class,
-                'multiple' => true, // Pour autoriser la sélection de plusieurs membres du personnel
-                'expanded' => true, // Pour afficher les options sous forme de cases à cocher (si nécessaire)
-                'choice_label' => 'fullName', // Le champ de l'entité Staff à afficher dans le formulaire
-            ])  
-            
+                'multiple' => true,
+                'expanded' => true,
+                'choice_label' => 'fullName',
+                'attr' => [
+                    'class' => 'calendarform' // Ajout de la classe CSS 'calendarform'
+                ]
+            ])
+        
+            ->add('category')
           
 
         ;
