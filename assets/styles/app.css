@@ -722,6 +722,14 @@ Tools
   .onlydesktop {
     display: none;
   }
+
+  /* Pour centrer le contenu du tableau */
+.colonnetableau {
+  margin:4rem;
+}
+.colonnetableaux {
+  margin:5rem;
+}
   
   .onlymobil {
     display: block;

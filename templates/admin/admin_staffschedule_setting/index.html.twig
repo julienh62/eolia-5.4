@@ -1,4 +1,4 @@
- {% extends 'base.html.twig' %}
+ {% extends 'base.admin.html.twig' %}
 
     {% block title %}StaffscheduleSettings index{% endblock %}
 
@@ -26,18 +26,18 @@
                     <td>{{ scheduleStaff.backGroundColor }}</td>
                     <td>
                        {# <a href="{{ path('app_admin_scheduleStaff_show', {'id': scheduleStaff.id}) }}">show</a>
-                        <a href="{{ path('app_admin_scheduleStaff_edit', {'id': scheduleStaff.id}) }}">edit</a>#}
+                        <a href="{{ path('app_admin_scheduleStaff_edit', {'id': scheduleStaff.id}) }}">modifier</a>#}
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="6">no records found</td>
+                    <td colspan="6">Aucune correspondance trouvée</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
 
-        <a href="{{ path('app_admin_formChooseActivitie') }}">Create new</a>
+        <a href="{{ path('app_admin_formChooseActivitie') }}">Créer </a>
     {% endblock %}
 
 

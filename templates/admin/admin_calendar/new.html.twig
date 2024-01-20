@@ -3,12 +3,12 @@
 {% block title %}New Calendar{% endblock %}
 
 {% block body %}
-    <h1>Create new Calendar</h1>
+    <h1>Créer  Calendar</h1>
 
   {{ form_start(form) }}
     {{ form_widget(form) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 
-    <a href="{{ path('app_admin_calendar_index') }}">back to list</a>
+    <a href="{{ path('app_admin_calendar_index') }}">Retour à la liste</a>
 {% endblock %}

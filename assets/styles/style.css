@@ -745,6 +745,20 @@ hr {
 .onlymobil {
   display: block;
 }
+/*
+.tableau {
+  margin: auto;
+  border-collapse: collapse; 
+}
+
+/* Pour centrer le texte dans les cellules du tableau 
+.tableau th, .tableau td {
+  text-align : justify;
+}
+/* Pour centrer le texte dans la cellule du colspan 
+.tableau td[colspan="3"] {
+  text-align: center;
+}*/
 #red {
   color: red;
 }
@@ -1231,7 +1245,7 @@ a.fab {
   }
 
   /*********************************************
-                 admin                  
+                 admin  desktop                
   *******************************************/
 
   .admin-navbar {
@@ -1249,7 +1263,7 @@ a.fab {
     color: red;
   }
 
-  /****************************************************************/
+  /************************desktop****************************************/
 
   .titremobil {
     display: none;
@@ -1353,7 +1367,7 @@ a.fab {
     max-width: 1200px;
   }
   /************************************************
-                           page presentation
+                           page presentation desktop
          ****************************************************/
   .presentation {
     top: 10px;
@@ -1366,25 +1380,25 @@ a.fab {
   }
 
   /*******************************
-               page calendar
+               page calendar  desktop
  *******************************/
 
   #formsearch {
     flex-direction:row;
   }
-/*//////////////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////desktop/////////////////////////////////////////////*/
 /*formulaire création calendar  /*/
 #staff_schedule > div:nth-child(4) > label , #activitie > div:nth-child(4) > label{
   font-weight: 600;
   display:flex;
 }
 
-/*///////////////////////////////////////////////////*/
+/*//////////////////////////desktop/////////////////////////*/
 
 
 
   /*******************************
-               page calendarmain
+               page calendarmain  desktop
  *******************************/
 
   .calendaraccueil {
@@ -1420,7 +1434,7 @@ a.fab {
   }
 
   /************************************
-/*            page login    pc /*************************************/
+/*            page login    desktop /*************************************/
 
   .titreLoginEmail {
     font-size: 5rem;
@@ -1442,18 +1456,34 @@ a.fab {
   }
 
   /***********************************************
-                     page panier        
+                     page panier     desktop   
  ************************************************/
 
   .onlymobil {
     display: none;
   }
   .onlydesktop {
-    display: block;
+    display: flex;
+    padding:5rem;
   }
 
+  .tableau  {
+    border:2px black solid;
+  }
+  .colonnetableau {
+    padding: 1rem 2rem 1rem 2rem;
+    border:2px black solid;
+    background-color:#1c8db8;
+    width:300px;
+  }
+  
+  .colonnetableaux {
+    padding: 1rem 2rem 1rem 2rem;
+    width:300px;
+  }  
+
   /****************************************************
-                         page paiement stripe
+                         page paiement stripe  desktop
 **************************************************/
   #payment-form {
     max-width: 1100px;
@@ -1488,7 +1518,7 @@ a.fab {
 
 
 
-  /****************************************                 page purchase
+  /****************************************                 page purchase desktop
 *************************************/
 
   .purchasemobil {

@@ -15,7 +15,7 @@ The suggested installation method is via `composer`_:
 Usage
 =====
 
-The instantiator is able to create new instances of any class without
+The instantiator is able to Créer  instances of any class without
 using the constructor or any API of the class itself:
 
 .. code-block:: php

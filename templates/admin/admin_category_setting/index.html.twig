@@ -1,37 +1,74 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.admin.html.twig' %}
 
 {% block title %}CategorySetting index{% endblock %}
 
 {% block body %}
-    <h1>CategorySetting index</h1>
+    <h1>CategorySetting </h1>
 
-    <table class="table">
-        <thead>
+       <div class="onlydesktop">
+     <table class="tableau">
+        <thead class="tableau">
             <tr>
-                <th>Id</th>
-                <th>TextColor</th>
-                <th>BackGroundColor</th>
-                <th>actions</th>
+                <th class="colonnetableau">Title</th>
+                <th class="colonnetableau">TextColor</th>
+                <th class="colonnetableau">BackGroundColor</th>
+                <th class="colonnetableau">action</th>
+                <th class="colonnetableau">action</th>
             </tr>
         </thead>
         <tbody>
         {% for category_setting in category_settings %}
             <tr>
-                <td>{{ category_setting.id }}</td>
-                <td>{{ category_setting.textColor }}</td>
-                <td>{{ category_setting.backGroundColor }}</td>
-                <td>
+                <td class="colonnetableaux">{{ category_setting.titleCategorySetting }}</td>
+                <td class="colonnetableaux">{{ category_setting.textColor }}</td>
+                <td class="colonnetableaux">{{ category_setting.backGroundColor }}</td>
+                <td class="colonnetableaux">
                     <a href="{{ path('app_admin_category_setting_show', {'id': category_setting.id}) }}">show</a>
-                    <a href="{{ path('app_admin_category_setting_edit', {'id': category_setting.id}) }}">edit</a>
+                </td>
+                   <td class="colonnetableaux">
+                    <a href="{{ path('app_admin_category_setting_edit', {'id': category_setting.id}) }}">modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td>Aucune correspondance trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+</div>
 
-    <a href="{{ path('app_admin_category_setting_new') }}">Create new</a>
+   
+
+<div class="onlymobil">
+        {% for category_setting in category_settings %}
+               <p>{{ category_setting.titleCategorySetting }} </p>
+               <p>{{ category_setting.textColor }} </p>
+               <p>{{ category_setting.textColor }} </p>
+               <p>{{ category_setting.backGroundColor }} </p>
+               
+                <p>
+                  <a href="{{ path('app_admin_category_setting_show', {'id': category_setting.id}) }}">show</a>
+
+                </p>
+                <p>
+                    <a href="{{ path('app_admin_category_setting_edit', {'id': category_setting.id}) }}">modifier</a>
+
+                </p>
+       
+      
+            
+             
+               
+              
+           
+        {% else %}
+           
+                <p>Aucune Catégorie pour l'instant </p>
+          
+        {% endfor %}
+        
+   
+  </div>
+       <a href="{{ path('app_admin_category_setting_new') }}">Créer </a>
 {% endblock %}

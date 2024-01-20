@@ -5,7 +5,7 @@
 
     {{ include('<?= $templates_path ?>/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('<?= $route_name ?>_index') }}">back to list</a>
+    <a href="{{ path('<?= $route_name ?>_index') }}">Retour à la liste</a>
 
     {{ include('<?= $templates_path ?>/_delete_form.html.twig') }}
 {% endblock %}

@@ -14,6 +14,9 @@ class CategorySetting
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    private ?string $titleCategorySetting = null;
+
+    #[ORM\Column(length: 255)]
     private ?string $textColor = null;
 
     #[ORM\Column(length: 255)]
@@ -31,14 +34,14 @@ class CategorySetting
         return $this->id;
     }
 
-    public function getTextColor(): ?string
+    public function getTitleCategorySetting(): ?string
     {
-        return $this->textColor;
+        return $this->titleCategorySetting;
     }
 
-    public function setTextColor(string $textColor): static
+    public function setTitleCategorySetting(string $titleCategorySetting): static
     {
-        $this->textColor = $textColor;
+        $this->titleCategorySetting = $titleCategorySetting;
 
         return $this;
     }
@@ -63,6 +66,18 @@ class CategorySetting
     public function setBorderColor(string $borderColor): static
     {
         $this->borderColor = $borderColor;
+
+        return $this;
+    }
+
+    public function getTextColor(): ?string
+    {
+        return $this->textColor;
+    }
+
+    public function setTextColor(string $textColor): static
+    {
+        $this->textColor = $textColor;
 
         return $this;
     }

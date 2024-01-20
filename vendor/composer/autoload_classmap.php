@@ -7,13 +7,13 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Controller\\ActivitieController' => $baseDir . '/src/Controller/ActivitieController.php',
-    'App\\Controller\\AdminActivitieController' => $baseDir . '/src/Controller/AdminActivitieController.php',
-    'App\\Controller\\AdminStaffController' => $baseDir . '/src/Controller/AdminStaffController.php',
-    'App\\Controller\\AdminStaffScheduleController' => $baseDir . '/src/Controller/AdminStaffScheduleController.php',
+    'App\\Controller\\Admin\\AdminActivitieController' => $baseDir . '/src/Controller/Admin/AdminActivitieController.php',
     'App\\Controller\\Admin\\AdminAgendaController' => $baseDir . '/src/Controller/Admin/AdminAgendaController.php',
     'App\\Controller\\Admin\\AdminCalendarController' => $baseDir . '/src/Controller/Admin/AdminCalendarController.php',
     'App\\Controller\\Admin\\AdminCategoryController' => $baseDir . '/src/Controller/Admin/AdminCategoryController.php',
     'App\\Controller\\Admin\\AdminCategorySettingController' => $baseDir . '/src/Controller/Admin/AdminCategorySettingController.php',
+    'App\\Controller\\Admin\\AdminStaffController' => $baseDir . '/src/Controller/Admin/AdminStaffController.php',
+    'App\\Controller\\Admin\\AdminStaffScheduleController' => $baseDir . '/src/Controller/Admin/AdminStaffScheduleController.php',
     'App\\Controller\\AgendaController' => $baseDir . '/src/Controller/AgendaController.php',
     'App\\Controller\\CartController' => $baseDir . '/src/Controller/CartController.php',
     'App\\Controller\\ContactController' => $baseDir . '/src/Controller/ContactController.php',

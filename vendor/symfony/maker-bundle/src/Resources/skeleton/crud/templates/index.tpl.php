@@ -20,16 +20,16 @@
 <?php endforeach; ?>
                 <td>
                     <a href="{{ path('<?= $route_name ?>_show', {'<?= $entity_identifier ?>': <?= $entity_twig_var_singular ?>.<?= $entity_identifier ?>}) }}">show</a>
-                    <a href="{{ path('<?= $route_name ?>_edit', {'<?= $entity_identifier ?>': <?= $entity_twig_var_singular ?>.<?= $entity_identifier ?>}) }}">edit</a>
+                    <a href="{{ path('<?= $route_name ?>_edit', {'<?= $entity_identifier ?>': <?= $entity_twig_var_singular ?>.<?= $entity_identifier ?>}) }}">modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="<?= (count($entity_fields) + 1) ?>">no records found</td>
+                <td colspan="<?= (count($entity_fields) + 1) ?>">Aucune correspondance trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('<?= $route_name ?>_new') }}">Create new</a>
+    <a href="{{ path('<?= $route_name ?>_new') }}">Créer </a>
 {% endblock %}

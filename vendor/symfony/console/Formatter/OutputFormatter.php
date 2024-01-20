@@ -197,7 +197,7 @@ class OutputFormatter implements WrappableOutputFormatterInterface
     }
 
     /**
-     * Tries to create new style instance from string.
+     * Tries to Créer  style instance from string.
      */
     private function createStyleFromString(string $string): ?OutputFormatterStyleInterface
     {

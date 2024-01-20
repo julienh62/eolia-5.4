@@ -4,9 +4,11 @@
     <a class="navbar-brand" href="/">
 			<img src="{{ asset('assets/uploads/logoeolia170px.png')}}" alt="char à voile Baie de Somme"></a>
       
-							 <a class="dropdown-item" href="{#{{ path('admin_main_calendar')  }}#} ">Séances</a>
+							 <a class="dropdown-item" href="{{ path('app_admin_agenda')  }} ">Séances</a>
 						
 							<a class="dropdown-item" href="{{ path('app_admin_staff_index')  }} ">Staffs</a>
+
+							<a class="dropdown-item" href="{{ path('app_admin_category_index')  }} ">Catégories </a>
 					
 							<a class="dropdown-item" href="/"> Liste des utilisateurs</a>	
 							

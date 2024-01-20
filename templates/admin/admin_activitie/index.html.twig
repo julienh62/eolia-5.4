@@ -30,16 +30,16 @@
                 <td>{{ activitie.modifiedPrice }}</td>
                 <td>
                     <a href="{{ path('app_admin_activitie_show', {'id': activitie.id}) }}">show</a>
-                    <a href="{{ path('app_admin_activitie_edit', {'id': activitie.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_activitie_edit', {'id': activitie.id}) }}">modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">Aucune correspondance trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_formChooseCalendar') }}">Create new</a>
+    <a href="{{ path('app_admin_formChooseCalendar') }}">Créer </a>
 {% endblock %}

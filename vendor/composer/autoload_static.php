@@ -562,13 +562,13 @@ class ComposerStaticInitee669ca5fdf99b723ef16837d358261a
 
     public static $classMap = array (
         'App\\Controller\\ActivitieController' => __DIR__ . '/../..' . '/src/Controller/ActivitieController.php',
-        'App\\Controller\\AdminActivitieController' => __DIR__ . '/../..' . '/src/Controller/AdminActivitieController.php',
-        'App\\Controller\\AdminStaffController' => __DIR__ . '/../..' . '/src/Controller/AdminStaffController.php',
-        'App\\Controller\\AdminStaffScheduleController' => __DIR__ . '/../..' . '/src/Controller/AdminStaffScheduleController.php',
+        'App\\Controller\\Admin\\AdminActivitieController' => __DIR__ . '/../..' . '/src/Controller/Admin/AdminActivitieController.php',
         'App\\Controller\\Admin\\AdminAgendaController' => __DIR__ . '/../..' . '/src/Controller/Admin/AdminAgendaController.php',
         'App\\Controller\\Admin\\AdminCalendarController' => __DIR__ . '/../..' . '/src/Controller/Admin/AdminCalendarController.php',
         'App\\Controller\\Admin\\AdminCategoryController' => __DIR__ . '/../..' . '/src/Controller/Admin/AdminCategoryController.php',
         'App\\Controller\\Admin\\AdminCategorySettingController' => __DIR__ . '/../..' . '/src/Controller/Admin/AdminCategorySettingController.php',
+        'App\\Controller\\Admin\\AdminStaffController' => __DIR__ . '/../..' . '/src/Controller/Admin/AdminStaffController.php',
+        'App\\Controller\\Admin\\AdminStaffScheduleController' => __DIR__ . '/../..' . '/src/Controller/Admin/AdminStaffScheduleController.php',
         'App\\Controller\\AgendaController' => __DIR__ . '/../..' . '/src/Controller/AgendaController.php',
         'App\\Controller\\CartController' => __DIR__ . '/../..' . '/src/Controller/CartController.php',
         'App\\Controller\\ContactController' => __DIR__ . '/../..' . '/src/Controller/ContactController.php',

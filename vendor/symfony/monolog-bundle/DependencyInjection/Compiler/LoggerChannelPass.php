@@ -133,7 +133,7 @@ class LoggerChannelPass implements CompilerPassInterface
     }
 
     /**
-     * Create new logger from the monolog.logger_prototype
+     * Créer  logger from the monolog.logger_prototype
      *
      * @return void
      */

@@ -1,39 +1,65 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.admin.html.twig' %}
 
 {% block title %}Category index{% endblock %}
 
 {% block body %}
-    <h1>Category index</h1>
+    <h1>Category </h1>
 
-    <table class="table">
-        <thead>
+    
+    <div class="onlydesktop">
+     <table class="tableau">
+        <thead class="tableau">
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>TextColor</th>
-                <th>BorderColor</th>
-                <th>BackGroundColor</th>
-                <th>actions</th>
+                <th class="colonnetableau">Title</th>
+                <th class="colonnetableau">action</th>
+                <th class="colonnetableau">action</th>
             </tr>
         </thead>
         <tbody>
         {% for category in categories %}
             <tr>
-                <td>{{ category.id }}</td>
-                <td>{{ category.title }}</td>
+                <td class="colonnetableaux">{{ category.title }}</td>
                 
-                <td>
-                    <a href="{{ path('app_admin_category_show', {'id': category.id}) }}">show</a>
-                    <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}">edit</a>
+                <td class="colonnetableaux">
+                    <a href="{{ path('app_admin_category_show', {'id': category.id}) }}"> Voir </a>
+                </td>
+                   <td class="colonnetableaux">
+                    <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}">editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td>Aucune correspondance trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+  </div>
 
-    <a href="{{ path('app_admin_category_new') }}">Create new</a>
+<div class="onlymobil">
+      {% for category in categories %}
+               <p>{{ category.title }} </p>
+               
+                <p>
+                    <a href="{{ path('app_admin_category_show', {'id': category.id}) }}">Voir</a>
+                </p>
+                <p>
+                    <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}"> Éditer </a>
+                </p>
+       
+      
+            
+             
+               
+              
+           
+        {% else %}
+           
+                <p>Aucune Catégorie pour l'instant </p>
+          
+        {% endfor %}
+        
+   
+  </div>
+       <a href="{{ path('app_admin_category_new') }}">Créer </a>
 {% endblock %}

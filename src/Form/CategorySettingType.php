@@ -13,6 +13,7 @@ class CategorySettingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+        ->add('titleCategorySetting')
         ->add('background_color', ColorType::class)
         ->add('border_color', ColorType::class)
         ->add('text_color', ColorType::class) 

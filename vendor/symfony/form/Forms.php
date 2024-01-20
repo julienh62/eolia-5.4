@@ -14,7 +14,7 @@ namespace Symfony\Component\Form;
 /**
  * Entry point of the Form component.
  *
- * Use this class to conveniently create new form factories:
+ * Use this class to conveniently Créer  form factories:
  *
  *     use Symfony\Component\Form\Forms;
  *
