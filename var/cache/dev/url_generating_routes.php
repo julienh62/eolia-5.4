@@ -38,6 +38,7 @@ return [
     'app_admin_staff_schedule_show' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminStaffScheduleController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/staffschedule']], [], [], []],
     'app_admin_staff_schedule_edit' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminStaffScheduleController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/staffschedule']], [], [], []],
     'app_admin_staff_schedule_delete' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminStaffScheduleController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/staffschedule']], [], [], []],
+    'app_agenda_cata' => [[], ['_controller' => 'App\\Controller\\AgendaCataController::listCalendarByChar'], [], [['text', '/agendacata']], [], [], []],
     'app_agenda' => [[], ['_controller' => 'App\\Controller\\AgendaController::index'], [], [['text', '/agenda']], [], [], []],
     'app_calendar_filter' => [[], ['_controller' => 'App\\Controller\\CalendarController::index'], [], [['text', '/calendarfilter']], [], [], []],
     'cart_add' => [['id'], ['_controller' => 'App\\Controller\\CartController::add'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/cart/add']], [], [], []],
