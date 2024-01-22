@@ -54,10 +54,10 @@ class PurchaseListController extends AbstractController
 
            
 
-            // Loop through the PurchaseItems to collect activitie IDs
+            // Loop through the PurchaseItems to collect Activity IDs
        
 
-            // Ajouter les valeurs de chaque commande au tableau $purchases, including activitie IDs
+            // Ajouter les valeurs de chaque commande au tableau $purchases, including Activity IDs
             $purchases[] = [
                 'start' => $start,
                 'end' => $end,
@@ -66,7 +66,7 @@ class PurchaseListController extends AbstractController
                 'total' => $total,
               //  'created_at' => $created_at,
                 'status' => $status,
-                'activitieIds' => $activitieIds, // Include the activitie IDs
+                'activitieIds' => $activitieIds, // Include the Activity IDs
             ];
         }
 

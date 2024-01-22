@@ -15,7 +15,7 @@ use ReflectionClass;
  #[ORM\Table(name: "calendar")]
  #[ORM\InheritanceType("SINGLE_TABLE")]
  #[ORM\DiscriminatorColumn(name: "calendarType", type: "string")]
- #[ORM\DiscriminatorMap(["activitie" => Activitie::class, "staffSchedule" => StaffSchedule::class])]
+ #[ORM\DiscriminatorMap(["activity" => Activity::class, "staffSchedule" => StaffSchedule::class])]
  abstract class Calendar
 {
 

@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}calendar index{% endblock %}
+
+{% block body %}
+    <h1>Les séances</h1>
+
+{#  {{ dump(calendars) }}#}
+<div id="search">
+    <form action='{{ path('filter') }}' method="get">
+
+      <div id="formsearch">
+         <div>
+            <label for="valeurMin">Nombre de place recherché minimum:</label>
+            <input type="number" id="min-price" name="min" min="0" value="1" max="100" step="1">
+
+              <label for="calendar-select">Choisis une activité:</label>
+              <select name="category" id="calendar-select">
+                  <option value="all" selected>Toutes les activités</option>
+                  {% for categorie in categories %}
+                     {% if categorie.activity %}
+                       <option value="{{ categorie.title }}">
+                         {{ categorie.title }}
+                      </option>
+                     {% endif %}
+                  {% endfor %}
+              </select>    
+
+         </div>
+         <div>
+              <label for="begin">Date début recherche</label>
+             {#} <input type="datetime-local" id="begin" name="begin" value="{{ "now"|date("Y-m-d\\TH:i") }}"> #}
+              <input type="date" id="begin" name="begin" value="{{ "now"|date("Y-m-d") }}">
+             
+         </div>
+
+         <div>
+            <label for="end">Date fin de recherche</label>
+            {% set nextDay = "now"|date_modify("+15 day") %}
+            {#}<input type="datetime-local" id="end" name="end" value="{{ nextDay|date("Y-m-d\\TH:i") }}"> #}
+              <input type="date" id="end" name="end" value="{{ nextDay|date("Y-m-d") }}">
+         </div>
+         <div>
+            <button class ="button" type="submit">Valider</button>
+         </div>
+        <!--    <label for="valeurMax">Valeur Maximale :</label>
+            <input type="number" id="max-price" name="max" min="0" value="30" max="500" step="0.1"> -->
+        <br>
+      </div>
+    </form>
+</div>
+ <!--  <label class="label" for="recherche">Cliquez dans la barre de recherche ci dessous pour trouver la date de votre séance: </label><!-- Notre champ de recherche avec un id
+          <input type="date" id="meeting-time"
+       name="meeting-time" value="
+       {#}<?= date('Y-m-d H:i:s') ?>"  required pattern="\d{4}-\d{2}-\d{2}"/> #}
+-->
+    <div class="onlydesktop">
+
+      <table class="tableau">
+        <thead class="tableau">
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Catégorie</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Prix</th>
+                <th>Stock</th>
+                <th>action</th>
+                 <th>action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+          {% for  calendar in calendars %}
+            <tr>
+                <td class="tableau">{{ calendar.id }}</td>
+                <td class="tableau">{{ calendar.title }}</td>
+                <td class="tableau">{{ calendar.category }}</td>
+                <td class="tableau">  {{ calendar.formattedStartDate ? calendar.formattedStartDate| trans : '' }}</td>
+                <td class="tableau">{{ calendar.formattedEndDate ? calendar.formattedEndDate| trans : '' }}</td>
+
+                <td class="tableau">{{ calendar.price | amount }}</td>
+                <td class="tableau">{{ calendar.stock }}</td>
+                <td class="tableau">
+                    <a href="{{ path('app_activitie_show', {'id': calendar.id}) }}">détails</a>
+                </td>
+                 <td class="tableau">
+                    <a href="{{ path('cart_add', {'id': calendar.id}) }}">ajouter au panier</a>
+                </td>
+
+            </tr>
+          {% else %}
+                 <tr>
+                     <td>Aucune correspondance trouvée</td>
+                 </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+    </div>
+    <div class="onlymobil">
+        {% for calendar in calendars %}
+
+
+            <h3>Catégorie</h3>
+            <p>{{ calendar.category }}</p>
+
+            <h3>Start</h3>
+            <p>{{ calendar.start ? calendar.start|date('Y-m-d H:i:s') : '' }}</p>
+
+            <h3>End</h3>
+            <p>{{ calendar.end ? calendar.end|date('Y-m-d H:i:s') : '' }}</p>
+
+            <h3>Prix</h3>
+            <p>{{ calendar.price | amount }}</p>
+
+            <h3>Stock</h3>
+            <p>{{ calendar.stock }}</p>
+
+
+
+
+
+            <hr>
+
+
+
+        {% else %}
+
+            <p>Aucune correspondance trouvée</p>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

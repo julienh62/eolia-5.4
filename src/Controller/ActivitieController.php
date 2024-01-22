@@ -4,10 +4,11 @@ namespace App\Controller;
 
 use \DateTime;
 use App\Entity\User;
-use App\Entity\Activitie;
-use App\Form\ActivitieType;
+use App\Entity\Activity;
+use App\Form\ActivityType;
 use App\Service\Formatdate;
-use App\Repository\ActivitieRepository;
+use App\Repository\CategoryRepository;
+use App\Repository\ActivityRepository;
 use App\Repository\PurchaseItemRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,23 +18,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ActivitieController extends AbstractController
 {
-   #[Route('/activitie', name: 'app_activitie_index')]
-    public function index(ActivitieRepository $activitieRepository, Formatdate $formatdateService): Response
+   #[Route('/activity', name: 'app_activitie_index')]
+    public function index(ActivityRepository $activityRepository, Formatdate $formatdateService): Response
     {
-          $activities = $activitieRepository->findAll();
+          $activities = $activityRepository->findAll();
           
          
 
         setlocale(LC_TIME, 'fr_FR');
 
         // Formate les dates avec le service Formatdate
-        foreach ($activities as $activitie) {
-            $activitie->formattedStartDate = $formatdateService->formatCustomDate($activitie->getStart());
-            $activitie->formattedEndDate = $formatdateService->formatCustomDate($activitie->getEnd());
+        foreach ($activities as $activity) {
+            $activity->formattedStartDate = $formatdateService->formatCustomDate($activity->getStart());
+            $activity->formattedEndDate = $formatdateService->formatCustomDate($activity->getEnd());
         }
 
        
-        return $this->render('activitie/index.html.twig', [
+        return $this->render('activity/index.html.twig', [
             'activities' => $activities,
     
         ]);
@@ -42,25 +43,25 @@ class ActivitieController extends AbstractController
 
 
     #[Route('/activitieshow/{id}', name: 'app_activitie_show', priority: -1, methods: ['GET'])]
-    public function show(Activitie $activitie, PurchaseItemRepository $purchaseItemRepository, ActivitieRepository $activitieRepository,$id): Response
+    public function show(Activity $activity, PurchaseItemRepository $purchaseItemRepository, ActivityRepository $activityRepository,$id): Response
     {
-        $activities = $activitieRepository->findAll();
+        $activities = $activityRepository->findAll();
 
-        $stock = $activitieRepository->getStockById($id);
+        $stock = $activityRepository->getStockById($id);
 
 
-     /*   $categoryData = $activitieRepository->getCategoryPictureAndPrice($id);
+     /*   $categoryData = $activityRepository->getCategoryPictureAndPrice($id);
         $picture = $categoryData['picture'] ?? null;
         $price = $categoryData['price'] ?? null;
 
 
-        $stock = $activitieRepository->getStock($id);*/
+        $stock = $activityRepository->getStock($id);*/
     
         $quantity = $purchaseItemRepository->getPurchaseActivitie($id);
         $resultquery = $purchaseItemRepository->getPurchaseQuantitySum($id);
         //dd($quantity);
         // je recupere les valeurs de la commandes
-      /*  $activitieQuantityClient = $activitie->getPurchaseItems()->getValues();
+      /*  $activitieQuantityClient = $Activity->getPurchaseItems()->getValues();
     
              //si la quantité comandée est nulle 
        //je donne 0 à la valeur quantity 
@@ -73,8 +74,8 @@ class ActivitieController extends AbstractController
         //dd($sommequantitecommande);/*/
        
 
-        return $this->render('activitie/show.html.twig', [
-            'activitie' => $activitie,
+        return $this->render('activity/show.html.twig', [
+            'activity' => $activity,
            //  'stock' => $stock,
         //   'picture' => $picture,
         //   'price' => $price
@@ -83,20 +84,20 @@ class ActivitieController extends AbstractController
         ]);
     }
 
-  // list activitie char
+  // list Activity char
  /**
  * @Route("/activitieallchar", name="activitie_all_char")
  */
-public function listActivitieByChar( ActivitieRepository $activitieRepository)
+public function listActivitieByChar( ActivityRepository $activityRepository)
 {
-   $activitie = $activitieRepository->getAllChar();
+   $activity = $activityRepository->getAllChar();
    
 
     return $this->render(
-        'activitie/listByCat.html.twig',
+        'activity/listByCat.html.twig',
         [
            
-            'activities'  => $activitie
+            'activities'  => $activity
         ]
 
     );
@@ -106,15 +107,15 @@ public function listActivitieByChar( ActivitieRepository $activitieRepository)
 /**
  * @Route("/activitiescatamaran", name="cataAll_show")
  */
-public function listActivitieByCatamaran( ActivitieRepository $activitieRepository, CategoryRepository $categoryRepository)
+public function listActivitieByCatamaran( ActivityRepository $activityRepository, CategoryRepository $categoryRepository)
 {
-   $activitie = $activitieRepository->getAllCatamaran();
+   $activity = $activityRepository->getAllCatamaran();
    $idCat = $categoryRepository->find($id = 2);
    
     return $this->render(
-        'activitie/listByCat.html.twig',
+        'activity/listByCat.html.twig',
         [
-            'activities'  => $activitie,
+            'activities'  => $activity,
             'idcat' => $idCat
             
         ]
@@ -122,56 +123,27 @@ public function listActivitieByCatamaran( ActivitieRepository $activitieReposito
     );
 }
 
-//list activitie kid
+//list Activity kid
    /**
    * @Route("/activitiecharkid", name="charkidAll_show")
    */
-  public function listActivitieByCharKid( ActivitieRepository $activitieRepository, CategoryRepository $categoryRepository)
+  public function listActivitieByCharKid( ActivityRepository $activityRepository, CategoryRepository $categoryRepository)
   {
   
-     $activitie = $activitieRepository->getAllCharKid();
+     $activity = $activityRepository->getAllCharKid();
      $idCat = $categoryRepository->find($id = 3);
   
       return $this->render(
-          'activitie/listByCat.html.twig',
+          'activity/listByCat.html.twig',
           [
-              'activities'  => $activitie,
+              'activities'  => $activity,
               'idcat' => $idCat 
           ]
   
       );
   }
 
-    #[Route('/filter', name: 'filter', methods: ['GET'], priority: 2)]
-    public function filterPrice( ActivitieRepository $activitieRepository,CategoryRepository $categoryRepository, Formatdate $formatdateService, Request $request ): Response
-    {
-        $categories = $categoryRepository->findAll();
 
-        $filter = $request->get("filter");
-        $min = $request->get("min");
-        $begin = $request->get("begin");
-        $end = $request->get("end");
-        $category = $request->get("category");
-        //   $max = $request->get("max");
-       // dd($category);
-
-      //  $activities = $activitieRepository->filter($filter, $min, $begin, $category, $end);
-        $activities = $activitieRepository->filter($filter, $min, $begin, $end, $category);
-
-        setlocale(LC_TIME, 'fr_FR');
-
-        // Formate les dates avec le service Formatdate
-        foreach ($activities as $activitie) {
-            $activitie->formattedStartDate = $formatdateService->formatCustomDate($activitie->getStart());
-            $activitie->formattedEndDate = $formatdateService->formatCustomDate($activitie->getEnd());
-        }
-//dd($activities);
-
-        return $this->render('activitie/index.html.twig', [
-            'activities' => $activities,
-          
-        ]);
-    }
 
 
 }

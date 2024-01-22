@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Repository\ActivitieRepository;
+use App\Repository\ActivityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,14 +14,14 @@ class AgendaController extends AbstractController
 {
 
     #[Route('/agenda', name: 'app_agenda')]
-    public function index(ActivitieRepository $activitieRepository): Response
+    public function index(ActivityRepository $activityRepository): Response
     {
 
         $backgroundColor = null;
         $borderColor = null;
         $textColor = null;
 
-        $events = $activitieRepository->findAll();
+        $events = $activityRepository->findAll();
          //    dd($events);
 
         //on initalise variable au cas où elle n'a pas encore de valeur

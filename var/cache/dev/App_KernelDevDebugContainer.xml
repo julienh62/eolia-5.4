@@ -5,8 +5,8 @@
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.runtime_environment">%env(default:kernel.environment:APP_RUNTIME_ENV)%</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.build_dir">C:/wamp64/www/symfony/eolia-5.4/var/cache/dev</parameter>
-    <parameter key="kernel.cache_dir">C:/wamp64/www/symfony/eolia-5.4/var/cache/dev</parameter>
+    <parameter key="kernel.build_dir">C:\wamp64\www\symfony\eolia-5.4\var\cache\dev</parameter>
+    <parameter key="kernel.cache_dir">C:\wamp64\www\symfony\eolia-5.4\var\cache\dev</parameter>
     <parameter key="kernel.logs_dir">C:\wamp64\www\symfony\eolia-5.4\var\log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
@@ -121,14 +121,14 @@
     <parameter key="translator.logging">false</parameter>
     <parameter key="translator.default_path">C:\wamp64\www\symfony\eolia-5.4/translations</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/App_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
     <parameter key="router.resource">kernel::loadRoutes</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
-    <parameter key="serializer.mapping.cache.file">C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/serialization.php</parameter>
+    <parameter key="serializer.mapping.cache.file">C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/serialization.php</parameter>
     <parameter key="cache.prefix.seed">_C:\wamp64\www\symfony\eolia-5.4.App_KernelDevDebugContainer</parameter>
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
@@ -142,11 +142,11 @@
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
-    <parameter key="validator.mapping.cache.file">C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/validation.php</parameter>
+    <parameter key="validator.mapping.cache.file">C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_main_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/profiler</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection"/>
     <parameter key="security.access.denied_url">null</parameter>
     <parameter key="security.authentication.manager.erase_credentials">true</parameter>
@@ -227,7 +227,7 @@
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
     <parameter key="doctrine.orm.enable_lazy_ghost_objects">false</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
@@ -336,10 +336,10 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
-    <service id="App\Entity\Activitie" class="App\Entity\Activitie" autowire="true" autoconfigure="true"/>
+    <service id="App\Entity\Activity" class="App\Entity\Activity" autowire="true" autoconfigure="true"/>
     <service id="App\Service\CartService" class="App\Service\CartService" autowire="true" autoconfigure="true">
-      <argument type="service" id="App\Entity\Activitie"/>
-      <argument type="service" id="App\Repository\ActivitieRepository"/>
+      <argument type="service" id="App\Entity\Activity"/>
+      <argument type="service" id="App\Repository\ActivityRepository"/>
       <argument type="service" id="request_stack"/>
       <argument type="service" id=".session.do-not-use"/>
     </service>
@@ -406,11 +406,18 @@
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\AgendaController"/>
       </call>
     </service>
+    <service id="App\Controller\CalendarController" class="App\Controller\CalendarController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\CalendarController"/>
+      </call>
+    </service>
     <service id="App\Controller\CartController" class="App\Controller\CartController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <argument type="service" id="App\Service\CartService"/>
-      <argument type="service" id="App\Repository\ActivitieRepository"/>
+      <argument type="service" id="App\Repository\ActivityRepository"/>
       <argument type="service" id="App\Repository\PurchaseItemRepository"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\CartController"/>
@@ -503,7 +510,7 @@
     </service>
     <service id="App\Event\PurchaseSuccessEvent" class="App\Event\PurchaseSuccessEvent" autowire="true" autoconfigure="true"/>
     <service id="App\Event\PurchaseSuccessEventStock" class="App\Event\PurchaseSuccessEventStock" autowire="true" autoconfigure="true"/>
-    <service id="App\Form\ActivitieType" class="App\Form\ActivitieType" autowire="true" autoconfigure="true">
+    <service id="App\Form\ActivityType" class="App\Form\ActivityType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\CalendarType" class="App\Form\CalendarType" autowire="true" autoconfigure="true">
@@ -546,13 +553,14 @@
       <argument type="service" id="security.helper"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
-    <service id="App\Repository\ActivitieRepository" class="App\Repository\ActivitieRepository" autowire="true" autoconfigure="true">
+    <service id="App\Repository\ActivityRepository" class="App\Repository\ActivityRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\CalendarRepository" class="App\Repository\CalendarRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
+      <argument type="service" id="monolog.logger"/>
     </service>
     <service id="App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -690,7 +698,7 @@
       </argument>
     </service>
     <service id="http_cache.store" class="Symfony\Component\HttpKernel\HttpCache\Store">
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/http_cache</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/http_cache</argument>
     </service>
     <service id="url_helper" class="Symfony\Component\HttpFoundation\UrlHelper">
       <argument type="service" id="request_stack"/>
@@ -700,7 +708,7 @@
       <tag name="container.no_preload"/>
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/App_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer" public="true">
       <tag name="container.private" package="symfony/framework-bundle" version="5.2"/>
@@ -1298,7 +1306,7 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
-        <argument>App\Form\ActivitieType</argument>
+        <argument>App\Form\ActivityType</argument>
         <argument>App\Form\CalendarType</argument>
         <argument>App\Form\CategorySettingType</argument>
         <argument>App\Form\CategoryType</argument>
@@ -1449,7 +1457,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/pools/system</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1479,7 +1487,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/pools/app</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -1769,7 +1777,7 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/translations</argument>
+        <argument key="cache_dir">C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
           <argument key="af" type="collection">
@@ -2956,7 +2964,7 @@
       <argument type="service" id=".service_locator.OSH1YoD.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/wamp64/www/symfony/eolia-5.4/var/cache/dev</argument>
+        <argument key="cache_dir">C:\wamp64\www\symfony\eolia-5.4\var\cache\dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -3058,13 +3066,13 @@
     <service id="annotations.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="annotations.reader"/>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/annotations.php</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/annotations.php</argument>
       <argument>#^Symfony\\(?:Component\\HttpKernel\\|Bundle\\FrameworkBundle\\Controller\\(?!.*Controller$))#</argument>
       <argument>true</argument>
     </service>
     <service id="annotations.cache_adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
       <tag name="container.hot_path"/>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/annotations.php</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3202,10 +3210,10 @@
           </service>
         </argument>
       </argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/serialization.php</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/serialization.php</argument>
     </service>
     <service id="serializer.mapping.cache.symfony" class="Psr\Cache\CacheItemPoolInterface">
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/serialization.php</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/serialization.php</argument>
       <argument type="service" id="cache.serializer"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3329,7 +3337,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.factory.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory">
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/sessions</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
@@ -3419,7 +3427,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.95siSkP"/>
+      <argument type="service" id=".service_locator.0zCl3g8"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3553,10 +3561,10 @@
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/validation.php</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/validation.php</argument>
     </service>
     <service id="validator.mapping.cache.adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/validation.php</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3656,7 +3664,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage">
-      <argument>file:C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/profiler</argument>
+      <argument>file:C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener">
       <tag name="kernel.event_subscriber"/>
@@ -3703,7 +3711,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/App_KernelDevDebugContainer</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/App_KernelDevDebugContainer</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector">
@@ -4616,7 +4624,7 @@
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
         <argument key="autoescape">name</argument>
-        <argument key="cache">C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/twig</argument>
+        <argument key="cache">C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
@@ -5367,7 +5375,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.ZP9cekP"/>
+      <argument type="service" id=".service_locator.a7DYJH8"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5557,7 +5565,7 @@
         <argument type="service" id=".doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/doctrine/orm/Proxies</argument>
+        <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -6133,10 +6141,10 @@
       <argument type="collection">
         <argument key="_default">C:\wamp64\www\symfony\eolia-5.4/public/build/entrypoints.json</argument>
       </argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/webpack_encore.cache.php</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/webpack_encore.cache.php</argument>
     </service>
     <service id="webpack_encore.cache" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/webpack_encore.cache.php</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/webpack_encore.cache.php</argument>
       <argument type="service" id="cache.webpack_encore"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -6213,6 +6221,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AgendaController" class="App\Controller\AgendaController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AgendaController" class="App\Controller\AgendaController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AgendaController" class="App\Controller\AgendaController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CalendarController" class="App\Controller\CalendarController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CalendarController" class="App\Controller\CalendarController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CalendarController" class="App\Controller\CalendarController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CartController" class="App\Controller\CartController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CartController" class="App\Controller\CartController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CartController" class="App\Controller\CartController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6249,8 +6260,8 @@
     <service id=".abstract.instanceof.App\EventDispatcher\PurchaseSuccessEmailSubscriber" class="App\EventDispatcher\PurchaseSuccessEmailSubscriber" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.App\EventDispatcher\PurchaseSuccessStock" class="App\EventDispatcher\PurchaseSuccessStock" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\EventDispatcher\PurchaseSuccessStock" class="App\EventDispatcher\PurchaseSuccessStock" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ActivitieType" class="App\Form\ActivitieType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\ActivitieType" class="App\Form\ActivitieType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ActivityType" class="App\Form\ActivityType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ActivityType" class="App\Form\ActivityType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CalendarType" class="App\Form\CalendarType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CalendarType" class="App\Form\CalendarType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorySettingType" class="App\Form\CategorySettingType" autowire="true" abstract="true"/>
@@ -6273,8 +6284,8 @@
     <service id=".abstract.instanceof.App\Form\StaffType" class="App\Form\StaffType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActivitieRepository" class="App\Repository\ActivitieRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\ActivitieRepository" class="App\Repository\ActivitieRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActivityRepository" class="App\Repository\ActivityRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ActivityRepository" class="App\Repository\ActivityRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CalendarRepository" class="App\Repository\CalendarRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CalendarRepository" class="App\Repository\CalendarRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
@@ -6674,62 +6685,44 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.WS5E7F4" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator._lcSaPy" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="activitieRepository" type="service_closure" id="App\Repository\ActivitieRepository"/>
+        <argument key="activityRepository" type="service_closure" id="App\Repository\ActivityRepository"/>
         <argument key="formatdateService" type="service_closure" id="App\Service\Formatdate"/>
       </argument>
     </service>
-    <service id=".service_locator.ICcbzoU" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.ZPXdjnm" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="activitie" type="service_closure" id="App\Entity\Activitie"/>
-        <argument key="activitieRepository" type="service_closure" id="App\Repository\ActivitieRepository"/>
+        <argument key="activity" type="service_closure" id="App\Entity\Activity"/>
+        <argument key="activityRepository" type="service_closure" id="App\Repository\ActivityRepository"/>
         <argument key="purchaseItemRepository" type="service_closure" id="App\Repository\PurchaseItemRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.Jr9_fLo" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.U55iHjJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="activitieRepository" type="service_closure" id="App\Repository\ActivitieRepository"/>
+        <argument key="activityRepository" type="service_closure" id="App\Repository\ActivityRepository"/>
       </argument>
     </service>
-    <service id=".errored.XiMD_sG" class="App\Controller\CategoryRepository"/>
-    <service id=".service_locator.DYX9QWR" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.FcIuHHb" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="activitieRepository" type="service_closure" id="App\Repository\ActivitieRepository"/>
-        <argument key="categoryRepository" type="service_closure" id=".errored.XiMD_sG"/>
+        <argument key="activityRepository" type="service_closure" id="App\Repository\ActivityRepository"/>
+        <argument key="categoryRepository" type="service_closure" id="App\Repository\CategoryRepository"/>
       </argument>
     </service>
-    <service id=".errored.mhzZx9U" class="App\Controller\CategoryRepository"/>
-    <service id=".service_locator.auUt45i" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.bZHX9km" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="activitieRepository" type="service_closure" id="App\Repository\ActivitieRepository"/>
-        <argument key="categoryRepository" type="service_closure" id=".errored.mhzZx9U"/>
+        <argument key="Activity" type="service_closure" id="App\Entity\Activity"/>
       </argument>
     </service>
-    <service id=".errored.HVCCyUe" class="App\Controller\CategoryRepository"/>
-    <service id=".service_locator.vgIxo8M" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.SQjo35q" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="activitieRepository" type="service_closure" id="App\Repository\ActivitieRepository"/>
-        <argument key="categoryRepository" type="service_closure" id=".errored.HVCCyUe"/>
-        <argument key="formatdateService" type="service_closure" id="App\Service\Formatdate"/>
-      </argument>
-    </service>
-    <service id=".service_locator._O3Wdyp" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="activitie" type="service_closure" id="App\Entity\Activitie"/>
-      </argument>
-    </service>
-    <service id=".service_locator.nYdzAk1" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="activitie" type="service_closure" id="App\Entity\Activitie"/>
+        <argument key="Activity" type="service_closure" id="App\Entity\Activity"/>
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
@@ -6739,10 +6732,10 @@
         <argument key="calendarRepository" type="service_closure" id="App\Repository\CalendarRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.vjnr.bJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.eHXQlqW" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="activitieRepository" type="service_closure" id="App\Repository\ActivitieRepository"/>
+        <argument key="activityRepository" type="service_closure" id="App\Repository\ActivityRepository"/>
         <argument key="calendarRepository" type="service_closure" id="App\Repository\CalendarRepository"/>
         <argument key="formatdateService" type="service_closure" id="App\Service\Formatdate"/>
         <argument key="staffScheduleRepository" type="service_closure" id="App\Repository\StaffScheduleRepository"/>
@@ -6843,6 +6836,14 @@
         <argument key="staffSchedule" type="service_closure" id=".errored..service_locator.ucsB0dg.App\Entity\StaffSchedule"/>
       </argument>
     </service>
+    <service id=".service_locator.1AUvg4L" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="calendarRepository" type="service_closure" id="App\Repository\CalendarRepository"/>
+        <argument key="categoryRepository" type="service_closure" id="App\Repository\CategoryRepository"/>
+        <argument key="formatdateService" type="service_closure" id="App\Service\Formatdate"/>
+      </argument>
+    </service>
     <service id=".service_locator.pfcqVkM" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6922,23 +6923,22 @@
         <argument key="staffScheduleSettingsRepository" type="service_closure" id="App\Repository\StaffScheduleSettingsRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.tDfWSJ7" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.6Rqj1eE" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\ActivitieController::filterPrice" type="service_closure" id=".service_locator.vgIxo8M"/>
-        <argument key="App\Controller\ActivitieController::index" type="service_closure" id=".service_locator.WS5E7F4"/>
-        <argument key="App\Controller\ActivitieController::listActivitieByCatamaran" type="service_closure" id=".service_locator.DYX9QWR"/>
-        <argument key="App\Controller\ActivitieController::listActivitieByChar" type="service_closure" id=".service_locator.Jr9_fLo"/>
-        <argument key="App\Controller\ActivitieController::listActivitieByCharKid" type="service_closure" id=".service_locator.auUt45i"/>
-        <argument key="App\Controller\ActivitieController::show" type="service_closure" id=".service_locator.ICcbzoU"/>
-        <argument key="App\Controller\Admin\AdminActivitieController::delete" type="service_closure" id=".service_locator.nYdzAk1"/>
-        <argument key="App\Controller\Admin\AdminActivitieController::edit" type="service_closure" id=".service_locator.nYdzAk1"/>
-        <argument key="App\Controller\Admin\AdminActivitieController::index" type="service_closure" id=".service_locator.Jr9_fLo"/>
-        <argument key="App\Controller\Admin\AdminActivitieController::show" type="service_closure" id=".service_locator._O3Wdyp"/>
+        <argument key="App\Controller\ActivitieController::index" type="service_closure" id=".service_locator._lcSaPy"/>
+        <argument key="App\Controller\ActivitieController::listActivitieByCatamaran" type="service_closure" id=".service_locator.FcIuHHb"/>
+        <argument key="App\Controller\ActivitieController::listActivitieByChar" type="service_closure" id=".service_locator.U55iHjJ"/>
+        <argument key="App\Controller\ActivitieController::listActivitieByCharKid" type="service_closure" id=".service_locator.FcIuHHb"/>
+        <argument key="App\Controller\ActivitieController::show" type="service_closure" id=".service_locator.ZPXdjnm"/>
+        <argument key="App\Controller\Admin\AdminActivitieController::delete" type="service_closure" id=".service_locator.SQjo35q"/>
+        <argument key="App\Controller\Admin\AdminActivitieController::edit" type="service_closure" id=".service_locator.SQjo35q"/>
+        <argument key="App\Controller\Admin\AdminActivitieController::index" type="service_closure" id=".service_locator.U55iHjJ"/>
+        <argument key="App\Controller\Admin\AdminActivitieController::show" type="service_closure" id=".service_locator.bZHX9km"/>
         <argument key="App\Controller\Admin\AdminAgendaController::index" type="service_closure" id=".service_locator.F_DYhqA"/>
         <argument key="App\Controller\Admin\AdminCalendarController::delete" type="service_closure" id=".service_locator.G.KaxIT"/>
         <argument key="App\Controller\Admin\AdminCalendarController::edit" type="service_closure" id=".service_locator.G.KaxIT"/>
-        <argument key="App\Controller\Admin\AdminCalendarController::index" type="service_closure" id=".service_locator.vjnr.bJ"/>
+        <argument key="App\Controller\Admin\AdminCalendarController::index" type="service_closure" id=".service_locator.eHXQlqW"/>
         <argument key="App\Controller\Admin\AdminCalendarController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\AdminCalendarController::show" type="service_closure" id=".service_locator.8_BVbXm"/>
         <argument key="App\Controller\Admin\AdminCategoryController::delete" type="service_closure" id=".service_locator.4Uu00Y_"/>
@@ -6960,7 +6960,9 @@
         <argument key="App\Controller\Admin\AdminStaffScheduleController::edit" type="service_closure" id=".service_locator.ucsB0dg"/>
         <argument key="App\Controller\Admin\AdminStaffScheduleController::index" type="service_closure" id=".service_locator.TJOTaad"/>
         <argument key="App\Controller\Admin\AdminStaffScheduleController::show" type="service_closure" id=".service_locator.eeQJORD"/>
-        <argument key="App\Controller\AgendaController::index" type="service_closure" id=".service_locator.Jr9_fLo"/>
+        <argument key="App\Controller\AgendaController::index" type="service_closure" id=".service_locator.U55iHjJ"/>
+        <argument key="App\Controller\CalendarController::filterPrice" type="service_closure" id=".service_locator.1AUvg4L"/>
+        <argument key="App\Controller\CalendarController::index" type="service_closure" id=".service_locator.1AUvg4L"/>
         <argument key="App\Controller\CartController::add" type="service_closure" id=".service_locator.pfcqVkM"/>
         <argument key="App\Controller\CartController::index" type="service_closure" id=".service_locator.8dWkn99"/>
         <argument key="App\Controller\ContactController::contactForm" type="service_closure" id=".service_locator.6E9xidT"/>
@@ -6979,20 +6981,19 @@
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
-        <argument key="App\Controller\ActivitieController:filterPrice" type="service_closure" id=".service_locator.vgIxo8M"/>
-        <argument key="App\Controller\ActivitieController:index" type="service_closure" id=".service_locator.WS5E7F4"/>
-        <argument key="App\Controller\ActivitieController:listActivitieByCatamaran" type="service_closure" id=".service_locator.DYX9QWR"/>
-        <argument key="App\Controller\ActivitieController:listActivitieByChar" type="service_closure" id=".service_locator.Jr9_fLo"/>
-        <argument key="App\Controller\ActivitieController:listActivitieByCharKid" type="service_closure" id=".service_locator.auUt45i"/>
-        <argument key="App\Controller\ActivitieController:show" type="service_closure" id=".service_locator.ICcbzoU"/>
-        <argument key="App\Controller\Admin\AdminActivitieController:delete" type="service_closure" id=".service_locator.nYdzAk1"/>
-        <argument key="App\Controller\Admin\AdminActivitieController:edit" type="service_closure" id=".service_locator.nYdzAk1"/>
-        <argument key="App\Controller\Admin\AdminActivitieController:index" type="service_closure" id=".service_locator.Jr9_fLo"/>
-        <argument key="App\Controller\Admin\AdminActivitieController:show" type="service_closure" id=".service_locator._O3Wdyp"/>
+        <argument key="App\Controller\ActivitieController:index" type="service_closure" id=".service_locator._lcSaPy"/>
+        <argument key="App\Controller\ActivitieController:listActivitieByCatamaran" type="service_closure" id=".service_locator.FcIuHHb"/>
+        <argument key="App\Controller\ActivitieController:listActivitieByChar" type="service_closure" id=".service_locator.U55iHjJ"/>
+        <argument key="App\Controller\ActivitieController:listActivitieByCharKid" type="service_closure" id=".service_locator.FcIuHHb"/>
+        <argument key="App\Controller\ActivitieController:show" type="service_closure" id=".service_locator.ZPXdjnm"/>
+        <argument key="App\Controller\Admin\AdminActivitieController:delete" type="service_closure" id=".service_locator.SQjo35q"/>
+        <argument key="App\Controller\Admin\AdminActivitieController:edit" type="service_closure" id=".service_locator.SQjo35q"/>
+        <argument key="App\Controller\Admin\AdminActivitieController:index" type="service_closure" id=".service_locator.U55iHjJ"/>
+        <argument key="App\Controller\Admin\AdminActivitieController:show" type="service_closure" id=".service_locator.bZHX9km"/>
         <argument key="App\Controller\Admin\AdminAgendaController:index" type="service_closure" id=".service_locator.F_DYhqA"/>
         <argument key="App\Controller\Admin\AdminCalendarController:delete" type="service_closure" id=".service_locator.G.KaxIT"/>
         <argument key="App\Controller\Admin\AdminCalendarController:edit" type="service_closure" id=".service_locator.G.KaxIT"/>
-        <argument key="App\Controller\Admin\AdminCalendarController:index" type="service_closure" id=".service_locator.vjnr.bJ"/>
+        <argument key="App\Controller\Admin\AdminCalendarController:index" type="service_closure" id=".service_locator.eHXQlqW"/>
         <argument key="App\Controller\Admin\AdminCalendarController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\AdminCalendarController:show" type="service_closure" id=".service_locator.8_BVbXm"/>
         <argument key="App\Controller\Admin\AdminCategoryController:delete" type="service_closure" id=".service_locator.4Uu00Y_"/>
@@ -7014,7 +7015,9 @@
         <argument key="App\Controller\Admin\AdminStaffScheduleController:edit" type="service_closure" id=".service_locator.ucsB0dg"/>
         <argument key="App\Controller\Admin\AdminStaffScheduleController:index" type="service_closure" id=".service_locator.TJOTaad"/>
         <argument key="App\Controller\Admin\AdminStaffScheduleController:show" type="service_closure" id=".service_locator.eeQJORD"/>
-        <argument key="App\Controller\AgendaController:index" type="service_closure" id=".service_locator.Jr9_fLo"/>
+        <argument key="App\Controller\AgendaController:index" type="service_closure" id=".service_locator.U55iHjJ"/>
+        <argument key="App\Controller\CalendarController:filterPrice" type="service_closure" id=".service_locator.1AUvg4L"/>
+        <argument key="App\Controller\CalendarController:index" type="service_closure" id=".service_locator.1AUvg4L"/>
         <argument key="App\Controller\CartController:add" type="service_closure" id=".service_locator.pfcqVkM"/>
         <argument key="App\Controller\CartController:index" type="service_closure" id=".service_locator.8dWkn99"/>
         <argument key="App\Controller\ContactController:contactForm" type="service_closure" id=".service_locator.6E9xidT"/>
@@ -7092,10 +7095,10 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.95siSkP" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.0zCl3g8" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Form\ActivitieType" type="service_closure" id="App\Form\ActivitieType"/>
+        <argument key="App\Form\ActivityType" type="service_closure" id="App\Form\ActivityType"/>
         <argument key="App\Form\CalendarType" type="service_closure" id="App\Form\CalendarType"/>
         <argument key="App\Form\CategorySettingType" type="service_closure" id="App\Form\CategorySettingType"/>
         <argument key="App\Form\CategoryType" type="service_closure" id="App\Form\CategoryType"/>
@@ -7149,10 +7152,10 @@
         <argument key="doctrine.orm.listeners.pdo_cache_adapter_doctrine_schema_subscriber" type="service_closure" id="doctrine.orm.listeners.pdo_cache_adapter_doctrine_schema_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.ZP9cekP" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.a7DYJH8" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Repository\ActivitieRepository" type="service_closure" id="App\Repository\ActivitieRepository"/>
+        <argument key="App\Repository\ActivityRepository" type="service_closure" id="App\Repository\ActivityRepository"/>
         <argument key="App\Repository\CalendarRepository" type="service_closure" id="App\Repository\CalendarRepository"/>
         <argument key="App\Repository\CategoryRepository" type="service_closure" id="App\Repository\CategoryRepository"/>
         <argument key="App\Repository\CategorySettingRepository" type="service_closure" id="App\Repository\CategorySettingRepository"/>
@@ -7448,6 +7451,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\CalendarController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\CalendarController"/>
+      <argument>App\Controller\CalendarController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
     <service id=".service_locator.mx0UMmY.App\Controller\CartController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\CartController"/>
       <argument>App\Controller\CartController</argument>
@@ -7673,12 +7682,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.tDfWSJ7"/>
+      <argument type="service" id=".service_locator.6Rqj1eE"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.tDfWSJ7"/>
+      <argument type="service" id=".service_locator.6Rqj1eE"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -8443,7 +8452,7 @@
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
       <argument>azvmiSVlEG</argument>
       <argument>0</argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/pools/app</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -8453,7 +8462,7 @@
       <argument>Lmglt2jVBU</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/pools/system</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8461,7 +8470,7 @@
       <argument>rThoQy0BHG</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/pools/system</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8469,7 +8478,7 @@
       <argument>Yz6+nnbmoe</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/pools/system</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8477,7 +8486,7 @@
       <argument>h3mlbn0LCc</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/pools/system</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8485,7 +8494,7 @@
       <argument>NU02KTtd8e</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/pools/system</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8493,7 +8502,7 @@
       <argument>I722ts8jU3</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/pools/system</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8501,7 +8510,7 @@
       <argument>p72Clf8qH+</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/pools/system</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8511,7 +8520,7 @@
       <argument>Bg9TxGUzhX</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/symfony/eolia-5.4/var/cache/dev/pools/system</argument>
+      <argument>C:\wamp64\www\symfony\eolia-5.4\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8682,7 +8691,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.tDfWSJ7"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.6Rqj1eE"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -8704,17 +8713,17 @@
     <service id="Psr\Log\LoggerInterface $deprecationLogger" alias="monolog.logger.deprecation"/>
     <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~_DumEha"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator.y8bRGQM" alias=".service_locator.ICcbzoU"/>
-    <service id=".service_locator.xS6SN0W" alias=".service_locator.vjnr.bJ"/>
+    <service id=".service_locator.M2w014t" alias=".service_locator.ZPXdjnm"/>
+    <service id=".service_locator.xoHnPT8" alias=".service_locator.eHXQlqW"/>
     <service id=".service_locator.TIECEtk" alias=".service_locator.8D0GUWz"/>
     <service id=".service_locator.Rx79IdX" alias=".service_locator.ucsB0dg"/>
     <service id=".service_locator.0RnhkPB" alias=".service_locator.YTieQXO"/>
     <service id=".service_locator.IJyWPwb" alias=".service_locator.kXtg5m1"/>
     <service id=".service_locator.j.3hYyQ" alias=".service_locator.TJOfZmJ"/>
     <service id=".service_locator.QS5ik0Z" alias=".service_locator.I__DjQ_"/>
-    <service id=".service_locator.UgxZ2ZN" alias=".service_locator.tDfWSJ7"/>
+    <service id=".service_locator.H7Nuc8V" alias=".service_locator.6Rqj1eE"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.l6ELYLY"/>
-    <service id=".service_locator.PkGDA3r" alias=".service_locator.95siSkP"/>
+    <service id=".service_locator.mkSzDKi" alias=".service_locator.0zCl3g8"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.0ghLsew" alias=".service_locator.mx0UMmY"/>
@@ -8739,16 +8748,14 @@
     <service id="argument_resolver.not_tagged_controller" alias="debug.argument_resolver.not_tagged_controller"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
-    <service id=".service_locator.UHW2hOy" alias=".service_locator.WS5E7F4"/>
-    <service id=".service_locator.UU0An8O" alias=".service_locator.ICcbzoU"/>
-    <service id=".service_locator.nPDyyhb" alias=".service_locator.Jr9_fLo"/>
-    <service id=".service_locator.MY8rERz" alias=".service_locator.DYX9QWR"/>
-    <service id=".service_locator.Lgv17DN" alias=".service_locator.auUt45i"/>
-    <service id=".service_locator.VIW11oy" alias=".service_locator.vgIxo8M"/>
-    <service id=".service_locator.7T.zOaK" alias=".service_locator._O3Wdyp"/>
-    <service id=".service_locator.fU6PTRU" alias=".service_locator.nYdzAk1"/>
+    <service id=".service_locator.6aVTs20" alias=".service_locator._lcSaPy"/>
+    <service id=".service_locator.ZH_2iqO" alias=".service_locator.ZPXdjnm"/>
+    <service id=".service_locator.Eqq3RwU" alias=".service_locator.U55iHjJ"/>
+    <service id=".service_locator.IqfsU8b" alias=".service_locator.FcIuHHb"/>
+    <service id=".service_locator.ECfXacl" alias=".service_locator.bZHX9km"/>
+    <service id=".service_locator.RR2TYlr" alias=".service_locator.SQjo35q"/>
     <service id=".service_locator.hNlq4ZS" alias=".service_locator.F_DYhqA"/>
-    <service id=".service_locator.Acc__il" alias=".service_locator.vjnr.bJ"/>
+    <service id=".service_locator.2jvBryL" alias=".service_locator.eHXQlqW"/>
     <service id=".service_locator.bInR.ll" alias=".service_locator.aKM6MDa"/>
     <service id=".service_locator.dmc_kdQ" alias=".service_locator.8_BVbXm"/>
     <service id=".service_locator.J8hyprV" alias=".service_locator.G.KaxIT"/>
@@ -8764,6 +8771,7 @@
     <service id=".service_locator.IFPYWO1" alias=".service_locator.TJOTaad"/>
     <service id=".service_locator.jopm2Ho" alias=".service_locator.eeQJORD"/>
     <service id=".service_locator.RUmUykU" alias=".service_locator.ucsB0dg"/>
+    <service id=".service_locator.WQB9RFi" alias=".service_locator.1AUvg4L"/>
     <service id=".service_locator.hdSEO9C" alias=".service_locator.pfcqVkM"/>
     <service id=".service_locator.giopyZV" alias=".service_locator.8dWkn99"/>
     <service id=".service_locator.k3yKEdo" alias=".service_locator.6E9xidT"/>

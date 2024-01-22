@@ -29,13 +29,13 @@
         {% for item in items %}
          
             <tr>
-                <td class="tableau">{{ item.activitie.title }}</td>
+                <td class="tableau">{{ item.Activity.title }}</td>
             
-                <td class="tableau">{{ item.activitie.start ? item.activitie.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td class="tableau">{{ item.Activity.start ? item.Activity.start|date('Y-m-d H:i:s') : '' }}</td>
            
-                <td class="tableau">{{ item.activitie.end ? item.activitie.end|date('Y-m-d H:i:s') : '' }}</td>
+                <td class="tableau">{{ item.Activity.end ? item.Activity.end|date('Y-m-d H:i:s') : '' }}</td>
            
-                <td class="tableau">{{  item.activitie.price | amount }}</td>
+                <td class="tableau">{{  item.Activity.price | amount }}</td>
            
                 <td class="tableau">{{ item.quantity }}</td>
 
@@ -44,18 +44,18 @@
                 <td class="tableau">{{ item.total | amount }}</td>
 
                    <td>
-                        <a href="{{path("cart_add", {'id': item.activitie.id})}}" class="success">
+                        <a href="{{path("cart_add", {'id': item.Activity.id})}}" class="success">
                             🛒+
                         </a>
                     </td>
                           <td>
-                        <a href=" {{path("cart_decrement", {'id': item.activitie.id})}}" class="warning">
+                        <a href=" {{path("cart_decrement", {'id': item.Activity.id})}}" class="warning">
                           🛒-
                         </a>
                     </td>
                        <td>
                        
-                        <a href="{{path("cart_delete", {'id': item.activitie.id})}}" class="danger">
+                        <a href="{{path("cart_delete", {'id': item.Activity.id})}}" class="danger">
                             <i class="fas fa-trash-alt">Supprimer</i>
                         </a>
                     </td>
@@ -84,16 +84,16 @@
   {% for item in items %}
        
                 <h3>Titre</h3>
-                <p>{{ item.activitie.title }}</p>
+                <p>{{ item.Activity.title }}</p>
            
                 <h3>Date de début</h3>
-                <p>{{ item.activitie.start ? item.activitie.start|date('Y-m-d H:i:s') : '' }}</p>
+                <p>{{ item.Activity.start ? item.Activity.start|date('Y-m-d H:i:s') : '' }}</p>
            
                 <h3>Date de fin</h3>
-                <p>{{ item.activitie.end ? item.activitie.end|date('Y-m-d H:i:s') : '' }}</p>
+                <p>{{ item.Activity.end ? item.Activity.end|date('Y-m-d H:i:s') : '' }}</p>
         
                 <h3>Prix</h3>
-                <p class="tableau">{{  item.activitie.price | amount }}</p>
+                <p class="tableau">{{  item.Activity.price | amount }}</p>
           
                   <h3>Unité</h3>
                 <p class="tableau">{{ item.quantity }}</p>
@@ -102,19 +102,19 @@
                 <p class="tableau">{{ item.total | amount }}</p>
           
                 <h3>Ajouter</h3>
-                   <p> <a href="{{path("cart_add", {'id': item.activitie.id})}}" class="success">
+                   <p> <a href="{{path("cart_add", {'id': item.Activity.id})}}" class="success">
                             🛒 + 1
                         </a>
                         </p>
         
                 <h3>Soustraire</h3>
-                   <p>  <a href=" {{path("cart_decrement", {'id': item.activitie.id})}}" class="warning">
+                   <p>  <a href=" {{path("cart_decrement", {'id': item.Activity.id})}}" class="warning">
                           🛒 - 1
                         </a>
                         </p>
          
                 <h3>Supprimer</h3>
-                   <p>  <a href="{{path("cart_delete", {'id': item.activitie.id})}}" class="danger">
+                   <p>  <a href="{{path("cart_delete", {'id': item.Activity.id})}}" class="danger">
                             <i class="fas fa-trash-alt">Supprimer</i>
                         </a>
                         </p>
@@ -144,8 +144,8 @@
           {% if cartService.validateOrder() %}
                 <form method="post" action="{{ path('app_purchase_confirm') }}">
                     {% for item in items %}
-                        <input type="hidden" name="items[{{ item.activitie.id }}][quantity]" value="{{ item.quantity }}">
-                        <input type="hidden" name="items[{{ item.activitie.id }}][activitie]" value="{{ item.activitie.title }}">
+                        <input type="hidden" name="items[{{ item.Activity.id }}][quantity]" value="{{ item.quantity }}">
+                        <input type="hidden" name="items[{{ item.Activity.id }}][Activity]" value="{{ item.Activity.title }}">
                     {% endfor %}
                     <button type="submit" class="success">Valider la commande</button>
                 </form>

@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class CategoryType extends AbstractType
 {
@@ -14,6 +15,10 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('title')
+            ->add('Activity', 
+            CheckboxType::class, [
+                'required' => false,
+            ])
          
         ;
     }

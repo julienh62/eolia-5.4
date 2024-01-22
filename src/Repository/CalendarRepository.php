@@ -2,9 +2,12 @@
 
 namespace App\Repository;
 
+use App\Entity\Activity;
 use App\Entity\Calendar;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+
+use Psr\Log\LoggerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Calendar>
@@ -16,9 +19,13 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class CalendarRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private LoggerInterface $logger;
+
+    // Inject the logger in the constructor
+    public function __construct(ManagerRegistry $registry, LoggerInterface $logger)
     {
         parent::__construct($registry, Calendar::class);
+        $this->logger = $logger;
     }
 
     public function save(Calendar $entity, bool $flush = false): void
@@ -67,7 +74,7 @@ class CalendarRepository extends ServiceEntityRepository
     }
 
 
-
+    
  
 //    /**
 //     * @return Calendar[] Returns an array of Calendar objects
@@ -137,8 +144,8 @@ public function getAllCalendarActivitie()
     return $this->createQueryBuilder('c')
     ->leftJoin('c.category', 'cat') 
     ->orderBy('c.start', 'desc') 
-    ->andWhere('cat.activitie = :isActivitie') // Filtrer par la propriété activitie
-    ->setParameter('isActivitie', true) 
+    ->andWhere('cat.activity = :isActivity') // Filtrer par la propriété activity
+    ->setParameter('isActivity', true) 
     ->getQuery()
     ->getResult();
 }
@@ -185,29 +192,105 @@ public function getAllCalendarActivitie()
        ;
     }
 
-    /**
- * @return Calendar[] Returns an array of Product objects
+/**
+ * @return Calendar[] Returns an array of Calendar objects
  */
 public function filter($filter, $min, $begin, $end, $category): array
 {
-    $filters = [
-        'price_desc' => "p.price desc",
-        'price_asc' => "p.price asc",
-    ];
-    $sq = $this->createQueryBuilder('p');
+    $conn = $this->getEntityManager()->getConnection();
+
+    try {
+        $conn->beginTransaction();
+
+        $sql = 'SELECT cal.*, cc.title as category
+                FROM calendar cal
+                JOIN category cc ON cal.category_id = cc.id
+                WHERE cal.start >= :begin
+                AND cal.end <= :end
+                AND cal.stock >= :min';
+
+        $parameters = [
+            'begin' => $begin,
+            'end' => $end,
+            'min' => $min,
+        ];
+
+        // Check if the category is 'all', if not, add category filter
+        if ($category !== 'all') {
+            $sql .= ' AND cc.title = :category';
+            $parameters['category'] = $category;
+        }
+            // Before executing the query
+dump($sql);
+dump([
+    'begin' => $begin,
+    'end' => $end,
+    'min' => $min,
+    'category' => $category
+]);
+
+$stmt = $conn->executeQuery($sql, [
+    'begin' => $begin,
+    'end' => $end,
+    'min' => $min,
+    'category' => $category
+]);
+
+// ...
+
+        $stmt = $conn->executeQuery($sql, $parameters);
+
+        // Fetch the results as an associative array
+        $results = $stmt->fetchAllAssociative();
+
+        // Commit the transaction
+        $conn->commit();
+
+        return $results;
+
+    } catch (\Doctrine\DBAL\Exception\DriverException $e) {
+        // Log the error
+        $this->logger->error('Database error: ' . $e->getMessage());
+
+        // Roll back the transaction
+        $conn->rollBack();
+
+        // Re-throw the exception
+        throw $e; 
+    } catch (\Exception $e) {
+        // Log the error
+        $this->logger->error('An unexpected error occurred: ' . $e->getMessage());
+
+        // Roll back the transaction
+        $conn->rollBack();
+
+        // Re-throw the exception
+        throw $e;
+    }
+}
+
+
+
+
+
+  /*  $sq = $this->createQueryBuilder('cal');
 
     $sq
-    ->join('p.category', 'pc')//jointure avec entité category
-    ->andWhere('p.stock >= :min')
-    ->andHaving('p.start >= :begin')
-    ->andHaving('p.end <= :end')
+    ->join('cal.category', 'cc')//jointure calendar avec entité category
+   ->andWhere('cal.stock >= :min')
+   ->andWhere('cal.start >= :begin')
+   ->andWhere('cal.end <= :end')
     ->setParameter('min', $min )
     ->setParameter('begin', $begin )
     ->setParameter('end', $end);
 
+    $sq->andWhere('cal INSTANCE OF App\Entity\Activity');
+
+
+
 // Check if the category is 'all', if not, add category filter
 if ($category !== 'all') {
-    $sq->andWhere("pc.title = :category")
+    $sq->andWhere("cc.title = :category")
        ->setParameter('category', $category);
 }
 
@@ -217,7 +300,7 @@ if ($category !== 'all') {
     }
     // dd($sq->getQuery()->getResult());
     return $sq->getQuery()->getResult();
-}
+} */
 
     /**
      * @return array|null Returns an array containting picture and price or null

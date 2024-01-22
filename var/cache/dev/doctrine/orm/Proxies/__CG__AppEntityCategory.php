@@ -67,10 +67,10 @@ class Category extends \App\Entity\Category implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'title', 'calendars', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'categorySetting'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'title', 'activity', 'calendars', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'categorySetting'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'title', 'calendars', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'categorySetting'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'title', 'activity', 'calendars', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'categorySetting'];
     }
 
     /**
@@ -223,6 +223,28 @@ class Category extends \App\Entity\Category implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTitle', [$title]);
 
         return parent::setTitle($title);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function isActivity(): ?bool
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isActivity', []);
+
+        return parent::isActivity();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setActivity(bool $activity): static
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActivity', [$activity]);
+
+        return parent::setActivity($activity);
     }
 
     /**

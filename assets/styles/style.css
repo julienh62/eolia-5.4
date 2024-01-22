@@ -56,8 +56,6 @@ img {
 generalites
 /*************************************/
 
-
-
 .container {
   margin: 0 auto;
   margin: 0 auto;
@@ -217,7 +215,6 @@ header.responsive button,
 body {
   background-color: lightgray;
 }*/
-
 
 #slider,
 .consultplaning {
@@ -503,15 +500,17 @@ input[type="checkbox"] {
 *******************************/
 
 #formsearch {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
-#min-price, #calendar-select, #begin , #end{
-  font-size:4rem;
-  margin:2rem;
+#min-price,
+#calendar-select,
+#begin,
+#end {
+  font-size: 4rem;
+  margin: 2rem;
 }
 .all {
-
 }
 /*******************************
                page calendarmain
@@ -647,24 +646,17 @@ form[name="calendar"] {
   margin-left: 10rem;
 }
 
-
-
 /*//////////////////////////////////////////////////////////////////////////*/
 /*formulaire création calendar  /*/
-#staff_schedule > div:nth-child(4) > label , #activitie > div:nth-child(4) > label{
+#staff_schedule > div:nth-child(4) > label,
+#Activity > div:nth-child(4) > label {
   font-weight: 600;
- 
+}
+.activity_end {
+  margin:2rem;
 }
 
-
 /*///////////////////////////////////////////////////*/
-
-
-
-
-
-
-
 
 /****************************************************
                          page purchase
@@ -1051,21 +1043,17 @@ a.fab {
   #registration_form_phone {
     font-size: 4rem;
   }
-/*//////////////////////////////////////////////////////////////////////////*/
-/*formulaire création calendar  /*/
-#staff_schedule > div:nth-child(4) > label , #activitie > div:nth-child(4) > label{
-  font-weight: 600;
- 
-}
-.calendarform {
-  display:flex;
-}
+  /*//////////////////////////////////////////////////////////////////////////*/
+  /*formulaire création calendar  /*/
+  #staff_schedule > div:nth-child(4) > label,
+  #Activity > div:nth-child(4) > label {
+    font-weight: 600;
+  }
+  .calendarform {
+    display: flex;
+  }
 
-/*///////////////////////////////////////////////////*/
-
-
-
-
+  /*///////////////////////////////////////////////////*/
 
   /********************* footer  tablette*******************/
   .reseaux {
@@ -1384,18 +1372,17 @@ a.fab {
  *******************************/
 
   #formsearch {
-    flex-direction:row;
+    flex-direction: row;
   }
-/*/////////////////////////////desktop/////////////////////////////////////////////*/
-/*formulaire création calendar  /*/
-#staff_schedule > div:nth-child(4) > label , #activitie > div:nth-child(4) > label{
-  font-weight: 600;
-  display:flex;
-}
+  /*/////////////////////////////desktop/////////////////////////////////////////////*/
+  /*formulaire création calendar  /*/
+  #staff_schedule > div:nth-child(4) > label,
+  #Activity > div:nth-child(4) > label {
+    font-weight: 600;
+    display: flex;
+  }
 
-/*//////////////////////////desktop/////////////////////////*/
-
-
+  /*//////////////////////////desktop/////////////////////////*/
 
   /*******************************
                page calendarmain  desktop
@@ -1464,23 +1451,23 @@ a.fab {
   }
   .onlydesktop {
     display: flex;
-    padding:5rem;
+    padding: 5rem;
   }
 
-  .tableau  {
-    border:2px black solid;
+  .tableau {
+    border: 2px black solid;
   }
   .colonnetableau {
     padding: 1rem 2rem 1rem 2rem;
-    border:2px black solid;
-    background-color:#1c8db8;
-    width:300px;
+    border: 2px black solid;
+    background-color: #1c8db8;
+    width: 300px;
   }
-  
+
   .colonnetableaux {
     padding: 1rem 2rem 1rem 2rem;
-    width:300px;
-  }  
+    width: 300px;
+  }
 
   /****************************************************
                          page paiement stripe  desktop
@@ -1513,10 +1500,6 @@ a.fab {
     transform: scale(1.5);
     margin-left: 5rem;
   }
-  
-
-
-
 
   /****************************************                 page purchase desktop
 *************************************/

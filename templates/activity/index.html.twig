@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}activity index{% endblock %}
+
+{% block body %}
+    <h1>Les séances</h1>
+
+{#  {{ dump(activities) }}#}
+
+    <div class="onlydesktop">
+
+      <table class="tableau">
+        <thead class="tableau">
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Prix</th>
+                <th>Stock</th>
+                <th>action</th>
+                 <th>action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+          {% for  activity in activities %}
+            <tr>
+                <td class="tableau">{{ activity.id }}</td>
+                <td class="tableau">{{ activity.title }}</td>
+                <td class="tableau">  {{ activity.formattedStartDate ? activity.formattedStartDate| trans : '' }}</td>
+                <td class="tableau">{{ activity.formattedEndDate ? activity.formattedEndDate| trans : '' }}</td>
+
+                <td class="tableau">{{ activity.price | amount }}</td>
+                <td class="tableau">{{ activity.stock }}</td>
+                <td class="tableau">
+                    <a href="{{ path('app_activitie_show', {'id': activity.id}) }}">détails</a>
+                </td>
+                 <td class="tableau">
+                    <a href="{{ path('cart_add', {'id': activity.id}) }}">ajouter au panier</a>
+                </td>
+
+            </tr>
+          {% else %}
+                 <tr>
+                     <td>Aucune correspondance trouvée</td>
+                 </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+    </div>
+    <div class="onlymobil">
+        {% for activity in activities %}
+
+
+          
+
+            <h3>Start</h3>
+            <p>{{ activity.start ? activity.start|date('Y-m-d H:i:s') : '' }}</p>
+
+            <h3>End</h3>
+            <p>{{ activity.end ? activity.end|date('Y-m-d H:i:s') : '' }}</p>
+
+            <h3>Prix</h3>
+            <p>{{ activity.price | amount }}</p>
+
+            <h3>Stock</h3>
+            <p>{{ activity.stock }}</p>
+
+
+
+
+
+            <hr>
+
+
+
+        {% else %}
+
+            <p>Aucune correspondance trouvée</p>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

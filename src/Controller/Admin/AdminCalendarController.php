@@ -3,12 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Calendar;
-use App\Entity\Activitie;
+use App\Entity\Activity;
 use App\Form\CalendarType;
 use App\Service\Formatdate;
 use App\Entity\StaffSchedule;
 use App\Repository\CalendarRepository;
-use App\Repository\ActivitieRepository;
+use App\Repository\ActivityRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\StaffScheduleRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,11 +22,11 @@ class AdminCalendarController extends AbstractController
 {
 
     #[Route('/calendar', name: 'app_admin_calendar_index', methods: ['GET'])]
-    public function index(CalendarRepository $calendarRepository, ActivitieRepository $activitieRepository,
+    public function index(CalendarRepository $calendarRepository, ActivityRepository $activityRepository,
       Formatdate $formatdateService , StaffScheduleRepository $staffScheduleRepository): Response
     {
         $calendars = $calendarRepository->findAll();
-     //   $activities = $activitieRepository->findAll();
+     //   $activities = $activityRepository->findAll();
      //   $staffSchedules = $staffScheduleRepository->findAll();
 
         setlocale(LC_TIME, 'fr_FR');

@@ -66,7 +66,7 @@ class CalendarType extends AbstractType
             'clickedDate' => null, // Définir une valeur par défaut pour 'clickedDate'
         ]);
     
-        // Ajouter l'option 'clickedDate' pour ActivitieType
+        // Ajouter l'option 'clickedDate' pour ActivityType
         $resolver->setDefined(['clickedDate']);
     }
 }

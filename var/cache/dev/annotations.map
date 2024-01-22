@@ -19,7 +19,7 @@
   17 => 'App\\Controller\\RegistrationController',
   18 => 'App\\Controller\\SecurityController',
   19 => 'App\\Controller\\StaffScheduleSettingController',
-  20 => 'App\\Entity\\Activitie',
+  20 => 'App\\Entity\\Activity',
   21 => 'App\\Entity\\Calendar',
   22 => 'App\\Entity\\Category',
   23 => 'App\\Entity\\CategorySetting',

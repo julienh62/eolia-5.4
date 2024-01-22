@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 //use App\Form\CartConfirmationType;
-use App\Repository\ActivitieRepository;
+use App\Repository\ActivityRepository;
 use App\Repository\PurchaseItemRepository;
 use App\Service\Formatdate;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,14 +22,14 @@ class CartController extends AbstractController
     protected $cartService;
 
     /**
-     * @var ActivitieRepository
+     * @var ActivityRepository
      */
-    protected $activitieRepository;
+    protected $activityRepository;
 
-    public function __construct(Cartservice $cartService, ActivitieRepository $activitieRepository, PurchaseItemRepository $purchaseItemRepository)
+    public function __construct(Cartservice $cartService, ActivityRepository $activityRepository, PurchaseItemRepository $purchaseItemRepository)
     {
         $this->cartService = $cartService;
-        $this->activitieRepository = $activitieRepository;
+        $this->activityRepository = $activityRepository;
 
     }
 
@@ -40,11 +40,11 @@ class CartController extends AbstractController
     // public function add($id, Request $request, PurchaseItemRepository $purchaseItemRepository)
     // {
     // 0 est ce que le produit existe
-    //  $activitie = $this->activitieRepository->find($id);
-    //    $stock = $this->activitieRepository->getStock($id);
+    //  $Activity = $this->activityRepository->find($id);
+    //    $stock = $this->activityRepository->getStock($id);
     // $quantity = $purchaseItemRepository->getQuantity($id);
 //dd($stock);
-    //   if (!$activitie) {
+    //   if (!$Activity) {
 
     //      throw $this->createNotFoundException("l activité demandée n'existe pas");
     //  }
@@ -107,9 +107,9 @@ class CartController extends AbstractController
 
 // Récupérer la quantité demandée dans le panier
         $cartItems = $this->cartService->getDetailedCartItems();
-        $activitie = $this->activitieRepository->find($id);
+        $Activity = $this->activityRepository->find($id);
 
-        if (!$activitie) {
+        if (!$Activity) {
 
             throw $this->createNotFoundException("l activité demandée n'existe pas");
         }
@@ -167,9 +167,9 @@ class CartController extends AbstractController
      */
     public function delete($id)
     {
-        $activitie = $this->activitieRepository->find($id);
+        $Activity = $this->activityRepository->find($id);
 
-        if (!$activitie) {
+        if (!$Activity) {
             throw $this->createNotFoundException("l activitée $id demandée n'existe pas");
         }
 
@@ -190,9 +190,9 @@ class CartController extends AbstractController
      */
     public function decrement($id)
     {
-        $activitie = $this->activitieRepository->find($id);
+        $Activity = $this->activityRepository->find($id);
 
-        if (!$activitie) {
+        if (!$Activity) {
             throw $this->createNotFoundException("l activité $id demandée n'existe pas
             et ne peut etre décrémenté");
         }

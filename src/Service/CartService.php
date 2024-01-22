@@ -2,8 +2,8 @@
 
 namespace App\Service;
 
-use App\Repository\ActivitieRepository;
-use App\Entity\Activitie;
+use App\Repository\ActivityRepository;
+use App\Entity\Activity;
 use Symfony\Component\HttpFoundation\RequestStack;
 use App\Service\CartItem;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
@@ -17,16 +17,16 @@ class CartService
 {
 
     protected $session;
-    protected $activitieRepository;
-    protected $activitie;
+    protected $activityRepository;
+    protected $Activity;
     protected $requestStack;
 
 
-    public function __construct( Activitie $activitie , ActivitieRepository $activitieRepository, RequestStack $requestStack, SessionInterface $session ) {
+    public function __construct( Activity $Activity , ActivityRepository $activityRepository, RequestStack $requestStack, SessionInterface $session ) {
 
         $this->session = $session;
-        $this->activitieRepository = $activitieRepository;
-        $this->activitie = $activitie;
+        $this->activityRepository = $activityRepository;
+        $this->Activity = $Activity;
         $this->requestStack = $requestStack;
 
     }
@@ -87,7 +87,7 @@ class CartService
             return;
         }
 
-        //si le activitie est à 1 alors on supprime
+        //si le Activity est à 1 alors on supprime
         if ($cart[$id] === 1) {
             $this->remove($id);
             return;
@@ -105,13 +105,13 @@ class CartService
         $total = 0;
 
         foreach($this->getCart() as $id => $quantity) {
-            $activitie = $this->activitieRepository->find($id);
+            $Activity = $this->activityRepository->find($id);
 
-            if(!$activitie) {
+            if(!$Activity) {
                 continue;
             }
 
-            $total += $activitie->getPrice() * $quantity;
+            $total += $Activity->getPrice() * $quantity;
             //dd($total);
         }
         return $total;
@@ -119,8 +119,8 @@ class CartService
 
 
     public function getStock(): int {
-        // Utilisez la méthode getStockActivitie() du ActivitieRepository pour récupérer la quantité  panier pour un produit donné
-        $stock = $this->activitie->getStock();
+        // Utilisez la méthode getStockActivitie() du ActivityRepository pour récupérer la quantité  panier pour un produit donné
+        $stock = $this->Activity->getStock();
         if ($stock === null) {
             return 0;
         }
@@ -152,15 +152,15 @@ class CartService
 
 
         foreach ($this->getCart() as $id => $quantity) {
-            $activitie = $this->activitieRepository->find($id);
-            // si un activitie est supprimé, on continue la boucle
-            if(!$activitie) {
+            $Activity = $this->activityRepository->find($id);
+            // si un Activity est supprimé, on continue la boucle
+            if(!$Activity) {
                 continue;
             }
 
-            $stock = $activitie->getStock();
+            $stock = $Activity->getStock();
             // dd($detailedCart);
-            $detailedCart[] = new CartItem($activitie, $quantity , $stock);
+            $detailedCart[] = new CartItem($Activity, $quantity , $stock);
 
         }
         //dd($detailedCart);

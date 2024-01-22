@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calendar index{% endblock %}
+
+{% block body %}
+    <h1>Index des séances </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Catégorie</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Prix</th>
+                <th>Stock</th>
+                <th>action</th>
+                 <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for Activity in activities %}
+            <tr>
+                <td>{{ Activity.id }}</td>
+                <td>{{ Activity.title }}</td>
+                <td>{{ Activity.category }}</td>
+                <td>{{ Activity.start ? Activity.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ Activity.end ? Activity.end|date('Y-m-d H:i:s') : '' }}</td>
+                 <td>{{ Activity.price  }}</td>
+                <td>{{ Activity.stock }}</td>
+                <td>
+                    <a href="{{ path('app_activitie_show', {'id': Activity.id}) }}">détailss</a>
+                </td>
+                 <td>
+                    <a href="{{ path('cart_add', {'id': Activity.id}) }}">ajouter au panier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>Aucune correspondance trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

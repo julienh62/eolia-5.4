@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\StaffScheduleSettings;
 use App\Form\StaffScheduleSettingsType;
-use App\Repository\ActivitieRepository;
+use App\Repository\ActivityRepository;
 use App\Repository\ActivitieSettingsRepository;
 use App\Repository\StaffScheduleRepository;
 use App\Repository\StaffScheduleSettingsRepository;
@@ -28,11 +28,11 @@ class StaffScheduleSettingController extends AbstractController
         ]);
     }
  /*   #[Route('/staffsettingChoose', name: 'app_admin_formChooseStaff')]
-    public function chooseActivitieForm(ActivitieRepository $activitieRepository,StaffScheduleRepository $staffScheduleRepository, ActivitieSettingsRepository $activitieSettingsRepository): Response
+    public function chooseActivitieForm(ActivityRepository $activityRepository,StaffScheduleRepository $staffScheduleRepository, ActivitieSettingsRepository $activitieSettingsRepository): Response
     {
         $activitiesSettings = $activitieSettingsRepository->findAll();
         $scheduleStaffs = $staffScheduleRepository->findAll();
-        $activities = $activitieRepository->findAll();
+        $activities = $activityRepository->findAll();
         //dd($activities);
         return $this->render('admin_staffschedule_setting/chooseScheduleSetting.html.twig', [
             'activitiesSettings' => $activitiesSettings,

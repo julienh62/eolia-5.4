@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ListByCat{% endblock %}
+
+{% block body %}
+<main class="container">
+   <section class="row">
+   
+        <h1 class ="htitrecat"> Toutes les séances de {{ idcat.title }} </h1>
+        
+        <div>
+
+           {% for Activity in activities %}     
+
+            <div class ="card">
+            <!--  <img class="imgsite" src="{#{{ Activity.picture }}#}"  alt="char à voile"> -->
+
+              <div class="card-body">
+                 <h4 class="card-title"> ({{ Activity.price | amount  }} )</h4>
+                 <span class="badge">{{ Activity.category.title }}</span>
+              <!--   <p class="card-text">{#}{{ Activity.shortDescription }}#}</p> -->
+                 <p>Date de la séance:
+		      		{{ Activity.start|date("Y-m-d H:i:s") }}</p>
+                 <a href="{{ path('app_activitie_show', {'id': Activity.id}) }}">Détails</a>
+                 <a href="{{ path('cart_add', {'id': Activity.id}) }}" class="btn btn-success btn-lg">Ajouter au panier</a> 
+              </div>
+          </div>
+           
+          {% endfor %} 
+       </div>           
+   </section>
+</main>  
+{% endblock %}

@@ -18,6 +18,9 @@ class Category
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    #[ORM\Column]
+    protected ?bool $activity = null;
+
     #[ORM\OneToMany(mappedBy: 'categories', targetEntity: Calendar::class, orphanRemoval: true)]
     protected Collection $calendars;
 
@@ -49,6 +52,16 @@ class Category
     public function setTitle(string $title): static
     {
         $this->title = $title;
+
+        return $this;
+    }
+    public function isActivity(): ?bool
+    {
+        return $this->activity;
+    }
+    public function setActivity(bool $activity): static
+    {
+        $this->activity = $activity;
 
         return $this;
     }

@@ -48,7 +48,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
      {
       return $this->createQueryBuilder('p')
        ->select('SUM(p.quantity) as quantity')
-       ->andWhere('p.activitie = :id')         
+       ->andWhere('p.Activity = :id')         
        ->setParameter('id', $id)
         ->getQuery()
         ->getSingleResult()
@@ -68,7 +68,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
         // returns an array of arrays (i.e. a raw data set)
         return $resultSet->fetchAllAssociative();
 /*
-        $query = $this->getEntityManager()->createQuery("SELECT SUM(quantity) FROM App\Entity\PurchaseItem WHERE activitie.id = $id
+        $query = $this->getEntityManager()->createQuery("SELECT SUM(quantity) FROM App\Entity\PurchaseItem WHERE Activity.id = $id
     ");
  //  return $query->getResult();
  print_r ($query->getResult());*/
@@ -104,7 +104,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
          
            ->join('pi.purchase', 'p1') // jointure entre purchaseitem et purchase
            ->join('p1.user', 'u')//jointure entr purchase et user
-           ->andWhere('pi.activitie = :id')
+           ->andWhere('pi.Activity = :id')
            ->setParameter('id', $id);
 
        //dd($qb);
@@ -122,7 +122,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
             ->select('pi.quantity')
             ->join('pi.purchase', 'p1') // jointure entre purchaseitem et purchase
             ->join('p1.user', 'u')//jointure entr purchase et user
-            ->andWhere('pi.activitie = :id')
+            ->andWhere('pi.Activity = :id')
             ->andWhere('u.id = :id')
             ->setParameter('id', $id);
           //  ->setParameter('userId', $userId);
@@ -160,7 +160,7 @@ WHERE pi.activitie_id = :id
      //       $quantity = $purchaseItem['quantity'];
 
            // Récupérer la quantité en stock actuelle du produit
-     //   $sql = 'SELECT stock FROM `activitie` WHERE `id` = :activitieId';
+     //   $sql = 'SELECT stock FROM `Activity` WHERE `id` = :activitieId';
     //    $currentStock = $conn->executeQuery($sql, ['activitieId' => $activitieId])->fetchOne();
 
 
@@ -168,7 +168,7 @@ WHERE pi.activitie_id = :id
      //       $newStock = $currentStock + $quantity;
 
             // Mettre à jour le stock du produit dans la base de données
-     //       $sql = 'UPDATE `activitie` SET `stock` = :newStock WHERE `id` = :activitieId';
+     //       $sql = 'UPDATE `Activity` SET `stock` = :newStock WHERE `id` = :activitieId';
       //      $conn->executeQuery($sql, ['newStock' => $newStock, 'activitieId' => $activitieId]);
     //    }
 
@@ -205,7 +205,7 @@ WHERE pi.activitie_id = :id
 
             ->join('pi.purchase', 'p') // jointure entre purchaseitem et purchase
             ->join('p.user', 'u')//jointure entr purchase et user
-            ->andWhere('pi.activitie = :id')
+            ->andWhere('pi.Activity = :id')
             ->andWhere('u.id = :id')
            ->setParameter('userId', $userId)
            ->setParameter('id', $id);
@@ -228,7 +228,7 @@ WHERE pi.activitie_id = :id
 
        //     ->join('pi.purchase', 'p') // jointure entre purchaseitem et purchase
       //      ->join('p.user', 'u')//jointure entr purchase et user
-         //   ->andWhere('pi.activitie = :id')
+         //   ->andWhere('pi.Activity = :id')
        //     ->andWhere('u.id = :id')
       //     ->setParameter('id', $id);
 

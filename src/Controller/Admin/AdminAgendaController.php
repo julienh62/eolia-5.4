@@ -44,7 +44,7 @@ class AdminAgendaController extends AbstractController
                $textColor = '#000000';
            }
         
-            if ($event instanceof \App\Entity\Activitie) {
+            if ($event instanceof \App\Entity\Activity) {
                 $rdvs[] = [
                     'id' => $event->getId(),
                     'start' => $event->getStart()->format('Y-m-d H:i:s'),
@@ -52,7 +52,7 @@ class AdminAgendaController extends AbstractController
                     'stock' => $event->getStock(),
                     'staffs' => $staffFullName,
                     'title' => $event->getTitle(),
-                    // Utilisation des couleurs pour Activitie (s'il y en a)
+                    // Utilisation des couleurs pour Activity (s'il y en a)
                     'backgroundColor' => $backGroundColor,
                     'borderColor' => $borderColor,
                       'textColor' => $textColor,

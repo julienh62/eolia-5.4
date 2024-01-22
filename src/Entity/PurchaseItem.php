@@ -27,7 +27,7 @@ class PurchaseItem
     private ?int $total = null;
 
     #[ORM\ManyToOne(inversedBy: 'purchaseItems')]
-    private ?Activitie $activitie = null;
+    private ?Activity $Activity = null;
 
     #[ORM\ManyToOne(inversedBy: 'purchaseItems')]
     #[ORM\JoinColumn(nullable: false)]
@@ -43,14 +43,14 @@ class PurchaseItem
         return $this->id;
     }
 
-    public function getActivitie(): ?Activitie
+    public function getActivitie(): ?Activity
     {
-        return $this->activitie;
+        return $this->Activity;
     }
 
-    public function setActivitie(?Activitie $activitie): self
+    public function setActivitie(?Activity $Activity): self
     {
-        $this->activitie = $activitie;
+        $this->Activity = $Activity;
 
         return $this;
     }

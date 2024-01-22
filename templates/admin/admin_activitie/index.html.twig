@@ -1,9 +1,9 @@
 {% extends 'base.admin.html.twig' %}
 
-{% block title %}Activitie index{% endblock %}
+{% block title %}Activity index{% endblock %}
 
 {% block body %}
-    <h1>Activitie index</h1>
+    <h1>Activity index</h1>
 
     <table class="table">
         <thead>
@@ -19,18 +19,18 @@
             </tr>
         </thead>
         <tbody>
-        {% for activitie in activities %}
+        {% for Activity in activities %}
             <tr>
-                <td>{{ activitie.id }}</td>
-                <td>{{ activitie.title }}</td>
-                <td>{{ activitie.start ? activitie.start|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ activitie.end ? activitie.end|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ activitie.stock }}</td>
-                <td>{{ activitie.price }}</td>
-                <td>{{ activitie.modifiedPrice }}</td>
+                <td>{{ Activity.id }}</td>
+                <td>{{ Activity.title }}</td>
+                <td>{{ Activity.start ? Activity.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ Activity.end ? Activity.end|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ Activity.stock }}</td>
+                <td>{{ Activity.price }}</td>
+                <td>{{ Activity.modifiedPrice }}</td>
                 <td>
-                    <a href="{{ path('app_admin_activitie_show', {'id': activitie.id}) }}">show</a>
-                    <a href="{{ path('app_admin_activitie_edit', {'id': activitie.id}) }}">modifier</a>
+                    <a href="{{ path('app_admin_activitie_show', {'id': Activity.id}) }}">show</a>
+                    <a href="{{ path('app_admin_activitie_edit', {'id': Activity.id}) }}">modifier</a>
                 </td>
             </tr>
         {% else %}
