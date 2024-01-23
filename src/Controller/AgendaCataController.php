@@ -13,45 +13,55 @@ class AgendaCataController extends AbstractController
 {
    
      #[Route('/agendacata', name: 'app_agenda_cata')]
-     public function listCalendarByChar( CalendarRepository $calendarRepository, CategoryRepository $categoryRepository, PurchaseItemRepository $purchaseItemRepository)
+     public function listCalendarByCata( CalendarRepository $calendarRepository, CategoryRepository $categoryRepository, PurchaseItemRepository $purchaseItemRepository)
            {   
             $events = $calendarRepository->getAllCatamaran();
           
-           
+           //dd($events);
               //on initalise variable au cas où elle n'a pas encore de valeur
               $rdvs[] = [];
      
+              foreach ($events as $event) {
+
+           
+
+                $colorSettings = $event->getCategory()->getCategorySetting();
+                 //dd($colorSettings);
+       
+                 if ($colorSettings) {
+                    $backGroundColor = $colorSettings->getBackGroundColor();
+                    $borderColor = $colorSettings->getBorderColor();
+                    $textColor = $colorSettings->getTextColor();
+                } else {
+                    // Définissez des valeurs par défaut au cas où CategorySetting n'est pas défini pour cette catégorie
+                    $backgroundColor = '#d3dce3';
+                    $borderColor = '#ffffff';
+                    $textColor = '#000000';
+                }
+                
+
+
+
           
-              foreach($events as $event){
-                $ColorSettings = $event->getCategory()->getCategoryColorSettings()->getValues();
-                // dd($ColorSettings);
-    
-                   // Accès aux valeurs de couleur pour chaque événement
-                   foreach ($ColorSettings as $colorSetting) {
-                   $textColor = $colorSetting->getTextColor();
-                    $backgroundColor = $colorSetting->getBackGroundColor();
-                    $borderColor = $colorSetting->getBorderColor();
-                $resultquery = $purchaseItemRepository->getPurchaseQuantitySum($event->getId());
-                $quantityCommanded = $resultquery['quantity'];
-    
-                   $rdvs[] = [
-                       'id' => $event->getId(),
-                       'start' => $event->getStart()->format('Y-m-d H:i:s'),
-                       'end' => $event->getEnd()->format('Y-m-d H:i:s'),
-                       'title' => $event->getTitle(),
-                       'stock' => $event->getStock(),
-                       'backgroundColor' => $backgroundColor,
-                       'borderColor' => $borderColor,
-                       'textColor' => $textColor, 
-                       'quantityCommanded' => $quantityCommanded,
-                   ];
-               }
+        
+                $rdvs[] = [
+                    'id' => $event->getId(),
+                    'start' => $event->getStart()->format('Y-m-d H:i:s'),
+                    'end' => $event->getEnd()->format('Y-m-d H:i:s'),
+                    'stock' => $event->getStock(),
+                    'title' => $event->getTitle(),
+                    'backgroundColor' => $backGroundColor,
+                    'borderColor' => $borderColor,
+                      'textColor' => $textColor,
+                ];
             }
+        
+        
+        
 
-           $data = json_encode($rdvs);
- 
-
-          return $this->render(
+        $data = json_encode($rdvs);
+       // dd($data);
+         return $this->render(
            'agenda/cataAll.html.twig',
                [
                 'data' => $data,     

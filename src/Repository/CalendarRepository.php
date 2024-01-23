@@ -149,6 +149,20 @@ public function getAllCalendarActivitie()
     ->getQuery()
     ->getResult();
 }
+/**
+ * @param string $categoryTitle The title of the category
+ * @return Calendar[] Returns an array of Calendar objects for the specified category
+ */
+public function getElementsByCategoryTitle(string $categoryTitle)
+{
+    return $this->createQueryBuilder('element')
+        ->leftJoin('element.category', 'category')
+        ->where("category.title = :categoryTitle")
+        ->setParameter('categoryTitle', $categoryTitle)
+        ->orderBy("element.start", "desc")
+        ->getQuery()
+        ->getResult();
+}
 
 
     /**
@@ -156,9 +170,11 @@ public function getAllCalendarActivitie()
      */
     public function getAllChar()
     {
-        return $this->createQueryBuilder('s')
-          ->where("s.category = 1 ")
-          ->orderBy("s.start", "desc")
+        return $this->createQueryBuilder('char')
+        ->leftJoin('char.category', 'charc') 
+        ->where("charc.title = :charTitle")
+        ->setParameter('charTitle', 'Char à voile')
+          ->orderBy("char.start", "desc")
           ->getQuery()
           ->getResult()
        ;
@@ -170,10 +186,11 @@ public function getAllCalendarActivitie()
      */
     public function getAllCatamaran()
     {
-        return $this->createQueryBuilder('s')
-        ->where("s.category = :catamaranTitle")
+        return $this->createQueryBuilder('cata')
+        ->leftJoin('cata.category', 'catac') 
+        ->where("catac.title = :catamaranTitle")
         ->setParameter('catamaranTitle', 'Catamaran')
-          ->orderBy("s.start", "desc")
+          ->orderBy("cata.start", "desc")
           ->getQuery()
           ->getResult()
        ;

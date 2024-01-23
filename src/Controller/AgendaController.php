@@ -17,10 +17,7 @@ class AgendaController extends AbstractController
     public function index(ActivityRepository $activityRepository): Response
     {
 
-        $backgroundColor = null;
-        $borderColor = null;
-        $textColor = null;
-
+       
         $events = $activityRepository->findAll();
          //    dd($events);
 
