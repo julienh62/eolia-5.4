@@ -46,11 +46,11 @@ class PurchasePersister
         foreach ($this->cartService->getDetailedCartItems() as $cartItem) {
             $purchaseItem = new PurchaseItem;
             $purchaseItem->setPurchase($purchase)
-                ->setActivitie($cartItem->Activity)
-                ->setActivitieName($cartItem->Activity->getTitle())
+                ->setActivity($cartItem->activity)
+                ->setActivityName($cartItem->activity->getTitle())
                 ->setQuantity($cartItem->quantity)
                 ->setTotal($cartItem->getTotal())
-                ->setActivitiePrice($cartItem->Activity->getPrice());
+                ->setActivityPrice($cartItem->activity->getPrice());
               //  ->setFullName($purchase->getFullName());
     
 

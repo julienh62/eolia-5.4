@@ -10,19 +10,19 @@
         
         <div>
 
-           {% for Activity in activities %}     
+           {% for activity in activities %}     
 
             <div class ="card">
-            <!--  <img class="imgsite" src="{#{{ Activity.picture }}#}"  alt="char à voile"> -->
+            <!--  <img class="imgsite" src="{#{{ activity.picture }}#}"  alt="char à voile"> -->
 
               <div class="card-body">
-                 <h4 class="card-title"> ({{ Activity.price | amount  }} )</h4>
-                 <span class="badge">{{ Activity.category.title }}</span>
-              <!--   <p class="card-text">{#}{{ Activity.shortDescription }}#}</p> -->
+                 <h4 class="card-title"> ({{ activity.price | amount  }} )</h4>
+                 <span class="badge">{{ activity.category.title }}</span>
+              <!--   <p class="card-text">{#}{{ activity.shortDescription }}#}</p> -->
                  <p>Date de la séance:
-		      		{{ Activity.start|date("Y-m-d H:i:s") }}</p>
-                 <a href="{{ path('app_activitie_show', {'id': Activity.id}) }}">Détails</a>
-                 <a href="{{ path('cart_add', {'id': Activity.id}) }}" class="btn btn-success btn-lg">Ajouter au panier</a> 
+		      		{{ activity.start|date("Y-m-d H:i:s") }}</p>
+                 <a href="{{ path('app_activitie_show', {'id': activity.id}) }}">Détails</a>
+                 <a href="{{ path('cart_add', {'id': activity.id}) }}" class="btn btn-success btn-lg">Ajouter au panier</a> 
               </div>
           </div>
            

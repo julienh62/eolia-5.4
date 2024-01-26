@@ -18,7 +18,7 @@
                 <th>Date de fin</th>
                 <th>Prix</th>
                 <th>Unité</th>
-              <th>Stock</th>
+                <th>Stock</th>
                 <th>Total</th>
                 <th> Ajouter </th>
                 <th> Enlever </th>
@@ -29,33 +29,33 @@
         {% for item in items %}
          
             <tr>
-                <td class="tableau">{{ item.Activity.title }}</td>
+                <td class="tableaucart">{{ item.activity.title }}</td>
             
-                <td class="tableau">{{ item.Activity.start ? item.Activity.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td class="tableaucart">{{ item.activity.start ? item.activity.start|date('Y-m-d H:i:s') : '' }}</td>
            
-                <td class="tableau">{{ item.Activity.end ? item.Activity.end|date('Y-m-d H:i:s') : '' }}</td>
+                <td class="tableaucart">{{ item.activity.end ? item.activity.end|date('Y-m-d H:i:s') : '' }}</td>
            
-                <td class="tableau">{{  item.Activity.price | amount }}</td>
+                <td class="tableaucart">{{  item.activity.price | amount }}</td>
            
-                <td class="tableau">{{ item.quantity }}</td>
+                <td class="tableaucart">{{ item.quantity }}</td>
 
-              <td class="tableau">{{ item.stock }}</td>
+              <td class="tableaucart">{{ item.stock }}</td>
            
-                <td class="tableau">{{ item.total | amount }}</td>
+                <td class="tableaucart">{{ item.total | amount }}</td>
 
                    <td>
-                        <a href="{{path("cart_add", {'id': item.Activity.id})}}" class="success">
+                        <a href="{{path("cart_add", {'id': item.activity.id})}}" class="success">
                             🛒+
                         </a>
                     </td>
                           <td>
-                        <a href=" {{path("cart_decrement", {'id': item.Activity.id})}}" class="warning">
+                        <a href=" {{path("cart_decrement", {'id': item.activity.id})}}" class="warning">
                           🛒-
                         </a>
                     </td>
                        <td>
                        
-                        <a href="{{path("cart_delete", {'id': item.Activity.id})}}" class="danger">
+                        <a href="{{path("cart_delete", {'id': item.activity.id})}}" class="danger">
                             <i class="fas fa-trash-alt">Supprimer</i>
                         </a>
                     </td>
@@ -84,16 +84,16 @@
   {% for item in items %}
        
                 <h3>Titre</h3>
-                <p>{{ item.Activity.title }}</p>
+                <p>{{ item.activity.title }}</p>
            
                 <h3>Date de début</h3>
-                <p>{{ item.Activity.start ? item.Activity.start|date('Y-m-d H:i:s') : '' }}</p>
+                <p>{{ item.activity.start ? item.activity.start|date('Y-m-d H:i:s') : '' }}</p>
            
                 <h3>Date de fin</h3>
-                <p>{{ item.Activity.end ? item.Activity.end|date('Y-m-d H:i:s') : '' }}</p>
+                <p>{{ item.activity.end ? item.activity.end|date('Y-m-d H:i:s') : '' }}</p>
         
                 <h3>Prix</h3>
-                <p class="tableau">{{  item.Activity.price | amount }}</p>
+                <p class="tableau">{{  item.activity.price | amount }}</p>
           
                   <h3>Unité</h3>
                 <p class="tableau">{{ item.quantity }}</p>
@@ -102,19 +102,19 @@
                 <p class="tableau">{{ item.total | amount }}</p>
           
                 <h3>Ajouter</h3>
-                   <p> <a href="{{path("cart_add", {'id': item.Activity.id})}}" class="success">
+                   <p> <a href="{{path("cart_add", {'id': item.activity.id})}}" class="success">
                             🛒 + 1
                         </a>
                         </p>
         
                 <h3>Soustraire</h3>
-                   <p>  <a href=" {{path("cart_decrement", {'id': item.Activity.id})}}" class="warning">
+                   <p>  <a href=" {{path("cart_decrement", {'id': item.activity.id})}}" class="warning">
                           🛒 - 1
                         </a>
                         </p>
          
                 <h3>Supprimer</h3>
-                   <p>  <a href="{{path("cart_delete", {'id': item.Activity.id})}}" class="danger">
+                   <p>  <a href="{{path("cart_delete", {'id': item.activity.id})}}" class="danger">
                             <i class="fas fa-trash-alt">Supprimer</i>
                         </a>
                         </p>
@@ -138,14 +138,14 @@
            Compléter votre panier
        </a>
  </div>      
-    
+      
        <hr>
       {% if app.user %}
           {% if cartService.validateOrder() %}
                 <form method="post" action="{{ path('app_purchase_confirm') }}">
                     {% for item in items %}
-                        <input type="hidden" name="items[{{ item.Activity.id }}][quantity]" value="{{ item.quantity }}">
-                        <input type="hidden" name="items[{{ item.Activity.id }}][Activity]" value="{{ item.Activity.title }}">
+                        <input type="hidden" name="items[{{ item.activity.id }}][quantity]" value="{{ item.quantity }}">
+                        <input type="hidden" name="items[{{ item.activity.id }}][activity]" value="{{ item.activity.title }}">
                     {% endfor %}
                     <button type="submit" class="success">Valider la commande</button>
                 </form>

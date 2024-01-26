@@ -883,6 +883,12 @@ a.fab {
     text-align: center;
     font-size: 2rem;
     padding: 1rem;
+  }  
+
+  .tableaucart {
+    text-align: center;
+    font-size: 1.6rem;
+    padding: 1rem 0rem 1rem 0rem;
   }
   a,
   button,
@@ -1451,7 +1457,7 @@ a.fab {
   }
   .onlydesktop {
     display: flex;
-    padding: 5rem;
+    min-width: 2000px;
   }
 
   .tableau {

@@ -44,7 +44,7 @@ class PurchaseSuccessStock implements EventSubscriberInterface
       // decrementer stock
      
       //je récupere le stock du produit concerné par la commande
-   $recupStock = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0]->getCalendar()->getStock();
+   $recupStock = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0]->getActivity()->getStock();
      //  $recupStock = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0];
     // dd($recupStock);
 
@@ -65,7 +65,7 @@ class PurchaseSuccessStock implements EventSubscriberInterface
   //}
 
 
-       $calendar = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0]->getCalendar()->setStock($newStock);
+       $calendar = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0]->getActivity()->setStock($newStock);
 //dd($calendar);
      $this->em->persist($calendar);
 

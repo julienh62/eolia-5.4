@@ -14,9 +14,9 @@
      {% for item in purchase.purchaseItems %}
        <tr>
         
-          <td> {{ item.CalendarName }}  </td>
+          <td> {{ item.activityName }}  </td>
          <td> {{ item.quantity }}  </td>
-         <td> {{ item.calendarPrice / 100 }} € </td>
+         <td> {{ item.activityPrice / 100 }} € </td>
          <td> {{ item.total / 100  }}  € </td>
             
        </tr>

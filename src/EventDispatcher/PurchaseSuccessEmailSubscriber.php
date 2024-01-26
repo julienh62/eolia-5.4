@@ -48,7 +48,7 @@ class PurchaseSuccessEmailSubscriber implements EventSubscriberInterface
       // j'ai donc besoin d'utiliser un service , Security
       /** @var User */
       $currentUser = $this->security->getUser();
-    //  dd($currentUser);
+     // dd($currentUser);
 
 
       // recuperer la commande  
@@ -57,12 +57,13 @@ class PurchaseSuccessEmailSubscriber implements EventSubscriberInterface
      // Récupérer les détails de la commande à partir du repository
    //$purchaseDetails = $this->purchaseRepository->findPurchaseDetails($purchase->getId());
        $purchaseDetails = $this->purchaseRepository->findPurchaseDetails($purchase->getId());
-    // dd($purchaseDetails);
+     //dd($purchaseDetails);
      // Extraire les informations nécessaires des détails de la commande
     $start = $purchaseDetails[0]['start'];
   //   dd($start);
      $end = $purchaseDetails[0]['end'];
      
+    
 
       // ecrire le mail 
       $email = new TemplatedEmail();

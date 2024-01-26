@@ -18,16 +18,21 @@ class Category
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
+
     #[ORM\Column]
     protected ?bool $activity = null;
-
-    #[ORM\OneToMany(mappedBy: 'categories', targetEntity: Calendar::class, orphanRemoval: true)]
-    protected Collection $calendars;
 
     #[ORM\OneToOne(mappedBy: 'category', cascade: ['persist', 'remove'])]
     private ?CategorySetting $categorySetting = null;
 
-   
+    //#[ORM\OneToMany(mappedBy: 'categories', targetEntity: Calendar::class, orphanRemoval: true)]
+    //protected Collection $calendars;
+
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Calendar::class, orphanRemoval: true)]
+    protected Collection $calendars;
+    
 
     public function __toString()
     {
@@ -55,6 +60,17 @@ class Category
 
         return $this;
     }
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): static
+    {
+        $this->image = $image;
+
+        return $this;
+    }     
     public function isActivity(): ?bool
     {
         return $this->activity;

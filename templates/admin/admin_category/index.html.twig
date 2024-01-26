@@ -39,7 +39,6 @@
 <div class="onlymobil">
       {% for category in categories %}
                <p>{{ category.title }} </p>
-               
                 <p>
                     <a href="{{ path('app_admin_category_show', {'id': category.id}) }}">Voir</a>
                 </p>

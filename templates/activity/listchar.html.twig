@@ -20,20 +20,20 @@
             </tr>
         </thead>
         <tbody>
-        {% for Activity in activities %}
+        {% for activity in activities %}
             <tr>
-                <td>{{ Activity.id }}</td>
-                <td>{{ Activity.title }}</td>
-                <td>{{ Activity.category }}</td>
-                <td>{{ Activity.start ? Activity.start|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ Activity.end ? Activity.end|date('Y-m-d H:i:s') : '' }}</td>
-                 <td>{{ Activity.price  }}</td>
-                <td>{{ Activity.stock }}</td>
+                <td>{{ activity.id }}</td>
+                <td>{{ activity.title }}</td>
+                <td>{{ activity.category }}</td>
+                <td>{{ activity.start ? activity.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ activity.end ? activity.end|date('Y-m-d H:i:s') : '' }}</td>
+                 <td>{{ activity.price  }}</td>
+                <td>{{ activity.stock }}</td>
                 <td>
-                    <a href="{{ path('app_activitie_show', {'id': Activity.id}) }}">détailss</a>
+                    <a href="{{ path('app_activitie_show', {'id': activity.id}) }}">détailss</a>
                 </td>
                  <td>
-                    <a href="{{ path('cart_add', {'id': Activity.id}) }}">ajouter au panier</a>
+                    <a href="{{ path('cart_add', {'id': activity.id}) }}">ajouter au panier</a>
                 </td>
             </tr>
         {% else %}

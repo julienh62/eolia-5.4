@@ -42,8 +42,8 @@ use ReflectionClass;
     #[ORM\ManyToOne(inversedBy: 'calendars')]
     #[ORM\JoinColumn(nullable: false)]
     protected ?Category $category = null;
-
   
+    
   
     public function __construct()
     {

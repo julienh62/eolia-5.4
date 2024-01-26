@@ -23,7 +23,7 @@ class Activity extends Calendar
 
 
 
-    #[ORM\OneToMany(mappedBy: 'Activity', targetEntity: PurchaseItem::class)]
+    #[ORM\OneToMany(mappedBy: 'activity', targetEntity: PurchaseItem::class)]
     private Collection $purchaseItems;
 
     #[ORM\ManyToMany(targetEntity: User::class)]
@@ -97,8 +97,8 @@ class Activity extends Calendar
     {
         if ($this->purchaseItems->removeElement($purchaseItem)) {
             // set the owning side to null (unless already changed)
-            if ($purchaseItem->getActivitie() === $this) {
-                $purchaseItem->setActivitie(null);
+            if ($purchaseItem->getActivity() === $this) {
+                $purchaseItem->setActivity(null);
             }
         }
 

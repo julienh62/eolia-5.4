@@ -69,7 +69,7 @@ class PurchaseRepository extends ServiceEntityRepository
 
             ->select('c.start, c.end')
             ->join('p.purchaseItems', 'pi') // jointure entre Purchase et PurchaseItem
-            ->join('pi.Activity', 'c') // jointure entre PurchaseItem et Activity
+            ->join('pi.activity', 'c') // jointure entre PurchaseItem et Activity
           //  ->join('p.user', 'u') // jointure entre Purchase et User
             ->andWhere('p.id = :id') // condition pour le nom complet de l'utilisateur
             ->setParameter('id', $id);
@@ -80,7 +80,7 @@ class PurchaseRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('p')
             ->join('p.purchaseItems', 'pi') // jointure entre Purchase et PurchaseItem
-            ->join('pi.Activity', 'c') // jointure entre PurchaseItem et Activity
+            ->join('pi.activity', 'c') // jointure entre PurchaseItem et Activity
             ->join('p.user', 'u') // jointure entre Purchase et User
             ->andWhere('u.fullName = :fullName')
             ->setParameter('fullName', $fullName)
@@ -98,7 +98,7 @@ class PurchaseRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('p')
             ->select('c.start, c.end, c.title, u.fullName, pi.quantity, pi.id, p.total, p.status')
             ->join('p.purchaseItems', 'pi') // jointure entre Purchase et PurchaseItem
-            ->join('pi.Activity', 'c') // jointure entre PurchaseItem et Activity
+            ->join('pi.activity', 'c') // jointure entre PurchaseItem et Activity
             ->join('p.user', 'u') // jointure entre Purchase et User
             ->andWhere('u.fullName = :fullName') // condition pour le nom complet de l'utilisateur
             ->setParameter('fullName', $fullName);

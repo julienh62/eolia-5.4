@@ -11,22 +11,20 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 
 
-
-
 class CartService
 {
 
     protected $session;
     protected $activityRepository;
-    protected $Activity;
+    protected $activity;
     protected $requestStack;
 
 
-    public function __construct( Activity $Activity , ActivityRepository $activityRepository, RequestStack $requestStack, SessionInterface $session ) {
+    public function __construct( Activity $activity , ActivityRepository $activityRepository, RequestStack $requestStack, SessionInterface $session ) {
 
         $this->session = $session;
         $this->activityRepository = $activityRepository;
-        $this->Activity = $Activity;
+        $this->activity = $activity;
         $this->requestStack = $requestStack;
 
     }
@@ -105,13 +103,13 @@ class CartService
         $total = 0;
 
         foreach($this->getCart() as $id => $quantity) {
-            $Activity = $this->activityRepository->find($id);
+            $activity = $this->activityRepository->find($id);
 
-            if(!$Activity) {
+            if(!$activity) {
                 continue;
             }
 
-            $total += $Activity->getPrice() * $quantity;
+            $total += $activity->getPrice() * $quantity;
             //dd($total);
         }
         return $total;
@@ -120,7 +118,7 @@ class CartService
 
     public function getStock(): int {
         // Utilisez la méthode getStockActivitie() du ActivityRepository pour récupérer la quantité  panier pour un produit donné
-        $stock = $this->Activity->getStock();
+        $stock = $this->activity->getStock();
         if ($stock === null) {
             return 0;
         }
@@ -152,15 +150,15 @@ class CartService
 
 
         foreach ($this->getCart() as $id => $quantity) {
-            $Activity = $this->activityRepository->find($id);
+            $activity = $this->activityRepository->find($id);
             // si un Activity est supprimé, on continue la boucle
-            if(!$Activity) {
+            if(!$activity) {
                 continue;
             }
 
-            $stock = $Activity->getStock();
+            $stock = $activity->getStock();
             // dd($detailedCart);
-            $detailedCart[] = new CartItem($Activity, $quantity , $stock);
+            $detailedCart[] = new CartItem($activity, $quantity , $stock);
 
         }
         //dd($detailedCart);

@@ -25,35 +25,35 @@ class AdminActivitieController extends AbstractController
   /* #[Route('/new', name: 'app_admin_activitie_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $Activity = new Activity();
-        $form = $this->createForm(ActivityType::class, $Activity);
+        $activity = new Activity();
+        $form = $this->createForm(ActivityType::class, $activity);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($Activity);
+            $entityManager->persist($activity);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_admin_activitie_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('admin_activitie/new.html.twig', [
-            'Activity' => $Activity,
+            'Activity' => $activity,
             'form' => $form,
         ]);
     }
 */
     #[Route('/{id}', name: 'app_admin_activitie_show', methods: ['GET'])]
-    public function show(Activity $Activity): Response
+    public function show(Activity $activity): Response
     {
         return $this->render('admin/admin_activitie/show.html.twig', [
-            'Activity' => $Activity,
+            'Activity' => $activity,
         ]);
     }
 
     #[Route('/{id}/edit', name: 'app_admin_activitie_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Activity $Activity, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Activity $activity, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(ActivityType::class, $Activity);
+        $form = $this->createForm(ActivityType::class, $activity);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,16 +63,16 @@ class AdminActivitieController extends AbstractController
         }
 
         return $this->render('admin/admin_activitie/edit.html.twig', [
-            'Activity' => $Activity,
+            'Activity' => $activity,
             'form' => $form
         ]);
     }
 
     #[Route('/{id}', name: 'app_admin_activitie_delete', methods: ['POST'])]
-    public function delete(Request $request, Activity $Activity, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, Activity $activity, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$Activity->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($Activity);
+        if ($this->isCsrfTokenValid('delete'.$activity->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($activity);
             $entityManager->flush();
         }
 

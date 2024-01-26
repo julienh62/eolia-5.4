@@ -4,11 +4,11 @@
 
 {% block body %}
    <div class="milieu">
-    <h1> {{ Activity.title }}</h1>
+    <h1> {{ activity.title }}</h1>
     {#   {% for item in picture %}
          {#   {{ dump(picture) }}   #}
     {#       {% if item.picture is not null %}
-             <!--  <img class="imgsite" src="{#{{ item.picture }} " alt="Image de {#{{ Activity.title }}">-->
+             <!--  <img class="imgsite" src="{#{{ item.picture }} " alt="Image de {#{{ activity.title }}">-->
            {% endif %}
        {% endfor %}  #}
 
@@ -18,7 +18,7 @@
             
             <tr>
                 <th>Titre</th>
-                <td>{{ Activity.title }}</td>
+                <td>{{ activity.title }}</td>
                 
             </tr>
 
@@ -26,19 +26,19 @@
 
             <tr>
                 <th>Début de la séance</th>
-                <td>{{ Activity.start ? Activity.start|date('Y-m-d H:i:s') : ''}}</td>
+                <td>{{ activity.start ? activity.start|date('Y-m-d H:i:s') : ''}}</td>
             </tr>
             <tr>
                 <th>Fin de la séance</th>
-                <td>{{ Activity.start ? Activity.start|date('Y-m-d H:i:s') : ''}}</td>
+                <td>{{ activity.start ? activity.start|date('Y-m-d H:i:s') : ''}}</td>
             </tr>
               <tr>
                 <th>Prix</th>
-                <td>{{ Activity.price | amount }}</td>
+                <td>{{ activity.price | amount }}</td>
             </tr>
             <tr>
                 <th>Quantité-disponible</th>
-                <td>{{ Activity.stock }}</td>
+                <td>{{ activity.stock }}</td>
             </tr>
 
                
@@ -54,9 +54,9 @@
      </div>   
     
 
-{% if Activity.stock > 0 %}
+{% if activity.stock > 0 %}
      <div class="milieu">
-           <a href="{{ path('cart_add', {'id': Activity.id}) }}">Ajouter au panier</a>
+           <a href="{{ path('cart_add', {'id': activity.id}) }}">Ajouter au panier</a>
           <a href="{{ path('app_activitie_index') }}">Retour à la liste</a>
     </div>
 {% else %}

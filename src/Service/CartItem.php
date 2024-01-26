@@ -9,21 +9,21 @@ use App\Entity\Activity;
 
 class CartItem {
     
-    public $Activity;
+    public $activity;
     public $quantity;
     public $stock;
 
-    public function __construct(Activity $Activity, int $quantity, int $stock)
+    public function __construct(Activity $activity, int $quantity, int $stock)
     {
        
-        $this->Activity = $Activity;
+        $this->activity = $activity;
         $this->quantity = $quantity;
         $this->stock = $stock;
     }
 
     public function getTotal(): int 
     {
-        return $this->Activity->getPrice() * $this->quantity;
+        return $this->activity->getPrice() * $this->quantity;
     }
 
 }

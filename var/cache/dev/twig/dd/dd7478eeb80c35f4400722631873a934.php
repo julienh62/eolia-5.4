@@ -153,17 +153,16 @@ class __TwigTemplate_024a1ac0a37882b15503d01d9832c9f9 extends Template
             echo "               <p>";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "title", [], "any", false, false, false, 41), "html", null, true);
             echo " </p>
-               
                 <p>
                     <a href=\"";
-            // line 44
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_show", ["id" => twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 44)]), "html", null, true);
+            // line 43
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_show", ["id" => twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 43)]), "html", null, true);
             echo "\">Voir</a>
                 </p>
                 <p>
                     <a href=\"";
-            // line 47
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 47)]), "html", null, true);
+            // line 46
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 46)]), "html", null, true);
             echo "\"> Éditer </a>
                 </p>
        
@@ -177,7 +176,7 @@ class __TwigTemplate_024a1ac0a37882b15503d01d9832c9f9 extends Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 57
+            // line 56
             echo "           
                 <p>Aucune Catégorie pour l'instant </p>
           
@@ -186,12 +185,12 @@ class __TwigTemplate_024a1ac0a37882b15503d01d9832c9f9 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 61
+        // line 60
         echo "        
    
   </div>
        <a href=\"";
-        // line 64
+        // line 63
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_new");
         echo "\">Créer </a>
 ";
@@ -224,7 +223,7 @@ class __TwigTemplate_024a1ac0a37882b15503d01d9832c9f9 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  195 => 64,  190 => 61,  181 => 57,  166 => 47,  160 => 44,  153 => 41,  148 => 40,  141 => 35,  132 => 31,  123 => 27,  117 => 24,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  194 => 63,  189 => 60,  180 => 56,  165 => 46,  159 => 43,  153 => 41,  148 => 40,  141 => 35,  132 => 31,  123 => 27,  117 => 24,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -270,7 +269,6 @@ class __TwigTemplate_024a1ac0a37882b15503d01d9832c9f9 extends Template
 <div class=\"onlymobil\">
       {% for category in categories %}
                <p>{{ category.title }} </p>
-               
                 <p>
                     <a href=\"{{ path('app_admin_category_show', {'id': category.id}) }}\">Voir</a>
                 </p>

@@ -15,10 +15,10 @@ class PurchaseItem
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $activitieName = null;
+    private ?string $activityName = null;
 
     #[ORM\Column]
-    private ?int $activitiePrice = null;
+    private ?int $activityPrice = null;
 
     #[ORM\Column]
     private ?int $quantity = null;
@@ -27,7 +27,7 @@ class PurchaseItem
     private ?int $total = null;
 
     #[ORM\ManyToOne(inversedBy: 'purchaseItems')]
-    private ?Activity $Activity = null;
+    private ?Activity $activity = null;
 
     #[ORM\ManyToOne(inversedBy: 'purchaseItems')]
     #[ORM\JoinColumn(nullable: false)]
@@ -43,14 +43,14 @@ class PurchaseItem
         return $this->id;
     }
 
-    public function getActivitie(): ?Activity
+    public function getActivity(): ?Activity
     {
-        return $this->Activity;
+        return $this->activity;
     }
 
-    public function setActivitie(?Activity $Activity): self
+    public function setActivity(?Activity $activity): self
     {
-        $this->Activity = $Activity;
+        $this->activity = $activity;
 
         return $this;
     }
@@ -71,26 +71,26 @@ class PurchaseItem
         return $this;
     }
 
-    public function getActivitieName(): ?string
+    public function getActivityName(): ?string
     {
-        return $this->activitieName;
+        return $this->activityName;
     }
 
-    public function setActivitieName(string $activitieName): self
+    public function setActivityName(string $activityName): self
     {
-        $this->activitieName = $activitieName;
+        $this->activityName = $activityName;
 
         return $this;
     }
 
-    public function getActivitiePrice(): ?int
+    public function getActivityPrice(): ?int
     {
-        return $this->activitiePrice;
+        return $this->activityPrice;
     }
 
-    public function setActivitiePrice(int $activitiePrice): self
+    public function setActivityPrice(int $activityPrice): self
     {
-        $this->activitiePrice = $activitiePrice;
+        $this->activityPrice = $activityPrice;
 
         return $this;
     }

@@ -76,6 +76,8 @@ class AdminCalendarController extends AbstractController
 
 
             if ($form->isSubmitted() && $form->isValid()) {
+                
+
                 $entityManager->persist($calendar);
                 $entityManager->flush();
 

@@ -15,6 +15,7 @@ class AgendaCharKidController extends AbstractController
      #[Route('/agendacharkid', name: 'app_agenda_char_kid')]
      public function listCalendarByCharKid( CalendarRepository $calendarRepository, CategoryRepository $categoryRepository, PurchaseItemRepository $purchaseItemRepository)
            {   
+
             $events = $calendarRepository->getElementsByCategoryTitle('Char à voile kid');
           
            //dd($events);

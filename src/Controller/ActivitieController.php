@@ -45,6 +45,9 @@ class ActivitieController extends AbstractController
     #[Route('/activitieshow/{id}', name: 'app_activitie_show', priority: -1, methods: ['GET'])]
     public function show(Activity $activity, PurchaseItemRepository $purchaseItemRepository, ActivityRepository $activityRepository,$id): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY'); // Ensure the user is fully authenticated
+       
+       
         $activities = $activityRepository->findAll();
 
         $stock = $activityRepository->getStockById($id);
@@ -61,7 +64,7 @@ class ActivitieController extends AbstractController
         $resultquery = $purchaseItemRepository->getPurchaseQuantitySum($id);
         //dd($quantity);
         // je recupere les valeurs de la commandes
-      /*  $activitieQuantityClient = $Activity->getPurchaseItems()->getValues();
+      /*  $activitieQuantityClient = $activity->getPurchaseItems()->getValues();
     
              //si la quantité comandée est nulle 
        //je donne 0 à la valeur quantity 

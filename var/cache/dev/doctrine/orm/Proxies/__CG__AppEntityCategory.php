@@ -67,10 +67,10 @@ class Category extends \App\Entity\Category implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'title', 'activity', 'calendars', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'categorySetting'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'image', 'activity', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'categorySetting', 'calendars'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'title', 'activity', 'calendars', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'categorySetting'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'image', 'activity', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'categorySetting', 'calendars'];
     }
 
     /**
@@ -223,6 +223,28 @@ class Category extends \App\Entity\Category implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTitle', [$title]);
 
         return parent::setTitle($title);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getImage(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getImage', []);
+
+        return parent::getImage();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setImage(string $image): static
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setImage', [$image]);
+
+        return parent::setImage($image);
     }
 
     /**

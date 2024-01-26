@@ -48,7 +48,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
      {
       return $this->createQueryBuilder('p')
        ->select('SUM(p.quantity) as quantity')
-       ->andWhere('p.Activity = :id')         
+       ->andWhere('p.activity = :id')         
        ->setParameter('id', $id)
         ->getQuery()
         ->getSingleResult()
@@ -68,7 +68,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
         // returns an array of arrays (i.e. a raw data set)
         return $resultSet->fetchAllAssociative();
 /*
-        $query = $this->getEntityManager()->createQuery("SELECT SUM(quantity) FROM App\Entity\PurchaseItem WHERE Activity.id = $id
+        $query = $this->getEntityManager()->createQuery("SELECT SUM(quantity) FROM App\Entity\PurchaseItem WHERE activity.id = $id
     ");
  //  return $query->getResult();
  print_r ($query->getResult());*/
@@ -104,7 +104,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
          
            ->join('pi.purchase', 'p1') // jointure entre purchaseitem et purchase
            ->join('p1.user', 'u')//jointure entr purchase et user
-           ->andWhere('pi.Activity = :id')
+           ->andWhere('pi.activity = :id')
            ->setParameter('id', $id);
 
        //dd($qb);
@@ -122,7 +122,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
             ->select('pi.quantity')
             ->join('pi.purchase', 'p1') // jointure entre purchaseitem et purchase
             ->join('p1.user', 'u')//jointure entr purchase et user
-            ->andWhere('pi.Activity = :id')
+            ->andWhere('pi.activity = :id')
             ->andWhere('u.id = :id')
             ->setParameter('id', $id);
           //  ->setParameter('userId', $userId);
@@ -205,7 +205,7 @@ WHERE pi.activitie_id = :id
 
             ->join('pi.purchase', 'p') // jointure entre purchaseitem et purchase
             ->join('p.user', 'u')//jointure entr purchase et user
-            ->andWhere('pi.Activity = :id')
+            ->andWhere('pi.activity = :id')
             ->andWhere('u.id = :id')
            ->setParameter('userId', $userId)
            ->setParameter('id', $id);
