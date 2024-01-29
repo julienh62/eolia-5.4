@@ -33,8 +33,8 @@
 				<a class="aderoulant" href="/">Déconnexion</a>
 			
 				{# CartService enregistré dans twig.yaml#}
-				<a class="aderoulant" href="/ "id="panier-link">🛒
-        ({#{{ cartService.total | amount }}#})
+				<a class="aderoulant" href="{{ path('cart_index') }}"id="panier-link">🛒
+    			    ({{ cartService.total | amount }})
 				</a>
 			
 			{% else %}

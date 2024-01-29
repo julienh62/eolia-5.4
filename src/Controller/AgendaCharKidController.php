@@ -2,74 +2,37 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Service\EventService;
+use App\Repository\ActivityRepository;
+use App\Repository\CalendarRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\CalendarRepository;
-use App\Repository\CategoryRepository;
-use App\Repository\PurchaseItemRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AgendaCharKidController extends AbstractController
 {
-   
-     #[Route('/agendacharkid', name: 'app_agenda_char_kid')]
-     public function listCalendarByCharKid( CalendarRepository $calendarRepository, CategoryRepository $categoryRepository, PurchaseItemRepository $purchaseItemRepository)
-           {   
+    private $eventService;
 
-            $events = $calendarRepository->getElementsByCategoryTitle('Char à voile kid');
-          
-           //dd($events);
-              //on initalise variable au cas où elle n'a pas encore de valeur
-              $rdvs[] = [];
-     
-              foreach ($events as $event) {
-
-           
-
-                $colorSettings = $event->getCategory()->getCategorySetting();
-                 //dd($colorSettings);
-       
-                 if ($colorSettings) {
-                    $backGroundColor = $colorSettings->getBackGroundColor();
-                    $borderColor = $colorSettings->getBorderColor();
-                    $textColor = $colorSettings->getTextColor();
-                } else {
-                    // Définissez des valeurs par défaut au cas où CategorySetting n'est pas défini pour cette catégorie
-                    $backgroundColor = '#d3dce3';
-                    $borderColor = '#ffffff';
-                    $textColor = '#000000';
-                }
-                
-
-
-
-          
-        
-                $rdvs[] = [
-                    'id' => $event->getId(),
-                    'start' => $event->getStart()->format('Y-m-d H:i:s'),
-                    'end' => $event->getEnd()->format('Y-m-d H:i:s'),
-                    'stock' => $event->getStock(),
-                    'title' => $event->getTitle(),
-                    'backgroundColor' => $backGroundColor,
-                    'borderColor' => $borderColor,
-                      'textColor' => $textColor,
-                ];
-            }
-        
-        
-        
-
-        $data = json_encode($rdvs);
-       // dd($data);
-         return $this->render(
-           'agenda/charKid.html.twig',
-               [
-                'data' => $data,     
-               ]
-
-              );
-            }
-
-
+    public function __construct(EventService $eventService)
+    {
+        $this->eventService = $eventService;
     }
+
+    #[Route('/agendacharkide', name: 'app_agenda_char_kid')]
+    public function AgendaByActivity(CalendarRepository $calendarRepository): Response
+    {
+        $categoryTitle = 'Char à voile kid';
+        $image = $calendarRepository->getCategoryImage($categoryTitle);
+        //dd($image);
+        $data = $this->eventService->getEventData($categoryTitle);
+
+        return $this->render('agenda/agenda.html.twig', [
+          'data' => $data,
+          'categoryTitle' => $categoryTitle,
+          'image' => $image
+          
+  
+      ]);
+    }
+
+}

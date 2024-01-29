@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin/Activity')]
+#[Route('/admin/activity')]
 class AdminActivitieController extends AbstractController
 {
     #[Route('/', name: 'app_admin_activitie_index', methods: ['GET'])]
@@ -63,7 +63,7 @@ class AdminActivitieController extends AbstractController
         }
 
         return $this->render('admin/admin_activitie/edit.html.twig', [
-            'Activity' => $activity,
+            'activity' => $activity,
             'form' => $form
         ]);
     }

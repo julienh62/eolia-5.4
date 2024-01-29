@@ -51,16 +51,7 @@ use ReflectionClass;
        
     }
 
-   // 25/12#[ORM\ManyToOne(inversedBy: 'calendars')]
-   // #[ORM\JoinColumn(nullable: false)]
-   // private ?Category $category = null;
-
-  //25/12 #[ORM\Column(nullable: true)]
-   // private ?int $stock = null;
-
-   /* #[ORM\Column(type: 'integer')]
-    #[Assert\PositiveOrZero(message: 'Le stock ne peut pas être négatif')]
-    private $stock; */
+  
 
 
    // #[ORM\Column(nullable: true)]

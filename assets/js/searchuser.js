@@ -1,6 +1,6 @@
 'use strict';
 console.log("coucous searchjs");
-/*
+
 let input = document.querySelector('#user-search-email');
 let results = document.querySelector('#result-email');
 
@@ -31,4 +31,4 @@ function searchUser() {
                 results.append(div);
             });
         });
-}*/
+}

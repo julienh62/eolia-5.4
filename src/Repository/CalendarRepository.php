@@ -153,13 +153,13 @@ public function getAllCalendarActivitie()
  * @param string $categoryTitle The title of the category
  * @return Calendar[] Returns an array of Calendar objects for the specified category
  */
-public function getElementsByCategoryTitle(string $categoryTitle)
+public function getActivityByCategoryTitle(string $categoryTitle)
 {
-    return $this->createQueryBuilder('element')
-        ->leftJoin('element.category', 'category')
-        ->where("category.title = :categoryTitle")
+    return $this->createQueryBuilder('a')
+        ->leftJoin('a.category', 'categorya')
+        ->where("categorya.title = :categoryTitle")
         ->setParameter('categoryTitle', $categoryTitle)
-        ->orderBy("element.start", "desc")
+        ->orderBy("a.start", "desc")
         ->getQuery()
         ->getResult();
 }
@@ -337,6 +337,25 @@ if ($category !== 'all') {
             ->getQuery()
             ->getOneOrNullResult();
 
+        return $result;
+    }
+
+     /**
+     * @return array|null Returns an array containting picture  or null
+     */
+    public function getCategoryImage($title): ?array
+    {
+        $queryBuilder = $this->createQueryBuilder('c');
+
+        $result = $queryBuilder
+            ->join('c.category', 'cc') // Jointure avec l'entité Category
+            ->select('cc.image') // Sélectionner les propriétés image
+            ->where('c.title = :calendarTitle')
+            ->setParameter('calendarTitle', $title)
+            ->setMaxResults(1) // Assurez-vous d'obtenir une seule image
+            ->getQuery()
+            ->getOneOrNullResult();
+           // dd($queryBuilder->getQuery()->getSQL());
         return $result;
     }
 

@@ -35,7 +35,7 @@ class AdminCategoryController extends AbstractController
              /** @var UploadedFile $imageFile */
              $imageFile = $form->get('image')->getData();
 
-             // ...
+           
 
             if ($imageFile) {
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -88,7 +88,6 @@ class AdminCategoryController extends AbstractController
                /** @var UploadedFile $imageFile */
                $imageFile = $form->get('image')->getData();
 
-               // ...
   
               if ($imageFile) {
                   $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);

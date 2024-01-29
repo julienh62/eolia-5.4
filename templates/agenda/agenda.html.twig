@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}eoliacalendarchar!{% endblock %}
+
+{% block body %}
+    {# Affiche le JSON de data #}
+    {# {{dump(data)}} #}
+    <h1> Calendrier des séances {{ categoryTitle }}</h1>
+
+    <div class="calendaraccueil"> 
+        <img class="imgsite" src="{{ asset('uploads/images/' ~ image['image']) }}" alt="{{ categoryTitle }} Baie de Somme">
+        <div class="milieu">
+            <p class="milieu" >Prix par personne/ 60€ </p>
+            <p class="milieu" > 48€ pour les moins de 25 ans</p>
+            <p class="milieu" > A partir de 11 ans et 1,40 m</p>
+        </div>
+    </div>
+    <p class="milieu" >Cliquez sur la séance où vous souhaitez réserver. </p>
+
+    <div id="calendrier"> </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+               // Your code that interacts with the DOM goes here
+            // For instance, initializing a FullCalendar instance
+
+            let calendarElt = document.getElementById('calendrier');
+            let calendar; // Define calendar in the outer scope
+            if (calendarElt) {
+                let mediaQuery = window.matchMedia("(max-width: 1000px)");
+
+                function updateCalendarDuration() {
+                    if (calendar && mediaQuery.matches) {
+                        calendar.changeView('timeGridThreeDay');
+                    } else if (calendar) {
+                        calendar.changeView('timeGridWeek');
+                    }
+                }
+
+
+                window.onload = () => {
+                    let eventData = {{ data.events|json_encode|raw }};
+                    calendar = new FullCalendar.Calendar(calendarElt, {
+                        events: eventData,
+                        eventContent: function (arg) {
+                            // ... (votre code eventContent)
+                        },
+                        initialView: 'timeGridWeek',
+                        views: {
+                            timeGridThreeDay: {
+                                type: 'timeGrid',
+                                duration: {days: 3}
+                            },
+                            timeGridWeek: {
+                                type: 'timeGrid',
+                                duration: {days: 7}
+                            }
+                        },
+                        locale: 'fr',
+                        timeZone: 'Europe/Paris',
+                        headerToolbar: {
+                            start: 'prev,next today',
+                            center: 'title',
+                            end: 'dayGridMonth,timeGridThreeDay,timeGridWeek'
+                        },
+                        buttonText: {
+                            today: 'Aujourd\'hui',
+                            month: 'Mois',
+                            timeGridThreeDay: '3 jours',
+                            timeGridWeek: '7 jours'
+                        },
+
+                    });
+
+                    calendar.on('eventClick', (e) => {
+                        let donnees = {
+                            "id": e.event.id
+                        };
+                        let id = donnees.id;
+                        let url = "https://127.0.0.1:8000/activitieshow/" + id;
+                        window.location.href = url;
+                    });
+
+                    calendar.render();
+                    updateCalendarDuration();
+                };
+
+                mediaQuery.addEventListener('change', () => {
+                    updateCalendarDuration();
+                });
+            } else {
+                console.error('Calendar element not found!');
+            }
+        });
+    </script>
+{% endblock %}

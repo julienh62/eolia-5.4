@@ -13,6 +13,7 @@
                 <th class="colonnetableau">Title</th>
                 <th class="colonnetableau">action</th>
                 <th class="colonnetableau">action</th>
+                <th class="colonnetableau">action</th>
             </tr>
         </thead>
         <tbody>
@@ -23,10 +24,12 @@
                 <td class="colonnetableaux">
                     <a href="{{ path('app_admin_category_show', {'id': category.id}) }}"> Voir </a>
                 </td>
-                   <td class="colonnetableaux">
+                <td class="colonnetableaux">
                     <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}">editer</a>
                 </td>
-            </tr>
+                <td class="colonnetableaux">
+                    <img class="imgsite" src="{{ asset('uploads/images/' ~ category.image) }}" alt="Image de {{ category.title }}">
+                </td>
         {% else %}
             <tr>
                 <td>Aucune correspondance trouvée</td>

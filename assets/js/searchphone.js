@@ -2,7 +2,7 @@
 
 console.log("coucou searchphonejs");
 
-/*
+
 
 let inputPhone = document.querySelector('#user-search-phone');
 let resultsPhone = document.querySelector('#result-phone');
@@ -34,4 +34,3 @@ function searchByPhone() {
             });
         });
 }
-*/
