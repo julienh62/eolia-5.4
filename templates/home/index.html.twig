@@ -22,11 +22,19 @@
    <section class="titre-accueil">
 
       <h1 class="titreh1"> Char à Voile Baie de Somme</h1>
-     <h2 class = "titreh2"> Fort Mahon et Quend-Plage</h2>
+      <h2 class = "titreh2"> Fort Mahon et Quend-Plage</h2>
  
 
-    <div class="activite">
-           <div class="activiteaccueil">
+      <div class="presentationactivities">
+             {% for key, title in titles %}
+                <div class="presentationimgettitle"> 
+                    <img class="imgsite" src="{{ asset('uploads/images/' ~ images[key]) }}" alt="{{ title }} Image">
+                    <h2><a href="{{ path('app_agenda_by_category', {'categoryTitle': title}) }}">{{ title }}</a></h2>
+               </div>        
+            {% endfor %}
+           
+      </div>
+         <!--  <div class="activiteaccueil">
         
               <div class="activitecata">
                      <div class="btnactiviteaccueil">
@@ -46,6 +54,19 @@
                      </div>
              </div>
       </div>
+            <!-- {#} <div class="activiteaccueil">
+                  {% for category in categories %}
+            {% set imageUrl = categoryImages[category.title] %}
+             <div class="activiteByTitle {{ category.title|lower|replace({' ': ''}) }}" style="background-image: url('{{ imageUrl['image'] ?? '' }}')">
+
+           <div class="activitecata" style="background-image: url('{{ imageUrl['image'] ?? '' }}')"> 
+                <div class="btnactiviteaccueil">
+                                    <a class="lienaccueil" href="{{ path('app_agenda_by_category', {'categoryTitle': category.title}) }}">{{ category.title }}</a>
+                              </div>
+                        </div>
+                  {% endfor %}
+            </div>
+      </div>#} -->
    </section>
 
 

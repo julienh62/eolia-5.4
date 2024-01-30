@@ -56,25 +56,24 @@ class __TwigTemplate_8e8732ea11d41b48c5524a4f74b54eb3 extends Template
              <a href=\"";
         // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda");
-        echo "\"> Toutes les activités</a> 
+        echo "\"> Toutes les activités</a>
              <a href=\"";
         // line 12
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_char");
-        echo " \"> Char à voile</a>
-\t\t\t\t\t\t <a href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_by_category", ["categoryTitle" => "char-a-voile"]);
+        echo "\">Char à voile</a>
+\t\t\t       <a href=\"";
         // line 13
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_cata");
-        echo "\"> Catamaran </a>
-\t\t\t\t<a href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_by_category", ["categoryTitle" => "Catamaran"]);
+        echo "\">Catamaran</a>
+\t\t         <a  href=\"";
         // line 14
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_char_kid");
-        echo "\"> Char à voile Kid</a>
-        
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_by_category", ["categoryTitle" => "char-a-voile-kid"]);
+        echo "\">Char à voile kid</a>
             </div>
     </div>
 
          <a class=\"aderoulant\" href=\"";
-        // line 19
+        // line 18
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_calendar_filter");
         echo "\">Formulaire de recherche</a>
 
@@ -87,47 +86,47 @@ class __TwigTemplate_8e8732ea11d41b48c5524a4f74b54eb3 extends Template
 
 
 \t\t";
-        // line 29
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 29, $this->source); })()), "user", [], "any", false, false, false, 29)) {
-            // line 30
+        // line 28
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 28, $this->source); })()), "user", [], "any", false, false, false, 28)) {
+            // line 29
             echo "
 \t\t\t
 \t\t\t\t<a href=\"/\">Commandes</a>
 \t\t\t
 \t\t\t\t<a class=\"aderoulant\" href=\"";
-            // line 34
+            // line 33
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">Déconnexion</a>
 \t\t\t
 \t\t\t\t";
-            // line 37
+            // line 36
             echo "\t\t\t\t<a href=\"/ \"id=\"panier-link\">🛒
 \t\t\t  \t(";
-            // line 38
-            echo twig_escape_filter($this->env, $this->extensions['App\Twig\AmountExtension']->amount(twig_get_attribute($this->env, $this->source, (isset($context["cartService"]) || array_key_exists("cartService", $context) ? $context["cartService"] : (function () { throw new RuntimeError('Variable "cartService" does not exist.', 38, $this->source); })()), "total", [], "any", false, false, false, 38)), "html", null, true);
+            // line 37
+            echo twig_escape_filter($this->env, $this->extensions['App\Twig\AmountExtension']->amount(twig_get_attribute($this->env, $this->source, (isset($context["cartService"]) || array_key_exists("cartService", $context) ? $context["cartService"] : (function () { throw new RuntimeError('Variable "cartService" does not exist.', 37, $this->source); })()), "total", [], "any", false, false, false, 37)), "html", null, true);
             echo ")
 \t\t\t\t</a>
 \t\t\t
 \t\t\t";
         } else {
-            // line 42
+            // line 41
             echo "\t\t\t
 \t\t\t\t<a href=\" ";
-            // line 43
+            // line 42
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_registration");
             echo "\">Création compte</a>
 \t\t\t
 \t\t\t\t<a href=\"";
-            // line 45
+            // line 44
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Connexion</a>
 \t\t\t
 \t\t\t";
         }
-        // line 48
+        // line 47
         echo "
        <a href=\"";
-        // line 49
+        // line 48
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_agenda");
         echo "\">Admin</a>
 
@@ -146,7 +145,7 @@ class __TwigTemplate_8e8732ea11d41b48c5524a4f74b54eb3 extends Template
 
 <div id=\"slider\">
                 <img class =\"imgslider\" src=\"";
-        // line 65
+        // line 64
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/uploads/slide/char-accueiltitregros1500.webp"), "html", null, true);
         echo "\" alt = \"char à voile\" id=\"slide\">
            
@@ -155,7 +154,7 @@ class __TwigTemplate_8e8732ea11d41b48c5524a4f74b54eb3 extends Template
 </div>
 <div id=\"slidermobil\">
             \t<a class=\"slidera\" href=\"/\">  <img class =\"imgslider\" src=\"";
-        // line 71
+        // line 70
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/uploads/slide/accueil-mobil-char.webp"), "html", null, true);
         echo "\" alt = \"char à voile\" id=\"slidemobil\">
               </a> 
@@ -165,7 +164,7 @@ class __TwigTemplate_8e8732ea11d41b48c5524a4f74b54eb3 extends Template
 </div>
  <button class=\"consultplaning\" type=\"button\">
    <a class=\"aderoulant\" href=\"";
-        // line 78
+        // line 77
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_presentation");
         echo "\">Réserver et Consulter le planing</a>
   </button>
@@ -199,7 +198,7 @@ class __TwigTemplate_8e8732ea11d41b48c5524a4f74b54eb3 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  169 => 78,  159 => 71,  150 => 65,  131 => 49,  128 => 48,  122 => 45,  117 => 43,  114 => 42,  107 => 38,  104 => 37,  99 => 34,  93 => 30,  91 => 29,  78 => 19,  70 => 14,  66 => 13,  62 => 12,  58 => 11,  49 => 5,  43 => 1,);
+        return array (  168 => 77,  158 => 70,  149 => 64,  130 => 48,  127 => 47,  121 => 44,  116 => 42,  113 => 41,  106 => 37,  103 => 36,  98 => 33,  92 => 29,  90 => 28,  77 => 18,  70 => 14,  66 => 13,  62 => 12,  58 => 11,  49 => 5,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -214,11 +213,10 @@ class __TwigTemplate_8e8732ea11d41b48c5524a4f74b54eb3 extends Template
      <div class=\"dropdown-1\">
         <button>Consulter le planning</button> 
             <div class=\"content\">
-             <a href=\"{{ path('app_agenda') }}\"> Toutes les activités</a> 
-             <a href=\"{{ path('app_agenda_char') }} \"> Char à voile</a>
-\t\t\t\t\t\t <a href=\"{{ path('app_agenda_cata')}}\"> Catamaran </a>
-\t\t\t\t<a href=\"{{ path('app_agenda_char_kid')}}\"> Char à voile Kid</a>
-        
+             <a href=\"{{ path('app_agenda')}}\"> Toutes les activités</a>
+             <a href=\"{{ path('app_agenda_by_category', {'categoryTitle': 'char-a-voile'}) }}\">Char à voile</a>
+\t\t\t       <a href=\"{{ path('app_agenda_by_category', {'categoryTitle': 'Catamaran'}) }}\">Catamaran</a>
+\t\t         <a  href=\"{{ path('app_agenda_by_category', {'categoryTitle': 'char-a-voile-kid'}) }}\">Char à voile kid</a>
             </div>
     </div>
 

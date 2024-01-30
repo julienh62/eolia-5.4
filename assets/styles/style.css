@@ -278,6 +278,32 @@ body {
   font-size: 4rem;
   text-align: center;
 }
+
+
+  .presentationactivities {
+    display: flex;
+    padding: 4rem;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+   
+}
+.presentationactivities > * {
+  flex: 1 0 calc(33.33% - 1rem); /* Let items grow to fill the container width, don't shrink, and set a calculated width for each item */
+ 
+}
+
+
+.presentationimgettitle {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 .activite {
   display: none;
 }
@@ -921,7 +947,8 @@ a.fab {
     }     /*/
 
   .imgsite {
-    max-width: 300px;
+    width: 300px;
+    height: 168px;
   }
 
   .titre-accueil {

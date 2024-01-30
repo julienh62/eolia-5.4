@@ -59,13 +59,16 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
         echo "\"> Toutes les activités</a>
               <a class=\"asous\" href=\"";
         // line 11
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_char");
-        echo " \"> Char à voile</a>
-\t\t\t  <a class=\"asous\" href=\"/\"> Catamaran</a>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_by_category", ["categoryTitle" => "Char à voile"]);
+        echo "\">Char à voile</a>
+\t\t\t  <a class=\"asous\" href=\"";
+        // line 12
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_by_category", ["categoryTitle" => "Catamaran"]);
+        echo "\">Catamaran</a>
 \t\t      <a class=\"asous\" href=\"";
         // line 13
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_char_kid");
-        echo "\"> Char à voile Kid</a>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_by_category", ["categoryTitle" => "Char à voile kid"]);
+        echo "\">Char à voile kid</a>
             </div>
     </div>
 
@@ -194,7 +197,7 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
      */
     public function getDebugInfo()
     {
-        return array (  165 => 65,  160 => 63,  141 => 62,  124 => 47,  118 => 44,  113 => 42,  110 => 41,  103 => 37,  98 => 36,  90 => 29,  88 => 28,  75 => 18,  67 => 13,  62 => 11,  58 => 10,  49 => 4,  44 => 1,);
+        return array (  168 => 65,  163 => 63,  144 => 62,  127 => 47,  121 => 44,  116 => 42,  113 => 41,  106 => 37,  101 => 36,  93 => 29,  91 => 28,  78 => 18,  70 => 13,  66 => 12,  62 => 11,  58 => 10,  49 => 4,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -209,9 +212,9 @@ class __TwigTemplate_a591e5d41f0fd669d6c3ac234ddb552e extends Template
         <button>Consulter le planning</button> 
             <div class=\"content\">
               <a class=\"asous\" href=\"{{ path('app_agenda')}}\"> Toutes les activités</a>
-              <a class=\"asous\" href=\"{{ path('app_agenda_char') }} \"> Char à voile</a>
-\t\t\t  <a class=\"asous\" href=\"/\"> Catamaran</a>
-\t\t      <a class=\"asous\" href=\"{{ path('app_agenda_char_kid')}}\"> Char à voile Kid</a>
+              <a class=\"asous\" href=\"{{ path('app_agenda_by_category', {'categoryTitle': 'Char à voile'}) }}\">Char à voile</a>
+\t\t\t  <a class=\"asous\" href=\"{{ path('app_agenda_by_category', {'categoryTitle': 'Catamaran'}) }}\">Catamaran</a>
+\t\t      <a class=\"asous\" href=\"{{ path('app_agenda_by_category', {'categoryTitle': 'Char à voile kid'}) }}\">Char à voile kid</a>
             </div>
     </div>
 

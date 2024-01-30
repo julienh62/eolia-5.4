@@ -12,6 +12,10 @@ services:
     arguments:
       $session: "@session"
       $activityRepository: '@App\Repository\ActivityRepository'
+  App\Twig\GenerateLinkExtension:
+        tags:
+            - { name: twig.extension }
+            # This tag registers the GenerateLinkExtension as a Twig extension
 
   # default configuration for services in *this* file
   _defaults:

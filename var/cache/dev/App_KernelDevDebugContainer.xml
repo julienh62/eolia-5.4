@@ -344,6 +344,10 @@
       <argument type="service" id="request_stack"/>
       <argument type="service" id=".session.do-not-use"/>
     </service>
+    <service id="App\Twig\GenerateLinkExtension" class="App\Twig\GenerateLinkExtension" autowire="true" autoconfigure="true">
+      <tag name="twig.extension"/>
+      <argument type="service" id="App\Repository\CategoryRepository"/>
+    </service>
     <service id="App\Controller\ActivitieController" class="App\Controller\ActivitieController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -415,28 +419,13 @@
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\Admin\AdminUserController"/>
       </call>
     </service>
-    <service id="App\Controller\AgendaCataController" class="App\Controller\AgendaCataController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\AgendaByCategoryController" class="App\Controller\AgendaByCategoryController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <argument type="service" id="App\Service\EventService"/>
+      <argument type="service" id="App\Repository\CalendarRepository"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\AgendaCataController"/>
-      </call>
-    </service>
-    <service id="App\Controller\AgendaCharController" class="App\Controller\AgendaCharController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <argument type="service" id="App\Service\EventService"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\AgendaCharController"/>
-      </call>
-    </service>
-    <service id="App\Controller\AgendaCharKidController" class="App\Controller\AgendaCharKidController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <argument type="service" id="App\Service\EventService"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\AgendaCharKidController"/>
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\AgendaByCategoryController"/>
       </call>
     </service>
     <service id="App\Controller\AgendaController" class="App\Controller\AgendaController" public="true" autowire="true" autoconfigure="true">
@@ -4727,6 +4716,9 @@
         <argument type="service" id="twig.extension.dump"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="App\Twig\GenerateLinkExtension"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="App\Twig\AmountExtension"/>
       </call>
       <call method="addExtension">
@@ -6246,6 +6238,8 @@
     <service id="stimulus.ux_controllers_twig_extension" class="Symfony\UX\StimulusBundle\Twig\UxControllersTwigExtension">
       <tag name="twig.extension"/>
     </service>
+    <service id=".instanceof.Twig\Extension\ExtensionInterface.0.App\Twig\GenerateLinkExtension" class="App\Twig\GenerateLinkExtension" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Twig\GenerateLinkExtension" class="App\Twig\GenerateLinkExtension" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ActivitieController" class="App\Controller\ActivitieController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ActivitieController" class="App\Controller\ActivitieController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ActivitieController" class="App\Controller\ActivitieController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6276,15 +6270,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminUserController" class="App\Controller\Admin\AdminUserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminUserController" class="App\Controller\Admin\AdminUserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\AdminUserController" class="App\Controller\Admin\AdminUserController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AgendaCataController" class="App\Controller\AgendaCataController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AgendaCataController" class="App\Controller\AgendaCataController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\AgendaCataController" class="App\Controller\AgendaCataController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AgendaCharController" class="App\Controller\AgendaCharController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AgendaCharController" class="App\Controller\AgendaCharController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\AgendaCharController" class="App\Controller\AgendaCharController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AgendaCharKidController" class="App\Controller\AgendaCharKidController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AgendaCharKidController" class="App\Controller\AgendaCharKidController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\AgendaCharKidController" class="App\Controller\AgendaCharKidController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AgendaByCategoryController" class="App\Controller\AgendaByCategoryController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AgendaByCategoryController" class="App\Controller\AgendaByCategoryController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\AgendaByCategoryController" class="App\Controller\AgendaByCategoryController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AgendaController" class="App\Controller\AgendaController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AgendaController" class="App\Controller\AgendaController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AgendaController" class="App\Controller\AgendaController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6984,6 +6972,13 @@
         <argument key="mailer" type="service_closure" id="mailer.mailer"/>
       </argument>
     </service>
+    <service id=".service_locator.SH2YbTU" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="calendarRepository" type="service_closure" id="App\Repository\CalendarRepository"/>
+        <argument key="generateLinkExtension" type="service_closure" id="App\Twig\GenerateLinkExtension"/>
+      </argument>
+    </service>
     <service id=".service_locator.AZyliWD" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7044,7 +7039,7 @@
         <argument key="staffScheduleSettingsRepository" type="service_closure" id="App\Repository\StaffScheduleSettingsRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.lPoaYwu" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.4X5AKLX" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ActivitieController::index" type="service_closure" id=".service_locator._lcSaPy"/>
@@ -7089,9 +7084,6 @@
         <argument key="App\Controller\Admin\AdminUserController::searchUser" type="service_closure" id=".service_locator.Q1F27w5"/>
         <argument key="App\Controller\Admin\AdminUserController::searchUserName" type="service_closure" id=".service_locator.Q1F27w5"/>
         <argument key="App\Controller\Admin\AdminUserController::show" type="service_closure" id=".service_locator.ZCdnETC"/>
-        <argument key="App\Controller\AgendaCataController::AgendaByActivity" type="service_closure" id=".service_locator.F_DYhqA"/>
-        <argument key="App\Controller\AgendaCharController::AgendaByActivity" type="service_closure" id=".service_locator.F_DYhqA"/>
-        <argument key="App\Controller\AgendaCharKidController::AgendaByActivity" type="service_closure" id=".service_locator.F_DYhqA"/>
         <argument key="App\Controller\AgendaController::index" type="service_closure" id=".service_locator.U55iHjJ"/>
         <argument key="App\Controller\AgendaVeloController::AgendaByActivity" type="service_closure" id=".service_locator.F_DYhqA"/>
         <argument key="App\Controller\CalendarController::filterPrice" type="service_closure" id=".service_locator.1AUvg4L"/>
@@ -7099,7 +7091,7 @@
         <argument key="App\Controller\CartController::add" type="service_closure" id=".service_locator.pfcqVkM"/>
         <argument key="App\Controller\CartController::index" type="service_closure" id=".service_locator.6xxNycQ"/>
         <argument key="App\Controller\ContactController::contactForm" type="service_closure" id=".service_locator.6E9xidT"/>
-        <argument key="App\Controller\HomeController::index" type="service_closure" id=".service_locator.F_DYhqA"/>
+        <argument key="App\Controller\HomeController::index" type="service_closure" id=".service_locator.SH2YbTU"/>
         <argument key="App\Controller\Purchase\PurchaseConfirmationController::verifyCartItems" type="service_closure" id=".service_locator.pfcqVkM"/>
         <argument key="App\Controller\Purchase\PurchaseListController::index" type="service_closure" id=".service_locator.AZyliWD"/>
         <argument key="App\Controller\Purchase\PurchasePaymentController::showCardForm" type="service_closure" id=".service_locator.ZUE9S8O"/>
@@ -7156,9 +7148,6 @@
         <argument key="App\Controller\Admin\AdminUserController:searchUser" type="service_closure" id=".service_locator.Q1F27w5"/>
         <argument key="App\Controller\Admin\AdminUserController:searchUserName" type="service_closure" id=".service_locator.Q1F27w5"/>
         <argument key="App\Controller\Admin\AdminUserController:show" type="service_closure" id=".service_locator.ZCdnETC"/>
-        <argument key="App\Controller\AgendaCataController:AgendaByActivity" type="service_closure" id=".service_locator.F_DYhqA"/>
-        <argument key="App\Controller\AgendaCharController:AgendaByActivity" type="service_closure" id=".service_locator.F_DYhqA"/>
-        <argument key="App\Controller\AgendaCharKidController:AgendaByActivity" type="service_closure" id=".service_locator.F_DYhqA"/>
         <argument key="App\Controller\AgendaController:index" type="service_closure" id=".service_locator.U55iHjJ"/>
         <argument key="App\Controller\AgendaVeloController:AgendaByActivity" type="service_closure" id=".service_locator.F_DYhqA"/>
         <argument key="App\Controller\CalendarController:filterPrice" type="service_closure" id=".service_locator.1AUvg4L"/>
@@ -7166,7 +7155,7 @@
         <argument key="App\Controller\CartController:add" type="service_closure" id=".service_locator.pfcqVkM"/>
         <argument key="App\Controller\CartController:index" type="service_closure" id=".service_locator.6xxNycQ"/>
         <argument key="App\Controller\ContactController:contactForm" type="service_closure" id=".service_locator.6E9xidT"/>
-        <argument key="App\Controller\HomeController:index" type="service_closure" id=".service_locator.F_DYhqA"/>
+        <argument key="App\Controller\HomeController:index" type="service_closure" id=".service_locator.SH2YbTU"/>
         <argument key="App\Controller\Purchase\PurchaseConfirmationController:verifyCartItems" type="service_closure" id=".service_locator.pfcqVkM"/>
         <argument key="App\Controller\Purchase\PurchaseListController:index" type="service_closure" id=".service_locator.AZyliWD"/>
         <argument key="App\Controller\Purchase\PurchasePaymentController:showCardForm" type="service_closure" id=".service_locator.ZUE9S8O"/>
@@ -7602,21 +7591,9 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
-    <service id=".service_locator.mx0UMmY.App\Controller\AgendaCataController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\AgendaCataController"/>
-      <argument>App\Controller\AgendaCataController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.mx0UMmY" method="withContext"/>
-    </service>
-    <service id=".service_locator.mx0UMmY.App\Controller\AgendaCharController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\AgendaCharController"/>
-      <argument>App\Controller\AgendaCharController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.mx0UMmY" method="withContext"/>
-    </service>
-    <service id=".service_locator.mx0UMmY.App\Controller\AgendaCharKidController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\AgendaCharKidController"/>
-      <argument>App\Controller\AgendaCharKidController</argument>
+    <service id=".service_locator.mx0UMmY.App\Controller\AgendaByCategoryController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\AgendaByCategoryController"/>
+      <argument>App\Controller\AgendaByCategoryController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
@@ -7863,12 +7840,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.lPoaYwu"/>
+      <argument type="service" id=".service_locator.4X5AKLX"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.lPoaYwu"/>
+      <argument type="service" id=".service_locator.4X5AKLX"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -8876,7 +8853,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.lPoaYwu"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.4X5AKLX"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -8912,7 +8889,7 @@
     <service id=".service_locator.IJyWPwb" alias=".service_locator.kXtg5m1"/>
     <service id=".service_locator.j.3hYyQ" alias=".service_locator.TJOfZmJ"/>
     <service id=".service_locator.QS5ik0Z" alias=".service_locator.I__DjQ_"/>
-    <service id=".service_locator.fCA3voj" alias=".service_locator.lPoaYwu"/>
+    <service id=".service_locator.0Eg_ERs" alias=".service_locator.4X5AKLX"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.l6ELYLY"/>
     <service id=".service_locator.mkSzDKi" alias=".service_locator.0zCl3g8"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
@@ -8973,6 +8950,7 @@
     <service id=".service_locator.hdSEO9C" alias=".service_locator.pfcqVkM"/>
     <service id=".service_locator.uki..xU" alias=".service_locator.6xxNycQ"/>
     <service id=".service_locator.k3yKEdo" alias=".service_locator.6E9xidT"/>
+    <service id=".service_locator.hAGX28Y" alias=".service_locator.SH2YbTU"/>
     <service id=".service_locator.ghxFhWS" alias=".service_locator.AZyliWD"/>
     <service id=".service_locator.fmHiLnw" alias=".service_locator.ZUE9S8O"/>
     <service id=".service_locator.7XGdaSD" alias=".service_locator.YTieQXO"/>

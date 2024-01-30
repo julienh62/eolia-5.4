@@ -1,5 +1,8 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-favicon:
-    path: /favicon.ico
+app_agenda_by_category:
+    path: '/agenda/{categoryTitle}'
+    controller: 'App\Controller\AgendaByCategoryController::renderAgendaByCategory'
+
+

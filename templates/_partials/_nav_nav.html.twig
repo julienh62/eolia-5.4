@@ -1,0 +1,96 @@
+<header id="navbar" class="nav">
+    <div class="dropdown-1">
+        <button>Nos activités-nav-nav</button> 
+            <div class="content">
+               <a href="{{ path('app_calendar_index') }}">Toutes les séances</a>
+                   {% for category in generateCategoryLinks() %}
+                <a class="asous" href="{{ path('app_agenda_by_category', {'categoryTitle': category.title}) }}">{{ category.title }}</a>
+              {% endfor %}
+            </div>
+    </div>
+     <div class="dropdown-1">
+        <button>Consulter le planning</button> 
+            <div class="content">
+              <a class="asous" href="{{ path('app_calendar_main') }} "> Toutes les activités</a>
+              <a class="asous" href="{{ path('app_calendar_main_char') }} "> Char à voile</a>
+				<a class="asous" href="{{ path('app_calendar_main_cata') }} "> Catamaran</a>
+				<a class="asous" href="{{ path('app_calendar_main_kid') }} "> Char à voile Kid</a>
+            </div>
+    </div>
+
+
+
+ 		
+	
+			<a class="aderoulant" href="{{ path('app_contact_form') }}">Contact</a>
+		
+
+		
+
+
+
+
+
+		{% if app.user %}
+
+			
+				<a class="aderoulant" href="{{ path('app_purchase') }}">Commandes</a>
+			
+				<a class="aderoulant" href="{{ path('app_logout') }}">Déconnexion</a>
+			
+
+
+
+
+
+				{# CartService enregistré dans twig.yaml#}
+				<a class="aderoulant" href="{{ path('cart_index') }} "id="panier-link">🛒
+       ({{ cartService.total | amount }})
+				</a>
+			
+			{% else %}
+			
+				<a class="aderoulant" href=" {{ path('app_registration')  }}">Création Compte</a>
+			
+				<a class="aderoulant" href="{{ path('app_login') }}">Connexion</a>
+			
+			{% endif %}
+
+
+
+
+
+
+  </div>
+   
+</nav>
+
+
+     <a class="icon" onclick = "myFunction()">&#9776;</a>
+
+</header>
+
+
+<div id="slider">
+                <img class ="imgslider" src="{{ asset('assets/uploads/slide/char-accueiltitregros1500.webp')}}" alt = "char à voile" id="slide">
+           
+                <div id="precedent" onclick="ChangeSlide(-1)">&lt;</div>
+                <div id="suivant" onclick="ChangeSlide(1)">&gt;</div>
+</div>
+ <button class="consultplaning" type="button">
+   <a href="{{ path('app_presentation') }}">Réserver et Consulter le planing</a>
+  </button>
+
+
+	{% block javascripts %}
+ 
+ <script src="{{ asset('assets/js/cartamount.js') }}"></script>
+
+{% endblock %}
+
+
+
+
+
+
+	
