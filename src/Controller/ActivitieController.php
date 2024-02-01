@@ -45,7 +45,7 @@ class ActivitieController extends AbstractController
     #[Route('/activitieshow/{id}', name: 'app_activitie_show', priority: -1, methods: ['GET'])]
     public function show(Activity $activity, PurchaseItemRepository $purchaseItemRepository, ActivityRepository $activityRepository,$id): Response
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY'); // Ensure the user is fully authenticated
+        
        
        
         $activities = $activityRepository->findAll();
@@ -87,64 +87,7 @@ class ActivitieController extends AbstractController
         ]);
     }
 
-  // list Activity char
- /**
- * @Route("/activitieallchar", name="activitie_all_char")
- */
-public function listActivitieByChar( ActivityRepository $activityRepository)
-{
-   $activity = $activityRepository->getAllChar();
-   
-
-    return $this->render(
-        'activity/listByCat.html.twig',
-        [
-           
-            'activities'  => $activity
-        ]
-
-    );
-}
-
-
-/**
- * @Route("/activitiescatamaran", name="cataAll_show")
- */
-public function listActivitieByCatamaran( ActivityRepository $activityRepository, CategoryRepository $categoryRepository)
-{
-   $activity = $activityRepository->getAllCatamaran();
-   $idCat = $categoryRepository->find($id = 2);
-   
-    return $this->render(
-        'activity/listByCat.html.twig',
-        [
-            'activities'  => $activity,
-            'idcat' => $idCat
-            
-        ]
-
-    );
-}
-
-//list Activity kid
-   /**
-   * @Route("/activitiecharkid", name="charkidAll_show")
-   */
-  public function listActivitieByCharKid( ActivityRepository $activityRepository, CategoryRepository $categoryRepository)
-  {
-  
-     $activity = $activityRepository->getAllCharKid();
-     $idCat = $categoryRepository->find($id = 3);
-  
-      return $this->render(
-          'activity/listByCat.html.twig',
-          [
-              'activities'  => $activity,
-              'idcat' => $idCat 
-          ]
-  
-      );
-  }
+ 
 
 
 

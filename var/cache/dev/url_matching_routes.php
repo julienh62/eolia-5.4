@@ -10,9 +10,6 @@ return [
     [ // $staticRoutes
         '/filter' => [[['_route' => 'filter', '_controller' => 'App\\Controller\\CalendarController::filterPrice'], null, ['GET' => 0], null, false, false, null]],
         '/activity' => [[['_route' => 'app_activitie_index', '_controller' => 'App\\Controller\\ActivitieController::index'], null, null, null, false, false, null]],
-        '/activitieallchar' => [[['_route' => 'activitie_all_char', '_controller' => 'App\\Controller\\ActivitieController::listActivitieByChar'], null, null, null, false, false, null]],
-        '/activitiescatamaran' => [[['_route' => 'cataAll_show', '_controller' => 'App\\Controller\\ActivitieController::listActivitieByCatamaran'], null, null, null, false, false, null]],
-        '/activitiecharkid' => [[['_route' => 'charkidAll_show', '_controller' => 'App\\Controller\\ActivitieController::listActivitieByCharKid'], null, null, null, false, false, null]],
         '/admin/activity' => [[['_route' => 'app_admin_activitie_index', '_controller' => 'App\\Controller\\Admin\\AdminActivitieController::index'], null, ['GET' => 0], null, true, false, null]],
         '/admin/agenda' => [[['_route' => 'app_admin_agenda', '_controller' => 'App\\Controller\\Admin\\AdminAgendaController::index'], null, null, null, false, false, null]],
         '/calendar' => [[['_route' => 'app_admin_calendar_index', '_controller' => 'App\\Controller\\Admin\\AdminCalendarController::index'], null, ['GET' => 0], null, false, false, null]],

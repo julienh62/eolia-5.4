@@ -671,6 +671,10 @@ form[name="calendar"] {
   transform: scale(2);
   margin-left: 10rem;
 }
+.success {
+  background-color:#5f9ea0;
+  border:1px solid grey;
+}
 
 /*//////////////////////////////////////////////////////////////////////////*/
 /*formulaire création calendar  /*/

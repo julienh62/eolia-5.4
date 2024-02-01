@@ -16,7 +16,7 @@ class Category
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    private ?string $titleCategory = null;
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
@@ -36,7 +36,7 @@ class Category
 
     public function __toString()
     {
-        return $this->title;
+        return $this->titleCategory;
     } 
 
     public function __construct()
@@ -49,14 +49,14 @@ class Category
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getTitleCategory(): ?string
     {
-        return $this->title;
+        return $this->titleCategory;
     }
 
-    public function setTitle(string $title): static
+    public function setTitleCategory(string $titleCategory): static
     {
-        $this->title = $title;
+        $this->titleCategory = $titleCategory;
 
         return $this;
     }

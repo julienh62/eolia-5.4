@@ -67,10 +67,10 @@ class Category extends \App\Entity\Category implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'image', 'activity', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'categorySetting', 'calendars'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'titleCategory', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'image', 'activity', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'categorySetting', 'calendars'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'image', 'activity', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'categorySetting', 'calendars'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'titleCategory', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'image', 'activity', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'categorySetting', 'calendars'];
     }
 
     /**
@@ -206,23 +206,23 @@ class Category extends \App\Entity\Category implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getTitle(): ?string
+    public function getTitleCategory(): ?string
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTitle', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTitleCategory', []);
 
-        return parent::getTitle();
+        return parent::getTitleCategory();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setTitle(string $title): static
+    public function setTitleCategory(string $titleCategory): static
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTitle', [$title]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTitleCategory', [$titleCategory]);
 
-        return parent::setTitle($title);
+        return parent::setTitleCategory($titleCategory);
     }
 
     /**

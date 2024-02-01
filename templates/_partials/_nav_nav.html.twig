@@ -4,7 +4,7 @@
             <div class="content">
                <a href="{{ path('app_calendar_index') }}">Toutes les séances</a>
                    {% for category in generateCategoryLinks() %}
-                <a class="asous" href="{{ path('app_agenda_by_category', {'categoryTitle': category.title}) }}">{{ category.title }}</a>
+                <a class="asous" href="{{ path('app_agenda_by_category', {'categoryTitle': category.titleCategory}) }}">{{ category.titleCategory }}</a>
               {% endfor %}
             </div>
     </div>

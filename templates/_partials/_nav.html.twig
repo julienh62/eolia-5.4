@@ -9,7 +9,7 @@
             <div class="content">
               <a class="asous" href="{{ path('app_agenda')}}"> Toutes les activités</a>
               {% for category in generateCategoryLinks() %}
-                <a class="asous" href="{{ path('app_agenda_by_category', {'categoryTitle': category.title}) }}">{{ category.title }}</a>
+                <a class="asous" href="{{ path('app_agenda_by_category', {'categoryTitle': category.titleCategory}) }}">{{ category.titleCategory }}</a>
               {% endfor %}
             </div>
     </div>
@@ -18,7 +18,7 @@
 	    <a class="aderoulant" href="{{ path('app_calendar_filter') }}">Formulaire de recherche</a>
  		
 	
-			<a class="aderoulant" href="/">Contact</a>
+			<a class="aderoulant" href="{{ path('app_contact_form')}}">Contact</a>
 		
 		
 		
@@ -28,9 +28,9 @@
 		{% if app.user %}
 
 			
-				<a class="aderoulant" href="/">Commandes</a>
+				<a class="aderoulant" href="{{ path('app_purchase') }}">Commandes</a>
 			
-				<a class="aderoulant" href="/">Déconnexion</a>
+				<a class="aderoulant" href="{{ path('app_logout') }}">Déconnexion</a>
 			
 				{# CartService enregistré dans twig.yaml#}
 				<a class="aderoulant" href="{{ path('cart_index') }}"id="panier-link">🛒

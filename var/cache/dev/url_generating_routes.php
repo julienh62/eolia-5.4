@@ -5,9 +5,6 @@
 return [
     'filter' => [[], ['_controller' => 'App\\Controller\\CalendarController::filterPrice'], [], [['text', '/filter']], [], [], []],
     'app_activitie_index' => [[], ['_controller' => 'App\\Controller\\ActivitieController::index'], [], [['text', '/activity']], [], [], []],
-    'activitie_all_char' => [[], ['_controller' => 'App\\Controller\\ActivitieController::listActivitieByChar'], [], [['text', '/activitieallchar']], [], [], []],
-    'cataAll_show' => [[], ['_controller' => 'App\\Controller\\ActivitieController::listActivitieByCatamaran'], [], [['text', '/activitiescatamaran']], [], [], []],
-    'charkidAll_show' => [[], ['_controller' => 'App\\Controller\\ActivitieController::listActivitieByCharKid'], [], [['text', '/activitiecharkid']], [], [], []],
     'app_admin_activitie_index' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminActivitieController::index'], [], [['text', '/admin/activity/']], [], [], []],
     'app_admin_activitie_show' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminActivitieController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/activity']], [], [], []],
     'app_admin_activitie_edit' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminActivitieController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/activity']], [], [], []],

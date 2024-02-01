@@ -22,7 +22,7 @@ class HomeController extends AbstractController
 
             foreach ($categoriesImgTitle as $category) {
             
-                $titles[] = $category['title'];
+                $titles[] = $category['titleCategory'];
                 $images[] = $category['image'];
             }
 

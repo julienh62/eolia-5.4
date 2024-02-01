@@ -15,5 +15,5 @@ if (montantPanier !== 0.0) {
   panierLink.appendChild(texteFinaliserCommande);
 
   // Appliquer le style rouge au texte ajouté
-  panierLink.style.color = "red";
+  panierLink.style.color = "#f87902";
 }

@@ -143,12 +143,12 @@ public function getAllCharCataKid()
 public function getImgAndTitleActivitie()
 {
     return $this->createQueryBuilder('c')
-    ->select('c', 'cat.title', 'cat.image') 
+    ->select('c', 'cat.titleCategory', 'cat.image') 
     ->leftJoin('c.category', 'cat') 
     ->orderBy('c.start', 'desc') 
     ->andWhere('cat.activity = :isActivity') // Filtrer par la propriété activity
     ->setParameter('isActivity', true) 
-    ->groupBy('cat.title', 'cat.image') // Groupement par titre et image
+    ->groupBy('cat.titleCategory', 'cat.image') // Groupement par titre et image
     ->getQuery()
     ->getResult();
 }
@@ -172,7 +172,7 @@ public function getActivityByCategoryTitle(string $categoryTitle)
 {
     return $this->createQueryBuilder('a')
         ->leftJoin('a.category', 'categorya')
-        ->where("categorya.title = :categoryTitle")
+        ->where("categorya.titleCategory = :categoryTitle")
         ->setParameter('categoryTitle', $categoryTitle)
         ->orderBy("a.start", "desc")
         ->getQuery()
@@ -235,7 +235,7 @@ public function filter($filter, $min, $begin, $end, $category): array
     try {
         $conn->beginTransaction();
 
-        $sql = 'SELECT cal.*, cc.title as category
+        $sql = 'SELECT cal.*, cc.title_category as category
                 FROM calendar cal
                 JOIN category cc ON cal.category_id = cc.id
                 WHERE cal.start >= :begin
@@ -250,7 +250,7 @@ public function filter($filter, $min, $begin, $end, $category): array
 
         // Check if the category is 'all', if not, add category filter
         if ($category !== 'all') {
-            $sql .= ' AND cc.title = :category';
+            $sql .= ' AND cc.title_category = :category';
             $parameters['category'] = $category;
         }
             // Before executing the query
@@ -358,15 +358,15 @@ if ($category !== 'all') {
      /**
      * @return array|null Returns an array containting picture  or null
      */
-    public function getCategoryImage($title): ?array
+    public function getCategoryImage($titleCategory): ?array
     {
         $queryBuilder = $this->createQueryBuilder('c');
 
         $result = $queryBuilder
             ->join('c.category', 'cc') // Jointure avec l'entité Category
             ->select('cc.image') // Sélectionner les propriétés image
-            ->where('c.title = :calendarTitle')
-            ->setParameter('calendarTitle', $title)
+            ->where('cc.titleCategory = :calendarTitle')
+            ->setParameter('calendarTitle', $titleCategory)
             ->setMaxResults(1) // Assurez-vous d'obtenir une seule image
             ->getQuery()
             ->getOneOrNullResult();
