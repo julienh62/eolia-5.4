@@ -20,7 +20,6 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 
 
-
 class PurchaseConfirmationController extends AbstractController
 {
     protected $cartService;
@@ -53,15 +52,7 @@ class PurchaseConfirmationController extends AbstractController
      */
        public function confirm(Request $request)
        {
-           //1 lire les données du formulaire
-           //FormFactoryInterface / Request chaque requete est differente
-           // c'est pour cela qu'elle est ici et non pas dans le constructeur
-        //   $form = $this->createForm(CartConfirmationType::class);
-          
-
-           //handleRequest pour analyser la requete
-        //  $form->handleRequest($request);
-
+        
       
         $cartItems = $this->cartService->getDetailedCartItems();
 
@@ -80,43 +71,6 @@ class PurchaseConfirmationController extends AbstractController
         $this->persister->storePurchase($purchase, $cartItems);
           
 
-           /*3 si je ne suis pas connecté : sortir
-          $user = $this->security->getUser();
-           // replacé par isGranted
-          }*/
-
-
-           
-
-          
-           // on obtient directement  les resultats ss forme de classe purchase
-           //grace à la configuration en fin du formulaireType
-           //5 Créer une Purchase
-           /** @var Purchase */
-      //  $purchase = $form->getData();
-    
-
-        /*  dans le App/Purchase/PurchasePersister
-           //6 lier la purchase avec l'utilisateur
-           //lier la purchase avec les produits du panier
-             }*/
- 
-
-       //    $this->persister->storePurchase($purchase); //dd($purchase);
-       /*    PurchaseConfirmationController.php on line 99:
-           App\Entity\Purchase {#715 ▼
-             -id: 2
-             -fullName: "ertrrtttrt"
-             -address: "ertrrtttrt"
-             -postalCode: "55555555"
-             -city: "ertrrtttrt"
-             -total: 6000
-             -status: "PENDING"
-             -user: App\Entity\User {#359 ▶}
-             -purchaseItems: Doctrine\ORM\PersistentCollection {#1120 ▶}
-             -created_at: DateTime @1691243064 {#1145 ▶}
-             */
-        //   }
            return $this->redirectToRoute('purchase_payment_form', [
                'id' => $purchase->getId()
            ]);

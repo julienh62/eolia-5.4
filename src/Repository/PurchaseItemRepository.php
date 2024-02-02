@@ -96,7 +96,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
      }   
 */ //recuperer les quantité commandées, nom et quantité
 // pour un calendrier donné
-   public function getPurchaseActivitie($id)
+   public function getPurchaseCalendar($id)
    {
 
        $qb = $this->createQueryBuilder('pi')

@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello Allusershow!{% endblock %}
+{% block body %}
+
+
+ <main class="container">
+    
+                                
+      <div class ="purchasedesktop">
+        <h1>Les commandes {{ fullname }}</h1>
+          <table class="tableau">
+                <thead>
+                  <tr>
+
+                      <th>Titre  </th>
+              
+                      <th>Quantité  </th>
+
+                      <th>Début de la séance</th>
+              
+                      <th>Fin de la séance</th>
+                    
+                      <th>Total </th>
+
+                      <th>Statut</th>
+
+                      {#  <th>PurchaseItemId</th> #}
+
+                      <th>Action</th>
+
+                       <th>supprimer commande  </th>
+                  </tr>
+                </thead>
+      
+                               {# {{ dump(purchases) }} #}
+
+          
+                {% for purchase in purchases %} 
+                          <tr>
+                            <td>{{ purchase.title }}</td>
+                            <td>{{ purchase.quantity }}</td>
+                           
+
+                                      
+                         {#  <td>{{ purchase.calendarIds }}</td>#}
+                            <td>{{ purchase.start|date('Y-m-d H:i:s') }}</td>
+                            <td>{{ purchase.end|date('Y-m-d H:i:s') }}</td>
+                            <td>{{ purchase.total | amount }}</td>
+                          {#  <td>{{ purchase.created_at }}</td>#}
+                            <td> {% if purchase.status == 'PENDING' %}
+                                  Non payé
+                                  {% elseif purchase.status == 'PAID' %}
+                                      Payé
+                                  {% endif %}
+                            </td>
+                      {#     <td>{{ purchase.id }}</td> #}
+
+                              <td>{% if purchase.status == "PENDING" %}
+                                      <a href="{{ path('admin_calendar_show_lien_paiement', {'purchaseId': purchase.id, 'id':id}) }}" class="bouton-paiement">Envoyer lien de paiement</a>
+                                  {% endif %}
+                              </td>
+                       
+                            <td><a href="{#{{ path('delete_purchaseitem', {'id':purchase.id} ) }}#}" data-confirm="Êtes-vous sûr de vouloir supprimer la commande de cet utilisateur?">Supprimer </a></td>
+         
+                          </tr>
+                {% endfor %}
+        
+          </table>
+      </div>  
+
+    <div class ="purchasemobil">
+      <h1>Mes commandes</h1>
+
+                {% for purchase in purchases %}
+              
+                    <p  class="item-mobile">Titre</p>
+                    <p class="datatitem">{{ purchase.title  }}</p>
+              
+                    <p  class="item-mobile">Date de début</p>
+                    <p class="datatitem">{{ purchase.start|date('Y-m-d H:i:s')  }}</p>
+              
+                    <p  class="item-mobile">Date de fin</h3>
+                    <p class="datatitem">{{ purchase.end|date('Y-m-d H:i:s') }}</p>
+              
+                      <p  class="item-mobile">Unité</h3>
+                    <p class="datatitem">{{ purchase.quantity }}</p>
+            
+                    <p  class="item-mobile">Total</h3>
+
+                    <p class="datatitem">{{ purchase.total | amount }}</p>
+
+                    <p  class="item-mobile">{% if purchase.status == "PENDING" %}
+                            <a href="{{ path('admin_calendar_show_lien_paiement', {'purchaseId': purchase.id, 'id':id}) }}" class="bouton-paiement">Envoyer lien de paiement</a>
+                        {% endif %}
+                    </p>
+                    <hr>  
+
+
+
+                {%  endfor %}
+
+         
+
+
+
+            
+          
+            
+      </div>  
+</main>
+{% endblock %}

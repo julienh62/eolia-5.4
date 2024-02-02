@@ -90,7 +90,8 @@ class __TwigTemplate_1a76dd8fccc671190878ea0ff7913435 extends Template
         // line 7
         echo "    ";
         // line 8
-        echo "    <div id=\"calendrier\"> mon calendrier</div>
+        echo "    
+    <div id=\"calendrier\"> </div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -100,7 +101,7 @@ class __TwigTemplate_1a76dd8fccc671190878ea0ff7913435 extends Template
 
     }
 
-    // line 11
+    // line 12
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -110,7 +111,7 @@ class __TwigTemplate_1a76dd8fccc671190878ea0ff7913435 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 12
+        // line 13
         echo "    ";
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
@@ -238,8 +239,8 @@ console.log(\"coucou\");
       
                 //probleme secu avec raw?
                 events: ";
-        // line 136
-        echo (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 136, $this->source); })());
+        // line 137
+        echo (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 137, $this->source); })());
         echo ",
                 //editable pour glisser deposer et agrandir
                 editable: true,
@@ -250,8 +251,8 @@ console.log(\"coucou\");
                 eventClick: function(e) {
                     let id = e.event.id;
                  //   let url = \"https://127.0.0.1:8000/admin/calendarshowuser/\" + id;
-                    window.location.href = url;
-                       let url = \"https://127.0.0.1:8000\";
+                   // window.location.href = url;
+                       let url = \"https://127.0.0.1:8000/admin/agendadetail/\" + id;
                     window.location.href = url;
                 },
 
@@ -310,7 +311,7 @@ console.log(\"coucou\");
      */
     public function getDebugInfo()
     {
-        return array (  242 => 136,  114 => 12,  104 => 11,  93 => 8,  91 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  243 => 137,  115 => 13,  105 => 12,  93 => 8,  91 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -322,7 +323,8 @@ console.log(\"coucou\");
 {% block body %}
     {# me donne le json de data #}
     {# {{dump(data)}} #}
-    <div id=\"calendrier\"> mon calendrier</div>
+    
+    <div id=\"calendrier\"> </div>
 {% endblock %}
 
 {% block javascripts %}
@@ -460,8 +462,8 @@ console.log(\"coucou\");
                 eventClick: function(e) {
                     let id = e.event.id;
                  //   let url = \"https://127.0.0.1:8000/admin/calendarshowuser/\" + id;
-                    window.location.href = url;
-                       let url = \"https://127.0.0.1:8000\";
+                   // window.location.href = url;
+                       let url = \"https://127.0.0.1:8000/admin/agendadetail/\" + id;
                     window.location.href = url;
                 },
 

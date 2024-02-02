@@ -60,7 +60,7 @@ class ActivitieController extends AbstractController
 
         $stock = $activityRepository->getStock($id);*/
     
-        $quantity = $purchaseItemRepository->getPurchaseActivitie($id);
+        $quantity = $purchaseItemRepository->getPurchaseCalendar($id);
         $resultquery = $purchaseItemRepository->getPurchaseQuantitySum($id);
         //dd($quantity);
         // je recupere les valeurs de la commandes

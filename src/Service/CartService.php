@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 
-
 class CartService
 {
 
@@ -45,14 +44,11 @@ class CartService
     public function add(int $id) {
 
 
-
-
         //1 retrouver le panier dans la session
         //2 tableau vide si pas existant
         $cart = $this->getCart();
 
         //3 voir si le produit id existe
-
 
 
         //5 Sinon  quantité 1
@@ -95,8 +91,6 @@ class CartService
 
         $this->saveCart($cart);
     }
-
-
 
 
     public function getTotal():int {

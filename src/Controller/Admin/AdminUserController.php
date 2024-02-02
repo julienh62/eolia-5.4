@@ -30,7 +30,7 @@ class AdminUserController extends AbstractController
     {
         $user = $userRepository->getAll();
 
-        return $this->render('admin/user/index.html.twig', [
+        return $this->render('admin/admin_user/index.html.twig', [
         
          'users' => $user
 
@@ -65,7 +65,7 @@ class AdminUserController extends AbstractController
             return $this->redirectToRoute('admin_user_index', [], Response::HTTP_SEE_OTHER);
         }
     
-        return $this->renderForm('admin/user/new.html.twig', [
+        return $this->renderForm('admin/admin_user/new.html.twig', [
             'user' => $user,
             'form' => $form,
         ]);
@@ -76,7 +76,7 @@ class AdminUserController extends AbstractController
     public function show(UserRepository $userRepository, $id, User $user): Response
     {
 
-        return $this->render('admin/user/show.html.twig', [
+        return $this->render('admin/admin_user/show.html.twig', [
           //  'user' => $userRepository->findOneBy($id),
          //   'purchases' => $user->getPurchases()
          'user' => $user,

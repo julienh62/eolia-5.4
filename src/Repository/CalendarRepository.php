@@ -338,14 +338,14 @@ if ($category !== 'all') {
     /**
      * @return array|null Returns an array containting picture and price or null
      */
-    public function getCategoryPictureAndPrice($id): ?array
+    public function getCategoryImageById($id): ?array
     {
         $queryBuilder = $this->createQueryBuilder('c');
 
         $result = $queryBuilder
             ->join('c.category', 'cc') // Jointure avec l'entité Category
-            ->join('cc.categoryColorSettings', 'ccc') // Jointure avec l'entité CategoryColorSettings
-            ->select('ccc.picture, ccc.price') // Sélectionner les propriétés picture et price
+            ->join('cc.categorySetting', 'ccc') // Jointure avec l'entité CategoryColorSettings
+            ->select('cc.image') // Sélectionner les propriétés picture et price
             ->where('c.id = :calendarId')
             ->setParameter('calendarId', $id)
             ->setMaxResults(1) // Assurez-vous d'obtenir une seule image

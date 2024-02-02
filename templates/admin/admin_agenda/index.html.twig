@@ -5,7 +5,8 @@
 {% block body %}
     {# me donne le json de data #}
     {# {{dump(data)}} #}
-    <div id="calendrier"> mon calendrier</div>
+    
+    <div id="calendrier"> </div>
 {% endblock %}
 
 {% block javascripts %}
@@ -143,8 +144,8 @@ console.log("coucou");
                 eventClick: function(e) {
                     let id = e.event.id;
                  //   let url = "https://127.0.0.1:8000/admin/calendarshowuser/" + id;
-                    window.location.href = url;
-                       let url = "https://127.0.0.1:8000";
+                   // window.location.href = url;
+                       let url = "https://127.0.0.1:8000/admin/agendadetail/" + id;
                     window.location.href = url;
                 },
 
