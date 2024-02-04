@@ -27,10 +27,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[Groups(['user:read'])]
-    #[ORM\Column(length: 180, unique: true)]
+    #[ORM\Column(length: 60, unique: true)]
     #[NotBlank(message: "L'adresse e-mail est requise.")]
     #[Email(message: "L'adresse e-mail n'est pas valide.")]
-    #[Length(max: 180, maxMessage: "L'adresse e-mail ne doit pas dépasser {{ limit }} caractères.")]
+    #[Length(max: 60, maxMessage: "L'adresse e-mail ne doit pas dépasser {{ limit }} caractères.")]
     private ?string $email = null;
 
     #[Groups(['user:read'])]
@@ -45,9 +45,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[Groups(['user:read'])]
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 50)]
     #[Assert\NotBlank(message: "Le nom complet est requis.")]
-    #[Assert\Length(max: 255, maxMessage: "Le nom complet ne doit pas dépasser {{ limit }} caractères.")]
+    #[Assert\Length(max: 50, maxMessage: "Le nom complet ne doit pas dépasser {{ limit }} caractères.")]
     private ?string $fullName = null;
 
     #[Groups(['user:read'])]

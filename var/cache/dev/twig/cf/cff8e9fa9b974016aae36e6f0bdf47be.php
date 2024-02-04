@@ -100,36 +100,39 @@ class __TwigTemplate_9fe44f80f16c16b7f26c2599d862cef8 extends Template
                
                        ";
         // line 16
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 16, $this->source); })()), "fullName", [], "any", false, false, false, 16), 'row');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 16, $this->source); })()), "fullName", [], "any", false, false, false, 16), 'row', ["label" => $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("full_name")]);
+        // line 18
         echo "
                       ";
-        // line 17
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 17, $this->source); })()), "email", [], "any", false, false, false, 17), 'row');
+        // line 19
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 19, $this->source); })()), "email", [], "any", false, false, false, 19), 'row');
         echo "
-                       ";
-        // line 18
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 18, $this->source); })()), "phone", [], "any", false, false, false, 18), 'row');
+
+                   
+                         ";
+        // line 22
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 22, $this->source); })()), "phone", [], "any", false, false, false, 22), 'row', ["label" => $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("phone")]);
+        // line 24
         echo "
-                  
               
-                 
-                  
-                           ";
-        // line 23
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 23, $this->source); })()), "plainPassword", [], "any", false, false, false, 23), 'row', ["label" => "Password"]);
-        // line 25
+                         ";
+        // line 26
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 26, $this->source); })()), "plainPassword", [], "any", false, false, false, 26), 'row', ["label" => $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Password")]);
+        // line 28
         echo "
+                  
+                         
                      
                        ";
-        // line 27
+        // line 32
         echo " 
                    
 
                       <button type=\"submit\" class=\"buttonRegister\">Créer mon compte</button>
                        
                       ";
-        // line 32
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 32, $this->source); })()), 'form_end');
+        // line 37
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 37, $this->source); })()), 'form_end');
         echo "
             </div>
         </div>
@@ -166,7 +169,7 @@ class __TwigTemplate_9fe44f80f16c16b7f26c2599d862cef8 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  132 => 32,  125 => 27,  121 => 25,  119 => 23,  111 => 18,  107 => 17,  103 => 16,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  135 => 37,  128 => 32,  122 => 28,  120 => 26,  116 => 24,  114 => 22,  108 => 19,  105 => 18,  103 => 16,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -186,16 +189,21 @@ class __TwigTemplate_9fe44f80f16c16b7f26c2599d862cef8 extends Template
                 {{ form_start(registrationForm) }}
                        
                
-                       {{ form_row(registrationForm.fullName) }}
+                       {{ form_row(registrationForm.fullName, {
+                             label: 'full_name' | trans
+                       }) }}
                       {{ form_row(registrationForm.email) }}
-                       {{ form_row(registrationForm.phone) }}
-                  
+
+                   
+                         {{ form_row(registrationForm.phone, {
+                             label: 'phone' | trans
+                       }) }}
               
-                 
+                         {{ form_row(registrationForm.plainPassword, {
+                             label: 'Password' | trans
+                       }) }}
                   
-                           {{ form_row(registrationForm.plainPassword, {
-                               label: 'Password'
-                           }) }}
+                         
                      
                        {#    {{ form_row(registrationForm.RGBDConsent) }}#} 
                    

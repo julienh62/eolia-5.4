@@ -167,6 +167,12 @@ $catalogue = new MessageCatalogue('fr', array (
     'Too many failed login attempts, please try again in %minutes% minute.' => 'Plusieurs tentatives de connexion ont échoué, veuillez réessayer dans %minutes% minute.',
     'Too many failed login attempts, please try again in %minutes% minutes.' => 'Plusieurs tentatives de connexion ont échoué, veuillez réessayer dans %minutes% minutes.',
   ),
+  'messages' => 
+  array (
+    'phone' => 'Téléphone',
+    'full_name' => 'Nom complet',
+    'Password' => 'Mot de passe',
+  ),
 ));
 
 
