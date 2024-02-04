@@ -109,7 +109,7 @@ class __TwigTemplate_485c7b1ec099492be4f09e425354adef extends Template
             echo "            <tr>
                 <td class=\"colonnetableaux\">";
             // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "title", [], "any", false, false, false, 22), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "titleCategory", [], "any", false, false, false, 22), "html", null, true);
             echo "</td>
                 
                 <td class=\"colonnetableaux\">
@@ -129,7 +129,7 @@ class __TwigTemplate_485c7b1ec099492be4f09e425354adef extends Template
             // line 31
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . twig_get_attribute($this->env, $this->source, $context["category"], "image", [], "any", false, false, false, 31))), "html", null, true);
             echo "\" alt=\"Image de ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "title", [], "any", false, false, false, 31), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "titleCategory", [], "any", false, false, false, 31), "html", null, true);
             echo "\">
                 </td>
         ";
@@ -159,7 +159,7 @@ class __TwigTemplate_485c7b1ec099492be4f09e425354adef extends Template
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
             // line 44
             echo "               <p>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "title", [], "any", false, false, false, 44), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "titleCategory", [], "any", false, false, false, 44), "html", null, true);
             echo " </p>
                 <p>
                     <a href=\"";
@@ -257,7 +257,7 @@ class __TwigTemplate_485c7b1ec099492be4f09e425354adef extends Template
         <tbody>
         {% for category in categories %}
             <tr>
-                <td class=\"colonnetableaux\">{{ category.title }}</td>
+                <td class=\"colonnetableaux\">{{ category.titleCategory }}</td>
                 
                 <td class=\"colonnetableaux\">
                     <a href=\"{{ path('app_admin_category_show', {'id': category.id}) }}\"> Voir </a>
@@ -266,7 +266,7 @@ class __TwigTemplate_485c7b1ec099492be4f09e425354adef extends Template
                     <a href=\"{{ path('app_admin_category_edit', {'id': category.id}) }}\">editer</a>
                 </td>
                 <td class=\"colonnetableaux\">
-                    <img class=\"imgsite\" src=\"{{ asset('uploads/images/' ~ category.image) }}\" alt=\"Image de {{ category.title }}\">
+                    <img class=\"imgsite\" src=\"{{ asset('uploads/images/' ~ category.image) }}\" alt=\"Image de {{ category.titleCategory }}\">
                 </td>
         {% else %}
             <tr>
@@ -279,7 +279,7 @@ class __TwigTemplate_485c7b1ec099492be4f09e425354adef extends Template
 
 <div class=\"onlymobil\">
       {% for category in categories %}
-               <p>{{ category.title }} </p>
+               <p>{{ category.titleCategory }} </p>
                 <p>
                     <a href=\"{{ path('app_admin_category_show', {'id': category.id}) }}\">Voir</a>
                 </p>
