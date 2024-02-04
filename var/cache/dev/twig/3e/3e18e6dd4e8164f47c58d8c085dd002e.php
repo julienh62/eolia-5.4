@@ -96,10 +96,10 @@ class __TwigTemplate_69ad3c5d115cb6d18364d3026e3d2adb extends Template
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form_start', ["attr" => ["id" => "demo-form"]]);
         echo "
 
-
+ 
 ";
         // line 13
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), "nom", [], "any", false, false, false, 13), 'row');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), "name", [], "any", false, false, false, 13), 'row');
         echo "
 ";
         // line 14
@@ -207,8 +207,8 @@ class __TwigTemplate_69ad3c5d115cb6d18364d3026e3d2adb extends Template
 
 {{ form_start(form, { 'attr': {'id': 'demo-form'} }) }}
 
-
-{{ form_row(form.nom) }}
+ 
+{{ form_row(form.name ) }}
 {{ form_row(form.email) }}
  <div class=\"form-group\">
         {{ form_label(form.message) }}

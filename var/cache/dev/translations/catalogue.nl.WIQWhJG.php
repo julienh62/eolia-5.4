@@ -339,6 +339,7 @@ $catalogueFr = new MessageCatalogue('fr', array (
     'phone' => 'Téléphone',
     'full_name' => 'Nom complet',
     'Password' => 'Mot de passe',
+    'name' => 'Nom',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueFr);

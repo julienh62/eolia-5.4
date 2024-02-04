@@ -33,7 +33,7 @@ class ContactController extends AbstractController
                 ->from($email) // Utilisez l'adresse e-mail de l'utilisateur comme expéditeur
                 ->to('votre@email.com') // Remplacez par votre adresse e-mail
                 ->subject('Nouvelle soumission de formulaire de contact')
-                ->text('Nom: ' . $name . PHP_EOL .
+                ->text('Name: ' . $name . PHP_EOL .
                     'E-mail: ' . $email . PHP_EOL .
                     'Message: ' . $message);
 
