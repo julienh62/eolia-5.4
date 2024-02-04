@@ -63,6 +63,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Groups(['user:read'])]
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: "Le numéro de téléphone est requis.")]
+    #[Assert\Regex(
+        pattern: '/^\+?\d+$/',
+        message: 'Veuillez entrer un numéro de téléphone valide (chiffres et optionnellement le signe +).'
+    )]
     #[Assert\Length(max: 20, maxMessage: "Le numéro de téléphone ne doit pas dépasser {{ limit }} caractères.")]
     private ?string $phone = null;
   

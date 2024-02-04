@@ -18,7 +18,7 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title')
+            ->add('titleCategory')
             ->add('image', FileType::class, [
                 'label' => 'Image',
 

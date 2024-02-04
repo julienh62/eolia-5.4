@@ -9,221 +9,1222 @@ Tools
 ***************************************************************** */
 
 * {
-    box-sizing: border-box;
-    /* On spécifie que la largeur (width) de chaque boîte comprend le padding
-       et la bordure (par défaut, c'est seulement la largeur du contenu) */
+  box-sizing: border-box;
+  /* On spécifie que la largeur (width) de chaque boîte comprend le padding
+     et la bordure (par défaut, c'est seulement la largeur du contenu) */
+}
+
+html {
+  font-size: 62.5%;
+}
+
+p {
+  font-size: 5rem;
+  line-height: 8rem;
+  margin: 1.5rem;
+}
+
+h1 {
+  font-size: 6rem;
+  margin: 6rem;
+  line-height: 6rem;
+}
+
+h2 {
+  font-size: 5rem;
+  margin: 2rem;
+  line-height: 4rem;
+}
+
+h3 {
+  font-size: 4rem;
+  margin: 2rem;
+}
+h4 {
+  font-size: 2rem;
+  margin: 1.5rem;
+}
+
+img {
+  /* max-width: 100%;*/
+  width: 80%;
+  height: 80%;
+  margin: 1.5rem 0rem 1.5rem 0rem;
+}
+
+/************************************
+generalites
+/*************************************/
+
+.container {
+  margin: 0 auto;
+  margin: 0 auto;
+  display: block;
+}
+
+section {
+  margin: 5rem;
+}
+
+li {
+  list-style: none;
+  font-size: 2rem;
+  padding: 0.5em;
+}
+
+a {
+  text-decoration: none;
+  color: #3383a9;
+  font-size: 4rem;
+  margin: 1rem;
+}
+
+input {
+  font-size: 2rem;
+  text-align: center;
+  display: block;
+  margin: 1.5rem;
+}
+
+.btn {
+  font-size: 1.8rem;
+  margin: 1.5rem;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+}
+
+td,
+th {
+  text-align: center;
+  font-size: 4rem;
+  padding: 2rem;
+}
+
+.flashalert-success,
+.success {
+  background-color: cadetblue;
+  color: aliceblue;
+  border-radius: 5%;
+  padding: 1.5rem;
+}
+.flashalert-danger,
+.danger,
+.warning {
+  background-color: rgb(248, 121, 2);
+  color: aliceblue;
+  border-radius: 5%;
+  padding: 1.5rem;
+}
+label,
+button {
+  font-size: 5rem;
+}
+
+/***************************************************************
+                  header
+ ***************************************************************/
+
+header .dropdown-1 {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+header .dropdown-1:hover .content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 1em 2em;
+  top: 0;
+}
+header .dropdown-1 {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  width: 100%;
+  min-height: 170px;
+  height: 100%;
+  background-color: #eaf4fe;
+  align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+header > a,
+header button {
+  color: #000000;
+  margin: 0 15px;
+  font-size: 2.5rem;
+  display: none;
+  text-decoration: none;
+}
+
+header button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+header .dropdown-1 {
+  position: relative;
+  height: 100%;
+  display: flex;
+}
+header .dropdown-1 .content {
+  display: none;
+}
+
+header .content a {
+  color: black;
+  text-decoration: none;
+  font-size: 4rem;
+}
+#navbar > a.icon {
+  display: block;
+  position: absolute;
+  font-size: 10rem;
+  text-align: center;
+  width: 5% !important;
+  top: 10px;
+}
+header.responsive > a,
+header.responsive button,
+.asous {
+  display: block;
+  padding: 1rem 0;
+  width: 100%;
+  font-size: 7rem;
+  text-align: left;
+}
+
+/*////////////////////////////////////// 
+//////////       body  (mobil)      //////////
+//////////////////////////////////////*/
+/*
+body {
+  background-color: lightgray;
+}*/
+
+#slider,
+.consultplaning {
+  display: none;
+}
+#slidermobil {
+  position: relative;
+  top: 0;
+  /*position du parent qui ne bouge pas */
+  width: auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+}
+.imgslider {
+  width: 100%;
+}
+.slidera {
+  width: 100%;
+}
+#precedentmob {
+  left: 0;
+}
+
+#suivantmob {
+  right: 0;
+}
+#precedentmob,
+#suivantmob {
+  cursor: pointer;
+  /*petite main au survol */
+  transition: opacity 0.3s ease;
+  /* opacité au survol, avec pseudo selector  :hover plus bas */
+  opacity: 0;
+  position: absolute;
+  font-size: 50px;
+  color: rgba(220, 220, 220, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+}
+
+#slidermobil:hover #precedentmob,
+#slidermobil:hover #suivantmob {
+  opacity: 1;
+}
+.titreh1 {
+  text-align: center;
+  font-size: 5rem;
+  line-height: 5rem;
+}
+
+.titreh2 {
+  text-align: center;
+  margin: 0rem 3rem 0rem 3rem;
+  line-height: 3rem;
+}
+
+.htitrecat {
+  margin: 4rem 0rem 4rem 0rem;
+  font-size: 4rem;
+  text-align: center;
+}
+
+
+  .presentationactivities {
+    display: flex;
+    padding: 4rem;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+   
+}
+.presentationactivities > * {
+  flex: 1 0 calc(33.33% - 1rem); /* Let items grow to fill the container width, don't shrink, and set a calculated width for each item */
+ 
+}
+
+
+.presentationimgettitle {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.activite {
+  display: none;
+}
+/* div des 3 activites */
+.activiteaccueil {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  align-items: center;
+  height: 700px;
+  justify-content: space-around;
+}
+
+.activitechar,
+.activitekid,
+.activitecata {
+  position: relative;
+  width: 300px;
+  height: 168px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 1rem;
+}
+
+.activitecata::after {
+  content: "";
+  /* max-width:300px ;*/
+  background: url(https://127.0.0.1:8000/assets/uploads/miniature-cata-accueil1.jpg);
+  -webkit-background-size: cover;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 168px;
+  width: 300px;
+  z-index: -1;
+}
+
+.activitekid {
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.activitekid::after {
+  content: "";
+  /* max-width:300px ;*/
+  background: url(https://127.0.0.1:8000/assets/uploads/charbabyaccueil.jpg);
+  -webkit-background-size: cover;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 168px;
+  width: 300px;
+  z-index: -1;
+}
+
+.activitechar {
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.activitechar::after {
+  content: "";
+  /* max-width:300px ;*/
+  background: url(https://127.0.0.1:8000/assets/uploads/groupe-cha-mini-1.jpg);
+  -webkit-background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 168px;
+  width: 300px;
+  z-index: -1;
+}
+
+.lienaccueil {
+  font-size: 3rem;
+  font-weight: 600;
+  color: white;
+  margin-top: 2rem;
+  text-shadow: #000000 2.5px 0 1px;
+  --bs-link-hover-color: rgba(251, 250, 248, 0.8);
+  animation-duration: 10s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0;
   }
-  
-  html {
-    font-size: 62.5%;
+
+  to {
+    opacity: 1;
   }
-  
-  p {
-    font-size: 5rem;
-    line-height: 8rem;
-    margin: 1.5rem;
+}
+
+.lienaccueilkid {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0rem 3rem 0rem 3rem;
+  text-align: center;
+  line-height: 2.5rem;
+  color: white;
+  text-shadow: #000000 2.5px 0 1px;
+  --bs-link-hover-color: rgba(251, 250, 248, 0.8);
+  animation-duration: 6s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0;
   }
-  
-  h1 {
-    font-size: 6rem;
-    margin: 6rem;
-    line-height: 6rem;
+
+  to {
+    opacity: 1;
   }
-  
-  h2 {
-    font-size: 5rem;
-    margin: 2rem;
-    line-height: 4rem;
-  }
-  
-  h3 {
-    font-size: 4rem;
-    margin: 2rem;
-  }
-  h4 {
-    font-size: 2rem;
-    margin: 1.5rem;
-  }
-  
+}
+
+.description,
+.paragraphe {
+  margin: 2rem 0rem 5rem 0rem;
+}
+
+.carte {
+  margin: 2rem 1rem 2rem 1rem;
+}
+
+.container-fluid {
+  background: #eaf4fe;
+}
+
+/*.navbar-toggler-icon {
+    font-size: 4em;
+
+} */
+
+/*.p-version-tablette {
+    display: none;
+} */
+
+/************************************
+/*            page login /*************************************/
+
+.titreLoginEmail {
+  font-size: 9rem;
+}
+.LabelLoginEmail,
+.inputPasswordLoginEmail {
+  font-size: 8rem;
+  margin: 2rem;
+}
+.inputPasswordLoginEmail {
+  font-size: 10rem;
+  margin: 4rem;
+}
+.inputLoginEmail {
+  font-size: 8rem;
+  margin: 2rem;
+  border: 2px solid grey;
+  max-width: 80%;
+}
+.buttonLoginEmail,
+.lienOublie {
+  font-size: 6rem;
+  margin: 2rem;
+}
+
+/********************************************
+                 page registration
+ ********************************************/
+
+.registration-form {
+  font-size: 16px;
+  max-width: 600px;
+  padding: 20px;
+}
+.required {
+  margin: 2rem;
+}
+
+.registration-form label[for="registrationForm_plainPassword"] {
+  font-weight: bold;
+}
+#registration_form_fullName,
+#registration_form_email,
+#registration_form_plainPassword,
+#registration_form_phone {
+  font-size: 6rem;
+  margin: 4rem;
+  border: solid 2px grey;
+}
+
+input[type="checkbox"] {
+  transform: scale(3);
+  margin-left: 3rem;
+}
+.button {
+  margin: 3rem;
+  padding: 2rem;
+}
+
+/*******************************
+             page calendar
+*******************************/
+
+#formsearch {
+  display: flex;
+  flex-direction: column;
+}
+#min-price,
+#calendar-select,
+#begin,
+#end {
+  font-size: 4rem;
+  margin: 2rem;
+}
+.all {
+}
+/*******************************
+               page calendarmain
+ *******************************/
+
+.milieu,
+.bascul-mobil {
+  text-align: center;
+  margin: 4rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.4;
+}
+
+.calendaraccueil {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 2rem;
+}
+
+#calendrier {
+  width: 80%;
+  margin: auto;
+  padding-top: 4rem;
+}
+
+#calendrier .fc-header-toolbar fc-toolbar {
+  font-size: 32px !important;
+  padding: 25px 35px !important;
+}
+#calendrier .fc-toolbar-title {
+  line-height: 6rem !important;
+}
+#calendrier .fc .fc-button-primary,
+#calendrier .fc-next-button,
+#calendrier .fc-today-button,
+#calendrier .fc-toolbar-chunk {
+  font-size: 32px !important;
+  padding: 15px 20px !important;
+  margin: 2rem 0rem 3rem 0rem !important;
+}
+#calendrier .fc-prev-button {
+  margin: 2rem 2rem 3rem 0rem !important;
+}
+
+#calendrier .fc-timegrid fc-timeGridThreeDay-view fc-view,
+#calendrier .fc-scrollgrid fc-scrollgrid-liquid {
+  height: 1200px !important;
+}
+#calendrier div.fc-view-harness {
+  height: 1500px !important;
+}
+
+/*////////////////////////////////////// 
+//////////     admin    //////////
+//////////////////////////////////////*/
+
+form[name="calendar"] {
+  max-width: 200px;
+}
+.action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.action > a {
+  padding: 2rem;
+}
+.table {
+  display: flex;
+  justify-content: center;
+}
+
+/*////////////////////////////////////// 
+//////////       description      //////////
+//////////////////////////////////////*/
+
+.img-accueil-desktop {
+  display: none;
+}
+
+.titremobil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 9rem;
+  position: relative;
+  margin-bottom: 10rem;
+}
+
+.description,
+.fortmahon,
+.quendplage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/****************************************************
+                         page paiement stripe
+**************************************************/
+#payment-form {
+  max-width: 300px;
+  height: 500px;
+}
+
+/* Agrandir les éléments du formulaire */
+#card-element {
+  transform: scale(3);
+  padding: 20px;
+  margin: 100px 0px 100px 300px;
+  width: 300px;
+}
+
+/* Centrer le contenu du formulaire */
+.__PrivateStripeElement iframe {
+  width: 100%;
+  height: 100%;
+  background-color: white !important;
+  color: black !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+#submit {
+  transform: scale(2);
+  margin-left: 10rem;
+}
+.success {
+  background-color:#5f9ea0;
+  border:1px solid grey;
+}
+
+/*//////////////////////////////////////////////////////////////////////////*/
+/*formulaire création calendar  /*/
+#staff_schedule > div:nth-child(4) > label,
+#Activity > div:nth-child(4) > label {
+  font-weight: 600;
+}
+.activity_end {
+  margin:2rem;
+}
+
+/*///////////////////////////////////////////////////*/
+
+/****************************************************
+                         page purchase
+**************************************************/
+.purchasemobil > h1 {
+  font-size: 6rem;
+  margin-top: 6rem;
+}
+.purchasedesktop {
+  display: none;
+}
+.purchasemobil {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.item-mobil {
+  font-weight: 600;
+  font-size: 4rem;
+}
+
+.item-mobile {
+  font-weight: 600;
+  margin-top: 8rem;
+  font-size: 4rem;
+}
+.datatitem {
+  margin-top: 2rem;
+  font-size: 2.8rem;
+}
+.datatiteme {
+  margin-bottom: 10rem;
+  font-size: 2.8rem;
+}
+hr {
+  border: none; /* Supprime la bordure par défaut */
+  height: 1px; /* Définit la hauteur de la ligne */
+  background-color: #000; /* Définit la couleur de fond de la ligne */
+  margin: 10px 0; /* Ajoute une marge autour de la ligne */
+}
+
+/**********************************************************
+                           page show detail
+ ********************************************************/
+
+.span-show {
+  font-size: 3rem;
+  background-color: #6a6e73;
+  border-radius: 4%;
+  padding: 1rem;
+  color: white;
+}
+
+/***********************************************
+                     page presentation        
+ ************************************************/
+
+.presentation {
+  position: relative;
+  top: 80px;
+}
+.presentationul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/***********************************************
+                     page panier        
+ ************************************************/
+
+.onlydesktop {
+  display: none;
+}
+
+.onlymobil {
+  display: block;
+}
+/*
+.tableau {
+  margin: auto;
+  border-collapse: collapse; 
+}
+
+/* Pour centrer le texte dans les cellules du tableau 
+.tableau th, .tableau td {
+  text-align : justify;
+}
+/* Pour centrer le texte dans la cellule du colspan 
+.tableau td[colspan="3"] {
+  text-align: center;
+}*/
+#red {
+  color: red;
+}
+
+/***********************************************************************
+************              Footer     *********************************
+*********************************************************************/
+
+.reseaux {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.reseaux a {
+  margin: 0 1rem;
+  font-size: 0.8rem;
+}
+
+.reseaux a:hover,
+.reseaux a:focus {
+  color: #3383a9;
+}
+
+.légales {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+  color: #3383a9;
+  background-color: #eaf4fe;
+}
+
+a.fab.fa-facebook-square {
+  /*color: #3b5998;*/
+  color: #6c757d;
+}
+
+a.fab.fa-youtube-square {
+  /* color: #cd201f;*/
+  color: #6c757d;
+}
+
+a.fab.fa-instagram-square {
+  /* color: #262626;*/
+  color: #6c757d;
+}
+
+a.fab {
+  font-size: 6rem;
+}
+
+#footer {
+  background-color: #eaf4fe;
+  padding: 0.5rem;
+  margin-top: 15rem;
+}
+
+.reseauxsociaux {
+  display: flex;
+  justify-content: center;
+  margin: auto 0;
+  margin: 4rem 2rem 4rem 0rem;
+  color: #fff;
+  flex-direction: column;
+  align-items: center;
+}
+/*footer à retravailler conflit nav
+.nav ul li a {
+    color: #6c757d;
+    font-size: 1.5rem;
+    display: inline-block;
+    text-align: center
+}
+
+
+
+
+.nav {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #eaf4fe;
+    position: sticky;
+    top: 0px;
+}
+/*/
+
+.legales {
+  background-color: #eaf4fe;
+}
+
+.sf-toolbarreset {
+  padding: 10px 36px 20px 0 !important;
+}
+
+/*********************************************************************************************************
+          version tablette                       version tablette                       version tablette
+*******************************************************************************************************/
+@media screen and (min-width: 1000px) {
   img {
-    /* max-width: 100%;*/
-    width: 80%;
-    height: 80%;
+    width: auto;
+    height: auto;
     margin: 1.5rem 0rem 1.5rem 0rem;
   }
-  
-  /************************************
-  generalites
-  /*************************************/
-  
-  
-  
-  .container {
-    margin: 0 auto;
-    margin: 0 auto;
-    display: block;
-  }
-  
-  section {
-    margin: 5rem;
-  }
-  
-  li {
-    list-style: none;
-    font-size: 2rem;
-    padding: 0.5em;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #3383a9;
+  h1 {
     font-size: 4rem;
-    margin: 1rem;
+    margin: 4rem;
+    line-height: 4rem;
   }
-  
-  input {
-    font-size: 2rem;
-    text-align: center;
-    display: block;
-    margin: 1.5rem;
+  h2 {
+    font-size: 3rem;
+    margin: 3rem;
+    line-height: 4rem;
   }
-  
-  .btn {
-    font-size: 1.8rem;
-    margin: 1.5rem;
-    padding: 0.8rem;
-    border-radius: 0.5rem;
+
+  h3 {
+    font-size: 2.5rem;
+    margin: 2rem;
   }
-  
-  td,
+  #payment-form {
+    max-width: 600px;
+  }
+
   th {
     text-align: center;
-    font-size: 4rem;
+    font-size: 2rem;
     padding: 2rem;
+    margin-top: 4rem;
   }
-  
+  td {
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem;
+  }  
+
+  .tableaucart {
+    text-align: center;
+    font-size: 1.6rem;
+    padding: 1rem 0rem 1rem 0rem;
+  }
+  a,
+  button,
+  label {
+    font-size: 3rem;
+    margin: 2rem;
+    padding: 1rem;
+  }
+
   .flashalert-success,
   .success {
-    background-color: cadetblue;
-    color: aliceblue;
-    border-radius: 5%;
-    padding: 1.5rem;
+    padding: 1rem;
+    margin-top: 4rem;
   }
   .flashalert-danger,
   .danger,
   .warning {
-    background-color: rgb(248, 121, 2);
-    color: aliceblue;
-    border-radius: 5%;
-    padding: 1.5rem;
+    padding: 0.5rem;
+    margin-top: 4rem;
   }
-  label,
-  button {
-    font-size: 5rem;
+
+  /*  a revoir conflit nav
+    body>div.navbaraccueil>nav {
+        flex-wrap: wrap;
+    }
+
+    body>nav>div {
+        flex-wrap: inherit;
+        color: #eaf4fe;
+    }     /*/
+
+  .imgsite {
+    width: 300px;
+    height: 168px;
   }
-  
-  /***************************************************************
-                    header
-   ***************************************************************/
-  
-  header .dropdown-1 {
-    position: relative;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  header .dropdown-1:hover .content {
+
+  .titre-accueil {
     display: flex;
     flex-direction: column;
-    position: relative;
-    width: 100%;
-    background-color: #ffffff;
-    padding: 1em 2em;
-    top: 0;
-  }
-  header .dropdown-1 {
-    position: relative;
-    height: 100%;
-    display: flex;
     justify-content: center;
-  }
-  
-  header {
-    width: 100%;
-    min-height: 170px;
-    height: 100%;
-    background-color: #eaf4fe;
     align-items: center;
+  }
+
+  .titreh1 {
+    line-height: 7rem;
+    margin: 0rem 8rem 2rem 8rem;
+  }
+  .activite {
+    display: block;
+  }
+  .activiteaccueil {
+    height: 170px;
+    width: 920px;
+    flex-direction: row;
+  }
+
+  .activitechar,
+  .activitekid,
+  .activitecata {
     position: relative;
+    width: 200px;
+    height: 112px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: flex-end;
   }
-  
-  header > a,
-  header button {
-    color: #000000;
-    margin: 0 15px;
-    font-size: 2.5rem;
-    display: none;
-    text-decoration: none;
+
+  .activitechar::after,
+  .activitecata::after,
+  .activitekid::after {
+    height: 112px;
+    width: 200px;
+    z-index: -1;
   }
-  
-  header button {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
+
+  .lienactiviteaccueilkid {
+    margin-right: 3rem;
+    margin-left: 3rem;
+    line-height: 3rem;
+    text-align: center;
   }
-  
-  header .dropdown-1 {
-    position: relative;
-    height: 100%;
+
+  /* .collapse navbar-collapse {
+        flex-wrap: wrap;
+    }
+
+
+    /**********************page detail_show **********************
+***********************tablette***********************/
+
+  .show {
+    margin-top: 2rem;
+  }
+
+  .show-detail {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
-  header .dropdown-1 .content {
+
+  .p-show-detail {
+    margin: 1rem;
+  }
+
+  .span-show {
+    font-size: 3rem;
+    background-color: #6a6e73;
+    border-radius: 4%;
+    padding: 1rem;
+    color: white;
+  }
+
+  /*///////////////////////////////////////
+                    page calendarmain   
+ /////////////////////////////*/
+
+  .bascul-mobil {
     display: none;
   }
-  
-  header .content a {
-    color: black;
-    text-decoration: none;
+
+  /************************************
+/*            page login    tablette /*************************************/
+
+  .titreLoginEmail {
+    font-size: 7rem;
+  }
+  .LabelLoginEmail,
+  .inputPasswordLoginEmail {
+    font-size: 6rem;
+  }
+  .inputPasswordLoginEmail {
+    font-size: 8rem;
+  }
+  .inputLoginEmail {
+    font-size: 6rem;
+    max-width: 80%;
+  }
+  .buttonLoginEmail,
+  .lienOublie {
     font-size: 4rem;
   }
-  #navbar > a.icon {
-    display: block;
-    position: absolute;
-    font-size: 10rem;
-    text-align: center;
-    width: 5% !important;
-    top: 10px;
+
+  /********************************************
+                 page registration tablette
+ ********************************************/
+
+  .registration-form {
+    font-size: 20px;
+    max-width: 500px;
+    padding: 15px;
   }
+
+  .registration-form label[for="registrationForm_plainPassword"] {
+    font-weight: bold;
+  }
+  #registration_form_fullName,
+  #registration_form_email,
+  #registration_form_plainPassword,
+  #registration_form_phone {
+    font-size: 4rem;
+  }
+  /*//////////////////////////////////////////////////////////////////////////*/
+  /*formulaire création calendar  /*/
+  #staff_schedule > div:nth-child(4) > label,
+  #Activity > div:nth-child(4) > label {
+    font-weight: 600;
+  }
+  .calendarform {
+    display: flex;
+  }
+
+  /*///////////////////////////////////////////////////*/
+
+  /********************* footer  tablette*******************/
+  .reseaux {
+    justify-content: center;
+  }
+}
+
+/*********************************************************************************************************
+          version desktop                        version desktop                        version desktop
+*******************************************************************************************************/
+
+@media screen and (min-width: 1200px) {
   header.responsive > a,
   header.responsive button,
   .asous {
-    display: block;
-    padding: 1rem 0;
-    width: 100%;
-    font-size: 7rem;
-    text-align: left;
+    font-size: 2rem;
   }
-  
-  /*////////////////////////////////////// 
-  //////////       body  (mobil)      //////////
-  //////////////////////////////////////*/
-  /*
-  body {
-    background-color: lightgray;
-  } */
-  
-  
-  #slider,
-  .consultplaning {
+
+  p {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin: 1.5rem 0rem 1.5rem 0rem;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+    scrollbar-width: none;
+  }
+
+  .element::-webkit-scrollbar {
+    width: 0 !important;
+  }
+
+  .element {
+    -ms-overflow-style: none;
+  }
+
+  .element {
+    overflow: -moz-scrollbars-none;
+  }
+
+  .container {
+    scrollbar-width: none;
+    margin-top: 3rem;
+    width: 85%;
+  }
+  #navbar > a.icon {
     display: none;
   }
+  header > a,
+  header button {
+    display: block;
+    font-size: 2.5rem;
+  }
+  header .content a {
+    font-size: 2rem;
+  }
+
+  header {
+    flex-direction: row;
+    height: 200px;
+    align-items: center;
+  }
+
+  header .dropdown-1:hover .content {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #ffffff;
+    top: 120px;
+    width: 120%;
+    padding: 1em 2em;
+    /* inclure le rembourrage et la bordure dans la largeur et la hauteur totales d'un élément*/
+    box-sizing: border-box;
+    color: black;
+    z-index: 999;
+  }
+
+  /**************************************************************************
+                                       Slider desktop             
+ **************************************************************************/
+
+  .imgslider {
+    width: 100%;
+  }
+
   #slidermobil {
+    display: none;
+  }
+
+  #precedent,
+  #suivant {
+    cursor: pointer;
+    /*petite main au survol */
+    transition: opacity 0.3s ease;
+    /* opacité au survol, avec pseudo selector  :hover plus bas */
+    opacity: 0;
+    position: absolute;
+    font-size: 100px;
+    color: rgba(220, 220, 220, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+  }
+  #precedent,
+  #suivant {
+    cursor: pointer;
+    /*petite main au survol */
+    transition: opacity 0.3s ease;
+    /* opacité au survol, avec pseudo selector  :hover plus bas */
+    opacity: 0;
+    position: absolute;
+    font-size: 100px;
+    color: rgba(220, 220, 220, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+  }
+
+  #slider:hover #precedent,
+  #slider:hover #suivant {
+    opacity: 1;
+  }
+
+  .container {
+    scrollbar-width: none;
+    margin-top: 3rem;
+    width: 85%;
+  }
+
+  .imgslider {
+    width: 100%;
+  }
+
+  #slider {
     position: relative;
     top: 0;
     /*position du parent qui ne bouge pas */
@@ -233,84 +1234,77 @@ Tools
     overflow: hidden;
     margin: 0;
   }
-  .imgslider {
-    width: 100%;
-  }
-  .slidera {
-    width: 100%;
-  }
-  #precedentmob {
-    left: 0;
-  }
-  
-  #suivantmob {
-    right: 0;
-  }
-  #precedentmob,
-  #suivantmob {
+
+  #precedent,
+  #suivant {
     cursor: pointer;
     /*petite main au survol */
     transition: opacity 0.3s ease;
     /* opacité au survol, avec pseudo selector  :hover plus bas */
     opacity: 0;
     position: absolute;
-    font-size: 50px;
+    font-size: 100px;
     color: rgba(220, 220, 220, 0.8);
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
   }
-  
-  #slidermobil:hover #precedentmob,
-  #slidermobil:hover #suivantmob {
-    opacity: 1;
+
+  #precedent {
+    left: 0;
+    font-size: 3rem;
   }
-  .titreh1 {
-    text-align: center;
-    font-size: 5rem;
-    line-height: 5rem;
+
+  #suivant {
+    right: 0;
+    font-size: 3rem;
   }
-  
-  .titreh2 {
-    text-align: center;
-    margin: 0rem 3rem 0rem 3rem;
-    line-height: 3rem;
+
+  .consultplaning {
+    position: absolute;
+    top: 450px;
+    right: 100px;
+    padding: 1rem;
+    z-index: 1000;
+    border-radius: 5%;
+    font-size: 2rem;
   }
-  
-  .htitrecat {
-    margin: 4rem 0rem 4rem 0rem;
-    font-size: 4rem;
-    text-align: center;
+
+  /*********************************************
+                 admin  desktop                
+  *******************************************/
+
+  .admin-navbar {
+    display: flex;
+    justify-content: space-evenly;
   }
-  .activite {
+  .action {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  /* message ajouter quantite calendar user */
+  #stockErrorMessage {
+    font-size: 16px;
+    color: red;
+  }
+
+  /************************desktop****************************************/
+
+  .titremobil {
     display: none;
   }
-  /* div des 3 activites */
+
   .activiteaccueil {
-    display: flex;
-    flex-direction: column;
-    margin-top: 3rem;
-    align-items: center;
-    height: 700px;
-    justify-content: space-around;
+    width: 1000px;
+    height: 180px;
   }
-  
-  .activitechar,
-  .activitekid,
-  .activitecata {
-    position: relative;
-    width: 300px;
-    height: 168px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 1rem;
-  }
-  
+
   .activitecata::after {
     content: "";
     /* max-width:300px ;*/
     background: url(https://127.0.0.1:8000/assets/uploads/miniature-cata-accueil1.jpg);
     -webkit-background-size: cover;
+    background-repeat: no-repeat;
     position: absolute;
     background-size: cover;
     background-position: center;
@@ -323,35 +1317,7 @@ Tools
     width: 300px;
     z-index: -1;
   }
-  
-  .activitekid {
-    position: relative;
-    padding-bottom: 1rem;
-  }
-  
-  .activitekid::after {
-    content: "";
-    /* max-width:300px ;*/
-    background: url(https://127.0.0.1:8000/assets/uploads/charbabyaccueil.jpg);
-    -webkit-background-size: cover;
-    position: absolute;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.9;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 168px;
-    width: 300px;
-    z-index: -1;
-  }
-  
-  .activitechar {
-    position: relative;
-    padding-bottom: 1rem;
-  }
-  
+
   .activitechar::after {
     content: "";
     /* max-width:300px ;*/
@@ -370,1106 +1336,225 @@ Tools
     width: 300px;
     z-index: -1;
   }
-  
-  .lienaccueil {
-    font-size: 3rem;
-    font-weight: 600;
-    color: white;
-    margin-top: 2rem;
-    text-shadow: #000000 2.5px 0 1px;
-    --bs-link-hover-color: rgba(251, 250, 248, 0.8);
-    animation-duration: 10s;
-    animation-name: slidein;
+
+  .activitekid::after {
+    content: "";
+    /* max-width:300px ;*/
+    background: url(https://127.0.0.1:8000/assets/uploads/charbabyaccueil.jpg);
+    -webkit-background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 168px;
+    width: 300px;
+    z-index: -1;
   }
-  
-  @keyframes slidein {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .lienaccueilkid {
-    font-size: 3rem;
-    font-weight: 600;
-    margin: 0rem 3rem 0rem 3rem;
-    text-align: center;
-    line-height: 2.5rem;
-    color: white;
-    text-shadow: #000000 2.5px 0 1px;
-    --bs-link-hover-color: rgba(251, 250, 248, 0.8);
-    animation-duration: 6s;
-    animation-name: slidein;
-  }
-  
-  @keyframes slidein {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .description,
-  .paragraphe {
-    margin: 2rem 0rem 5rem 0rem;
-  }
-  
-  .carte {
-    margin: 2rem 1rem 2rem 1rem;
-  }
-  
-  .container-fluid {
-    background: #eaf4fe;
-  }
-  
-  /*.navbar-toggler-icon {
-      font-size: 4em;
-  
-  } */
-  
-  /*.p-version-tablette {
-      display: none;
-  } */
-  
-  /************************************
-  /*            page login /*************************************/
-  
-  .titreLoginEmail {
-    font-size: 9rem;
-  }
-  .LabelLoginEmail,
-  .inputPasswordLoginEmail {
-    font-size: 8rem;
-    margin: 2rem;
-  }
-  .inputPasswordLoginEmail {
-    font-size: 10rem;
-    margin: 4rem;
-  }
-  .inputLoginEmail {
-    font-size: 8rem;
-    margin: 2rem;
-    border: 2px solid grey;
-    max-width: 80%;
-  }
-  .buttonLoginEmail,
-  .lienOublie {
-    font-size: 6rem;
-    margin: 2rem;
-  }
-  
-  /********************************************
-                   page registration
-   ********************************************/
-  
-  .registration-form {
-    font-size: 16px;
-    max-width: 600px;
-    padding: 20px;
-  }
-  .required {
-    margin: 2rem;
-  }
-  
-  .registration-form label[for="registrationForm_plainPassword"] {
-    font-weight: bold;
-  }
-  #registration_form_fullName,
-  #registration_form_email,
-  #registration_form_plainPassword,
-  #registration_form_phone {
-    font-size: 6rem;
-    margin: 4rem;
-    border: solid 2px grey;
-  }
-  
-  input[type="checkbox"] {
-    transform: scale(3);
-    margin-left: 3rem;
-  }
-  .button {
-    margin: 3rem;
-    padding: 2rem;
-  }
-  
-  /*******************************
-               page calendar
-  *******************************/
-  
-  #formsearch {
-    display:flex;
-    flex-direction: column;
-  }
-  #min-price, #calendar-select, #begin , #end{
-    font-size:4rem;
-    margin:2rem;
-  }
-  #activity_end {
-    margin:3rem;
-  }
-  /*******************************
-                 page calendarmain
-   *******************************/
-  
-  .milieu,
-  .bascul-mobil {
-    text-align: center;
-    margin: 4rem;
+
+  .activitechar,
+  .activitekid,
+  .activitecata {
+    position: relative;
+    width: 300px;
+    height: 168px;
     display: flex;
-    flex-direction: column;
-    margin: 1rem;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+  }
+
+  .description {
+    flex-direction: row;
+    align-items: center;
+    margin: 5rem 0rem 5rem 0rem;
+  }
+
+  .p-version-tablette {
+    display: none;
+  }
+
+  .indicationpaiement {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .formloginregister {
+    max-width: 500px;
+  }
+
+  #payment-form {
+    max-width: 1200px;
+  }
+  /************************************************
+                           page presentation desktop
+         ****************************************************/
+  .presentation {
+    top: 10px;
+  }
+
+  .presentationul {
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    line-height: 1.4;
   }
-  
+
+  /*******************************
+               page calendar  desktop
+ *******************************/
+
+  #formsearch {
+    flex-direction: row;
+  }
+  /*/////////////////////////////desktop/////////////////////////////////////////////*/
+  /*formulaire création calendar  /*/
+  #staff_schedule > div:nth-child(4) > label,
+  #Activity > div:nth-child(4) > label {
+    font-weight: 600;
+    display: flex;
+  }
+
+  /*//////////////////////////desktop/////////////////////////*/
+
+  /*******************************
+               page calendarmain  desktop
+ *******************************/
+
   .calendaraccueil {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    margin: 2rem;
+    flex-direction: row;
   }
-  
   #calendrier {
-    width: 80%;
+    width: 100%;
     margin: auto;
     padding-top: 4rem;
   }
-  
+
   #calendrier .fc-header-toolbar fc-toolbar {
-    font-size: 32px !important;
-    padding: 25px 35px !important;
+    font-size: 16px !important;
+    padding: 10px 15px !important;
   }
-  #calendrier .fc-toolbar-title {
-    line-height: 6rem !important;
-  }
+
   #calendrier .fc .fc-button-primary,
+  #calendrier .fc-prev-button,
   #calendrier .fc-next-button,
   #calendrier .fc-today-button,
   #calendrier .fc-toolbar-chunk {
-    font-size: 32px !important;
-    padding: 15px 20px !important;
-    margin: 2rem 0rem 3rem 0rem !important;
+    font-size: 16px !important;
+    padding: 8px 15px !important;
   }
-  #calendrier .fc-prev-button {
-    margin: 2rem 2rem 3rem 0rem !important;
-  }
-  
+
   #calendrier .fc-timegrid fc-timeGridThreeDay-view fc-view,
   #calendrier .fc-scrollgrid fc-scrollgrid-liquid {
-    height: 1200px !important;
+    height: 900px !important;
   }
   #calendrier div.fc-view-harness {
-    height: 1500px !important;
+    height: 800px !important;
   }
-  
-  /*////////////////////////////////////// 
-  //////////     admin    //////////
-  //////////////////////////////////////*/
-  
-  form[name="calendar"] {
-    max-width: 200px;
+
+  /************************************
+/*            page login    desktop /*************************************/
+
+  .titreLoginEmail {
+    font-size: 5rem;
   }
-  .action {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .LabelLoginEmail,
+  .inputPasswordLoginEmail {
+    font-size: 4rem;
   }
-  .action > a {
-    padding: 2rem;
+  .inputPasswordLoginEmail {
+    font-size: 6rem;
   }
-  .table {
-    display: flex;
-    justify-content: center;
+  .inputLoginEmail {
+    font-size: 4rem;
+    max-width: 50%;
   }
-  
-  /*////////////////////////////////////// 
-  //////////       description      //////////
-  //////////////////////////////////////*/
-  
-  .img-accueil-desktop {
+  .buttonLoginEmail,
+  .lienOublie {
+    font-size: 2rem;
+  }
+
+  /***********************************************
+                     page panier     desktop   
+ ************************************************/
+
+  .onlymobil {
     display: none;
   }
-  
-  .titremobil {
+  .onlydesktop {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    top: 9rem;
-    position: relative;
-    margin-bottom: 10rem;
+    min-width: 2000px;
   }
-  
-  .description,
-  .fortmahon,
-  .quendplage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+  .tableau {
+    border: 2px black solid;
   }
-  
-  /****************************************************
-                           page paiement stripe
-  **************************************************/
-  #payment-form {
-    max-width: 300px;
-    height: 500px;
-  }
-  
-  /* Agrandir les éléments du formulaire */
-  #card-element {
-    transform: scale(3);
-    padding: 20px;
-    margin: 100px 0px 100px 300px;
+  .colonnetableau {
+    padding: 1rem 2rem 1rem 2rem;
+    border: 2px black solid;
+    background-color: #1c8db8;
     width: 300px;
   }
-  
+
+  .colonnetableaux {
+    padding: 1rem 2rem 1rem 2rem;
+    width: 300px;
+  }
+
+  /****************************************************
+                         page paiement stripe  desktop
+**************************************************/
+  #payment-form {
+    max-width: 1100px;
+    height: 500px;
+  }
+
+  /* Agrandir les éléments du formulaire */
+  #card-element {
+    transform: scale(1.4);
+    padding: 10px;
+    margin: 50px 0px 50px 200px;
+    max-width: 1500px;
+    min-width: 1000px;
+  }
+  .indicationpaiement {
+    max-width: 1400px;
+    min-width: 900px;
+  }
+
   /* Centrer le contenu du formulaire */
   .__PrivateStripeElement iframe {
     width: 100%;
     height: 100%;
-    background-color: white !important;
-    color: black !important;
-    opacity: 1 !important;
-    font-weight: 600 !important;
-  }
-  
-  #submit {
-    transform: scale(2);
-    margin-left: 10rem;
-  }
-  
-  /****************************************************
-                           page purchase
-  **************************************************/
-  .purchasemobil > h1 {
-    font-size: 6rem;
-    margin-top: 6rem;
-  }
-  .purchasedesktop {
-    display: none;
-  }
-  .purchasemobil {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .item-mobil {
-    font-weight: 600;
-    font-size: 4rem;
-  }
-  
-  .item-mobile {
-    font-weight: 600;
-    margin-top: 8rem;
-    font-size: 4rem;
-  }
-  .datatitem {
-    margin-top: 2rem;
-    font-size: 2.8rem;
-  }
-  .datatiteme {
-    margin-bottom: 10rem;
-    font-size: 2.8rem;
-  }
-  hr {
-    border: none; /* Supprime la bordure par défaut */
-    height: 1px; /* Définit la hauteur de la ligne */
-    background-color: #000; /* Définit la couleur de fond de la ligne */
-    margin: 10px 0; /* Ajoute une marge autour de la ligne */
-  }
-  
-  /**********************************************************
-                             page show detail
-   ********************************************************/
-  
-  .span-show {
-    font-size: 3rem;
-    background-color: #6a6e73;
-    border-radius: 4%;
-    padding: 1rem;
-    color: white;
-  }
-  
-  /***********************************************
-                       page presentation        
-   ************************************************/
-  
-  .presentation {
-    position: relative;
-    top: 80px;
-  }
-  .presentationul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /***********************************************
-                       page panier        
-   ************************************************/
-  
-  .onlydesktop {
-    display: none;
   }
 
-  /* Pour centrer le contenu du tableau */
-.colonnetableau {
-  margin:4rem;
-}
-.colonnetableaux {
-  margin:5rem;
-}
-  
-  .onlymobil {
+  #submit {
+    transform: scale(1.5);
+    margin-left: 5rem;
+  }
+
+  /****************************************                 page purchase desktop
+*************************************/
+
+  .purchasemobil {
+    display: none;
+  }
+  .purchasedesktop {
     display: block;
   }
-  #red {
-    color: red;
-  }
-  
-  /***********************************************************************
-  ************              Footer     *********************************
-  *********************************************************************/
-  
+
+  /**************************Footer desktop***************************************/
+
   .reseaux {
-    display: flex;
-    justify-content: center;
-    margin: 2rem;
+    margin: 6rem 0rem 6rem 0rem;
   }
-  
-  .reseaux a {
-    margin: 0 1rem;
-    font-size: 0.8rem;
-  }
-  
-  .reseaux a:hover,
-  .reseaux a:focus {
-    color: #3383a9;
-  }
-  
-  .légales {
-    display: flex;
-    justify-content: center;
-    margin: 2rem;
-    color: #3383a9;
-    background-color: #eaf4fe;
-  }
-  
-  a.fab.fa-facebook-square {
-    /*color: #3b5998;*/
-    color: #6c757d;
-  }
-  
-  a.fab.fa-youtube-square {
-    /* color: #cd201f;*/
-    color: #6c757d;
-  }
-  
-  a.fab.fa-instagram-square {
-    /* color: #262626;*/
-    color: #6c757d;
-  }
-  
-  a.fab {
-    font-size: 6rem;
-  }
-  
-  #footer {
-    background-color: #eaf4fe;
-    padding: 0.5rem;
-    margin-top: 15rem;
-  }
-  
-  .reseauxsociaux {
-    display: flex;
-    justify-content: center;
-    margin: auto 0;
-    margin: 4rem 2rem 4rem 0rem;
-    color: #fff;
-    flex-direction: column;
-    align-items: center;
-  }
-  /*footer à retravailler conflit nav
-  .nav ul li a {
-      color: #6c757d;
-      font-size: 1.5rem;
-      display: inline-block;
-      text-align: center
-  }
-  
-  
-  
-  
-  .nav {
-      width: 100%;
-      margin: 0 auto;
-      background-color: #eaf4fe;
-      position: sticky;
-      top: 0px;
-  }
-  /*/
-  
-  .legales {
-    background-color: #eaf4fe;
-  }
-  
-  .sf-toolbarreset {
-    padding: 10px 36px 20px 0 !important;
-  }
-  
-  /*********************************************************************************************************
-            version tablette                       version tablette                       version tablette
-  *******************************************************************************************************/
-  @media screen and (min-width: 1000px) {
-    img {
-      width: auto;
-      height: auto;
-      margin: 1.5rem 0rem 1.5rem 0rem;
-    }
-    h1 {
-      font-size: 4rem;
-      margin: 4rem;
-      line-height: 4rem;
-    }
-    h2 {
-      font-size: 3rem;
-      margin: 3rem;
-      line-height: 4rem;
-    }
-  
-    h3 {
-      font-size: 2.5rem;
-      margin: 2rem;
-    }
-    #payment-form {
-      max-width: 600px;
-    }
-  
-    th {
-      text-align: center;
-      font-size: 2rem;
-      padding: 2rem;
-      margin-top: 4rem;
-    }
-    td {
-      text-align: center;
-      font-size: 2rem;
-      padding: 1rem;
-    }
-    a,
-    button,
-    label {
-      font-size: 3rem;
-      margin: 2rem;
-      padding: 1rem;
-    }
-  
-    .flashalert-success,
-    .success {
-      padding: 1rem;
-      margin-top: 4rem;
-    }
-    .flashalert-danger,
-    .danger,
-    .warning {
-      padding: 0.5rem;
-      margin-top: 4rem;
-    }
-  
-    /*  a revoir conflit nav
-      body>div.navbaraccueil>nav {
-          flex-wrap: wrap;
-      }
-  
-      body>nav>div {
-          flex-wrap: inherit;
-          color: #eaf4fe;
-      }     /*/
-  
-    .imgsite {
-      max-width: 300px;
-    }
-  
-    .titre-accueil {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    .titreh1 {
-      line-height: 7rem;
-      margin: 0rem 8rem 2rem 8rem;
-    }
-    .activite {
-      display: block;
-    }
-    .activiteaccueil {
-      height: 170px;
-      width: 920px;
-      flex-direction: row;
-    }
-  
-    .activitechar,
-    .activitekid,
-    .activitecata {
-      position: relative;
-      width: 200px;
-      height: 112px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-    }
-  
-    .activitechar::after,
-    .activitecata::after,
-    .activitekid::after {
-      height: 112px;
-      width: 200px;
-      z-index: -1;
-    }
-  
-    .lienactiviteaccueilkid {
-      margin-right: 3rem;
-      margin-left: 3rem;
-      line-height: 3rem;
-      text-align: center;
-    }
-  
-    /* .collapse navbar-collapse {
-          flex-wrap: wrap;
-      }
-  
-  
-      /**********************page detail_show **********************
-  ***********************tablette***********************/
-  
-    .show {
-      margin-top: 2rem;
-    }
-  
-    .show-detail {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
-  
-    .p-show-detail {
-      margin: 1rem;
-    }
-  
-    .span-show {
-      font-size: 3rem;
-      background-color: #6a6e73;
-      border-radius: 4%;
-      padding: 1rem;
-      color: white;
-    }
-  
-    /*///////////////////////////////////////
-                      page calendarmain   
-   /////////////////////////////*/
-  
-    .bascul-mobil {
-      display: none;
-    }
-  
-    /************************************
-  /*            page login    tablette /*************************************/
-  
-    .titreLoginEmail {
-      font-size: 7rem;
-    }
-    .LabelLoginEmail,
-    .inputPasswordLoginEmail {
-      font-size: 6rem;
-    }
-    .inputPasswordLoginEmail {
-      font-size: 8rem;
-    }
-    .inputLoginEmail {
-      font-size: 6rem;
-      max-width: 80%;
-    }
-    .buttonLoginEmail,
-    .lienOublie {
-      font-size: 4rem;
-    }
-  
-    /********************************************
-                   page registration tablette
-   ********************************************/
-  
-    .registration-form {
-      font-size: 20px;
-      max-width: 500px;
-      padding: 15px;
-    }
-  
-    .registration-form label[for="registrationForm_plainPassword"] {
-      font-weight: bold;
-    }
-    #registration_form_fullName,
-    #registration_form_email,
-    #registration_form_plainPassword,
-    #registration_form_phone {
-      font-size: 4rem;
-    }
-  
-    /********************* footer  tablette*******************/
-    .reseaux {
-      justify-content: center;
-    }
-  }
-  
-  /*********************************************************************************************************
-            version desktop                        version desktop                        version desktop
-  *******************************************************************************************************/
-  
-  @media screen and (min-width: 1200px) {
-    header.responsive > a,
-    header.responsive button,
-    .asous {
-      font-size: 2rem;
-    }
-  
-    p {
-      font-size: 2rem;
-      line-height: 3rem;
-      margin: 1.5rem 0rem 1.5rem 0rem;
-    }
-  
-    ::-webkit-scrollbar {
-      display: none;
-      scrollbar-width: none;
-    }
-  
-    .element::-webkit-scrollbar {
-      width: 0 !important;
-    }
-  
-    .element {
-      -ms-overflow-style: none;
-    }
-  
-   /* .element {
-      overflow: -moz-scrollbars-none;
-    }  */
-  
-    .container {
-      scrollbar-width: none;
-      margin-top: 3rem;
-      width: 85%;
-    }
-    #navbar > a.icon {
-      display: none;
-    }
-    header > a,
-    header button {
-      display: block;
-      font-size: 2.5rem;
-    }
-    header .content a {
-      font-size: 2rem;
-    }
-  
-    header {
-      flex-direction: row;
-      height: 200px;
-      align-items: center;
-    }
-  
-    header .dropdown-1:hover .content {
-      display: block;
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      background-color: #ffffff;
-      top: 120px;
-      width: 120%;
-      padding: 1em 2em;
-      /* inclure le rembourrage et la bordure dans la largeur et la hauteur totales d'un élément*/
-      box-sizing: border-box;
-      color: black;
-      z-index: 999;
-    }
-  
-    /**************************************************************************
-                                         Slider desktop             
-   **************************************************************************/
-  
-    .imgslider {
-      width: 100%;
-    }
-  
-    #slidermobil {
-      display: none;
-    }
-  
-    #precedent,
-    #suivant {
-      cursor: pointer;
-      /*petite main au survol */
-      transition: opacity 0.3s ease;
-      /* opacité au survol, avec pseudo selector  :hover plus bas */
-      opacity: 0;
-      position: absolute;
-      font-size: 100px;
-      color: rgba(220, 220, 220, 0.8);
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 10px;
-    }
-    #precedent,
-    #suivant {
-      cursor: pointer;
-      /*petite main au survol */
-      transition: opacity 0.3s ease;
-      /* opacité au survol, avec pseudo selector  :hover plus bas */
-      opacity: 0;
-      position: absolute;
-      font-size: 100px;
-      color: rgba(220, 220, 220, 0.8);
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 10px;
-    }
-  
-    #slider:hover #precedent,
-    #slider:hover #suivant {
-      opacity: 1;
-    }
-  
-    .container {
-      scrollbar-width: none;
-      margin-top: 3rem;
-      width: 85%;
-    }
-  
-    .imgslider {
-      width: 100%;
-    }
-  
-    #slider {
-      position: relative;
-      top: 0;
-      /*position du parent qui ne bouge pas */
-      width: auto;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      margin: 0;
-    }
-  
-    #precedent,
-    #suivant {
-      cursor: pointer;
-      /*petite main au survol */
-      transition: opacity 0.3s ease;
-      /* opacité au survol, avec pseudo selector  :hover plus bas */
-      opacity: 0;
-      position: absolute;
-      font-size: 100px;
-      color: rgba(220, 220, 220, 0.8);
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 10px;
-    }
-  
-    #precedent {
-      left: 0;
-      font-size: 3rem;
-    }
-  
-    #suivant {
-      right: 0;
-      font-size: 3rem;
-    }
-  
-    .consultplaning {
-      position: absolute;
-      top: 450px;
-      right: 100px;
-      padding: 1rem;
-      z-index: 1000;
-      border-radius: 5%;
-      font-size: 2rem;
-    }
-  
-    /*********************************************
-                   admin                  
-    *******************************************/
-  
-    .admin-navbar {
-      display: flex;
-      justify-content: space-evenly;
-    }
-    .action {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
-    /* message ajouter quantite calendar user */
-    #stockErrorMessage {
-      font-size: 16px;
-      color: red;
-    }
-  
-    /****************************************************************/
-  
-    .titremobil {
-      display: none;
-    }
-  
-    .activiteaccueil {
-      width: 1000px;
-      height: 180px;
-    }
-  
-    .activitecata::after {
-      content: "";
-      /* max-width:300px ;*/
-      background: url(https://127.0.0.1:8000/assets/uploads/miniature-cata-accueil1.jpg);
-      -webkit-background-size: cover;
-      background-repeat: no-repeat;
-      position: absolute;
-      background-size: cover;
-      background-position: center;
-      opacity: 0.9;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      height: 168px;
-      width: 300px;
-      z-index: -1;
-    }
-  
-    .activitechar::after {
-      content: "";
-      /* max-width:300px ;*/
-      background: url(https://127.0.0.1:8000/assets/uploads/groupe-cha-mini-1.jpg);
-      -webkit-background-size: cover;
-      background-repeat: no-repeat;
-      position: absolute;
-      background-size: cover;
-      background-position: center;
-      opacity: 0.9;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      height: 168px;
-      width: 300px;
-      z-index: -1;
-    }
-  
-    .activitekid::after {
-      content: "";
-      /* max-width:300px ;*/
-      background: url(https://127.0.0.1:8000/assets/uploads/charbabyaccueil.jpg);
-      -webkit-background-size: cover;
-      background-repeat: no-repeat;
-      position: absolute;
-      background-size: cover;
-      background-position: center;
-      opacity: 0.9;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      height: 168px;
-      width: 300px;
-      z-index: -1;
-    }
-  
-    .activitechar,
-    .activitekid,
-    .activitecata {
-      position: relative;
-      width: 300px;
-      height: 168px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      padding-bottom: 1rem;
-    }
-  
-    .description {
-      flex-direction: row;
-      align-items: center;
-      margin: 5rem 0rem 5rem 0rem;
-    }
-  
-    .p-version-tablette {
-      display: none;
-    }
-  
-    .indicationpaiement {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-  
-    .formloginregister {
-      max-width: 500px;
-    }
-  
-    #payment-form {
-      max-width: 1200px;
-    }
-    /************************************************
-                             page presentation
-           ****************************************************/
-    .presentation {
-      top: 10px;
-    }
-  
-    .presentationul {
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    /*******************************
-                 page calendar
-   *******************************/
-  
-    #formsearch {
-      flex-direction:row;
-    }
-  
-  
-  
-  
-  
-    /*******************************
-                 page calendarmain
-   *******************************/
-  
-    .calendaraccueil {
-      display: flex;
-      flex-direction: row;
-    }
-    #calendrier {
-      width: 100%;
-      margin: auto;
-      padding-top: 4rem;
-    }
-  
-    #calendrier .fc-header-toolbar fc-toolbar {
-      font-size: 16px !important;
-      padding: 10px 15px !important;
-    }
-  
-    #calendrier .fc .fc-button-primary,
-    #calendrier .fc-prev-button,
-    #calendrier .fc-next-button,
-    #calendrier .fc-today-button,
-    #calendrier .fc-toolbar-chunk {
-      font-size: 16px !important;
-      padding: 8px 15px !important;
-    }
-  
-    #calendrier .fc-timegrid fc-timeGridThreeDay-view fc-view,
-    #calendrier .fc-scrollgrid fc-scrollgrid-liquid {
-      height: 900px !important;
-    }
-    #calendrier div.fc-view-harness {
-      height: 800px !important;
-    }
-  
-    /************************************
-  /*            page login    pc /*************************************/
-  
-    .titreLoginEmail {
-      font-size: 5rem;
-    }
-    .LabelLoginEmail,
-    .inputPasswordLoginEmail {
-      font-size: 4rem;
-    }
-    .inputPasswordLoginEmail {
-      font-size: 6rem;
-    }
-    .inputLoginEmail {
-      font-size: 4rem;
-      max-width: 50%;
-    }
-    .buttonLoginEmail,
-    .lienOublie {
-      font-size: 2rem;
-    }
-  
-    /***********************************************
-                       page panier        
-   ************************************************/
-  
-    .onlymobil {
-      display: none;
-    }
-    .onlydesktop {
-      display: block;
-    }
-  
-    /****************************************************
-                           page paiement stripe
-  **************************************************/
-    #payment-form {
-      max-width: 1100px;
-      height: 500px;
-    }
-  
-    /* Agrandir les éléments du formulaire */
-    #card-element {
-      transform: scale(1.4);
-      padding: 10px;
-      margin: 50px 0px 50px 200px;
-      max-width: 1500px;
-      min-width: 1000px;
-    }
-    .indicationpaiement {
-      max-width: 1400px;
-      min-width: 900px;
-    }
-  
-    /* Centrer le contenu du formulaire */
-    .__PrivateStripeElement iframe {
-      width: 100%;
-      height: 100%;
-    }
-  
-    #submit {
-      transform: scale(1.5);
-      margin-left: 5rem;
-    }
-  
-    /****************************************                 page purchase
-  *************************************/
-  
-    .purchasemobil {
-      display: none;
-    }
-    .purchasedesktop {
-      display: block;
-    }
-  
-    /**************************Footer desktop***************************************/
-  
-    .reseaux {
-      margin: 6rem 0rem 6rem 0rem;
-    }
-  
-    /*.navfooter ul li a {
-          margin: 1rem;
-      } */
-  }
-  
+
+  /*.navfooter ul li a {
+        margin: 1rem;
+    } */
+}
