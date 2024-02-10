@@ -60,7 +60,7 @@
                                   {% endif %}
                               </td>
                        
-                            <td><a href="{#{{ path('delete_purchaseitem', {'id':purchase.id} ) }}#}" data-confirm="Êtes-vous sûr de vouloir supprimer la commande de cet utilisateur?">Supprimer </a></td>
+                            <td><a href="{{ path('delete_purchaseitem', {'id':purchase.id} ) }}" data-confirm="Êtes-vous sûr de vouloir supprimer la commande de cet utilisateur?">Supprimer </a></td>
          
                           </tr>
                 {% endfor %}

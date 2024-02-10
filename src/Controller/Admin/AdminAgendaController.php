@@ -46,7 +46,7 @@ class AdminAgendaController extends AbstractController
            }
         
             if ($event instanceof \App\Entity\Activity) {
-                $resultquery = $purchaseItemRepository->getPurchaseQuantitySumByCalendar($event->getId());
+                $resultquery = $purchaseItemRepository->getPurchaseQuantitySum($event->getId());
                 //dd($resultquery);
                 $quantityCommanded = $resultquery['quantity'];
     

@@ -1,0 +1,3 @@
+<?php //App%255CController%255CAdmin%255CAdminCalendarAddUserQuantityController%2523isStockValid
+
+return [PHP_INT_MAX, []];

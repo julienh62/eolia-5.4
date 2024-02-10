@@ -30,6 +30,9 @@ class PurchaseItem
     private ?Activity $activity = null;
 
     #[ORM\ManyToOne(inversedBy: 'purchaseItems')]
+    private ?Calendar $calendar = null;
+
+    #[ORM\ManyToOne(inversedBy: 'purchaseItems')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Purchase $purchase = null;
 
@@ -95,7 +98,17 @@ class PurchaseItem
         return $this;
     }
 
+public function getCalendar(): ?Calendar
+    {
+        return $this->calendar;
+    }
 
+    public function setCalendar(?Calendar $calendar): self
+    {
+        $this->calendar = $calendar;
+
+        return $this;
+    }
 
 
  /*   public function getCalendarStock(): ?int

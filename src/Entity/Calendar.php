@@ -34,6 +34,8 @@ use ReflectionClass;
      protected ?\DateTimeInterface $end = null;
 
 
+     #[ORM\OneToMany(mappedBy: 'calendar', targetEntity: PurchaseItem::class)]
+     private Collection $purchaseItems;
 
     #[ORM\ManyToMany(targetEntity: Staff::class, cascade: ['remove'], inversedBy: 'calendars')]
     #[ORM\JoinColumn(nullable: true)]

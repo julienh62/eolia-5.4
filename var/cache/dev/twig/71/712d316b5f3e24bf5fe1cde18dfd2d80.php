@@ -200,8 +200,9 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
                 echo "</td>
 
                 <td>
-                    <a href=\" ";
+                    <a href=\"  ";
                 // line 60
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_calendar_add_user", ["id" => (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 60, $this->source); })())]), "html", null, true);
                 echo "\">Ajouter </a>
                 </td>
                   ";
@@ -291,6 +292,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
 
                 <a href=\"";
             // line 119
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_calendar_add_user", ["id" => (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 119, $this->source); })())]), "html", null, true);
             echo "\">Ajouter un utilisateur</a>
 
               
@@ -382,7 +384,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  341 => 140,  331 => 139,  319 => 135,  315 => 133,  310 => 131,  302 => 125,  294 => 119,  277 => 105,  267 => 98,  260 => 94,  253 => 90,  245 => 85,  237 => 80,  230 => 76,  221 => 69,  209 => 64,  205 => 60,  199 => 57,  196 => 56,  192 => 55,  188 => 54,  185 => 53,  181 => 52,  169 => 42,  152 => 25,  146 => 24,  138 => 22,  135 => 21,  133 => 20,  129 => 19,  120 => 16,  111 => 14,  107 => 13,  103 => 12,  99 => 11,  94 => 8,  92 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  343 => 140,  333 => 139,  321 => 135,  317 => 133,  312 => 131,  304 => 125,  295 => 119,  278 => 105,  268 => 98,  261 => 94,  254 => 90,  246 => 85,  238 => 80,  231 => 76,  222 => 69,  210 => 64,  205 => 60,  199 => 57,  196 => 56,  192 => 55,  188 => 54,  185 => 53,  181 => 52,  169 => 42,  152 => 25,  146 => 24,  138 => 22,  135 => 21,  133 => 20,  129 => 19,  120 => 16,  111 => 14,  107 => 13,  103 => 12,  99 => 11,  94 => 8,  92 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -446,7 +448,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
                         <td>{{  totals.userId}}</td>
 
                 <td>
-                    <a href=\" {#  {{ path('admin_calendar_show_add_user', {'id': id}) }}#}\">Ajouter </a>
+                    <a href=\"  {{ path('admin_calendar_add_user', {'id': id}) }}\">Ajouter </a>
                 </td>
                   {#     <td><a href=\"{{ path('delete_user_purchase', {'id':id, 'userId':totals.userId} ) }}\" data-confirm=
                   \"Êtes-vous sûr de vouloir supprimer la commande de cet utilisateur?\">Supprimer </a></td>#}
@@ -505,7 +507,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
     <div class=\"action\">
                 
 
-                <a href=\"{#{{ path('admin_calendar_show_add_user', {'id': id}) }}#}\">Ajouter un utilisateur</a>
+                <a href=\"{{ path('admin_calendar_add_user', {'id': id}) }}\">Ajouter un utilisateur</a>
 
               
     </div>

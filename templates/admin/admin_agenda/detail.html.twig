@@ -57,7 +57,7 @@
                         <td>{{  totals.userId}}</td>
 
                 <td>
-                    <a href=" {#  {{ path('admin_calendar_show_add_user', {'id': id}) }}#}">Ajouter </a>
+                    <a href="  {{ path('admin_calendar_add_user', {'id': id}) }}">Ajouter </a>
                 </td>
                   {#     <td><a href="{{ path('delete_user_purchase', {'id':id, 'userId':totals.userId} ) }}" data-confirm=
                   "Êtes-vous sûr de vouloir supprimer la commande de cet utilisateur?">Supprimer </a></td>#}
@@ -116,7 +116,7 @@
     <div class="action">
                 
 
-                <a href="{#{{ path('admin_calendar_show_add_user', {'id': id}) }}#}">Ajouter un utilisateur</a>
+                <a href="{{ path('admin_calendar_add_user', {'id': id}) }}">Ajouter un utilisateur</a>
 
               
     </div>

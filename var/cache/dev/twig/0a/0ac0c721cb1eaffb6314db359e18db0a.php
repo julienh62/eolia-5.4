@@ -187,6 +187,7 @@ $context["purchase"], "status", [], "any", false, false, false, 52) == "PAID")) 
                        
                             <td><a href=\"";
             // line 63
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_purchaseitem", ["id" => twig_get_attribute($this->env, $this->source, $context["purchase"], "id", [], "any", false, false, false, 63)]), "html", null, true);
             echo "\" data-confirm=\"Êtes-vous sûr de vouloir supprimer la commande de cet utilisateur?\">Supprimer </a></td>
          
                           </tr>
@@ -302,7 +303,7 @@ $context["purchase"], "status", [], "any", false, false, false, 52) == "PAID")) 
      */
     public function getDebugInfo()
     {
-        return array (  265 => 101,  254 => 95,  248 => 93,  246 => 92,  241 => 90,  234 => 86,  228 => 83,  222 => 80,  216 => 77,  212 => 75,  208 => 74,  199 => 67,  190 => 63,  186 => 61,  180 => 59,  178 => 58,  175 => 57,  172 => 55,  168 => 53,  166 => 52,  163 => 51,  160 => 50,  156 => 48,  152 => 47,  147 => 46,  140 => 41,  136 => 40,  129 => 38,  125 => 36,  116 => 28,  96 => 10,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
+        return array (  266 => 101,  255 => 95,  249 => 93,  247 => 92,  242 => 90,  235 => 86,  229 => 83,  223 => 80,  217 => 77,  213 => 75,  209 => 74,  200 => 67,  190 => 63,  186 => 61,  180 => 59,  178 => 58,  175 => 57,  172 => 55,  168 => 53,  166 => 52,  163 => 51,  160 => 50,  156 => 48,  152 => 47,  147 => 46,  140 => 41,  136 => 40,  129 => 38,  125 => 36,  116 => 28,  96 => 10,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -369,7 +370,7 @@ $context["purchase"], "status", [], "any", false, false, false, 52) == "PAID")) 
                                   {% endif %}
                               </td>
                        
-                            <td><a href=\"{#{{ path('delete_purchaseitem', {'id':purchase.id} ) }}#}\" data-confirm=\"Êtes-vous sûr de vouloir supprimer la commande de cet utilisateur?\">Supprimer </a></td>
+                            <td><a href=\"{{ path('delete_purchaseitem', {'id':purchase.id} ) }}\" data-confirm=\"Êtes-vous sûr de vouloir supprimer la commande de cet utilisateur?\">Supprimer </a></td>
          
                           </tr>
                 {% endfor %}

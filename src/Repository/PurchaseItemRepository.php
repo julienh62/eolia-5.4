@@ -44,7 +44,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
 
 
     //recupere la quantitté de toutes les  commandes d'un calendrier
-    public function getPurchaseQuantitySumByCalendar($id)
+    public function getPurchaseQuantitySum($id)
      {
       return $this->createQueryBuilder('p')
        ->select('SUM(p.quantity) as quantity')

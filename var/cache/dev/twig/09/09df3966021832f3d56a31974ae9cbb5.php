@@ -161,7 +161,31 @@ class __TwigTemplate_0205a1cc4a0d319b24f97fead5ad28b2 extends Template
                     calendar = new FullCalendar.Calendar(calendarElt, {
                         events: eventData,
                         eventContent: function (arg) {
-                            // ... (votre code eventContent)
+                               // Récupération de la valeur de stock depuis arg.event.extendedProps
+                            let stockg = arg.event.extendedProps.stock;
+
+                            // Vérification si stockg est null, isnan pour verifier si c'est un chiffre si oui, affecter 0
+                            if (stockg === null || stockg === undefined || isNaN(stockg)) {
+                                stockg = 0;
+                            }
+                            console.log('calendar', calendar);
+
+                            // Conversion de stockg en entier en utilisant parseInt avec base 10
+                            let stock = parseInt(stockg, 10);
+
+                            // Affichage du résultat de la conversion de stock dans la console
+                            console.log('stock', stock);
+
+                             let stockHtml = '<div class=\"event-stock\"> ' + 'Il reste : '  + stock + ' places' + '</div>';
+                            let titleStyle = 'font-weight: bold; font-size: 20px;';
+                            return {
+                                html:  '<div style=\"' + titleStyle + '\">' + arg.event.title + '</div>' + stockHtml
+                                //  html:  '<div style=\"' + titleStyle + '\">' + arg.event.title + '</div>' + stockHtml + quantityCommandedHtml
+                                //html: stockHtml + quantitecommandeHtml + arg.event.title + idHtml
+                            };
+
+                       
+
                         },
                         initialView: 'timeGridWeek',
                         views: {
@@ -295,7 +319,31 @@ class __TwigTemplate_0205a1cc4a0d319b24f97fead5ad28b2 extends Template
                     calendar = new FullCalendar.Calendar(calendarElt, {
                         events: eventData,
                         eventContent: function (arg) {
-                            // ... (votre code eventContent)
+                               // Récupération de la valeur de stock depuis arg.event.extendedProps
+                            let stockg = arg.event.extendedProps.stock;
+
+                            // Vérification si stockg est null, isnan pour verifier si c'est un chiffre si oui, affecter 0
+                            if (stockg === null || stockg === undefined || isNaN(stockg)) {
+                                stockg = 0;
+                            }
+                            console.log('calendar', calendar);
+
+                            // Conversion de stockg en entier en utilisant parseInt avec base 10
+                            let stock = parseInt(stockg, 10);
+
+                            // Affichage du résultat de la conversion de stock dans la console
+                            console.log('stock', stock);
+
+                             let stockHtml = '<div class=\"event-stock\"> ' + 'Il reste : '  + stock + ' places' + '</div>';
+                            let titleStyle = 'font-weight: bold; font-size: 20px;';
+                            return {
+                                html:  '<div style=\"' + titleStyle + '\">' + arg.event.title + '</div>' + stockHtml
+                                //  html:  '<div style=\"' + titleStyle + '\">' + arg.event.title + '</div>' + stockHtml + quantityCommandedHtml
+                                //html: stockHtml + quantitecommandeHtml + arg.event.title + idHtml
+                            };
+
+                       
+
                         },
                         initialView: 'timeGridWeek',
                         views: {

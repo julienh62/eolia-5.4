@@ -1,0 +1,34 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Ajouter un client{% endblock %}
+
+{% block body %}
+
+  <div id = "userForm">
+    <h1>Ajouter un utilisateur</h1>
+    <p> La reservation est attaché à l'email </p> 
+  
+      {{ form_start(form) }}
+      {{ form_widget(form) }}
+
+   <div id = "quantity">
+       <button type="submit">Créer</button>
+   </div>
+
+
+     {{ form_end(form) }}
+
+    <h2>Calendar Information</h2>
+      <p>Titre: {{ title }}</p>
+      <p>Prix: {{ price | amount }}</p>
+      <a href="{#{{ path('admin_calendar_user', {'id': calendar. id}) }}#}">Retour à la séance</a>  
+  </div>
+  
+{% endblock %}
+
+{% block javascripts %}
+   
+    
+   <!-- <script defer src='{#{{ asset("/assets/js/sousmenuquantity.js") }}#}'></script> -->
+{% endblock %}
+
