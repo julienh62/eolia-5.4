@@ -44,7 +44,7 @@ class PurchaseItemRepository extends ServiceEntityRepository
 
 
     //recupere la quantitté de toutes les  commandes d'un calendrier
-    public function getPurchaseQuantitySum($id)
+    public function getPurchaseQuantitySumByCalendar($id)
      {
       return $this->createQueryBuilder('p')
        ->select('SUM(p.quantity) as quantity')
@@ -54,47 +54,11 @@ class PurchaseItemRepository extends ServiceEntityRepository
         ->getSingleResult()
     ;
      }
-    //recupere la quantitté de toutes les  commandes d'un calendrier d'un user
-  /* public function getPurchaseQuantitySum($id)
-    {
-        $conn = $this->getEntityManager()->getConnection();
-
-        $sql = '
-        SELECT SUM(`quantity`) FROM `purchase_item` WHERE `activitie_id` = :id;
-            ';
-
-        $resultSet = $conn->executeQuery($sql, ['id' => $id]);
-
-        // returns an array of arrays (i.e. a raw data set)
-        return $resultSet->fetchAllAssociative();
-/*
-        $query = $this->getEntityManager()->createQuery("SELECT SUM(quantity) FROM App\Entity\PurchaseItem WHERE activity.id = $id
-    ");
- //  return $query->getResult();
- print_r ($query->getResult());*/
-   // } 
 
 
- /* public function getPurchaseUsers($id)
-    {
+ 
 
-        //recuperer les quantité commandées, nom et quantité d'un utilisateur donné pour un calendrier donné
-        $conn = $this->getEntityManager()->getConnection();
-        $sql = '
-        SELECT pi.purchase_id, u.full_name, pi.quantity 
-        FROM purchase_item pi 
-        JOIN purchase p ON pi.purchase_id = p.id 
-        JOIN user u ON p.user_id = u.id 
-        WHERE pi.activitie_id = :id
-
-            ';
-
-        $resultSet = $conn->executeQuery($sql, ['id' => $id]);
-
-        // returns an array of arrays (i.e. a raw data set)
-        return $resultSet->fetchAllAssociative();  
-     }   
-*/ //recuperer les quantité commandées, nom et quantité
+ //recuperer les quantité commandées, nom et quantité
 // pour un calendrier donné
    public function getPurchaseCalendar($id)
    {

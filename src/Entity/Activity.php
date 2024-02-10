@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Activity extends Calendar
 {
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     protected ?int $stock = null;
 
     #[ORM\Column]

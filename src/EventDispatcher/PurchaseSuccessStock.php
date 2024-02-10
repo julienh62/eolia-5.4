@@ -3,7 +3,7 @@
 namespace App\EventDispatcher;
 
 
-use App\Repository\CalendarRepository;
+use App\Repository\ActivityRepository;
 use App\Entity\Purchase;
 use App\Entity\PurchaseItem;
 use App\Entity\User;
@@ -40,17 +40,18 @@ class PurchaseSuccessStock implements EventSubscriberInterface
      // je recupere la quantité commandée par le client
      $quantityPurchase = $purchaseSuccessEventStock->getPurchase()
         ->getPurchaseItems()->getValues()[0]->getQuantity();
-  // dd($quantityPurchase);
+   //dd($quantityPurchase);
       // decrementer stock
-     
+     // $recupStock = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0]->getActivity()->getStock();
+     // dd(recupStock);
       //je récupere le stock du produit concerné par la commande
    $recupStock = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0]->getActivity()->getStock();
-     //  $recupStock = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0];
-    // dd($recupStock);
+      // $recupStock = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0];
+   //  dd($recupStock);
 
    // calcul du nouveaustock : je soustraie la quantité demandée  du stock
      $newStock = $recupStock - $quantityPurchase;
-   // dd($newStock);
+   //dd($newStock);
 
      // Ensure new stock is not less than zero
    //  if ($newStock < -1) {
@@ -65,9 +66,9 @@ class PurchaseSuccessStock implements EventSubscriberInterface
   //}
 
 
-       $calendar = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0]->getActivity()->setStock($newStock);
-//dd($calendar);
-     $this->em->persist($calendar);
+       $activity = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0]->getActivity()->setStock($newStock);
+      //dd($activity);
+     $this->em->persist($activity);
 
      $this->em->flush();
 

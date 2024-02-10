@@ -13,6 +13,18 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(CalendarRepository $calendarRepository,  GenerateLinkExtension $generateLinkExtension)
     {
+        // Récupérer l'utilisateur connecté
+        $user = $this->getUser();
+
+        // Initialiser le nom complet à null par défaut
+        $fullName = null;
+
+        // Vérifier si un utilisateur est connecté
+        if ($user) {
+            // Si oui, récupérer le nom complet de l'utilisateur
+            $fullName = $user->getFullName();
+        }
+        
         // Récupérer toutes les titres et image par categories
         $categoriesImgTitle = $calendarRepository->getImgAndTitleActivitie();
             //dd($categoriesImgTitle);
@@ -37,6 +49,7 @@ class HomeController extends AbstractController
             'titles' => $titles,
            'images' => $images,
            'categoryLinks' => $categoryLinks,
+           'fullName' => $fullName,
         ]);
 
     }

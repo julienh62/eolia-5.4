@@ -87,14 +87,23 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
 
         // line 7
         echo "
-
-
+      ";
+        // line 8
+        if ((isset($context["fullName"]) || array_key_exists("fullName", $context) ? $context["fullName"] : (function () { throw new RuntimeError('Variable "fullName" does not exist.', 8, $this->source); })())) {
+            // line 9
+            echo "         <h1>Bienvenue, ";
+            echo twig_escape_filter($this->env, (isset($context["fullName"]) || array_key_exists("fullName", $context) ? $context["fullName"] : (function () { throw new RuntimeError('Variable "fullName" does not exist.', 9, $this->source); })()), "html", null, true);
+            echo " !</h1>
+      ";
+        }
+        // line 11
+        echo "
     <div class=\"titremobil\">
            
 
           <!--    <picture>
                <source srcset=\"";
-        // line 16
+        // line 18
         echo " -->
 
 
@@ -109,20 +118,20 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
 
       <div class=\"presentationactivities\">
              ";
-        // line 29
+        // line 31
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["titles"]) || array_key_exists("titles", $context) ? $context["titles"] : (function () { throw new RuntimeError('Variable "titles" does not exist.', 29, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["titles"]) || array_key_exists("titles", $context) ? $context["titles"] : (function () { throw new RuntimeError('Variable "titles" does not exist.', 31, $this->source); })()));
         foreach ($context['_seq'] as $context["key"] => $context["title"]) {
-            // line 30
+            // line 32
             echo "                <div class=\"presentationimgettitle\"> 
                     <img class=\"imgsite\" src=\"";
-            // line 31
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . twig_get_attribute($this->env, $this->source, (isset($context["images"]) || array_key_exists("images", $context) ? $context["images"] : (function () { throw new RuntimeError('Variable "images" does not exist.', 31, $this->source); })()), $context["key"], [], "array", false, false, false, 31))), "html", null, true);
+            // line 33
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . twig_get_attribute($this->env, $this->source, (isset($context["images"]) || array_key_exists("images", $context) ? $context["images"] : (function () { throw new RuntimeError('Variable "images" does not exist.', 33, $this->source); })()), $context["key"], [], "array", false, false, false, 33))), "html", null, true);
             echo "\" alt=\"";
             echo twig_escape_filter($this->env, $context["title"], "html", null, true);
             echo " Image\">
                     <h2><a href=\"";
-            // line 32
+            // line 34
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_by_category", ["categoryTitle" => $context["title"]]), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $context["title"], "html", null, true);
@@ -133,7 +142,7 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['key'], $context['title'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 37
         echo "           
       </div>
          <!--  <div class=\"activiteaccueil\">
@@ -141,7 +150,7 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
               <div class=\"activitecata\">
                      <div class=\"btnactiviteaccueil\">
                           <a class=\"lienaccueil\" href=\"";
-        // line 41
+        // line 43
         echo "\"> Catamaran </a>
                     </div>
               </div>
@@ -159,7 +168,7 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
              </div>
       </div>
             <!-- ";
-        // line 69
+        // line 71
         echo " -->
    </section>
 
@@ -197,7 +206,7 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
 
     }
 
-    // line 98
+    // line 100
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -207,16 +216,16 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 99
+        // line 101
         echo "          ";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
         echo "
          <script src=\"";
-        // line 100
+        // line 102
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/menu.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 101
+        // line 103
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/slider.js"), "html", null, true);
         echo "\"></script>
 
@@ -250,7 +259,7 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  220 => 101,  216 => 100,  211 => 99,  201 => 98,  163 => 69,  145 => 41,  137 => 35,  126 => 32,  120 => 31,  117 => 30,  113 => 29,  98 => 16,  89 => 7,  79 => 6,  60 => 3,  37 => 1,);
+        return array (  229 => 103,  225 => 102,  220 => 101,  210 => 100,  172 => 71,  154 => 43,  146 => 37,  135 => 34,  129 => 33,  126 => 32,  122 => 31,  107 => 18,  100 => 11,  94 => 9,  92 => 8,  89 => 7,  79 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -262,7 +271,9 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
 
 {% block body %}
 
-
+      {% if fullName %}
+         <h1>Bienvenue, {{ fullName }} !</h1>
+      {% endif %}
 
     <div class=\"titremobil\">
            

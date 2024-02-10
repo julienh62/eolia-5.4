@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Repository\CalendarRepository;
+use App\Repository\PurchaseItemRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminAgendaController extends AbstractController
 {
     #[Route('admin/agenda', name: 'app_admin_agenda')]
-    public function index(Request $request, CalendarRepository $calendarRepository): Response
+    public function index(Request $request, CalendarRepository $calendarRepository, PurchaseItemRepository $purchaseItemRepository): Response
     {
         $events = $calendarRepository->findAll();
         $rdvs = [];
@@ -45,6 +46,11 @@ class AdminAgendaController extends AbstractController
            }
         
             if ($event instanceof \App\Entity\Activity) {
+                $resultquery = $purchaseItemRepository->getPurchaseQuantitySumByCalendar($event->getId());
+                //dd($resultquery);
+                $quantityCommanded = $resultquery['quantity'];
+    
+
                 $rdvs[] = [
                     'id' => $event->getId(),
                     'start' => $event->getStart()->format('Y-m-d H:i:s'),
@@ -56,12 +62,13 @@ class AdminAgendaController extends AbstractController
                     'backgroundColor' => $backGroundColor,
                     'borderColor' => $borderColor,
                       'textColor' => $textColor,
+                      'quantityCommanded' => $quantityCommanded,
                 ];
             } elseif ($event instanceof \App\Entity\StaffSchedule) {
                 $colorSettings = $event->getCategory()->getCategorySetting();
-                
-             
-                
+                $resultquerye=$event->getId();
+              
+
                 $rdvs[] = [
                     'id' => $event->getId(),
                     'start' => $event->getStart()->format('Y-m-d H:i:s'),

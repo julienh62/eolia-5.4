@@ -45,7 +45,7 @@ class CartController extends AbstractController
         // Récupérer la quantité demandée dans le panier
         $cartItems = $this->cartService->getDetailedCartItems();
         $activity = $this->activityRepository->find($id);
-
+        //dd($cartItems);
         if (!$activity) {
 
             throw $this->createNotFoundException("l activité demandée n'existe pas");
@@ -80,6 +80,7 @@ class CartController extends AbstractController
         $detailedCart = $this->cartService->getDetailedCartItems();
         $total = $this->cartService->getTotal();
         $stock = $this->cartService->getStock();
+        
         $isValidOrder = $this->cartService->validateOrder(); // Appel de la méthode validateOrder()
 
         return $this->render('cart/index.html.twig', [
