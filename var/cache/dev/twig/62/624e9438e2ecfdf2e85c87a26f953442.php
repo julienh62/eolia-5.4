@@ -111,7 +111,7 @@ class __TwigTemplate_6d8f72afa1ce14d16c7dc13e6675f2f8 extends Template
 <p>Un mail avec un lien de paiement sera envoyé à l'utilisateur</p>
     <a href=\"";
         // line 21
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_agenda_detail", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["calendar"]) || array_key_exists("calendar", $context) ? $context["calendar"] : (function () { throw new RuntimeError('Variable "calendar" does not exist.', 21, $this->source); })()), "id", [], "any", false, false, false, 21)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_agenda_detail", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["activity"]) || array_key_exists("activity", $context) ? $context["activity"] : (function () { throw new RuntimeError('Variable "activity" does not exist.', 21, $this->source); })()), "id", [], "any", false, false, false, 21)]), "html", null, true);
         echo "\">Retour à la séance</a>
 ";
         
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var quantity = parseInt(quantityInput.value, 10);
         var isFormValid = quantity > 0 && quantity <= ";
         // line 42
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["calendar"]) || array_key_exists("calendar", $context) ? $context["calendar"] : (function () { throw new RuntimeError('Variable "calendar" does not exist.', 42, $this->source); })()), "stock", [], "any", false, false, false, 42), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["activity"]) || array_key_exists("activity", $context) ? $context["activity"] : (function () { throw new RuntimeError('Variable "activity" does not exist.', 42, $this->source); })()), "stock", [], "any", false, false, false, 42), "html", null, true);
         echo " && ";
         echo (((isset($context["isStockValid"]) || array_key_exists("isStockValid", $context) ? $context["isStockValid"] : (function () { throw new RuntimeError('Variable "isStockValid" does not exist.', 42, $this->source); })())) ? ("true") : ("false"));
         echo ";
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update error message
         if (quantity > ";
         // line 46
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["calendar"]) || array_key_exists("calendar", $context) ? $context["calendar"] : (function () { throw new RuntimeError('Variable "calendar" does not exist.', 46, $this->source); })()), "stock", [], "any", false, false, false, 46), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["activity"]) || array_key_exists("activity", $context) ? $context["activity"] : (function () { throw new RuntimeError('Variable "activity" does not exist.', 46, $this->source); })()), "stock", [], "any", false, false, false, 46), "html", null, true);
         echo ") {
             errorMessage.textContent = 'Stock insuffisant';
         } else {
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
     {{ form_end(form) }}
 
 <p>Un mail avec un lien de paiement sera envoyé à l'utilisateur</p>
-    <a href=\"{{ path('admin_agenda_detail', {'id': calendar.id}) }}\">Retour à la séance</a>
+    <a href=\"{{ path('admin_agenda_detail', {'id': activity.id}) }}\">Retour à la séance</a>
 {% endblock %}
 {% block javascripts %}
 <script>
@@ -254,11 +254,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function validateForm() {
         var quantity = parseInt(quantityInput.value, 10);
-        var isFormValid = quantity > 0 && quantity <= {{ calendar.stock }} && {{ isStockValid ? 'true' : 'false' }};
+        var isFormValid = quantity > 0 && quantity <= {{ activity.stock }} && {{ isStockValid ? 'true' : 'false' }};
         submitButton.disabled = !isFormValid;
 
         // Update error message
-        if (quantity > {{ calendar.stock }}) {
+        if (quantity > {{ activity.stock }}) {
             errorMessage.textContent = 'Stock insuffisant';
         } else {
             errorMessage.textContent = '';

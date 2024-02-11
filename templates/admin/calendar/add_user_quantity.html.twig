@@ -18,7 +18,7 @@
     {{ form_end(form) }}
 
 <p>Un mail avec un lien de paiement sera envoyé à l'utilisateur</p>
-    <a href="{{ path('admin_agenda_detail', {'id': calendar.id}) }}">Retour à la séance</a>
+    <a href="{{ path('admin_agenda_detail', {'id': activity.id}) }}">Retour à la séance</a>
 {% endblock %}
 {% block javascripts %}
 <script>
@@ -39,11 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function validateForm() {
         var quantity = parseInt(quantityInput.value, 10);
-        var isFormValid = quantity > 0 && quantity <= {{ calendar.stock }} && {{ isStockValid ? 'true' : 'false' }};
+        var isFormValid = quantity > 0 && quantity <= {{ activity.stock }} && {{ isStockValid ? 'true' : 'false' }};
         submitButton.disabled = !isFormValid;
 
         // Update error message
-        if (quantity > {{ calendar.stock }}) {
+        if (quantity > {{ activity.stock }}) {
             errorMessage.textContent = 'Stock insuffisant';
         } else {
             errorMessage.textContent = '';

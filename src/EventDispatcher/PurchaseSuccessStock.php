@@ -45,9 +45,9 @@ class PurchaseSuccessStock implements EventSubscriberInterface
      // $recupStock = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0]->getActivity()->getStock();
      // dd(recupStock);
       //je récupere le stock du produit concerné par la commande
-   $recupStock = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0]->getActivity()->getStock();
-      // $recupStock = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0];
-   //  dd($recupStock);
+      $recupStock = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0]->getActivity()->getStock();
+   //    $recupStock = $purchaseSuccessEventStock->getPurchase()->getPurchaseItems()->getValues()[0];
+    // dd($recupStock);
 
    // calcul du nouveaustock : je soustraie la quantité demandée  du stock
      $newStock = $recupStock - $quantityPurchase;

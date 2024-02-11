@@ -6854,10 +6854,10 @@
         <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.KTAPlHc" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.yL31_4s" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="calendar" type="service_closure" id=".errored..service_locator.KTAPlHc.App\Entity\Calendar"/>
+        <argument key="activity" type="service_closure" id="App\Entity\Activity"/>
         <argument key="dispatcher" type="service_closure" id="debug.event_dispatcher"/>
         <argument key="sendMailService" type="service_closure" id="App\Service\SendMailService"/>
       </argument>
@@ -7147,7 +7147,7 @@
         <argument key="staffScheduleSettingsRepository" type="service_closure" id="App\Repository\StaffScheduleSettingsRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.rVVoIFn" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.rKQqKe9" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ActivitieController::index" type="service_closure" id=".service_locator._lcSaPy"/>
@@ -7160,7 +7160,7 @@
         <argument key="App\Controller\Admin\AdminAgendaDetailController::calendarshowlistuserpurchase" type="service_closure" id=".service_locator.NYum7NI"/>
         <argument key="App\Controller\Admin\AdminAgendaDetailController::showusercalendarpurchase" type="service_closure" id=".service_locator.2PXzERC"/>
         <argument key="App\Controller\Admin\AdminCalendarAddUserController::calendarAddUser" type="service_closure" id=".service_locator.GZHpsOx"/>
-        <argument key="App\Controller\Admin\AdminCalendarAddUserQuantityController::calendarAddUserQuantity" type="service_closure" id=".service_locator.KTAPlHc"/>
+        <argument key="App\Controller\Admin\AdminCalendarAddUserQuantityController::calendarAddUserQuantity" type="service_closure" id=".service_locator.yL31_4s"/>
         <argument key="App\Controller\Admin\AdminCalendarController::delete" type="service_closure" id=".service_locator.G.KaxIT"/>
         <argument key="App\Controller\Admin\AdminCalendarController::edit" type="service_closure" id=".service_locator.G.KaxIT"/>
         <argument key="App\Controller\Admin\AdminCalendarController::index" type="service_closure" id=".service_locator.eHXQlqW"/>
@@ -7230,7 +7230,7 @@
         <argument key="App\Controller\Admin\AdminAgendaDetailController:calendarshowlistuserpurchase" type="service_closure" id=".service_locator.NYum7NI"/>
         <argument key="App\Controller\Admin\AdminAgendaDetailController:showusercalendarpurchase" type="service_closure" id=".service_locator.2PXzERC"/>
         <argument key="App\Controller\Admin\AdminCalendarAddUserController:calendarAddUser" type="service_closure" id=".service_locator.GZHpsOx"/>
-        <argument key="App\Controller\Admin\AdminCalendarAddUserQuantityController:calendarAddUserQuantity" type="service_closure" id=".service_locator.KTAPlHc"/>
+        <argument key="App\Controller\Admin\AdminCalendarAddUserQuantityController:calendarAddUserQuantity" type="service_closure" id=".service_locator.yL31_4s"/>
         <argument key="App\Controller\Admin\AdminCalendarController:delete" type="service_closure" id=".service_locator.G.KaxIT"/>
         <argument key="App\Controller\Admin\AdminCalendarController:edit" type="service_closure" id=".service_locator.G.KaxIT"/>
         <argument key="App\Controller\Admin\AdminCalendarController:index" type="service_closure" id=".service_locator.eHXQlqW"/>
@@ -7984,12 +7984,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.rVVoIFn"/>
+      <argument type="service" id=".service_locator.rKQqKe9"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.rVVoIFn"/>
+      <argument type="service" id=".service_locator.rKQqKe9"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -8001,7 +8001,6 @@
     <service id=".errored..service_locator.2PXzERC.App\Entity\Calendar" class="App\Entity\Calendar"/>
     <service id=".errored..service_locator.NYum7NI.App\Entity\Calendar" class="App\Entity\Calendar"/>
     <service id=".errored..service_locator.GZHpsOx.App\Entity\Calendar" class="App\Entity\Calendar"/>
-    <service id=".errored..service_locator.KTAPlHc.App\Entity\Calendar" class="App\Entity\Calendar"/>
     <service id=".errored..service_locator.8_BVbXm.App\Entity\Calendar" class="App\Entity\Calendar"/>
     <service id=".errored..service_locator.G.KaxIT.App\Entity\Calendar" class="App\Entity\Calendar"/>
     <service id=".errored..service_locator.7P87fGM.App\Entity\Category" class="App\Entity\Category"/>
@@ -9005,7 +9004,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.rVVoIFn"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.rKQqKe9"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -9030,7 +9029,7 @@
     <service id=".service_locator.M2w014t" alias=".service_locator.ZPXdjnm"/>
     <service id=".service_locator._yqzR0A" alias=".service_locator.2PXzERC"/>
     <service id=".service_locator.cJTRPpe" alias=".service_locator.NYum7NI"/>
-    <service id=".service_locator.ZFMzuU." alias=".service_locator.KTAPlHc"/>
+    <service id=".service_locator.BsTPtTC" alias=".service_locator.yL31_4s"/>
     <service id=".service_locator.xoHnPT8" alias=".service_locator.eHXQlqW"/>
     <service id=".service_locator.8KI0Wo_" alias=".service_locator.v_0t6lx"/>
     <service id=".service_locator.vbqem_w" alias=".service_locator.5Fs0VYS"/>
@@ -9046,7 +9045,7 @@
     <service id=".service_locator.IJyWPwb" alias=".service_locator.kXtg5m1"/>
     <service id=".service_locator.j.3hYyQ" alias=".service_locator.TJOfZmJ"/>
     <service id=".service_locator.QS5ik0Z" alias=".service_locator.I__DjQ_"/>
-    <service id=".service_locator.XWEciYt" alias=".service_locator.rVVoIFn"/>
+    <service id=".service_locator.0pUISTV" alias=".service_locator.rKQqKe9"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.l6ELYLY"/>
     <service id=".service_locator.hFBH42w" alias=".service_locator.3gHMLcX"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
@@ -9082,7 +9081,7 @@
     <service id=".service_locator.VIMzmuj" alias=".service_locator.2PXzERC"/>
     <service id=".service_locator.2IUxeti" alias=".service_locator.NYum7NI"/>
     <service id=".service_locator.SFM4R7x" alias=".service_locator.GZHpsOx"/>
-    <service id=".service_locator.a4dRO_5" alias=".service_locator.KTAPlHc"/>
+    <service id=".service_locator.kmCqAkj" alias=".service_locator.yL31_4s"/>
     <service id=".service_locator.2jvBryL" alias=".service_locator.eHXQlqW"/>
     <service id=".service_locator.bInR.ll" alias=".service_locator.aKM6MDa"/>
     <service id=".service_locator.dmc_kdQ" alias=".service_locator.8_BVbXm"/>

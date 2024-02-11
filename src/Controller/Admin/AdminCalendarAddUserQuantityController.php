@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-// src/Controller/Admin/AdminCalendarShowAddUserQuantityController.php
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\PurchaseItem;
 use App\Entity\Purchase;
 use App\Entity\User;
-use App\Entity\Calendar;
+use App\Entity\Activity;
 use App\Form\UserWithQuantityType;
 use App\Service\SendMailService;
 use Doctrine\Persistence\ManagerRegistry;
@@ -28,35 +27,35 @@ class AdminCalendarAddUserQuantityController extends AbstractController
         $this->managerRegistry = $managerRegistry;
     }
     
-    private function isStockValid(Calendar $calendar, int $quantity): bool
+    private function isStockValid(Activity $activity, int $quantity): bool
     {
 
-        return $calendar->getStock() >= $quantity;
+        return $activity->getStock() >= $quantity;
     }
 
 
 
     #[Route('/admin/calendaradduserquantity/{id}/{newUserId}',
         name: 'admin_calendar_add_user_quantity', methods: ['GET', 'POST'])]
-    public function calendarAddUserQuantity(Calendar $calendar, Request $request,
+    public function calendarAddUserQuantity(Activity $activity, Request $request,
       $id, $newUserId, SendMailService $sendMailService, EventDispatcherInterface $dispatcher): Response
     {
       //  $calendarId = $request->attributes->get('id');
         $newUserId = $request->attributes->get('newUserId');
-
+        
         // Fetch the user and calendar entities
         $userRepository = $this->managerRegistry->getRepository(User::class);
         $user = $userRepository->find($newUserId);
         
-        $initialStock = $calendar->getStock();
+        $initialStock = $activity->getStock();
      // dd($initialStock);
         // Calculate the isStockValid value based on your validation logic
        // $isStockValid = $this->isStockValid($calendar, $quantity);
      //   dd($isStockValid); // D
 
         // Verify if user and calendar entities are fetched successfully
-        if (!$user || !$calendar) {
-            throw $this->createNotFoundException('User or Calendar not found.');
+        if (!$user || !$activity) {
+            throw $this->createNotFoundException('User or Activity not found.');
         }
      
 
@@ -68,15 +67,15 @@ class AdminCalendarAddUserQuantityController extends AbstractController
         
 
         // Get the calendar price from the fetched Calendar entity
-        $activityPrice = $calendar->getPrice();
+        $activityPrice = $activity->getPrice();
 
       
    
         $purchaseItem = new PurchaseItem();
         $purchaseItem->setActivityPrice($activityPrice);
-        $purchaseItem->setActivityName($calendar->getTitle());
+        $purchaseItem->setActivityName($activity->getTitle());
        // $purchaseItem->setCalendarStock($calendar->getStock()); 
-        $purchaseItem->setCalendar($calendar);
+        $purchaseItem->setActivity($activity);
 
 
 
@@ -95,7 +94,7 @@ class AdminCalendarAddUserQuantityController extends AbstractController
             $quantity = $purchaseItem->getQuantity();
 //dd($quantity);
      // Calculate the isStockValid value based on your validation logic
-     $isStockValid = $this->isStockValid($calendar, $quantity);
+     $isStockValid = $this->isStockValid($activity, $quantity);
   //   dd($isStockValid);
 
             // Update the PurchaseItem entity with the quantity
@@ -148,14 +147,14 @@ class AdminCalendarAddUserQuantityController extends AbstractController
 
 
             // Redirect the user after successful form submission
-            return $this->redirectToRoute('admin_main_calendar');
+            return $this->redirectToRoute('app_admin_agenda');
         }
 
         // Render the form template with the form data
         return $this->render('admin/calendar/add_user_quantity.html.twig', [
             'form' => $form->createView(),
             'user' => $user,
-            'calendar' => $calendar,
+            'activity' => $activity,
            'isStockValid' => $isStockValid,
         ]);
     }
