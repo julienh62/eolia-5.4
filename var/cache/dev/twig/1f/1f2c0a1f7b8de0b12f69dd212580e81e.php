@@ -107,28 +107,33 @@ class __TwigTemplate_1677bf4b609178104cbe7bfc83b7ca1e extends Template
         foreach ($context['_seq'] as $context["_key"] => $context["category_setting"]) {
             // line 21
             echo "            <tr>
-                <td class=\"colonnetableaux\">";
+                 <td class=\"colonnetableaux\">";
             // line 22
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category_setting"], "titleCategorySetting", [], "any", false, false, false, 22), "html", null, true);
             echo "</td>
-                <td class=\"colonnetableaux\">";
+             <td class=\"colonnetableaux\" style=\"background-color: ";
             // line 23
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category_setting"], "textColor", [], "any", false, false, false, 23), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category_setting"], "textColor", [], "any", false, false, false, 23), "html", null, true);
             echo "</td>
-                <td class=\"colonnetableaux\">";
+            <td class=\"colonnetableaux\" style=\"background-color: ";
             // line 24
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category_setting"], "backGroundColor", [], "any", false, false, false, 24), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category_setting"], "backGroundColor", [], "any", false, false, false, 24), "html", null, true);
             echo "</td>
+
                 <td class=\"colonnetableaux\">
                     <a href=\"";
-            // line 26
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_setting_show", ["id" => twig_get_attribute($this->env, $this->source, $context["category_setting"], "id", [], "any", false, false, false, 26)]), "html", null, true);
+            // line 27
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_setting_show", ["id" => twig_get_attribute($this->env, $this->source, $context["category_setting"], "id", [], "any", false, false, false, 27)]), "html", null, true);
             echo "\">show</a>
                 </td>
                    <td class=\"colonnetableaux\">
                     <a href=\"";
-            // line 29
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_setting_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["category_setting"], "id", [], "any", false, false, false, 29)]), "html", null, true);
+            // line 30
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_setting_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["category_setting"], "id", [], "any", false, false, false, 30)]), "html", null, true);
             echo "\">modifier</a>
                 </td>
             </tr>
@@ -136,7 +141,7 @@ class __TwigTemplate_1677bf4b609178104cbe7bfc83b7ca1e extends Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 33
+            // line 34
             echo "            <tr>
                 <td>Aucune correspondance trouvée</td>
             </tr>
@@ -145,7 +150,7 @@ class __TwigTemplate_1677bf4b609178104cbe7bfc83b7ca1e extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category_setting'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
+        // line 38
         echo "        </tbody>
     </table>
 </div>
@@ -154,18 +159,14 @@ class __TwigTemplate_1677bf4b609178104cbe7bfc83b7ca1e extends Template
 
 <div class=\"onlymobil\">
         ";
-        // line 44
+        // line 45
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["category_settings"]) || array_key_exists("category_settings", $context) ? $context["category_settings"] : (function () { throw new RuntimeError('Variable "category_settings" does not exist.', 44, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["category_settings"]) || array_key_exists("category_settings", $context) ? $context["category_settings"] : (function () { throw new RuntimeError('Variable "category_settings" does not exist.', 45, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["category_setting"]) {
-            // line 45
-            echo "               <p>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category_setting"], "titleCategorySetting", [], "any", false, false, false, 45), "html", null, true);
-            echo " </p>
-               <p>";
             // line 46
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category_setting"], "textColor", [], "any", false, false, false, 46), "html", null, true);
+            echo "               <p>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category_setting"], "titleCategorySetting", [], "any", false, false, false, 46), "html", null, true);
             echo " </p>
                <p>";
             // line 47
@@ -173,20 +174,24 @@ class __TwigTemplate_1677bf4b609178104cbe7bfc83b7ca1e extends Template
             echo " </p>
                <p>";
             // line 48
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category_setting"], "backGroundColor", [], "any", false, false, false, 48), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category_setting"], "textColor", [], "any", false, false, false, 48), "html", null, true);
+            echo " </p>
+               <p>";
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category_setting"], "backGroundColor", [], "any", false, false, false, 49), "html", null, true);
             echo " </p>
                
                 <p>
                   <a href=\"";
-            // line 51
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_setting_show", ["id" => twig_get_attribute($this->env, $this->source, $context["category_setting"], "id", [], "any", false, false, false, 51)]), "html", null, true);
+            // line 52
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_setting_show", ["id" => twig_get_attribute($this->env, $this->source, $context["category_setting"], "id", [], "any", false, false, false, 52)]), "html", null, true);
             echo "\">show</a>
 
                 </p>
                 <p>
                     <a href=\"";
-            // line 55
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_setting_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["category_setting"], "id", [], "any", false, false, false, 55)]), "html", null, true);
+            // line 56
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_setting_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["category_setting"], "id", [], "any", false, false, false, 56)]), "html", null, true);
             echo "\">modifier</a>
 
                 </p>
@@ -201,7 +206,7 @@ class __TwigTemplate_1677bf4b609178104cbe7bfc83b7ca1e extends Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 66
+            // line 67
             echo "           
                 <p>Aucune Catégorie pour l'instant </p>
           
@@ -210,12 +215,12 @@ class __TwigTemplate_1677bf4b609178104cbe7bfc83b7ca1e extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category_setting'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 70
+        // line 71
         echo "        
    
   </div>
        <a href=\"";
-        // line 73
+        // line 74
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_setting_new");
         echo "\">Créer </a>
 ";
@@ -248,7 +253,7 @@ class __TwigTemplate_1677bf4b609178104cbe7bfc83b7ca1e extends Template
      */
     public function getDebugInfo()
     {
-        return array (  219 => 73,  214 => 70,  205 => 66,  189 => 55,  182 => 51,  176 => 48,  172 => 47,  168 => 46,  163 => 45,  158 => 44,  149 => 37,  140 => 33,  131 => 29,  125 => 26,  120 => 24,  116 => 23,  112 => 22,  109 => 21,  104 => 20,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  224 => 74,  219 => 71,  210 => 67,  194 => 56,  187 => 52,  181 => 49,  177 => 48,  173 => 47,  168 => 46,  163 => 45,  154 => 38,  145 => 34,  136 => 30,  130 => 27,  122 => 24,  116 => 23,  112 => 22,  109 => 21,  104 => 20,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -274,9 +279,10 @@ class __TwigTemplate_1677bf4b609178104cbe7bfc83b7ca1e extends Template
         <tbody>
         {% for category_setting in category_settings %}
             <tr>
-                <td class=\"colonnetableaux\">{{ category_setting.titleCategorySetting }}</td>
-                <td class=\"colonnetableaux\">{{ category_setting.textColor }}</td>
-                <td class=\"colonnetableaux\">{{ category_setting.backGroundColor }}</td>
+                 <td class=\"colonnetableaux\">{{ category_setting.titleCategorySetting }}</td>
+             <td class=\"colonnetableaux\" style=\"background-color: {{ category_setting.textColor }}\">{{ category_setting.textColor }}</td>
+            <td class=\"colonnetableaux\" style=\"background-color: {{ category_setting.backGroundColor }}\">{{ category_setting.backGroundColor }}</td>
+
                 <td class=\"colonnetableaux\">
                     <a href=\"{{ path('app_admin_category_setting_show', {'id': category_setting.id}) }}\">show</a>
                 </td>

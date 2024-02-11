@@ -1503,6 +1503,7 @@ a.fab {
 
   .colonnetableaux {
     padding: 1rem 2rem 1rem 2rem;
+    border: 1px solid #1c8db8;
     width: 300px;
   }
 

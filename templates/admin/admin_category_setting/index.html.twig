@@ -19,9 +19,10 @@
         <tbody>
         {% for category_setting in category_settings %}
             <tr>
-                <td class="colonnetableaux">{{ category_setting.titleCategorySetting }}</td>
-                <td class="colonnetableaux">{{ category_setting.textColor }}</td>
-                <td class="colonnetableaux">{{ category_setting.backGroundColor }}</td>
+                 <td class="colonnetableaux">{{ category_setting.titleCategorySetting }}</td>
+             <td class="colonnetableaux" style="background-color: {{ category_setting.textColor }}">{{ category_setting.textColor }}</td>
+            <td class="colonnetableaux" style="background-color: {{ category_setting.backGroundColor }}">{{ category_setting.backGroundColor }}</td>
+
                 <td class="colonnetableaux">
                     <a href="{{ path('app_admin_category_setting_show', {'id': category_setting.id}) }}">show</a>
                 </td>
