@@ -1,0 +1,16 @@
+{# templates/admin/admin_category/imagescat.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des images de catégories</title>
+</head>
+<body>
+    <h1>Liste des images de catégories</h1>
+    <ul>
+        {% for category in categoriesimages %}
+            <li>{{ category.titleCategory }} - <img src="{{ asset('uploads/images/' ~ category.image) }}" alt="{{ category.titleCategory }} image"></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

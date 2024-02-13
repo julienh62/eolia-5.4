@@ -21,6 +21,22 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
+
+
+    /**
+     * @return array|null Returns an array containting picture  or null
+     */
+    public function findAllWithImages(): ?array
+    {
+        $queryBuilder = $this->createQueryBuilder('c');
+
+        $result = $queryBuilder
+            ->select('c.image,c.titleCategory') // Sélectionner les propriétés image
+            ->getQuery()
+            ->getResult();
+        return $result;
+    }
+
 //    /**
 //     * @return Category[] Returns an array of Category objects
 //     */

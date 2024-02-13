@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 #[Route('/admin/category')]
 class AdminCategoryController extends AbstractController
@@ -22,6 +23,16 @@ class AdminCategoryController extends AbstractController
         return $this->render('admin/admin_category/index.html.twig', [
             'categories' => $categoryRepository->findAll(),
         ]);
+    }
+
+    #[Route('/images', name: 'app_admin_category_image', methods: ['GET'])]
+    public function catImage(CategoryRepository $categoryRepository): Response
+    {
+        // Récupérer toutes les catégories avec leurs images
+        $categoriesImages = $categoryRepository->findAllWithImages();
+
+        // Retourner les données des catégories au format JSON
+    return new JsonResponse($categoriesImages);
     }
 
     #[Route('/new', name: 'app_admin_category_new', methods: ['GET', 'POST'])]

@@ -7147,7 +7147,7 @@
         <argument key="staffScheduleSettingsRepository" type="service_closure" id="App\Repository\StaffScheduleSettingsRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.rKQqKe9" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.MEX3PYM" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ActivitieController::index" type="service_closure" id=".service_locator._lcSaPy"/>
@@ -7166,6 +7166,7 @@
         <argument key="App\Controller\Admin\AdminCalendarController::index" type="service_closure" id=".service_locator.eHXQlqW"/>
         <argument key="App\Controller\Admin\AdminCalendarController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\AdminCalendarController::show" type="service_closure" id=".service_locator.8_BVbXm"/>
+        <argument key="App\Controller\Admin\AdminCategoryController::catImage" type="service_closure" id=".service_locator.RdVbGrJ"/>
         <argument key="App\Controller\Admin\AdminCategoryController::delete" type="service_closure" id=".service_locator.4Uu00Y_"/>
         <argument key="App\Controller\Admin\AdminCategoryController::edit" type="service_closure" id=".service_locator.v_0t6lx"/>
         <argument key="App\Controller\Admin\AdminCategoryController::index" type="service_closure" id=".service_locator.RdVbGrJ"/>
@@ -7236,6 +7237,7 @@
         <argument key="App\Controller\Admin\AdminCalendarController:index" type="service_closure" id=".service_locator.eHXQlqW"/>
         <argument key="App\Controller\Admin\AdminCalendarController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\AdminCalendarController:show" type="service_closure" id=".service_locator.8_BVbXm"/>
+        <argument key="App\Controller\Admin\AdminCategoryController:catImage" type="service_closure" id=".service_locator.RdVbGrJ"/>
         <argument key="App\Controller\Admin\AdminCategoryController:delete" type="service_closure" id=".service_locator.4Uu00Y_"/>
         <argument key="App\Controller\Admin\AdminCategoryController:edit" type="service_closure" id=".service_locator.v_0t6lx"/>
         <argument key="App\Controller\Admin\AdminCategoryController:index" type="service_closure" id=".service_locator.RdVbGrJ"/>
@@ -7984,12 +7986,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.rKQqKe9"/>
+      <argument type="service" id=".service_locator.MEX3PYM"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.rKQqKe9"/>
+      <argument type="service" id=".service_locator.MEX3PYM"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -9004,7 +9006,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.rKQqKe9"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.MEX3PYM"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -9045,7 +9047,7 @@
     <service id=".service_locator.IJyWPwb" alias=".service_locator.kXtg5m1"/>
     <service id=".service_locator.j.3hYyQ" alias=".service_locator.TJOfZmJ"/>
     <service id=".service_locator.QS5ik0Z" alias=".service_locator.I__DjQ_"/>
-    <service id=".service_locator.0pUISTV" alias=".service_locator.rKQqKe9"/>
+    <service id=".service_locator.xmfJGBR" alias=".service_locator.MEX3PYM"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.l6ELYLY"/>
     <service id=".service_locator.hFBH42w" alias=".service_locator.3gHMLcX"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>

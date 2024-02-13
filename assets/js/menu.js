@@ -1,4 +1,4 @@
-/*le bouton icon va permuter nav et navresponsive au click */
+console.log("cc menu.js");/*le bouton icon va permuter nav et navresponsive au click */
 function myFunction() {
  var x = document.getElementById("navbar");
  if (x.className === "nav") {

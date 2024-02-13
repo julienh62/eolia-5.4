@@ -27,7 +27,6 @@ class __TwigTemplate_20d613f9199e2191f871309e34ff5fe2 extends Template
         $this->parent = false;
 
         $this->blocks = [
-            'javascripts' => [$this, 'block_javascripts'],
         ];
     }
 
@@ -153,40 +152,44 @@ class __TwigTemplate_20d613f9199e2191f871309e34ff5fe2 extends Template
 
 </header>
 
-";
-        // line 62
-        $this->displayBlock('javascripts', $context, $blocks);
+<script>
+   console.log(\"cc-menu.js\");
+/*le bouton icon va permuter nav et navresponsive au click */
+function myFunction() {
+ var x = document.getElementById(\"navbar\");
+ if (x.className === \"nav\") {
+     x.className += \" responsive\";
+
+ } else {
+     x.className = \"nav\";
+ }
+}
+ // Récupérer l'élément du lien du panier
+let panierLink = document.getElementById(\"panier-link\");
+
+// Récupérer le montant du panier
+let montantPanier = parseFloat(panierLink.innerText.match(/([0-9.]+)/)[0]);
+
+// Vérifier si le montant est différent de 0.00 €
+if (montantPanier !== 0.0) {
+  // Créer un nouvel élément de texte
+  var texteFinaliserCommande = document.createTextNode(
+    \"Finalisez votre commande\"
+  );
+
+  // Ajouter le texte à l'élément du lien du panier
+  panierLink.appendChild(texteFinaliserCommande);
+
+  // Appliquer le style rouge au texte ajouté
+  panierLink.style.color = \"red\";
+
+}
+</script>";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-    }
-
-    public function block_javascripts($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        // line 63
-        echo "  ";
-        echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
-        echo "
-  ";
-        // line 65
-        echo "                                              
-
-";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
     }
 
@@ -211,7 +214,7 @@ class __TwigTemplate_20d613f9199e2191f871309e34ff5fe2 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  182 => 65,  177 => 63,  158 => 62,  141 => 47,  135 => 44,  130 => 42,  127 => 41,  120 => 37,  115 => 36,  110 => 33,  105 => 31,  101 => 29,  99 => 28,  89 => 21,  83 => 18,  77 => 14,  66 => 12,  62 => 11,  58 => 10,  49 => 4,  44 => 1,);
+        return array (  140 => 47,  134 => 44,  129 => 42,  126 => 41,  119 => 37,  114 => 36,  109 => 33,  104 => 31,  100 => 29,  98 => 28,  88 => 21,  82 => 18,  76 => 14,  65 => 12,  61 => 11,  57 => 10,  48 => 4,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -277,11 +280,38 @@ class __TwigTemplate_20d613f9199e2191f871309e34ff5fe2 extends Template
 
 </header>
 
-{% block javascripts %}
-  {{ encore_entry_link_tags('app') }}
-  {# <script src=\"{{ asset('assets/js/cartamount.js') }}\"></script> #}
-                                              
+<script>
+   console.log(\"cc-menu.js\");
+/*le bouton icon va permuter nav et navresponsive au click */
+function myFunction() {
+ var x = document.getElementById(\"navbar\");
+ if (x.className === \"nav\") {
+     x.className += \" responsive\";
 
-{% endblock %}", "_partials/_nav.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\_partials\\_nav.html.twig");
+ } else {
+     x.className = \"nav\";
+ }
+}
+ // Récupérer l'élément du lien du panier
+let panierLink = document.getElementById(\"panier-link\");
+
+// Récupérer le montant du panier
+let montantPanier = parseFloat(panierLink.innerText.match(/([0-9.]+)/)[0]);
+
+// Vérifier si le montant est différent de 0.00 €
+if (montantPanier !== 0.0) {
+  // Créer un nouvel élément de texte
+  var texteFinaliserCommande = document.createTextNode(
+    \"Finalisez votre commande\"
+  );
+
+  // Ajouter le texte à l'élément du lien du panier
+  panierLink.appendChild(texteFinaliserCommande);
+
+  // Appliquer le style rouge au texte ajouté
+  panierLink.style.color = \"red\";
+
+}
+</script>", "_partials/_nav.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\_partials\\_nav.html.twig");
     }
 }

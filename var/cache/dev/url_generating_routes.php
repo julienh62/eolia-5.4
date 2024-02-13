@@ -21,6 +21,7 @@ return [
     'app_admin_calendar_edit' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminCalendarController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/calendar']], [], [], []],
     'app_admin_calendar_delete' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminCalendarController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/calendardelete']], [], [], []],
     'app_admin_category_index' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminCategoryController::index'], [], [['text', '/admin/category/']], [], [], []],
+    'app_admin_category_image' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminCategoryController::catImage'], [], [['text', '/admin/category/images']], [], [], []],
     'app_admin_category_new' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminCategoryController::new'], [], [['text', '/admin/category/new']], [], [], []],
     'app_admin_category_show' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminCategoryController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/category']], [], [], []],
     'app_admin_category_edit' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminCategoryController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/category']], [], [], []],

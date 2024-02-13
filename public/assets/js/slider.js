@@ -1,39 +1,49 @@
 'use strict';    
-    
-           console.log("cc slider.js");
-           /* création du tableau */
-          const slide = ["char-accueiltitregros1500.webp", "chardepart-1500.webp", "cata.webp", "paddle.webp" ];
-          let numero = 0;
- 
-          function ChangeSlide(sens) {
-            /* document , page en cour */
-            /* sens est un parametre */
-            numero = numero + sens;
-            /*les conditions permettent de boucler */
-            if (numero > slide.length - 1)
-                numero = 0;
-            if (numero < 0)
-                numero = slide.length - 1;
-            document.getElementById("slide").src = "assets/uploads/slide/" + slide[numero];
-          }
+console.log("cc sliders.js");
 
-          setInterval("ChangeSlide(1)", 4000);
+let slide = [];
+let slidemobil = [];
+// Fonction pour récupérer les données des catégories avec les images via une requête AJAX
+function fetchCategoryImages() {
+    fetch('/admin/category/images')
+        .then(response => response.json())
+        .then(data => {
+            // Une fois les données récupérées, extrayez les URLs des images des catégories et mettez-les dans les tableaux slide et slidemobil
+            data.forEach(category => {
+                console.log("slide: ",slide);
+                // Assurez-vous que category.image contient l'URL de l'image
+                // Ajoutez l'URL de l'image aux tableaux slide et slidemobil
+                slide.push(category.image);
+                slidemobil.push(category.image);
+                console.log("URL de l'image ajoutée aux tableaux slide et slidemobil :", category.image);
+                console.log("Tableaux slide et slidemobil mis à jour :", slide, slidemobil);
+            });
+        })
+        .catch(error => console.error('Erreur lors de la récupération des données des catégories :', error));
+}
 
-    /* création du tableau */
-    const slidemobil = ["accueil-mobil-char.webp","accueil-cata2-mobil.webp", "accueil-kayak-mobil.webp", "accueil-mobil-paddle.webp" ];
-    let numeromob = 0;
+// Appelez la fonction fetchCategoryImages pour récupérer les données des catégories avec les images
+fetchCategoryImages();
 
-    function ChangeSlideMob(sens) {
-      /* document , page en cour */
-      /* sens est un parametre */
-      numeromob = numeromob + sens;
-      /*les conditions permettent de boucler */
-      if (numeromob > slidemobil.length - 1)
-          numeromob = 0;
-      if (numeromob < 0)
-          numeromob = slidemobil.length - 1;
-      document.getElementById("slidemobil").src = "assets/uploads/slide/" + slidemobil[numeromob];
-    }
 
-    setInterval("ChangeSlideMob(1)", 4000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

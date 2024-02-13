@@ -181,6 +181,38 @@ class __TwigTemplate_19a20dab5ee67dc8395285adc8ec260c extends Template
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_presentation");
         echo "\">Réserver et Consulter le planing</a>
   </button>
+<script>
+   console.log(\"cc-menu.js\");
+/*le bouton icon va permuter nav et navresponsive au click */
+function myFunction() {
+ var x = document.getElementById(\"navbar\");
+ if (x.className === \"nav\") {
+     x.className += \" responsive\";
+
+ } else {
+     x.className = \"nav\";
+ }
+}
+// Récupérer l'élément du lien du panier
+let panierLink = document.getElementById(\"panier-link\");
+
+// Récupérer le montant du panier
+let montantPanier = parseFloat(panierLink.innerText.match(/([0-9.]+)/)[0]);
+
+// Vérifier si le montant est différent de 0.00 €
+if (montantPanier !== 0.0) {
+  // Créer un nouvel élément de texte
+  var texteFinaliserCommande = document.createTextNode(
+    \"Finalisez votre commande\"
+  );
+
+  // Ajouter le texte à l'élément du lien du panier
+  panierLink.appendChild(texteFinaliserCommande);
+
+  // Appliquer le style rouge au texte ajouté
+  panierLink.style.color = \"red\";
+}
+</script>
 ";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -294,9 +326,38 @@ class __TwigTemplate_19a20dab5ee67dc8395285adc8ec260c extends Template
  <button class=\"consultplaning\" type=\"button\">
    <a class=\"aderoulant\" href=\"{{ path('app_presentation') }}\">Réserver et Consulter le planing</a>
   </button>
-{# {% block javascripts %}
-   <script src=\"{{ asset('assets/js/cartamount.js') }}\"></script>
-{% endblock %} #}
+<script>
+   console.log(\"cc-menu.js\");
+/*le bouton icon va permuter nav et navresponsive au click */
+function myFunction() {
+ var x = document.getElementById(\"navbar\");
+ if (x.className === \"nav\") {
+     x.className += \" responsive\";
+
+ } else {
+     x.className = \"nav\";
+ }
+}
+// Récupérer l'élément du lien du panier
+let panierLink = document.getElementById(\"panier-link\");
+
+// Récupérer le montant du panier
+let montantPanier = parseFloat(panierLink.innerText.match(/([0-9.]+)/)[0]);
+
+// Vérifier si le montant est différent de 0.00 €
+if (montantPanier !== 0.0) {
+  // Créer un nouvel élément de texte
+  var texteFinaliserCommande = document.createTextNode(
+    \"Finalisez votre commande\"
+  );
+
+  // Ajouter le texte à l'élément du lien du panier
+  panierLink.appendChild(texteFinaliserCommande);
+
+  // Appliquer le style rouge au texte ajouté
+  panierLink.style.color = \"red\";
+}
+</script>
 ", "_partials/_navaccueil.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\_partials\\_navaccueil.html.twig");
     }
 }
