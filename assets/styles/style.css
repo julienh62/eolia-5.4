@@ -220,6 +220,12 @@ body {
 .consultplaning {
   display: none;
 }
+.imgslider {
+  max-width: 100%; /* Largeur maximale de l'image */
+  max-height: 100%; /* Hauteur maximale de l'image */
+  object-fit: cover; /* Redimensionne l'image tout en conservant ses proportions */
+}
+
 #slidermobil {
   position: relative;
   top: 0;

@@ -30,7 +30,7 @@ class AdminCategoryController extends AbstractController
     {
         // Récupérer toutes les catégories avec leurs images
         $categoriesImages = $categoryRepository->findAllWithImages();
-
+          
         // Retourner les données des catégories au format JSON
     return new JsonResponse($categoriesImages);
     }

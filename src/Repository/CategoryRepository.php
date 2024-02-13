@@ -32,6 +32,7 @@ class CategoryRepository extends ServiceEntityRepository
 
         $result = $queryBuilder
             ->select('c.image,c.titleCategory') // Sélectionner les propriétés image
+            ->where('c.activity = true') //verifier si c est une activité
             ->getQuery()
             ->getResult();
         return $result;

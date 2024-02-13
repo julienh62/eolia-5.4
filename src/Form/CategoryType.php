@@ -12,6 +12,8 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Validator\Constraints\Image;
+
 
 class CategoryType extends AbstractType
 {
@@ -21,25 +23,24 @@ class CategoryType extends AbstractType
             ->add('titleCategory')
             ->add('image', FileType::class, [
                 'label' => 'Image',
-
-                // unmapped means that this field is not associated to any entity property
                 'mapped' => false,
-
-                // make it optional so you don't have to re-upload the PDF file
-                // every time you edit the Product details
                 'required' => false,
-
-                // unmapped fields can't define their validation using annotations
-                // in the associated entity, so you can use the PHP constraint classes
                 'constraints' => [
-                    new File([
-                        'maxSize' => '1024k',
+                    new NotBlank([
+                        'message' => 'Please upload an image file',
+                    ]),
+                    new Image([
+                        'maxSize' => '5M',
+                        'maxWidth' => 1500,
+                        'maxHeight' => 800,
                         'mimeTypes' => [
-                            'image/*',
-                           
+                            'image/jpeg',
+                            'image/png',
                         ],
-                        'mimeTypesMessage' => 'Please upload a valid  document',
-                    ])
+                        'mimeTypesMessage' => 'Please upload a valid image (JPEG or PNG) file',
+                        'notFoundMessage' => 'The image file could not be found',
+                        'notReadableMessage' => 'The image file could not be read',
+                    ]),
                 ],
             ])
             ->add('Activity', 

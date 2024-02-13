@@ -87,7 +87,19 @@ class __TwigTemplate_48e367444105b21e2db23a076a42494f extends Template
 
 </header>
  
+<script>
+   console.log(\"cc-menu.js\");
+/*le bouton icon va permuter nav et navresponsive au click */
+function myFunction() {
+ var x = document.getElementById(\"navbar\");
+ if (x.className === \"nav\") {
+     x.className += \" responsive\";
 
+ } else {
+     x.className = \"nav\";
+ }
+}
+</script>
 
 ";
         
@@ -150,7 +162,19 @@ class __TwigTemplate_48e367444105b21e2db23a076a42494f extends Template
 
 </header>
  
+<script>
+   console.log(\"cc-menu.js\");
+/*le bouton icon va permuter nav et navresponsive au click */
+function myFunction() {
+ var x = document.getElementById(\"navbar\");
+ if (x.className === \"nav\") {
+     x.className += \" responsive\";
 
+ } else {
+     x.className = \"nav\";
+ }
+}
+</script>
 
 ", "_partials/_nav_admin.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\_partials\\_nav_admin.html.twig");
     }
