@@ -951,8 +951,10 @@ a.fab {
     }     /*/
 
   .imgsite {
-    width: 300px;
-    height: 168px;
+    width: 450px;
+    height: 150px;
+    border:#141414 2px solid;
+    box-shadow: 1px 1px 1px black;
   }
 
   .titre-accueil {
