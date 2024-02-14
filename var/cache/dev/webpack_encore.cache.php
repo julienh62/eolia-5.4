@@ -13,8 +13,8 @@ return [[
         'app' => [
             'js' => [
                 '/build/runtime.js',
-                '/build/vendors-node_modules_core-js_internals_a-constructor_js-node_modules_core-js_internals_array--0b3311.js',
-                '/build/vendors-node_modules_hotwired_turbo-rails_app_javascript_turbo_index_js-node_modules_symfony_-a447b1.js',
+                '/build/vendors-node_modules_core-js_internals_a-constructor_js-node_modules_core-js_internals_array--ebd428.js',
+                '/build/vendors-node_modules_hotwired_turbo-rails_app_javascript_turbo_index_js-node_modules_symfony_-5bc1c2.js',
                 '/build/app.js',
             ],
             'css' => [
@@ -24,7 +24,7 @@ return [[
         'user' => [
             'js' => [
                 '/build/runtime.js',
-                '/build/vendors-node_modules_core-js_internals_a-constructor_js-node_modules_core-js_internals_array--0b3311.js',
+                '/build/vendors-node_modules_core-js_internals_a-constructor_js-node_modules_core-js_internals_array--ebd428.js',
                 '/build/vendors-node_modules_core-js_modules_es_array_concat_js-node_modules_core-js_modules_es_array-e643a4.js',
                 '/build/user.js',
             ],

@@ -94,7 +94,7 @@ class __TwigTemplate_c6f9706715f90961206f2397f3f210d7 extends Template
 
     <a href=\"";
         // line 10
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_main_calendar");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_index");
         echo "\">Retour au calendrier</a>
 
     ";
@@ -145,7 +145,7 @@ class __TwigTemplate_c6f9706715f90961206f2397f3f210d7 extends Template
 
     {{ include('admin/staffplanning/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href=\"{{ path('admin_main_calendar') }}\">Retour au calendrier</a>
+    <a href=\"{{ path('app_admin_calendar_index') }}\">Retour au calendrier</a>
 
     {{ include('admin/staffplanning/_delete_form.html.twig') }}
 {% endblock %}

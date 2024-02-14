@@ -43,31 +43,33 @@ class AdminCategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-             /** @var UploadedFile $imageFile */
-             $imageFile = $form->get('image')->getData();
-
+            if($category->isActivity() === true) {
            
+                    /** @var UploadedFile $imageFile */
+                    $imageFile = $form->get('image')->getData();
 
-            if ($imageFile) {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+                
 
-                // Move the file to the directory where images are stored
-                try {
-                    $imageFile->move(
-                        $this->getParameter('images_directory'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                    // Handle exception if something happens during file upload
-                }
+                    if ($imageFile) {
+                        $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                        $safeFilename = $slugger->slug($originalFilename);
+                        $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
 
-                // Updates the 'imageFilename' property to store the file name
-                // instead of its contents
-                $category->setImage($newFilename);
+                        // Move the file to the directory where images are stored
+                        try {
+                            $imageFile->move(
+                                $this->getParameter('images_directory'),
+                                $newFilename
+                            );
+                        } catch (FileException $e) {
+                            // Handle exception if something happens during file upload
+                        }
+
+                        // Updates the 'imageFilename' property to store the file name
+                        // instead of its contents
+                        $category->setImage($newFilename);
+                    }
             }
-
 
             $entityManager->persist($category);
             $entityManager->flush();
@@ -96,30 +98,33 @@ class AdminCategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-               /** @var UploadedFile $imageFile */
-               $imageFile = $form->get('image')->getData();
+                if($category->isActivity() === true) {
 
-  
-              if ($imageFile) {
-                  $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                  $safeFilename = $slugger->slug($originalFilename);
-                  $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
-  
-                  // Move the file to the directory where images are stored
-                  try {
-                      $imageFile->move(
-                          $this->getParameter('images_directory'),
-                          $newFilename
-                      );
-                  } catch (FileException $e) {
-                      // Handle exception if something happens during file upload
-                  }
-  
-                  // Updates the 'imageFilename' property to store the file name
-                  // instead of its contents
-                  $category->setImage($newFilename);
-              }
-  
+                /** @var UploadedFile $imageFile */
+                $imageFile = $form->get('image')->getData();
+
+    
+                    if ($imageFile) {
+                        $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                        $safeFilename = $slugger->slug($originalFilename);
+                        $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+        
+                        // Move the file to the directory where images are stored
+                        try {
+                            $imageFile->move(
+                                $this->getParameter('images_directory'),
+                                $newFilename
+                            );
+                        } catch (FileException $e) {
+                            // Handle exception if something happens during file upload
+                        }
+        
+                        // Updates the 'imageFilename' property to store the file name
+                        // instead of its contents
+                        $category->setImage($newFilename);
+                    }
+        }
+
             $entityManager->flush();
 
             return $this->redirectToRoute('app_admin_category_index', [], Response::HTTP_SEE_OTHER);

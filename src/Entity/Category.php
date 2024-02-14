@@ -18,7 +18,7 @@ class Category
     #[ORM\Column(length: 255)]
     private ?string $titleCategory = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(nullable: true, length: 255)]
     private ?string $image = null;
 
     #[ORM\Column]
