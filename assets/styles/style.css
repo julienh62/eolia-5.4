@@ -224,6 +224,8 @@ body {
   max-width: 100%; /* Largeur maximale de l'image */
   max-height: 100%; /* Hauteur maximale de l'image */
   object-fit: cover; /* Redimensionne l'image tout en conservant ses proportions */
+  border: #141414 2px solid;
+  box-shadow: 1px 1px 1px black;
 }
 
 #slidermobil {
@@ -275,8 +277,9 @@ body {
 
 .titreh2 {
   text-align: center;
+  display: flex;
   margin: 0rem 3rem 0rem 3rem;
-  line-height: 3rem;
+  line-height: 4rem;
 }
 
 .htitrecat {
@@ -959,6 +962,7 @@ a.fab {
   .imgsite {
     width: 450px;
     height: 150px;
+  margin:2rem;
     border:#141414 2px solid;
     box-shadow: 1px 1px 1px black;
   }

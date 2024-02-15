@@ -31,7 +31,7 @@
              {% for key, title in titles %}
                 <div class="presentationimgettitle"> 
                     <img class="imgsite" src="{{ asset('uploads/images/' ~ images[key]) }}" alt="{{ title }} Image">
-                    <h2><a href="{{ path('app_agenda_by_category', {'categoryTitle': title}) }}">{{ title }}</a></h2>
+                    <h2 class="titreh2"><a href="{{ path('app_agenda_by_category', {'categoryTitle': title}) }}">{{ title }}</a></h2>
                </div>        
             {% endfor %}
            

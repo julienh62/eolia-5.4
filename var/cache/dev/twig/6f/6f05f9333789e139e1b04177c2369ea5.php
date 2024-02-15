@@ -130,7 +130,7 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
             echo "\" alt=\"";
             echo twig_escape_filter($this->env, $context["title"], "html", null, true);
             echo " Image\">
-                    <h2><a href=\"";
+                    <h2 class=\"titreh2\"><a href=\"";
             // line 34
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_by_category", ["categoryTitle" => $context["title"]]), "html", null, true);
             echo "\">";
@@ -297,7 +297,7 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
              {% for key, title in titles %}
                 <div class=\"presentationimgettitle\"> 
                     <img class=\"imgsite\" src=\"{{ asset('uploads/images/' ~ images[key]) }}\" alt=\"{{ title }} Image\">
-                    <h2><a href=\"{{ path('app_agenda_by_category', {'categoryTitle': title}) }}\">{{ title }}</a></h2>
+                    <h2 class=\"titreh2\"><a href=\"{{ path('app_agenda_by_category', {'categoryTitle': title}) }}\">{{ title }}</a></h2>
                </div>        
             {% endfor %}
            
