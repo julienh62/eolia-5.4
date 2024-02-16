@@ -545,6 +545,10 @@ input[type="checkbox"] {
   font-size: 4rem;
   margin: 2rem;
 }
+#calendarList .calendar-item p {
+  font-size: 4rem; /* Augmente la taille de la police des résultats */
+  margin: 2rem 0; /* Augmente la marge autour des résultats */
+}
 .all {
 }
 /*******************************

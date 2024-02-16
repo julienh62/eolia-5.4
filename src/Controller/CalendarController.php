@@ -13,6 +13,7 @@ use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
@@ -43,8 +44,8 @@ class CalendarController extends AbstractController
         ]);
     }
 
-    #[Route('/filter', name: 'filter', methods: ['GET'], priority: 2)]
-  public function filterPrice( CalendarRepository $calendarRepository,CategoryRepository $categoryRepository, Formatdate $formatdateService, Request $request ): Response
+  /*  #[Route('/filter', name: 'filter', methods: ['GET'], priority: 2)]
+  public function ServerfilterPrice( CalendarRepository $calendarRepository,CategoryRepository $categoryRepository, Formatdate $formatdateService, Request $request ): Response
   {
       $categories = $categoryRepository->findAll();
 
@@ -75,10 +76,44 @@ foreach ($calendars as &$calendarData) {
  
 }
            // dd($calendars);
-      return $this->render('calendarFilter/index.html.twig', [
+      return $this->render('calendarFilterserver/index.html.twig', [
           'calendars' => $calendars,
           'categories' => $categories,
          // 'category' => $category
       ]);
+  }   */
+
+  #[Route('/filter', name: 'filter', methods: ['GET', 'POST'], priority: 2)]
+  public function filterPrice(CalendarRepository $calendarRepository, CategoryRepository $categoryRepository, Formatdate $formatdateService, Request $request): JsonResponse
+  {
+      $categories = $categoryRepository->findAll();
+  
+      // Récupérer les données du formulaire ou de la requête Ajax
+      $filter = $request->get("filter");
+      $min = $request->get("min");
+      $begin = $request->get("begin");
+      $end = $request->get("end");
+      $category = $request->get("category");
+  
+      // Filtrer les séances du calendrier
+      $calendars = $calendarRepository->filter($filter, $min, $begin, $end, $category);
+  
+      // Formater les dates avec le service Formatdate
+      foreach ($calendars as &$calendarData) {
+          $formattedStartDate = $formatdateService->formatCustomDate($calendarData['start']);
+          $formattedEndDate = $formatdateService->formatCustomDate($calendarData['end']);
+  
+          // Ajouter les dates formatées au tableau de données
+          $calendarData['formattedStartDate'] = $formattedStartDate;
+          $calendarData['formattedEndDate'] = $formattedEndDate;
+      }
+  
+      // Renvoyer les résultats de la recherche au format JSON
+      return new JsonResponse([
+          'calendars' => $calendars,
+          'categories' => $categories
+      ]);
   }
+
+
 }

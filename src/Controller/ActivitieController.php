@@ -53,37 +53,16 @@ class ActivitieController extends AbstractController
         $stock = $activityRepository->getStockById($id);
 
 
-     /*   $categoryData = $activityRepository->getCategoryPictureAndPrice($id);
-        $picture = $categoryData['picture'] ?? null;
-        $price = $categoryData['price'] ?? null;
-
-
-        $stock = $activityRepository->getStock($id);*/
     
         $quantity = $purchaseItemRepository->getPurchaseCalendar($id);
         $resultquery = $purchaseItemRepository->getPurchaseQuantitySum($id);
         //dd($quantity);
-        // je recupere les valeurs de la commandes
-      /*  $activitieQuantityClient = $activity->getPurchaseItems()->getValues();
-    
-             //si la quantité comandée est nulle 
-       //je donne 0 à la valeur quantity 
-        if ($activitieQuantityClient === []) {
-              $activitieQuantityClient = [
-              "quantity" =>"0"
-               ];
-           }
-      //  $sommequantitecommande = $resultquery[0]["SUM(`quantity`)"];
-        //dd($sommequantitecommande);/*/
+        
        
 
         return $this->render('activity/show.html.twig', [
             'activity' => $activity,
-           //  'stock' => $stock,
-        //   'picture' => $picture,
-        //   'price' => $price
-          // 'sommequantitecommande' => $sommequantitecommande
-           // 'user' => $user
+         
         ]);
     }
 
