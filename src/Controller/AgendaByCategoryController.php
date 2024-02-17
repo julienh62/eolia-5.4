@@ -25,6 +25,15 @@ class AgendaByCategoryController extends AbstractController
         $image = $this->calendarRepository->getCategoryImage($categoryTitle);
         $data = $this->eventService->getEventData($categoryTitle);
 
+
+         // Check if $image is null
+    if ($image === null) {
+        // Handle the situation when image data is not found
+        // For example, you can set a default image or display an error message
+        // You should adjust this based on your application logic
+        $image = ['image' => 'default-image.png']; // Replace 'default-image.jpg' with your default image path
+    }
+
         return $this->render('agenda/agenda.html.twig', [
             'data' => $data,
             'categoryTitle' => $categoryTitle,

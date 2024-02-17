@@ -20,15 +20,8 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titleCategory');
-
-        // Écouteur d'événements pour ajouter dynamiquement le champ d'image si l'activité est vraie
-        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
-            $form = $event->getForm();
-            $category = $event->getData();
-
-            if ($category instanceof Category && $category->isActivity() === true) {
-                $form->add('image', FileType::class, [
+            ->add('titleCategory')
+            ->add('image', FileType::class, [
                     'label' => 'Image',
                     'mapped' => false,
                     'required' => false,
@@ -51,8 +44,7 @@ class CategoryType extends AbstractType
                         ]),
                     ],
                 ]);
-            }
-        });
+       
 
         // Ajout du champ d'activité
         $builder->add('activity', CheckboxType::class, [

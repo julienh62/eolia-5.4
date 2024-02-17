@@ -43,12 +43,11 @@ class AdminCategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if($category->isActivity() === true) {
+            
            
                     /** @var UploadedFile $imageFile */
                     $imageFile = $form->get('image')->getData();
 
-                
 
                     if ($imageFile) {
                         $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -69,7 +68,7 @@ class AdminCategoryController extends AbstractController
                         // instead of its contents
                         $category->setImage($newFilename);
                     }
-            }
+            
 
             $entityManager->persist($category);
             $entityManager->flush();
@@ -98,8 +97,7 @@ class AdminCategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-                if($category->isActivity() === true) {
-
+             
                 /** @var UploadedFile $imageFile */
                 $imageFile = $form->get('image')->getData();
 
@@ -123,7 +121,7 @@ class AdminCategoryController extends AbstractController
                         // instead of its contents
                         $category->setImage($newFilename);
                     }
-        }
+        
 
             $entityManager->flush();
 
