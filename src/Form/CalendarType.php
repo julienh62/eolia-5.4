@@ -27,20 +27,17 @@ class CalendarType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $clickedDate = $options['clickedDate']; // Récupération de la valeur passée
     
-   // dd($clickedDate);
           $builder
               ->add('title')
               ->add('start', DateTimeType::class, [
                 'date_widget' => 'single_text',
-                'label' => 'Start',
-                'data' => $clickedDate ? new \DateTime($clickedDate):null,
+                'label' => 'Starts',
+           
             ])
               ->add('end', DateTimeType::class, [
                  'date_widget' => 'single_text',
                   'label' => 'End',
-                  'data' => $clickedDate ? new \DateTime($clickedDate):null, // Utiliser la valeur de 'clickedDate' pour pré-remplir le champ de date
               ])  
              
               ->add('staffs', EntityType::class, [

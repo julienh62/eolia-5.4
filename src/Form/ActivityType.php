@@ -24,12 +24,12 @@ class ActivityType extends CalendarType
        ->add('start', DateTimeType::class, [
             'date_widget' => 'single_text',
             'label' => 'Start',
-            'data' => $clickedDate ? new \DateTime(urldecode($clickedDate)) : null, // Utiliser la valeur de 'clickedDate' pour pré-remplir le champ de date
+            'data' => $clickedDate ? new \DateTime(($clickedDate)) : null, // Utiliser la valeur de 'clickedDate' pour pré-remplir le champ de date
         ])
         ->add('end', DateTimeType::class, [
             'date_widget' => 'single_text',
             'label' => 'End',
-            'data' => $clickedDate ? new \DateTime(urldecode($clickedDate)) : null, // Utiliser la valeur de 'clickedDate' pour pré-remplir le champ de date
+            'data' => $clickedDate ? new \DateTime(($clickedDate)) : null, // Utiliser la valeur de 'clickedDate' pour pré-remplir le champ de date
         ])  
        
      
