@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Calendar;
 use App\Entity\Activity;
 use App\Form\CalendarType;
+use App\Form\ActivityEditType;
 use App\Service\Formatdate;
 use App\Entity\StaffSchedule;
 use App\Repository\CalendarRepository;
@@ -21,13 +22,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminCalendarController extends AbstractController
 {
 
-    #[Route('/calendar', name: 'app_admin_calendar_index', methods: ['GET'])]
+ /*   #[Route('/calendar', name: 'app_admin_calendar_index', methods: ['GET'])]
     public function index(CalendarRepository $calendarRepository, ActivityRepository $activityRepository,
       Formatdate $formatdateService , StaffScheduleRepository $staffScheduleRepository): Response
     {
         $calendars = $calendarRepository->findAll();
      //   $activities = $activityRepository->findAll();
      //   $staffSchedules = $staffScheduleRepository->findAll();
+
+     
+
+      // Obtenez le nom de la classe de l'entité Calendar
+        $typeCalendar = (new \ReflectionClass($calendar))->getShortName();
 
         setlocale(LC_TIME, 'fr_FR');
 
@@ -41,9 +47,10 @@ class AdminCalendarController extends AbstractController
         return $this->render('admin/admin_calendar/index.html.twig', [
           //  'staffSchedules' => $staffSchedules,
             //'activities' => $activities,
-                'calendars' => $calendars
+                'calendars' => $calendars,
+                'typeCalendar' => $typeCalendar
         ]);
-    }
+    }  */
 
     #[Route('admin/createCalendarChoose', name: 'app_admin_formChooseCalendar')]
     public function chooseLocationForm(Request $request): Response
@@ -99,7 +106,7 @@ class AdminCalendarController extends AbstractController
         }
 
 
-    #[Route('/calendar/{id}', name: 'app_admin_calendar_show', methods: ['GET'])]
+    #[Route('admin/calendar/{id}', name: 'app_admin_calendar_show', methods: ['GET'])]
     public function show(Calendar $calendar): Response
     {
         return $this->render('admin/admin_calendar/show.html.twig', [
@@ -107,25 +114,78 @@ class AdminCalendarController extends AbstractController
         ]);
     }
 
-    #[Route('/calendar/{id}/edit', name: 'app_admin_calendar_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Calendar $calendar, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(CalendarType::class, $calendar);
-        $form->handleRequest($request);
 
+    #[Route('admin/edit/{id}/{typeCalendar}', name: 'admin_calendar_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, EntityManagerInterface $entityManager, string $typeCalendar, int $id): Response
+    {
+        $calendar = $entityManager->getRepository("App\\Entity\\" . $typeCalendar)->find($id);
+          
+        if (!$calendar) {
+            throw $this->createNotFoundException('Calendar not found');
+        }
+    
+        $form = $this->createForm(
+            "App\\Form\\" . $typeCalendar . "Type",
+            $calendar
+        );
+    
+        $form->handleRequest($request);
+    
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
-
-            return $this->redirectToRoute('app_admin_calendar_index', [], Response::HTTP_SEE_OTHER);
+    
+            return $this->redirectToRoute('app_admin_agenda');
         }
-
+    
         return $this->render('admin/admin_calendar/edit.html.twig', [
             'calendar' => $calendar,
-            'form' =>  $form->createView(),
+            'form' => $form->createView(),
         ]);
     }
 
-    #[Route('calendardelete/{id}', name: 'app_admin_calendar_delete', methods: ['POST'])]
+
+    #[Route('admin/{id}/edit', name: 'admin_activity_edit', methods: ['GET', 'POST'], priority: 2)]
+    public function activityEdit(Request $request, Calendar $calendar, CalendarRepository $calendarRepository): Response
+    {
+        $form = $this->createForm(ActivityEditType::class, $calendar);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+          /*  $modifiedPrice = null;
+            $modifiedPriced = trim($form->get('modifiedPrice')->getData());
+
+               if ($this->checkNumeric->isNumeric($modifiedPriced)) {
+                    $modifiedPrice = floatval($modifiedPriced) / 100; // Divise par 100
+               } 
+                           if ($modifiedPrice !== null) {
+                            $calendar->setPrice($modifiedPrice);
+                            $calendar->setPriceModified($modifiedPrice);
+                        } else {
+                            $categoryPriced = $calendar->getCategory()->getColorSettings()->getPrice();
+
+                            if ($this->checkNumeric->isNumeric($categoryPriced)) {
+                                   $categoryPrice = floatval($categoryPriced) / 100; // Divise par 100
+                            } else 
+
+                     //   dd($categoryPrice);
+                         $calendar->setPrice($categoryPrice);
+                        }       */
+            $calendarRepository->save($calendar, true);
+
+            return $this->redirectToRoute('app_admin_agenda', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('admin/calendar/edit.html.twig', [
+            'calendar' => $calendar,
+            'form' => $form,
+        ]);
+    }
+
+
+
+    
+    #[Route('admin/calendardelete/{id}', name: 'admin_calendar_delete', methods: ['POST'])]
     public function delete(Request $request, Calendar $calendar, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$calendar->getId(), $request->request->get('_token'))) {

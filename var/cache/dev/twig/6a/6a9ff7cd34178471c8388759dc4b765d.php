@@ -95,7 +95,7 @@ class __TwigTemplate_cdc2628cfded1291e0a4acbb2c670f83 extends Template
 
     <a href=\"";
         // line 10
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_agenda");
         echo "\">Retour au calendrier</a>
 
     ";
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     {{ include('admin/calendar/_form.html.twig', {'button_label': 'Enregistrer'}) }}
 
-    <a href=\"{{ path('app_admin_calendar_index') }}\">Retour au calendrier</a>
+    <a href=\"{{ path('app_admin_agenda') }}\">Retour au calendrier</a>
 
     {{ include('admin/calendar/_delete_form.html.twig') }}
 {% endblock %}

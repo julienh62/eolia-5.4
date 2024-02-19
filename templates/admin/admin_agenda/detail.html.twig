@@ -91,7 +91,7 @@
         </tr>
         <tr>
             <th>Date de fin</th>
-            <td>{{ formattedEndDate ? formattedStartDate| trans : '' }}</td>
+            <td>{{ formattedEndDate ? formattedEndDate| trans : '' }}</td>
         </tr>
         <tr>
             <th>Prix</th>
@@ -121,7 +121,67 @@
               
     </div>
 
+
+
+
+
+
+
+           {% else %}
+
+
+
+  <table class="table">
+        <tbody>
+
+
+     
+
+
+    
+         {#   <th>Quantité-commandée</th>
+         
+           {{ dump(calendarQuantityClient.quantity) }} 
+           <td>{{ calendarQuantityClient.quantity }}</td> #}
+        
+
+        
+
+<hr>
+          
+        <tr>
+            <th>Titre</th>
+            <td>{{ calendar.title }}</td>
+        </tr>
+
+        <tr>
+            <th>Date de début</th>
+            <td>{{ formattedStartDate ? formattedStartDate| trans : ''  }}</td>
+        </tr>
+        <tr>
+            <th>Date de fin</th>
+            <td>{{ formattedEndDate ? formattedEndDate| trans : '' }}</td>
+        </tr>
+      
+
+
+   
+
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
 {% endif %}
+
+
 
 
 
@@ -130,9 +190,13 @@
     <div class="action"> 
         <a href="{{ path('app_admin_agenda') }}">Retour au calendrier</a>
 
-        <a href="{{ path('app_admin_calendar_edit', {'id': calendar.id}) }}">edit</a>
-              {#  {{ include('admin/calendar/_delete_form.html.twig') }}  #}
+        <a href="{{ path('admin_activity_edit', {'id': calendar.id}) }}">Modifier</a>      
+               {#  {{ include('admin/calendar/_delete_form.html.twig') }}  #}
     </div>
+
+
+
+
 
 {% endblock %}
 
@@ -144,9 +208,7 @@
     // Attachez un gestionnaire d'événements clic à chaque bouton
     confirmButtons.forEach(button => {
         button.addEventListener('click', function (e) {
-            const confirmationMessage = this.getAttribute('data-confirm');
-            if (!window.confirm(confirmationMessage)) {
-                e.preventDefault(); // Annule le clic si l'utilisateur n'a pas confirmé
+
             }
         });
     });

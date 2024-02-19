@@ -32,7 +32,7 @@
                 <td>{{ calendar.formattedEndDate ? calendar.formattedEndDate| trans : '' }}</td>
                 <td>
                     <a href="{{ path('app_admin_calendar_show', {'id': calendar.id}) }}">show</a>
-                    <a href="{{ path('app_admin_calendar_edit', {'id': calendar.id}) }}">modifier</a>
+                    <a href="{{ path('admin_calendar_edit', {'id': calendar.id}) }}">modifier</a>
                 </td>
             </tr>
         {% else %}

@@ -151,7 +151,7 @@ class __TwigTemplate_3454ad59a0e0f4a50553838898c6189f extends Template
             echo "\">show</a>
                     <a href=\"";
             // line 35
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["calendar"], "id", [], "any", false, false, false, 35)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_calendar_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["calendar"], "id", [], "any", false, false, false, 35)]), "html", null, true);
             echo "\">modifier</a>
                 </td>
             </tr>
@@ -248,7 +248,7 @@ class __TwigTemplate_3454ad59a0e0f4a50553838898c6189f extends Template
                 <td>{{ calendar.formattedEndDate ? calendar.formattedEndDate| trans : '' }}</td>
                 <td>
                     <a href=\"{{ path('app_admin_calendar_show', {'id': calendar.id}) }}\">show</a>
-                    <a href=\"{{ path('app_admin_calendar_edit', {'id': calendar.id}) }}\">modifier</a>
+                    <a href=\"{{ path('admin_calendar_edit', {'id': calendar.id}) }}\">modifier</a>
                 </td>
             </tr>
         {% else %}

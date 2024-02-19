@@ -35,29 +35,21 @@ class AdminAgendaDetailController extends AbstractController
         $categoryData = $calendarRepository->getCategoryImageById($id);
         $image = $categoryData['image'] ?? null;
 
-    //    $query = $calendarRepository->findOneByPriceModified($id);
-        //dd($query);
-                  //          if ($query !== null) {
-                // Si la requête a retourné un résultat valide
-            //    $modifiedPrice = $query->getPriceModified();
-             //   dd($modifiedPrice);
-                // Utilise $modifiedPrice pour la suite de ton code
-        //    } else {
-                // Gérer le cas où aucun prix modifié n'est trouvé
-          //      $modifiedPrice = null; // Par exemple, définir une valeur par défaut ou gérer l'absence de prix modifié
-         //   }
-      
 
-     //   if ($modifiedPrice !== null) {
-            // Si un prix modifié est défini, utilise-le
-        //    $price = $modifiedPrice * 100;
-      //  } else {
-            // Si aucun prix modifié n'est défini, récupère le prix par défaut
+        // Récupérer l'entité Calendar à partir de la base de données
+        $calendar = $calendarRepository->find($id);
+
+            // Vérifier si l'entité a été trouvée
+            if (!$calendar) {
+                throw $this->createNotFoundException('Calendar not found');
+            }
+
+            // Obtenez le nom de la classe de l'entité Calendar
+            $typeCalendar = (new \ReflectionClass($calendar))->getShortName();
+
+
             $categoryData = $calendarRepository->getCategoryImage($id);
-          //  $price = $categoryData['price'] ?? null;
-        
-
-    //    }
+    
 
         
        
@@ -66,7 +58,7 @@ class AdminAgendaDetailController extends AbstractController
 
 
         $activitie = $calendar->getCategory()->isActivity();
-        // dd($activitie);
+         //dd($activitie);
 
         $calendar = $calendarRepository->find($id);
        // dd($calendar);
@@ -82,53 +74,62 @@ class AdminAgendaDetailController extends AbstractController
         $formattedStartDate = $formatdateService->formatCustomDate($calendar->getStart());
         $formattedEndDate = $formatdateService->formatCustomDate($calendar->getEnd());
 
+         
+        if ($activitie) {
 
-        $fullName = 'john Doe';
-        // sinon je récupère la quantité
-        $resultquery = $purchaseItemRepository->getPurchaseQuantitySum($id);
-        // dd($resultquery);
+                $fullName = 'john Doe';
+                // sinon je récupère la quantité
+                $resultquery = $purchaseItemRepository->getPurchaseQuantitySum($id);
+                // dd($resultquery);
 
-        //   $sommequantitecommande = $resultquery[0]["SUM(`quantity`)"];
-        $sommequantitecommande = $resultquery['quantity'];
+                //   $sommequantitecommande = $resultquery[0]["SUM(`quantity`)"];
+                $sommequantitecommande = $resultquery['quantity'];
 
-        // dd($sommequantitecommande);
+                // dd($sommequantitecommande);
 
-        $resutpurchaseitems = $purchaseItemRepository->getPurchaseCalendar($id, $fullName);
-      //dd($resutpurchaseitems);
-        $userquery = [];
-        foreach ($resutpurchaseitems as $purchaseitem) {
-            $userquery[] = [
-                "purchase_id" => $purchaseitem->getPurchase()->getId(),
-                "full_name" => $purchaseitem->getPurchase()->getUser()->getFullName(),
-                "user_Id" =>  $purchaseitem->getPurchase()->getUser()->getId(),
-                "quantity" => $purchaseitem->getQuantity()
+                $resutpurchaseitems = $purchaseItemRepository->getPurchaseCalendar($id, $fullName);
+            //dd($resutpurchaseitems);
+                $userquery = [];
+                foreach ($resutpurchaseitems as $purchaseitem) {
+                    $userquery[] = [
+                        "purchase_id" => $purchaseitem->getPurchase()->getId(),
+                        "full_name" => $purchaseitem->getPurchase()->getUser()->getFullName(),
+                        "user_Id" =>  $purchaseitem->getPurchase()->getUser()->getId(),
+                        "quantity" => $purchaseitem->getQuantity()
 
-            ];
-        }
+                    ];
+                }
 
-        $clientTotals = [];
-        foreach ($userquery as $item) {
-            $clientName = $item['full_name'];
-            $quantity = isset($item['quantity']) ? (int)$item['quantity'] : 0;
-            $purchaseId = $item['purchase_id'];
-            $userId = $item['user_Id'];
+                $clientTotals = [];
+                foreach ($userquery as $item) {
+                    $clientName = $item['full_name'];
+                    $quantity = isset($item['quantity']) ? (int)$item['quantity'] : 0;
+                    $purchaseId = $item['purchase_id'];
+                    $userId = $item['user_Id'];
 
-            if (isset($clientTotals[$clientName])) {
-                $clientTotals[$clientName]['totalQuantity'] += $quantity;
-            } else {
-                $clientTotals[$clientName] = [
-                    'totalQuantity' => $quantity,
-                    'purchaseId' => $purchaseId,
-                    'userId' => $userId
-                ];
-            }
-         //   $stock = $calendarRepository->getStock($id);
-          //  $quantityMax = $quantity + $stock;
-          //  dd($quantityMax);
-        }
+                    if (isset($clientTotals[$clientName])) {
+                        $clientTotals[$clientName]['totalQuantity'] += $quantity;
+                    } else {
+                        $clientTotals[$clientName] = [
+                            'totalQuantity' => $quantity,
+                            'purchaseId' => $purchaseId,
+                            'userId' => $userId
+                        ];
+                    }
+                //   $stock = $calendarRepository->getStock($id);
+                //  $quantityMax = $quantity + $stock;
+                //  dd($quantityMax);
+                }
 
 
+         } else {
 
+             $sommequantitecommande = null;
+            $clientTotals = null;
+            $userId = null;
+
+
+         }
 
 
         //dd($activitie);
@@ -143,6 +144,7 @@ class AdminAgendaDetailController extends AbstractController
             'staffs' => $staffs,
             'userId' => $userId,
             'image' => $image,
+          
           //  'price' => $price
         ]);
 

@@ -106,7 +106,7 @@ class __TwigTemplate_2d7ef318177d015df42d129bdb522b5b extends Template
 
     <a href=\"";
         // line 13
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_agenda");
         echo "\">Retour à la liste</a>
 ";
         
@@ -155,7 +155,7 @@ class __TwigTemplate_2d7ef318177d015df42d129bdb522b5b extends Template
     <button class=\"btn\">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 
-    <a href=\"{{ path('app_admin_calendar_index') }}\">Retour à la liste</a>
+    <a href=\"{{ path('app_admin_agenda') }}\">Retour à la liste</a>
 {% endblock %}
 ", "admin/admin_calendar/new.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\admin\\admin_calendar\\new.html.twig");
     }
