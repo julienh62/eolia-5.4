@@ -605,6 +605,9 @@
     <service id="App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\StaffScheduleEditType" class="App\Form\StaffScheduleEditType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\StaffScheduleSettingsType" class="App\Form\StaffScheduleSettingsType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -1388,6 +1391,7 @@
         <argument>App\Form\RegistrationFormType</argument>
         <argument>App\Form\ResetPasswordFormType</argument>
         <argument>App\Form\ResetPasswordRequestFormType</argument>
+        <argument>App\Form\StaffScheduleEditType</argument>
         <argument>App\Form\StaffScheduleSettingsType</argument>
         <argument>App\Form\StaffScheduleType</argument>
         <argument>App\Form\StaffType</argument>
@@ -3503,7 +3507,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.CfQ_0g9"/>
+      <argument type="service" id=".service_locator.tpR3Cnf"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -6383,6 +6387,8 @@
     <service id=".abstract.instanceof.App\Form\ResetPasswordFormType" class="App\Form\ResetPasswordFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\StaffScheduleEditType" class="App\Form\StaffScheduleEditType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\StaffScheduleEditType" class="App\Form\StaffScheduleEditType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\StaffScheduleSettingsType" class="App\Form\StaffScheduleSettingsType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\StaffScheduleSettingsType" class="App\Form\StaffScheduleSettingsType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\StaffScheduleType" class="App\Form\StaffScheduleType" autowire="true" abstract="true"/>
@@ -7151,7 +7157,7 @@
         <argument key="staffScheduleSettingsRepository" type="service_closure" id="App\Repository\StaffScheduleSettingsRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.K2luij9" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.Us33JGE" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ActivitieController::index" type="service_closure" id=".service_locator._lcSaPy"/>
@@ -7170,6 +7176,7 @@
         <argument key="App\Controller\Admin\AdminCalendarController::edit" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\AdminCalendarController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\AdminCalendarController::show" type="service_closure" id=".service_locator.8_BVbXm"/>
+        <argument key="App\Controller\Admin\AdminCalendarController::staffEdit" type="service_closure" id=".service_locator.F_YhoRh"/>
         <argument key="App\Controller\Admin\AdminCategoryController::catImage" type="service_closure" id=".service_locator.RdVbGrJ"/>
         <argument key="App\Controller\Admin\AdminCategoryController::delete" type="service_closure" id=".service_locator.4Uu00Y_"/>
         <argument key="App\Controller\Admin\AdminCategoryController::edit" type="service_closure" id=".service_locator.v_0t6lx"/>
@@ -7241,6 +7248,7 @@
         <argument key="App\Controller\Admin\AdminCalendarController:edit" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\AdminCalendarController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\AdminCalendarController:show" type="service_closure" id=".service_locator.8_BVbXm"/>
+        <argument key="App\Controller\Admin\AdminCalendarController:staffEdit" type="service_closure" id=".service_locator.F_YhoRh"/>
         <argument key="App\Controller\Admin\AdminCategoryController:catImage" type="service_closure" id=".service_locator.RdVbGrJ"/>
         <argument key="App\Controller\Admin\AdminCategoryController:delete" type="service_closure" id=".service_locator.4Uu00Y_"/>
         <argument key="App\Controller\Admin\AdminCategoryController:edit" type="service_closure" id=".service_locator.v_0t6lx"/>
@@ -7355,7 +7363,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.CfQ_0g9" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.tpR3Cnf" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\ActivityEditType" type="service_closure" id="App\Form\ActivityEditType"/>
@@ -7367,6 +7375,7 @@
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
         <argument key="App\Form\ResetPasswordFormType" type="service_closure" id="App\Form\ResetPasswordFormType"/>
         <argument key="App\Form\ResetPasswordRequestFormType" type="service_closure" id="App\Form\ResetPasswordRequestFormType"/>
+        <argument key="App\Form\StaffScheduleEditType" type="service_closure" id="App\Form\StaffScheduleEditType"/>
         <argument key="App\Form\StaffScheduleSettingsType" type="service_closure" id="App\Form\StaffScheduleSettingsType"/>
         <argument key="App\Form\StaffScheduleType" type="service_closure" id="App\Form\StaffScheduleType"/>
         <argument key="App\Form\StaffType" type="service_closure" id="App\Form\StaffType"/>
@@ -7991,12 +8000,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.K2luij9"/>
+      <argument type="service" id=".service_locator.Us33JGE"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.K2luij9"/>
+      <argument type="service" id=".service_locator.Us33JGE"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -9012,7 +9021,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.K2luij9"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.Us33JGE"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -9052,9 +9061,9 @@
     <service id=".service_locator.IJyWPwb" alias=".service_locator.kXtg5m1"/>
     <service id=".service_locator.j.3hYyQ" alias=".service_locator.TJOfZmJ"/>
     <service id=".service_locator.QS5ik0Z" alias=".service_locator.I__DjQ_"/>
-    <service id=".service_locator.GGhp_2j" alias=".service_locator.K2luij9"/>
+    <service id=".service_locator.lV13QUt" alias=".service_locator.Us33JGE"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.l6ELYLY"/>
-    <service id=".service_locator.MPdTf_8" alias=".service_locator.CfQ_0g9"/>
+    <service id=".service_locator.Bkbo8db" alias=".service_locator.tpR3Cnf"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.0ghLsew" alias=".service_locator.mx0UMmY"/>

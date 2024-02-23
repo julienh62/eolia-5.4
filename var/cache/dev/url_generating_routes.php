@@ -4,6 +4,7 @@
 
 return [
     'admin_activity_edit' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminCalendarController::activityEdit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin']], [], [], []],
+    'admin_staff_edit' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminCalendarController::staffEdit'], [], [['text', '/editstaffschedule'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin']], [], [], []],
     'filter' => [[], ['_controller' => 'App\\Controller\\CalendarController::filterPrice'], [], [['text', '/filter']], [], [], []],
     'app_activitie_index' => [[], ['_controller' => 'App\\Controller\\ActivitieController::index'], [], [['text', '/activity']], [], [], []],
     'app_admin_activitie_index' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminActivitieController::index'], [], [['text', '/admin/activity/']], [], [], []],

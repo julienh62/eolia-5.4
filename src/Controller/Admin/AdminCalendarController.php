@@ -6,6 +6,7 @@ use App\Entity\Calendar;
 use App\Entity\Activity;
 use App\Form\CalendarType;
 use App\Form\ActivityEditType;
+use App\Form\StaffScheduleEditType;
 use App\Service\Formatdate;
 use App\Entity\StaffSchedule;
 use App\Repository\CalendarRepository;
@@ -152,25 +153,7 @@ class AdminCalendarController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-          /*  $modifiedPrice = null;
-            $modifiedPriced = trim($form->get('modifiedPrice')->getData());
-
-               if ($this->checkNumeric->isNumeric($modifiedPriced)) {
-                    $modifiedPrice = floatval($modifiedPriced) / 100; // Divise par 100
-               } 
-                           if ($modifiedPrice !== null) {
-                            $calendar->setPrice($modifiedPrice);
-                            $calendar->setPriceModified($modifiedPrice);
-                        } else {
-                            $categoryPriced = $calendar->getCategory()->getColorSettings()->getPrice();
-
-                            if ($this->checkNumeric->isNumeric($categoryPriced)) {
-                                   $categoryPrice = floatval($categoryPriced) / 100; // Divise par 100
-                            } else 
-
-                     //   dd($categoryPrice);
-                         $calendar->setPrice($categoryPrice);
-                        }       */
+       
             $calendarRepository->save($calendar, true);
 
             return $this->redirectToRoute('app_admin_agenda', [], Response::HTTP_SEE_OTHER);
@@ -181,8 +164,32 @@ class AdminCalendarController extends AbstractController
             'form' => $form,
         ]);
     }
+    
+    #[Route('admin/{id}/editstaffschedule', name: 'admin_staff_edit', methods: ['GET', 'POST'], priority: 2)]
+    public function staffEdit(Request $request, Calendar $calendar, CalendarRepository $calendarRepository): Response
+    {
 
+          // Obtenez le nom de la classe de l'entité Calendar
+          $typeCalendar = (new \ReflectionClass($calendar))->getShortName();
 
+        $form = $this->createForm(StaffScheduleEditType::class, $calendar);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+       
+            $calendarRepository->save($calendar, true);
+
+            return $this->redirectToRoute('app_admin_agenda', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('admin/calendar/staff_schedule_edit.html.twig', [
+            'calendar' => $calendar,
+            'form' => $form,
+            'typeCalendar' => $typeCalendar
+        ]);
+    }
+    
 
     
     #[Route('admin/calendardelete/{id}', name: 'admin_calendar_delete', methods: ['POST'])]

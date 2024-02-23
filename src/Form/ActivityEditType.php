@@ -19,7 +19,6 @@ class ActivityEditType extends CalendarType
     {
        
         parent::buildForm($builder,$options);
-        $clickedDate = $options['clickedDate'] ?? null; // Récupération de la valeur passée
         $builder
        ->add('start', DateTimeType::class, [
             'date_widget' => 'single_text',

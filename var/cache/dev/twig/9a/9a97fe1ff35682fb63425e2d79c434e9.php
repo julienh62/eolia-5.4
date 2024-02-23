@@ -122,7 +122,7 @@ class __TwigTemplate_6ac9b42dfedcf05ac1b082b9ac2d6f63 extends Template
 
     <a href=\"";
         // line 29
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_agenda");
         echo "\">Retour à la liste</a>
 
     <a href=\"";
@@ -197,7 +197,7 @@ class __TwigTemplate_6ac9b42dfedcf05ac1b082b9ac2d6f63 extends Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_admin_calendar_index') }}\">Retour à la liste</a>
+    <a href=\"{{ path('app_admin_agenda') }}\">Retour à la liste</a>
 
     <a href=\"{{ path('app_admin_calendar_edit', {'id': calendar.id}) }}\">modifier</a>
 

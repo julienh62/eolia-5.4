@@ -1,0 +1,23 @@
+{{ form_start(form) }}
+
+{{ form_row(form.title) }}
+{{ form_row(form.start) }}
+{{ form_row(form.end) }}
+
+<h3>Staff Memberssss</h3>
+{{ form_row(form.staffs) }}
+
+
+
+{{ form_row(form.category) }}
+
+
+
+
+
+
+
+<button class="btn">{{ button_label|default('Enregistrer') }}</button>
+
+
+{{ form_end(form) }}

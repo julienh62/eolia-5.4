@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <p>${calendar.title}</p>
                         <p>Start: ${calendar.formattedStartDate}</p>
                         <p>End: ${calendar.formattedEndDate}</p>
-                        <p>Price: ${calendar.price}</p>
+                        <p>Price: ${(calendar.price / 100).toFixed(2)} €</p>       
                         <p>Stock: ${calendar.stock}</p>
                     `;
 

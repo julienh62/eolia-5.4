@@ -94,8 +94,8 @@ class __TwigTemplate_4b501a169c1e2df6dd20a843420c5beb extends Template
 
     <a href=\"";
         // line 10
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_index");
-        echo "\">Retour à la liste</a>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_agenda");
+        echo "\">Retour à l'agenda'</a>
 
     ";
         // line 12
@@ -145,7 +145,7 @@ class __TwigTemplate_4b501a169c1e2df6dd20a843420c5beb extends Template
 
     {{ include('admin/admin_calendar/_form.html.twig', {'button_label': 'Enregistrer'}) }}
 
-    <a href=\"{{ path('app_admin_calendar_index') }}\">Retour à la liste</a>
+    <a href=\"{{ path('app_admin_agenda') }}\">Retour à l'agenda'</a>
 
     {{ include('admin/admin_calendar/_delete_form.html.twig') }}
 {% endblock %}

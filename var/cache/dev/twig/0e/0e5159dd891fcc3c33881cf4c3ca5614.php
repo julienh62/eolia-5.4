@@ -148,8 +148,8 @@ class __TwigTemplate_5d5aede27283e579814c9fa78b12ac15 extends Template
     <div class=\"action\">
        <a href=\"";
         // line 42
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_calendar_index");
-        echo "\">Retour à la liste</a>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_agenda");
+        echo "\">Retour à l'agenda</a>
 
       <a href=\"";
         // line 44
@@ -243,7 +243,7 @@ class __TwigTemplate_5d5aede27283e579814c9fa78b12ac15 extends Template
         </tbody>
     </table>
     <div class=\"action\">
-       <a href=\"{{ path('admin_calendar_index') }}\">Retour à la liste</a>
+       <a href=\"{{ path('app_admin_agenda') }}\">Retour à l'agenda</a>
 
       <a href=\"{{ path('admin_calendar_edit', {'id': calendar.id}) }}\">modifier</a>
        {{ include('admin/calendar/_delete_form.html.twig') }}

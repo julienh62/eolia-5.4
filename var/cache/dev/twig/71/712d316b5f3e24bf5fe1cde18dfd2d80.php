@@ -298,6 +298,19 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
               
     </div>
 
+     <div class=\"action\"> 
+        <a href=\"";
+            // line 125
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_agenda");
+            echo "\">Retour au calendrier</a>
+
+        <a href=\"";
+            // line 127
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_activity_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["calendar"]) || array_key_exists("calendar", $context) ? $context["calendar"] : (function () { throw new RuntimeError('Variable "calendar" does not exist.', 127, $this->source); })()), "id", [], "any", false, false, false, 127)]), "html", null, true);
+            echo "\">Modifier</a>      
+               ";
+            // line 129
+            echo "    </div>
 
 
 
@@ -306,7 +319,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
 
            ";
         } else {
-            // line 131
+            // line 137
             echo "
 
 
@@ -319,7 +332,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
 
     
          ";
-            // line 146
+            // line 152
             echo "        
 
         
@@ -329,23 +342,23 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
         <tr>
             <th>Titre</th>
             <td>";
-            // line 154
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["calendar"]) || array_key_exists("calendar", $context) ? $context["calendar"] : (function () { throw new RuntimeError('Variable "calendar" does not exist.', 154, $this->source); })()), "title", [], "any", false, false, false, 154), "html", null, true);
+            // line 160
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["calendar"]) || array_key_exists("calendar", $context) ? $context["calendar"] : (function () { throw new RuntimeError('Variable "calendar" does not exist.', 160, $this->source); })()), "title", [], "any", false, false, false, 160), "html", null, true);
             echo "</td>
         </tr>
 
         <tr>
             <th>Date de début</th>
             <td>";
-            // line 159
-            (((isset($context["formattedStartDate"]) || array_key_exists("formattedStartDate", $context) ? $context["formattedStartDate"] : (function () { throw new RuntimeError('Variable "formattedStartDate" does not exist.', 159, $this->source); })())) ? (print (twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans((isset($context["formattedStartDate"]) || array_key_exists("formattedStartDate", $context) ? $context["formattedStartDate"] : (function () { throw new RuntimeError('Variable "formattedStartDate" does not exist.', 159, $this->source); })())), "html", null, true))) : (print ("")));
+            // line 165
+            (((isset($context["formattedStartDate"]) || array_key_exists("formattedStartDate", $context) ? $context["formattedStartDate"] : (function () { throw new RuntimeError('Variable "formattedStartDate" does not exist.', 165, $this->source); })())) ? (print (twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans((isset($context["formattedStartDate"]) || array_key_exists("formattedStartDate", $context) ? $context["formattedStartDate"] : (function () { throw new RuntimeError('Variable "formattedStartDate" does not exist.', 165, $this->source); })())), "html", null, true))) : (print ("")));
             echo "</td>
         </tr>
         <tr>
             <th>Date de fin</th>
             <td>";
-            // line 163
-            (((isset($context["formattedEndDate"]) || array_key_exists("formattedEndDate", $context) ? $context["formattedEndDate"] : (function () { throw new RuntimeError('Variable "formattedEndDate" does not exist.', 163, $this->source); })())) ? (print (twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans((isset($context["formattedEndDate"]) || array_key_exists("formattedEndDate", $context) ? $context["formattedEndDate"] : (function () { throw new RuntimeError('Variable "formattedEndDate" does not exist.', 163, $this->source); })())), "html", null, true))) : (print ("")));
+            // line 169
+            (((isset($context["formattedEndDate"]) || array_key_exists("formattedEndDate", $context) ? $context["formattedEndDate"] : (function () { throw new RuntimeError('Variable "formattedEndDate" does not exist.', 169, $this->source); })())) ? (print (twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans((isset($context["formattedEndDate"]) || array_key_exists("formattedEndDate", $context) ? $context["formattedEndDate"] : (function () { throw new RuntimeError('Variable "formattedEndDate" does not exist.', 169, $this->source); })())), "html", null, true))) : (print ("")));
             echo "</td>
         </tr>
       
@@ -358,7 +371,19 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
     </table>
 
 
+     <div class=\"action\"> 
+        <a href=\"";
+            // line 182
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_agenda");
+            echo "\">Retour au calendrier</a>
 
+        <a href=\"";
+            // line 184
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_staff_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["calendar"]) || array_key_exists("calendar", $context) ? $context["calendar"] : (function () { throw new RuntimeError('Variable "calendar" does not exist.', 184, $this->source); })()), "id", [], "any", false, false, false, 184)]), "html", null, true);
+            echo "\">Modifier staffSchedule</a>      
+               ";
+            // line 186
+            echo "    </div>
 
 
 
@@ -367,7 +392,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
 
 ";
         }
-        // line 183
+        // line 194
         echo "
 
 
@@ -375,20 +400,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
 
    
      
-    <div class=\"action\"> 
-        <a href=\"";
-        // line 191
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_agenda");
-        echo "\">Retour au calendrier</a>
-
-        <a href=\"";
-        // line 193
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_activity_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["calendar"]) || array_key_exists("calendar", $context) ? $context["calendar"] : (function () { throw new RuntimeError('Variable "calendar" does not exist.', 193, $this->source); })()), "id", [], "any", false, false, false, 193)]), "html", null, true);
-        echo "\">Modifier</a>      
-               ";
-        // line 195
-        echo "    </div>
-
+   
 
 
 
@@ -402,7 +414,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
 
     }
 
-    // line 203
+    // line 208
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -412,7 +424,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 204
+        // line 209
         echo "<script>
     // Sélectionnez tous les éléments avec l'attribut data-confirm
     const confirmButtons = document.querySelectorAll('[data-confirm]');
@@ -455,7 +467,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  416 => 204,  406 => 203,  390 => 195,  386 => 193,  381 => 191,  371 => 183,  348 => 163,  341 => 159,  333 => 154,  323 => 146,  310 => 131,  295 => 119,  278 => 105,  268 => 98,  261 => 94,  254 => 90,  246 => 85,  238 => 80,  231 => 76,  222 => 69,  210 => 64,  205 => 60,  199 => 57,  196 => 56,  192 => 55,  188 => 54,  185 => 53,  181 => 52,  169 => 42,  152 => 25,  146 => 24,  138 => 22,  135 => 21,  133 => 20,  129 => 19,  120 => 16,  111 => 14,  107 => 13,  103 => 12,  99 => 11,  94 => 8,  92 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  428 => 209,  418 => 208,  396 => 194,  386 => 186,  382 => 184,  377 => 182,  361 => 169,  354 => 165,  346 => 160,  336 => 152,  323 => 137,  313 => 129,  309 => 127,  304 => 125,  295 => 119,  278 => 105,  268 => 98,  261 => 94,  254 => 90,  246 => 85,  238 => 80,  231 => 76,  222 => 69,  210 => 64,  205 => 60,  199 => 57,  196 => 56,  192 => 55,  188 => 54,  185 => 53,  181 => 52,  169 => 42,  152 => 25,  146 => 24,  138 => 22,  135 => 21,  133 => 20,  129 => 19,  120 => 16,  111 => 14,  107 => 13,  103 => 12,  99 => 11,  94 => 8,  92 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -583,6 +595,12 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
               
     </div>
 
+     <div class=\"action\"> 
+        <a href=\"{{ path('app_admin_agenda') }}\">Retour au calendrier</a>
+
+        <a href=\"{{ path('admin_activity_edit', {'id': calendar.id}) }}\">Modifier</a>      
+               {#  {{ include('admin/calendar/_delete_form.html.twig') }}  #}
+    </div>
 
 
 
@@ -634,7 +652,12 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
     </table>
 
 
+     <div class=\"action\"> 
+        <a href=\"{{ path('app_admin_agenda') }}\">Retour au calendrier</a>
 
+        <a href=\"{{ path('admin_staff_edit', {'id': calendar.id}) }}\">Modifier staffSchedule</a>      
+               {#  {{ include('admin/calendar/_delete_form.html.twig') }}  #}
+    </div>
 
 
 
@@ -649,13 +672,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
 
    
      
-    <div class=\"action\"> 
-        <a href=\"{{ path('app_admin_agenda') }}\">Retour au calendrier</a>
-
-        <a href=\"{{ path('admin_activity_edit', {'id': calendar.id}) }}\">Modifier</a>      
-               {#  {{ include('admin/calendar/_delete_form.html.twig') }}  #}
-    </div>
-
+   
 
 
 
