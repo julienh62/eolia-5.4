@@ -27,19 +27,30 @@ use ReflectionClass;
     #[ORM\Column(length: 255)]
     protected ?string $title = null;
 
-     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
      protected ?\DateTimeInterface $start = null;
 
-     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
      protected ?\DateTimeInterface $end = null;
 
+  
 
-     #[ORM\OneToMany(mappedBy: 'calendar', targetEntity: PurchaseItem::class)]
-     private Collection $purchaseItems;
 
-    #[ORM\ManyToMany(targetEntity: Staff::class, cascade: ['remove'], inversedBy: 'calendars')]
+     /**
+     * @ORM\OneToMany(mappedBy="calendar", targetEntity="PurchaseItem", orphanRemoval=true)
+     */
+    private Collection $purchaseItems;
+
+    /*
+    #[ORM\OneToMany(mappedBy: 'calendar', targetEntity: PurchaseItem::class)]
+     private Collection $purchaseItems;  */
+
+   
+
+    #[ORM\ManyToMany(targetEntity: Staff::class, inversedBy: 'calendars')]
     #[ORM\JoinColumn(nullable: true)]
-    protected $staffs;
+    private $staffs;
+
 
     #[ORM\ManyToOne(inversedBy: 'calendars')]
     #[ORM\JoinColumn(nullable: false)]

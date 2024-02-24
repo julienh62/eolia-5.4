@@ -354,7 +354,7 @@ return [[
 '[C]App%5CEntity%5CActivity%24price' => 1,
 'App%5CEntity%5CActivity%24modifiedPrice' => 0,
 '[C]App%5CEntity%5CActivity%24modifiedPrice' => 1,
-'App%5CEntity%5CActivity%24purchaseItems' => 0,
+'App%5CEntity%5CActivity%24purchaseItems' => 11,
 '[C]App%5CEntity%5CActivity%24purchaseItems' => 1,
 'App%5CEntity%5CActivity%24users' => 0,
 '[C]App%5CEntity%5CActivity%24users' => 1,
@@ -372,7 +372,7 @@ return [[
 '[C]App%5CEntity%5CCalendar%24category' => 1,
 'App%5CEntity%5CCalendar' => 0,
 '[C]App%5CEntity%5CCalendar' => 1,
-'App%5CEntity%5CCalendar%24purchaseItems' => 0,
+'App%5CEntity%5CCalendar%24purchaseItems' => 11,
 '[C]App%5CEntity%5CCalendar%24purchaseItems' => 1,
 'App%5CEntity%5CCategory' => 0,
 '[C]App%5CEntity%5CCategory' => 1,
@@ -1262,7 +1262,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1708685982,
+1 => 1708764280,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -1483,6 +1483,42 @@ return [[
             'Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\IsGranted' => [
                 'attributes' => [
                     1 => 'ROLE_USER',
+                ],
+            ],
+        ],
+        [
+            $o[0],
+            $o[1],
+        ],
+        []
+    );
+},
+11 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\OneToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\OneToMany')),
+            clone ($p['Doctrine\\ORM\\Mapping\\JoinColumn'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\JoinColumn')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'mappedBy' => [
+                    'activity',
+                ],
+                'targetEntity' => [
+                    'App\\Entity\\PurchaseItem',
+                ],
+                'orphanRemoval' => [
+                    true,
+                ],
+                'name' => [
+                    1 => 'id',
+                ],
+                'referencedColumnName' => [
+                    1 => 'activity_id',
+                ],
+                'onDelete' => [
+                    1 => 'CASCADE',
                 ],
             ],
         ],

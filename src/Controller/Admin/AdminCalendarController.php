@@ -23,7 +23,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminCalendarController extends AbstractController
 {
 
- /*   #[Route('/calendar', name: 'app_admin_calendar_index', methods: ['GET'])]
+ /*  #[Route('admin/calendar', name: 'app_admin_calendar_index', methods: ['GET'])]
     public function index(CalendarRepository $calendarRepository, ActivityRepository $activityRepository,
       Formatdate $formatdateService , StaffScheduleRepository $staffScheduleRepository): Response
     {
@@ -34,7 +34,7 @@ class AdminCalendarController extends AbstractController
      
 
       // Obtenez le nom de la classe de l'entité Calendar
-        $typeCalendar = (new \ReflectionClass($calendar))->getShortName();
+      $typeCalendar = (new \ReflectionClass(Calendar::class))->getShortName();
 
         setlocale(LC_TIME, 'fr_FR');
 
@@ -200,6 +200,6 @@ class AdminCalendarController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_admin_calendar_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_admin_agenda', [], Response::HTTP_SEE_OTHER);
     }
 }

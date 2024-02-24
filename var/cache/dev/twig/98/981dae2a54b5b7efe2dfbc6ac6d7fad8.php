@@ -56,7 +56,7 @@ class __TwigTemplate_ac53169f780f5fbc66f8533ee8b4512e extends Template
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 5, $this->source); })()), "end", [], "any", false, false, false, 5), 'row');
         echo "
 
-<h3>Staff Memberssss</h3>
+<h3>Staff Members</h3>
 ";
         // line 8
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()), "staffs", [], "any", false, false, false, 8), 'row');
@@ -68,9 +68,16 @@ class __TwigTemplate_ac53169f780f5fbc66f8533ee8b4512e extends Template
         // line 12
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), "category", [], "any", false, false, false, 12), 'row');
         echo "
+
+
+
 ";
-        // line 19
+        // line 16
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), "stock", [], "any", false, false, false, 16), 'row');
         echo "
+
+
+
 <button class=\"btn\">";
         // line 20
         echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 20, $this->source); })()), "Enregistrer")) : ("Enregistrer")), "html", null, true);
@@ -111,7 +118,7 @@ class __TwigTemplate_ac53169f780f5fbc66f8533ee8b4512e extends Template
      */
     public function getDebugInfo()
     {
-        return array (  82 => 23,  76 => 20,  73 => 19,  69 => 12,  62 => 8,  56 => 5,  52 => 4,  48 => 3,  43 => 1,);
+        return array (  89 => 23,  83 => 20,  76 => 16,  69 => 12,  62 => 8,  56 => 5,  52 => 4,  48 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -122,18 +129,18 @@ class __TwigTemplate_ac53169f780f5fbc66f8533ee8b4512e extends Template
 {{ form_row(form.start) }}
 {{ form_row(form.end) }}
 
-<h3>Staff Memberssss</h3>
+<h3>Staff Members</h3>
 {{ form_row(form.staffs) }}
 
 
 
 {{ form_row(form.category) }}
-{#
-{% if activitie  %}
+
+
 
 {{ form_row(form.stock) }}
 
-{% endif %}  #}
+
 
 <button class=\"btn\">{{ button_label|default('Enregistrer') }}</button>
 

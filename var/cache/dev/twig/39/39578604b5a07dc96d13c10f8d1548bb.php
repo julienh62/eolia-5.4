@@ -41,7 +41,7 @@ class __TwigTemplate_7a99c473dc9765ba90ddc0b79d261e59 extends Template
 
         // line 1
         echo "<form method=\"post\" action=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_calendar_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["calendar"]) || array_key_exists("calendar", $context) ? $context["calendar"] : (function () { throw new RuntimeError('Variable "calendar" does not exist.', 1, $this->source); })()), "id", [], "any", false, false, false, 1)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_calendar_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["calendar"]) || array_key_exists("calendar", $context) ? $context["calendar"] : (function () { throw new RuntimeError('Variable "calendar" does not exist.', 1, $this->source); })()), "id", [], "any", false, false, false, 1)]), "html", null, true);
         echo "\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"";
         // line 2
@@ -84,7 +84,7 @@ class __TwigTemplate_7a99c473dc9765ba90ddc0b79d261e59 extends Template
 
     public function getSourceContext()
     {
-        return new Source("<form method=\"post\" action=\"{{ path('app_admin_calendar_delete', {'id': calendar.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+        return new Source("<form method=\"post\" action=\"{{ path('admin_calendar_delete', {'id': calendar.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ calendar.id) }}\">
     <button class=\"btn\">Suprimer</button>
 </form>

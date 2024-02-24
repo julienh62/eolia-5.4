@@ -21,10 +21,14 @@ class Activity extends Calendar
     #[ORM\Column(nullable: true)]
     protected ?int $modifiedPrice = null;
 
-
-
-    #[ORM\OneToMany(mappedBy: 'activity', targetEntity: PurchaseItem::class)]
+    /**
+     * @ORM\OneToMany(mappedBy="activity", targetEntity="App\Entity\PurchaseItem", orphanRemoval=true)
+     * @ORM\JoinColumn(name="id", referencedColumnName="activity_id", onDelete="CASCADE")
+     */
     private Collection $purchaseItems;
+
+   /* #[ORM\OneToMany(mappedBy: 'activity', targetEntity: PurchaseItem::class)]
+    private Collection $purchaseItems; */
 
     #[ORM\ManyToMany(targetEntity: User::class)]
     private Collection $users;

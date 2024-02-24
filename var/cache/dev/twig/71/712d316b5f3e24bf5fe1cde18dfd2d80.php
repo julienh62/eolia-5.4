@@ -308,9 +308,11 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
             // line 127
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_activity_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["calendar"]) || array_key_exists("calendar", $context) ? $context["calendar"] : (function () { throw new RuntimeError('Variable "calendar" does not exist.', 127, $this->source); })()), "id", [], "any", false, false, false, 127)]), "html", null, true);
             echo "\">Modifier</a>      
-               ";
-            // line 129
-            echo "    </div>
+                 ";
+            // line 128
+            echo twig_include($this->env, $context, "admin/calendar/_delete_form.html.twig");
+            echo "  
+    </div>
 
 
 
@@ -381,9 +383,11 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
             // line 184
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_staff_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["calendar"]) || array_key_exists("calendar", $context) ? $context["calendar"] : (function () { throw new RuntimeError('Variable "calendar" does not exist.', 184, $this->source); })()), "id", [], "any", false, false, false, 184)]), "html", null, true);
             echo "\">Modifier staffSchedule</a>      
-               ";
-            // line 186
-            echo "    </div>
+               {  ";
+            // line 185
+            echo twig_include($this->env, $context, "admin/calendar/_delete_form.html.twig");
+            echo "  
+    </div>
 
 
 
@@ -467,7 +471,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  428 => 209,  418 => 208,  396 => 194,  386 => 186,  382 => 184,  377 => 182,  361 => 169,  354 => 165,  346 => 160,  336 => 152,  323 => 137,  313 => 129,  309 => 127,  304 => 125,  295 => 119,  278 => 105,  268 => 98,  261 => 94,  254 => 90,  246 => 85,  238 => 80,  231 => 76,  222 => 69,  210 => 64,  205 => 60,  199 => 57,  196 => 56,  192 => 55,  188 => 54,  185 => 53,  181 => 52,  169 => 42,  152 => 25,  146 => 24,  138 => 22,  135 => 21,  133 => 20,  129 => 19,  120 => 16,  111 => 14,  107 => 13,  103 => 12,  99 => 11,  94 => 8,  92 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  432 => 209,  422 => 208,  400 => 194,  388 => 185,  384 => 184,  379 => 182,  363 => 169,  356 => 165,  348 => 160,  338 => 152,  325 => 137,  313 => 128,  309 => 127,  304 => 125,  295 => 119,  278 => 105,  268 => 98,  261 => 94,  254 => 90,  246 => 85,  238 => 80,  231 => 76,  222 => 69,  210 => 64,  205 => 60,  199 => 57,  196 => 56,  192 => 55,  188 => 54,  185 => 53,  181 => 52,  169 => 42,  152 => 25,  146 => 24,  138 => 22,  135 => 21,  133 => 20,  129 => 19,  120 => 16,  111 => 14,  107 => 13,  103 => 12,  99 => 11,  94 => 8,  92 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -599,7 +603,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
         <a href=\"{{ path('app_admin_agenda') }}\">Retour au calendrier</a>
 
         <a href=\"{{ path('admin_activity_edit', {'id': calendar.id}) }}\">Modifier</a>      
-               {#  {{ include('admin/calendar/_delete_form.html.twig') }}  #}
+                 {{ include('admin/calendar/_delete_form.html.twig') }}  
     </div>
 
 
@@ -656,7 +660,7 @@ class __TwigTemplate_5b9cb9be2194bf4934d988cb8f05cc15 extends Template
         <a href=\"{{ path('app_admin_agenda') }}\">Retour au calendrier</a>
 
         <a href=\"{{ path('admin_staff_edit', {'id': calendar.id}) }}\">Modifier staffSchedule</a>      
-               {#  {{ include('admin/calendar/_delete_form.html.twig') }}  #}
+               {  {{ include('admin/calendar/_delete_form.html.twig') }}  
     </div>
 
 
