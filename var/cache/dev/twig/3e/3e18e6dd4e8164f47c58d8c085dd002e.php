@@ -112,7 +112,7 @@ class __TwigTemplate_69ad3c5d115cb6d18364d3026e3d2adb extends Template
         echo "
               ";
         // line 17
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), "message", [], "any", false, false, false, 17), 'widget', ["attr" => ["rows" => 5, "cols" => 50]]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), "message", [], "any", false, false, false, 17), 'widget', ["attr" => ["rows" => 10, "cols" => 100]]);
         echo "
         ";
         // line 18
@@ -120,13 +120,9 @@ class __TwigTemplate_69ad3c5d115cb6d18364d3026e3d2adb extends Template
         echo "
     </div>
 
-
-<div class=\"g-recaptcha\" data-sitekey=\"6Lf-eLIoAAAAAMvkfpkcdpeQKN9OGXAqjUBeZ84g\" data-callback=\"onSubmit\" data-action=\"submit\"></div>
-<button type=\"submit\" class=\"btn btn-primary\">";
-        // line 23
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), "envoyer", [], "any", false, false, false, 23), 'row');
-        echo "</button>
-
+";
+        // line 24
+        echo "
 ";
         // line 25
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), 'form_end');
@@ -191,7 +187,7 @@ class __TwigTemplate_69ad3c5d115cb6d18364d3026e3d2adb extends Template
      */
     public function getDebugInfo()
     {
-        return array (  156 => 31,  146 => 30,  132 => 25,  127 => 23,  119 => 18,  115 => 17,  111 => 16,  106 => 14,  102 => 13,  96 => 10,  93 => 9,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  152 => 31,  142 => 30,  128 => 25,  125 => 24,  119 => 18,  115 => 17,  111 => 16,  106 => 14,  102 => 13,  96 => 10,  93 => 9,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -212,13 +208,13 @@ class __TwigTemplate_69ad3c5d115cb6d18364d3026e3d2adb extends Template
 {{ form_row(form.email) }}
  <div class=\"form-group\">
         {{ form_label(form.message) }}
-              {{ form_widget(form.message, { 'attr': {'rows': 5, 'cols': 50} }) }}
+              {{ form_widget(form.message, { 'attr': {'rows': 10, 'cols': 100} }) }}
         {{ form_errors(form.message) }}
     </div>
 
-
+{#
 <div class=\"g-recaptcha\" data-sitekey=\"6Lf-eLIoAAAAAMvkfpkcdpeQKN9OGXAqjUBeZ84g\" data-callback=\"onSubmit\" data-action=\"submit\"></div>
-<button type=\"submit\" class=\"btn btn-primary\">{{ form_row(form.envoyer) }}</button>
+<button type=\"submit\" class=\"btn btn-primary\">{{ form_row(form.envoyer) }}</button>  #}
 
 {{ form_end(form) }}
 

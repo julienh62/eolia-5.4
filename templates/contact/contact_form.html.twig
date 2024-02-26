@@ -14,13 +14,13 @@
 {{ form_row(form.email) }}
  <div class="form-group">
         {{ form_label(form.message) }}
-              {{ form_widget(form.message, { 'attr': {'rows': 5, 'cols': 50} }) }}
+              {{ form_widget(form.message, { 'attr': {'rows': 10, 'cols': 100} }) }}
         {{ form_errors(form.message) }}
     </div>
 
-
+{#
 <div class="g-recaptcha" data-sitekey="6Lf-eLIoAAAAAMvkfpkcdpeQKN9OGXAqjUBeZ84g" data-callback="onSubmit" data-action="submit"></div>
-<button type="submit" class="btn btn-primary">{{ form_row(form.envoyer) }}</button>
+<button type="submit" class="btn btn-primary">{{ form_row(form.envoyer) }}</button>  #}
 
 {{ form_end(form) }}
 
