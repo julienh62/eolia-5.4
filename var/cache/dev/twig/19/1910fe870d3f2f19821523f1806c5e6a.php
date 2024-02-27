@@ -197,10 +197,10 @@ class __TwigTemplate_485c7b1ec099492be4f09e425354adef extends Template
         echo "        
    
   </div>
-       <a href=\"";
+       <a class=\"asous\" href=\"";
         // line 66
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_category_new");
-        echo "\">Créer </a>
+        echo "\">Créer une nouvelle catégorie</a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -301,7 +301,7 @@ class __TwigTemplate_485c7b1ec099492be4f09e425354adef extends Template
         
    
   </div>
-       <a href=\"{{ path('app_admin_category_new') }}\">Créer </a>
+       <a class=\"asous\" href=\"{{ path('app_admin_category_new') }}\">Créer une nouvelle catégorie</a>
 {% endblock %}
 ", "admin/admin_category/index.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\admin\\admin_category\\index.html.twig");
     }

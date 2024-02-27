@@ -87,63 +87,115 @@ class __TwigTemplate_ff5f659630b2ee12058ebbdcb325e3d5 extends Template
         // line 6
         echo "    <h1>Staff index</h1>
 
-    <table class=\"table\">
-        <thead>
+
+
+
+    
+    <div class=\"onlydesktop\">
+     <table class=\"tableau\">
+        <thead class=\"tableau\">
             <tr>
-                <th>Id</th>
-                <th>FullName</th>
-                <th>actions</th>
+                 <th class=\"colonnetableau\">FullName</th>
+                 <th class=\"colonnetableau\">actions</th>
+                 <th class=\"colonnetableau\">actions</th>
             </tr>
         </thead>
         <tbody>
-        ";
-        // line 17
+          ";
+        // line 22
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($context["staff"]);
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["staff"]) {
-            // line 18
-            echo "            <tr>
-                <td>";
-            // line 19
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 19), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 20
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["staff"], "fullName", [], "any", false, false, false, 20), "html", null, true);
-            echo "</td>
-                <td>
-                    <a href=\"";
-            // line 22
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_show", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 22)]), "html", null, true);
-            echo "\">show</a>
-                    <a href=\"";
             // line 23
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 23)]), "html", null, true);
-            echo "\">modifier</a>
+            echo "            <tr>
+                <td class=\"colonnetableaux\">";
+            // line 24
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["staff"], "fullName", [], "any", false, false, false, 24), "html", null, true);
+            echo "</td>
+                
+                <td class=\"colonnetableaux\">
+                    <a href=\"";
+            // line 27
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_show", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 27)]), "html", null, true);
+            echo "\"> Voir </a>
                 </td>
-            </tr>
+                <td class=\"colonnetableaux\">
+                    <a href=\"";
+            // line 30
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 30)]), "html", null, true);
+            echo "\"> éditer </a>
+                </td>
+             
         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 27
+            // line 34
             echo "            <tr>
-                <td colspan=\"3\">Aucune correspondance trouvée</td>
+                <td>Aucune correspondance trouvée</td>
             </tr>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['staff'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 38
         echo "        </tbody>
     </table>
+  </div>
 
-    <a href=\"";
-        // line 34
+<div class=\"onlymobil\">
+       ";
+        // line 43
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable($context["staff"]);
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["staff"]) {
+            // line 44
+            echo "               <p>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["staff"], "fullName", [], "any", false, false, false, 44), "html", null, true);
+            echo "</p>
+                <p>
+                    <a href=\"";
+            // line 46
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_show", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 46)]), "html", null, true);
+            echo "\">Voir</a>
+                </p>
+                <p>
+                    <a href=\"";
+            // line 49
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 49)]), "html", null, true);
+            echo "\"> Éditer </a>
+                </p>
+       
+      
+            
+             
+               
+              
+           
+        ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 59
+            echo "           
+                <p>Aucune Staff pour l'instant </p>
+          
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['staff'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 63
+        echo "        
+   
+  </div>
+       <a class=\"asous\" href=\"";
+        // line 66
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_new");
-        echo "\">Créer </a>
+        echo "\">Créer un nouveau staff</a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -174,7 +226,7 @@ class __TwigTemplate_ff5f659630b2ee12058ebbdcb325e3d5 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  145 => 34,  140 => 31,  131 => 27,  122 => 23,  118 => 22,  113 => 20,  109 => 19,  106 => 18,  101 => 17,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  197 => 66,  192 => 63,  183 => 59,  168 => 49,  162 => 46,  156 => 44,  151 => 43,  144 => 38,  135 => 34,  126 => 30,  120 => 27,  114 => 24,  111 => 23,  106 => 22,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -186,34 +238,89 @@ class __TwigTemplate_ff5f659630b2ee12058ebbdcb325e3d5 extends Template
 {% block body %}
     <h1>Staff index</h1>
 
-    <table class=\"table\">
-        <thead>
+
+
+
+    
+    <div class=\"onlydesktop\">
+     <table class=\"tableau\">
+        <thead class=\"tableau\">
             <tr>
-                <th>Id</th>
-                <th>FullName</th>
-                <th>actions</th>
+                 <th class=\"colonnetableau\">FullName</th>
+                 <th class=\"colonnetableau\">actions</th>
+                 <th class=\"colonnetableau\">actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for staff in staff %}
+          {% for staff in staff %}
             <tr>
-                <td>{{ staff.id }}</td>
-                <td>{{ staff.fullName }}</td>
-                <td>
-                    <a href=\"{{ path('app_admin_staff_show', {'id': staff.id}) }}\">show</a>
-                    <a href=\"{{ path('app_admin_staff_edit', {'id': staff.id}) }}\">modifier</a>
+                <td class=\"colonnetableaux\">{{ staff.fullName }}</td>
+                
+                <td class=\"colonnetableaux\">
+                    <a href=\"{{ path('app_admin_staff_show', {'id': staff.id}) }}\"> Voir </a>
                 </td>
-            </tr>
+                <td class=\"colonnetableaux\">
+                    <a href=\"{{ path('app_admin_staff_edit', {'id': staff.id}) }}\"> éditer </a>
+                </td>
+             
         {% else %}
             <tr>
-                <td colspan=\"3\">Aucune correspondance trouvée</td>
+                <td>Aucune correspondance trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+  </div>
 
-    <a href=\"{{ path('app_admin_staff_new') }}\">Créer </a>
+<div class=\"onlymobil\">
+       {% for staff in staff %}
+               <p>{{ staff.fullName }}</p>
+                <p>
+                    <a href=\"{{ path('app_admin_staff_show', {'id': staff.id}) }}\">Voir</a>
+                </p>
+                <p>
+                    <a href=\"{{ path('app_admin_staff_edit', {'id': staff.id}) }}\"> Éditer </a>
+                </p>
+       
+      
+            
+             
+               
+              
+           
+        {% else %}
+           
+                <p>Aucune Staff pour l'instant </p>
+          
+        {% endfor %}
+        
+   
+  </div>
+       <a class=\"asous\" href=\"{{ path('app_admin_staff_new') }}\">Créer un nouveau staff</a>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ", "admin/admin_staff/index.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\admin\\admin_staff\\index.html.twig");
     }
 }

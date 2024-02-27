@@ -4,14 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Twig\GenerateLinkExtension;
-use App\Repository\CalendarRepository;
+use App\Repository\CategoryRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(CalendarRepository $calendarRepository,  GenerateLinkExtension $generateLinkExtension)
+    public function index(CategoryRepository $categoryRepository,  GenerateLinkExtension $generateLinkExtension)
     {
         // Récupérer l'utilisateur connecté
         $user = $this->getUser();
@@ -26,8 +26,8 @@ class HomeController extends AbstractController
         }
         
         // Récupérer toutes les titres et image par categories
-        $categoriesImgTitle = $calendarRepository->getImgAndTitleActivitie();
-            //dd($categoriesImgTitle);
+        $categoriesImgTitle = $categoryRepository->findAllWithImages();
+          // dd($categoriesImgTitle);
 
             $titles = [];
             $images = [];

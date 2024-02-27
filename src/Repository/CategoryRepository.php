@@ -38,6 +38,10 @@ class CategoryRepository extends ServiceEntityRepository
         return $result;
     }
 
+
+
+
+
 //    /**
 //     * @return Category[] Returns an array of Category objects
 //     */

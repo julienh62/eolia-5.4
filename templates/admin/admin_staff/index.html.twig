@@ -5,31 +5,86 @@
 {% block body %}
     <h1>Staff index</h1>
 
-    <table class="table">
-        <thead>
+
+
+
+    
+    <div class="onlydesktop">
+     <table class="tableau">
+        <thead class="tableau">
             <tr>
-                <th>Id</th>
-                <th>FullName</th>
-                <th>actions</th>
+                 <th class="colonnetableau">FullName</th>
+                 <th class="colonnetableau">actions</th>
+                 <th class="colonnetableau">actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for staff in staff %}
+          {% for staff in staff %}
             <tr>
-                <td>{{ staff.id }}</td>
-                <td>{{ staff.fullName }}</td>
-                <td>
-                    <a href="{{ path('app_admin_staff_show', {'id': staff.id}) }}">show</a>
-                    <a href="{{ path('app_admin_staff_edit', {'id': staff.id}) }}">modifier</a>
+                <td class="colonnetableaux">{{ staff.fullName }}</td>
+                
+                <td class="colonnetableaux">
+                    <a href="{{ path('app_admin_staff_show', {'id': staff.id}) }}"> Voir </a>
                 </td>
-            </tr>
+                <td class="colonnetableaux">
+                    <a href="{{ path('app_admin_staff_edit', {'id': staff.id}) }}"> éditer </a>
+                </td>
+             
         {% else %}
             <tr>
-                <td colspan="3">Aucune correspondance trouvée</td>
+                <td>Aucune correspondance trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+  </div>
 
-    <a href="{{ path('app_admin_staff_new') }}">Créer </a>
+<div class="onlymobil">
+       {% for staff in staff %}
+               <p>{{ staff.fullName }}</p>
+                <p>
+                    <a href="{{ path('app_admin_staff_show', {'id': staff.id}) }}">Voir</a>
+                </p>
+                <p>
+                    <a href="{{ path('app_admin_staff_edit', {'id': staff.id}) }}"> Éditer </a>
+                </p>
+       
+      
+            
+             
+               
+              
+           
+        {% else %}
+           
+                <p>Aucune Staff pour l'instant </p>
+          
+        {% endfor %}
+        
+   
+  </div>
+       <a class="asous" href="{{ path('app_admin_staff_new') }}">Créer un nouveau staff</a>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
