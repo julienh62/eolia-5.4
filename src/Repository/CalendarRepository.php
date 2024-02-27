@@ -139,19 +139,7 @@ public function getAllCharCataKid()
     ;
 }
 
-//title et image pour les activités
-public function getImgAndTitleActivitie()
-{
-    return $this->createQueryBuilder('c')
-    ->select('c', 'cat.titleCategory', 'cat.image') 
-    ->leftJoin('c.category', 'cat') 
-    ->orderBy('c.start', 'desc') 
-    ->andWhere('cat.activity = :isActivity') // Filtrer par la propriété activity
-    ->setParameter('isActivity', true) 
-    ->groupBy('cat.titleCategory', 'cat.image') // Groupement par titre et image
-    ->getQuery()
-    ->getResult();
-}
+
 
 //filtre tous calendars qui sont des activités
 public function getAllCalendarActivitie()

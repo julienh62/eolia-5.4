@@ -40,7 +40,7 @@ class __TwigTemplate_19a20dab5ee67dc8395285adc8ec260c extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "_partials/_navaccueil.html.twig"));
 
         // line 1
-        echo "
+        echo "<!-- page accueil -->
 
 <header id=\"navbar\" class=\"nav\">
     <a class=\"navbar-brand\" href=\"/\">
@@ -162,27 +162,23 @@ class __TwigTemplate_19a20dab5ee67dc8395285adc8ec260c extends Template
 
 
 <div id=\"slider\">
-                <img class =\"imgslider\" src=\"";
-        // line 67
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/uploads/slide/char-accueiltitregros1500.webp"), "html", null, true);
-        echo "\" alt = \"char à voile\" id=\"slide\">
+                <img class=\"imgslider\" alt=\"char à voile\" id=\"slide\">
+
            
                 <div id=\"precedent\" onclick=\"ChangeSlide(-1)\">&lt;</div>
                 <div id=\"suivant\" onclick=\"ChangeSlide(1)\">&gt;</div>
 </div>
-<div id=\"slidermobil\">
-            \t<a class=\"slidera\" href=\"/\">  <img class =\"imgslider\" src=\"";
-        // line 73
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/uploads/slide/accueil-mobil-char.webp"), "html", null, true);
-        echo "\" alt = \"char à voile\" id=\"slidemobil\">
-              </a> 
+<!--<div id=\"slidermobil\">
+           ";
+        // line 75
+        echo "              </a> 
 
                 <div id=\"precedentmob\" onclick=\"ChangeSlideMob(-1)\">&lt;</div>
                 <div id=\"suivantmob\" onclick=\"ChangeSlideMob(1)\">&gt;</div>
-</div>
+</div> -->
  <button class=\"consultplaning\" type=\"button\">
    <a class=\"aderoulant\" href=\"";
-        // line 80
+        // line 81
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_presentation");
         echo "\">Réserver et Consulter le planing</a>
   </button>
@@ -248,12 +244,12 @@ if (montantPanier !== 0.0) {
      */
     public function getDebugInfo()
     {
-        return array (  186 => 80,  176 => 73,  167 => 67,  148 => 51,  145 => 50,  139 => 47,  134 => 45,  131 => 44,  124 => 40,  119 => 39,  114 => 36,  109 => 34,  105 => 32,  103 => 31,  93 => 24,  87 => 21,  82 => 18,  79 => 16,  68 => 14,  66 => 13,  62 => 12,  58 => 11,  49 => 5,  43 => 1,);
+        return array (  182 => 81,  174 => 75,  148 => 51,  145 => 50,  139 => 47,  134 => 45,  131 => 44,  124 => 40,  119 => 39,  114 => 36,  109 => 34,  105 => 32,  103 => 31,  93 => 24,  87 => 21,  82 => 18,  79 => 16,  68 => 14,  66 => 13,  62 => 12,  58 => 11,  49 => 5,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("
+        return new Source("<!-- page accueil -->
 
 <header id=\"navbar\" class=\"nav\">
     <a class=\"navbar-brand\" href=\"/\">
@@ -319,18 +315,19 @@ if (montantPanier !== 0.0) {
 
 
 <div id=\"slider\">
-                <img class =\"imgslider\" src=\"{{ asset('assets/uploads/slide/char-accueiltitregros1500.webp')}}\" alt = \"char à voile\" id=\"slide\">
+                <img class=\"imgslider\" alt=\"char à voile\" id=\"slide\">
+
            
                 <div id=\"precedent\" onclick=\"ChangeSlide(-1)\">&lt;</div>
                 <div id=\"suivant\" onclick=\"ChangeSlide(1)\">&gt;</div>
 </div>
-<div id=\"slidermobil\">
-            \t<a class=\"slidera\" href=\"/\">  <img class =\"imgslider\" src=\"{{ asset('assets/uploads/slide/accueil-mobil-char.webp')}}\" alt = \"char à voile\" id=\"slidemobil\">
+<!--<div id=\"slidermobil\">
+           {#} \t<a class=\"slidera\" href=\"/\">  <img class =\"imgslider\" src=\"{{ asset('assets/uploads/slide/accueil-mobil-char.webp')}}\" alt = \"char à voile\" id=\"slidemobil\">#}
               </a> 
 
                 <div id=\"precedentmob\" onclick=\"ChangeSlideMob(-1)\">&lt;</div>
                 <div id=\"suivantmob\" onclick=\"ChangeSlideMob(1)\">&gt;</div>
-</div>
+</div> -->
  <button class=\"consultplaning\" type=\"button\">
    <a class=\"aderoulant\" href=\"{{ path('app_presentation') }}\">Réserver et Consulter le planing</a>
   </button>

@@ -1,15 +1,15 @@
-<header id="navbar" class="nav">
+<!--<header id="navbar" class="nav">
     <div class="dropdown-1">
         <button>Nos activités-nav-nav</button> 
-            <div class="content">
+        {#}      <div class="content">
                <a href="{{ path('app_calendar_index') }}">Toutes les séances</a>
-                   {% for category in generateCategoryLinks() %}
+                 {% for category in generateCategoryLinks() %}
                 <a class="asous" href="{{ path('app_agenda_by_category', {'categoryTitle': category.titleCategory}) }}">{{ category.titleCategory }}</a>
               {% endfor %}
             </div>
     </div>
      <div class="dropdown-1">
-        <button>Consulter le planning</button> 
+        <button>Consulterr le planning</button> 
             <div class="content">
               <a class="asous" href="{{ path('app_calendar_main') }} "> Toutes les activités</a>
               <a class="asous" href="{{ path('app_calendar_main_char') }} "> Char à voile</a>
@@ -44,8 +44,8 @@
 
 
 				{# CartService enregistré dans twig.yaml#}
-				<a class="aderoulant" href="{{ path('cart_index') }} "id="panier-link">🛒
-       ({{ cartService.total | amount }})
+	 {#}			<a class="aderoulant" href="{{ path('cart_index') }} "id="panier-link">🛒
+        ({{ cartService.total | amount }})
 				</a>
 			
 			{% else %}

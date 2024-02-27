@@ -9,17 +9,7 @@
          <h1>Bienvenue, {{ fullName }} !</h1>
       {% endif %}
 
-    <div class="titremobil">
-           
-
-          <!--    <picture>
-               <source srcset="{#}{{ asset('assets/uploads/char-accueil.jpg')}}" alt ="char à voile Baie de Somme" media="(orientation: portrait)">
-               <img src="{{ asset('assets/uploads/chardepart-tab.webp')}}"alt ="char à voile Baie de Somme">
-               </picture> #} -->
-
-
-      
-    </div> 
+ 
 
    <section class="titre-accueil">
 
@@ -36,39 +26,7 @@
             {% endfor %}
            
       </div>
-         <!--  <div class="activiteaccueil">
         
-              <div class="activitecata">
-                     <div class="btnactiviteaccueil">
-                          <a class="lienaccueil" href="{#{{ path('app_calendar_main_cata') }}#}"> Catamaran </a>
-                    </div>
-              </div>
-
-              <div class="activitechar"> 
-                    <div class="btnactiviteaccueil">  
-                          <a class="lienaccueil" href="/" class="btn btn-secondary btn-sm"> Char à voile</a>  
-                    </div>     
-              </div>
-          
-             <div class="activitekid">
-                     <div class="btnactiviteaccueil">  
-                          <a class="lienaccueilkid" href="/" class="btn btn-secondary btn-sm"> Char à voile kid </a>
-                     </div>
-             </div>
-      </div>
-            <!-- {#} <div class="activiteaccueil">
-                  {% for category in categories %}
-            {% set imageUrl = categoryImages[category.title] %}
-             <div class="activiteByTitle {{ category.title|lower|replace({' ': ''}) }}" style="background-image: url('{{ imageUrl['image'] ?? '' }}')">
-
-           <div class="activitecata" style="background-image: url('{{ imageUrl['image'] ?? '' }}')"> 
-                <div class="btnactiviteaccueil">
-                                    <a class="lienaccueil" href="{{ path('app_agenda_by_category', {'categoryTitle': category.title}) }}">{{ category.title }}</a>
-                              </div>
-                        </div>
-                  {% endfor %}
-            </div>
-      </div>#} -->
    </section>
 
 

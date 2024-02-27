@@ -21,7 +21,7 @@ html {
 p {
   font-size: 5rem;
   line-height: 8rem;
-  margin: 1.5rem;
+  margin: 3rem;
 }
 
 h1 {
@@ -222,7 +222,7 @@ body {
   background-color: lightgray;
 }*/
 
-#slider,
+
 .consultplaning {
   display: none;
 }
@@ -284,6 +284,7 @@ body {
   margin: 4rem 0rem 4rem 0rem;
   font-size: 4rem;
   text-align: center;
+  justify-content: center;
 }
 
 
@@ -458,6 +459,9 @@ body {
   background: #eaf4fe;
 }
 
+iframe {
+  margin:3rem;
+}
 /*.navbar-toggler-icon {
     font-size: 4em;
 
@@ -795,6 +799,15 @@ hr {
   align-items: center;
 }
 
+.imgsite {
+    width: 675px;
+    height: 225px;
+  border:#141414 2px solid;
+  box-shadow: 1px 1px 1px black;
+  margin-top:6rem;
+}
+
+
 /***********************************************
                      page panier        
  ************************************************/
@@ -989,12 +1002,7 @@ a.fab {
         color: #eaf4fe;
     }     /*/
 
-  .imgsite {
-    width: 450px;
-    height: 150px;
-    border:#141414 2px solid;
-    box-shadow: 1px 1px 1px black;
-  }
+  
 
   .titre-accueil {
     display: flex;
@@ -1264,6 +1272,8 @@ a.fab {
   .imgslider {
     width: 100%;
   }
+  
+ 
 
   #slider {
     position: relative;
@@ -1309,6 +1319,11 @@ a.fab {
     border-radius: 5%;
     font-size: 2rem;
   }
+
+  .imgsite {
+    width: 400px;
+    height: 150px;
+}
 
   /*********************************************
                  admin  desktop                

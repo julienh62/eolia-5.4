@@ -1,4 +1,4 @@
-
+<!-- page accueil -->
 
 <header id="navbar" class="nav">
     <a class="navbar-brand" href="/">
@@ -64,18 +64,19 @@
 
 
 <div id="slider">
-                <img class ="imgslider" src="{{ asset('assets/uploads/slide/char-accueiltitregros1500.webp')}}" alt = "char à voile" id="slide">
+                <img class="imgslider" alt="char à voile" id="slide">
+
            
                 <div id="precedent" onclick="ChangeSlide(-1)">&lt;</div>
                 <div id="suivant" onclick="ChangeSlide(1)">&gt;</div>
 </div>
-<div id="slidermobil">
-            	<a class="slidera" href="/">  <img class ="imgslider" src="{{ asset('assets/uploads/slide/accueil-mobil-char.webp')}}" alt = "char à voile" id="slidemobil">
+<!--<div id="slidermobil">
+           {#} 	<a class="slidera" href="/">  <img class ="imgslider" src="{{ asset('assets/uploads/slide/accueil-mobil-char.webp')}}" alt = "char à voile" id="slidemobil">#}
               </a> 
 
                 <div id="precedentmob" onclick="ChangeSlideMob(-1)">&lt;</div>
                 <div id="suivantmob" onclick="ChangeSlideMob(1)">&gt;</div>
-</div>
+</div> -->
  <button class="consultplaning" type="button">
    <a class="aderoulant" href="{{ path('app_presentation') }}">Réserver et Consulter le planing</a>
   </button>

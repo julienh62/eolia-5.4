@@ -98,17 +98,7 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
         }
         // line 11
         echo "
-    <div class=\"titremobil\">
-           
-
-          <!--    <picture>
-               <source srcset=\"";
-        // line 18
-        echo " -->
-
-
-      
-    </div> 
+ 
 
    <section class=\"titre-accueil\">
 
@@ -118,20 +108,20 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
 
       <div class=\"presentationactivities\">
              ";
-        // line 31
+        // line 21
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["titles"]) || array_key_exists("titles", $context) ? $context["titles"] : (function () { throw new RuntimeError('Variable "titles" does not exist.', 31, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["titles"]) || array_key_exists("titles", $context) ? $context["titles"] : (function () { throw new RuntimeError('Variable "titles" does not exist.', 21, $this->source); })()));
         foreach ($context['_seq'] as $context["key"] => $context["title"]) {
-            // line 32
+            // line 22
             echo "                <div class=\"presentationimgettitle\"> 
                     <img class=\"imgsite\" src=\"";
-            // line 33
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . twig_get_attribute($this->env, $this->source, (isset($context["images"]) || array_key_exists("images", $context) ? $context["images"] : (function () { throw new RuntimeError('Variable "images" does not exist.', 33, $this->source); })()), $context["key"], [], "array", false, false, false, 33))), "html", null, true);
+            // line 23
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/images/" . twig_get_attribute($this->env, $this->source, (isset($context["images"]) || array_key_exists("images", $context) ? $context["images"] : (function () { throw new RuntimeError('Variable "images" does not exist.', 23, $this->source); })()), $context["key"], [], "array", false, false, false, 23))), "html", null, true);
             echo "\" alt=\"";
             echo twig_escape_filter($this->env, $context["title"], "html", null, true);
             echo " Image\">
                     <h2 class=\"titreh2\"><a href=\"";
-            // line 34
+            // line 24
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_by_category", ["categoryTitle" => $context["title"]]), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $context["title"], "html", null, true);
@@ -142,34 +132,10 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['key'], $context['title'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
+        // line 27
         echo "           
       </div>
-         <!--  <div class=\"activiteaccueil\">
         
-              <div class=\"activitecata\">
-                     <div class=\"btnactiviteaccueil\">
-                          <a class=\"lienaccueil\" href=\"";
-        // line 43
-        echo "\"> Catamaran </a>
-                    </div>
-              </div>
-
-              <div class=\"activitechar\"> 
-                    <div class=\"btnactiviteaccueil\">  
-                          <a class=\"lienaccueil\" href=\"/\" class=\"btn btn-secondary btn-sm\"> Char à voile</a>  
-                    </div>     
-              </div>
-          
-             <div class=\"activitekid\">
-                     <div class=\"btnactiviteaccueil\">  
-                          <a class=\"lienaccueilkid\" href=\"/\" class=\"btn btn-secondary btn-sm\"> Char à voile kid </a>
-                     </div>
-             </div>
-      </div>
-            <!-- ";
-        // line 71
-        echo " -->
    </section>
 
 
@@ -206,7 +172,7 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
 
     }
 
-    // line 100
+    // line 58
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -216,16 +182,16 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 101
+        // line 59
         echo "          ";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
         echo "
          <script src=\"";
-        // line 102
+        // line 60
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/menu.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 103
+        // line 61
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/slider.js"), "html", null, true);
         echo "\"></script>
 
@@ -259,7 +225,7 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  229 => 103,  225 => 102,  220 => 101,  210 => 100,  172 => 71,  154 => 43,  146 => 37,  135 => 34,  129 => 33,  126 => 32,  122 => 31,  107 => 18,  100 => 11,  94 => 9,  92 => 8,  89 => 7,  79 => 6,  60 => 3,  37 => 1,);
+        return array (  195 => 61,  191 => 60,  186 => 59,  176 => 58,  136 => 27,  125 => 24,  119 => 23,  116 => 22,  112 => 21,  100 => 11,  94 => 9,  92 => 8,  89 => 7,  79 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -275,17 +241,7 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
          <h1>Bienvenue, {{ fullName }} !</h1>
       {% endif %}
 
-    <div class=\"titremobil\">
-           
-
-          <!--    <picture>
-               <source srcset=\"{#}{{ asset('assets/uploads/char-accueil.jpg')}}\" alt =\"char à voile Baie de Somme\" media=\"(orientation: portrait)\">
-               <img src=\"{{ asset('assets/uploads/chardepart-tab.webp')}}\"alt =\"char à voile Baie de Somme\">
-               </picture> #} -->
-
-
-      
-    </div> 
+ 
 
    <section class=\"titre-accueil\">
 
@@ -302,39 +258,7 @@ class __TwigTemplate_7aa169e45d3a9ca3e870ae8f7a4ce8f7 extends Template
             {% endfor %}
            
       </div>
-         <!--  <div class=\"activiteaccueil\">
         
-              <div class=\"activitecata\">
-                     <div class=\"btnactiviteaccueil\">
-                          <a class=\"lienaccueil\" href=\"{#{{ path('app_calendar_main_cata') }}#}\"> Catamaran </a>
-                    </div>
-              </div>
-
-              <div class=\"activitechar\"> 
-                    <div class=\"btnactiviteaccueil\">  
-                          <a class=\"lienaccueil\" href=\"/\" class=\"btn btn-secondary btn-sm\"> Char à voile</a>  
-                    </div>     
-              </div>
-          
-             <div class=\"activitekid\">
-                     <div class=\"btnactiviteaccueil\">  
-                          <a class=\"lienaccueilkid\" href=\"/\" class=\"btn btn-secondary btn-sm\"> Char à voile kid </a>
-                     </div>
-             </div>
-      </div>
-            <!-- {#} <div class=\"activiteaccueil\">
-                  {% for category in categories %}
-            {% set imageUrl = categoryImages[category.title] %}
-             <div class=\"activiteByTitle {{ category.title|lower|replace({' ': ''}) }}\" style=\"background-image: url('{{ imageUrl['image'] ?? '' }}')\">
-
-           <div class=\"activitecata\" style=\"background-image: url('{{ imageUrl['image'] ?? '' }}')\"> 
-                <div class=\"btnactiviteaccueil\">
-                                    <a class=\"lienaccueil\" href=\"{{ path('app_agenda_by_category', {'categoryTitle': category.title}) }}\">{{ category.title }}</a>
-                              </div>
-                        </div>
-                  {% endfor %}
-            </div>
-      </div>#} -->
    </section>
 
 
