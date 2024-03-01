@@ -49,7 +49,7 @@ class AdminPurchaseUserController extends AbstractController
             ];
         }
         
-        return $this->render('admin/user/show_purchase.html.twig', [
+        return $this->render('admin/admin_user/show_purchase.html.twig', [
             'purchases' => $purchases,
             'user' => $user,
         ]);

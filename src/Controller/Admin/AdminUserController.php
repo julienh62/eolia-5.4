@@ -85,70 +85,66 @@ class AdminUserController extends AbstractController
         ]);
     }
 
-   /* #[Route('search/{searchItem}', name: 'user_search')]
-    public function searchUser(  UserRepository $userRepository,  $searchItem = null):JsonResponse
-    {
-      //
-    $user = $userRepository->getByEmail($searchItem);
-
-// 200 c'est le statut http attendu
-//etape 3
-        return $this->json( $user, 200, [], ['groups' => 'user:read']
-        );
-    }  */
+   
        
-
+        /**
+     * Recherche des utilisateurs par leur adresse e-mail.
+     *
+     * @param UserRepository $userRepository L'instance du repository des utilisateurs.
+     * @param string|null $searchItem L'e-mail partiel à rechercher.
+     * @return JsonResponse La réponse JSON contenant les utilisateurs correspondants ou un tableau vide.
+     */
     #[Route('search/{searchItem}', name: 'user_search')]
-public function searchUser(UserRepository $userRepository, $searchItem = null): JsonResponse
-{
-    // Vérifiez d'abord si $searchItem n'est pas vide
-    if ($searchItem === null || trim($searchItem) === '') {
-        // Gestion du cas où la saisie est vide ou null
-        return $this->json([], 200);
+    public function searchUser(UserRepository $userRepository, $searchItem = null): JsonResponse
+    {
+        // Vérification d'abord si $searchItem n'est pas vide
+        if ($searchItem === null || trim($searchItem) === '') {
+            // Gestion du cas où la saisie est vide ou null
+            return $this->json([], 200);
+        }
+
+        // méthode du repository pour rechercher des utilisateurs par correspondance partielle
+        $users = $userRepository->searchByPartialEmail($searchItem);
+
+        return $this->json($users, 200, [], ['groups' => 'user:read']);
     }
 
-    // Utilisez une méthode du repository pour rechercher des utilisateurs par correspondance partielle
-    $users = $userRepository->searchByPartialEmail($searchItem);
 
-    return $this->json($users, 200, [], ['groups' => 'user:read']);
-}
+    #[Route('searchname/{searchItemName}', name: 'user_searchname')]
+    public function searchUserName(UserRepository $userRepository, $searchItemName = null): JsonResponse
+    {
+        // Utilisez la méthode searchByPartialName pour rechercher des utilisateurs par nom partiel
+        $users = $userRepository->searchByPartialName($searchItemName);
 
-
-#[Route('searchname/{searchItemName}', name: 'user_searchname')]
-public function searchUserName(UserRepository $userRepository, $searchItemName = null): JsonResponse
-{
-    // Utilisez la méthode searchByPartialName pour rechercher des utilisateurs par nom partiel
-    $users = $userRepository->searchByPartialName($searchItemName);
-
-    return $this->json($users, 200, [], ['groups' => 'user:read']);
-}
+        return $this->json($users, 200, [], ['groups' => 'user:read']);
+    }
 
 // UserController.php
 
-#[Route('searchphone/{phone}', name: 'user_searchphone')]
-public function searchByPhone(UserRepository $userRepository, $phone = null): JsonResponse
-{
-    // Utilisez la méthode searchByPartialPhone (à créer dans UserRepository) pour rechercher des utilisateurs par numéro de téléphone partiel
-    $users = $userRepository->searchByPartialPhone($phone);
+    #[Route('searchphone/{phone}', name: 'user_searchphone')]
+    public function searchByPhone(UserRepository $userRepository, $phone = null): JsonResponse
+    {
+        // Utilisez la méthode searchByPartialPhone (à créer dans UserRepository) pour rechercher des utilisateurs par numéro de téléphone partiel
+        $users = $userRepository->searchByPartialPhone($phone);
 
-    return $this->json($users, 200, [], ['groups' => 'user:read']);
-}
+        return $this->json($users, 200, [], ['groups' => 'user:read']);
+    }
 
 
 
     #[Route('admin/user/delete/{id}', name: 'admin_user_delete', methods: ['GET'])]
     public function delete( User $user, UserRepository $userRepository, PurchaseRepository $purchaseRepository): Response
     {
-        // Check if there are related purchases for this user
-     $relatedPurchases = $purchaseRepository->findBy(['user' => $user]);
+            // Check if there are related purchases for this user
+        $relatedPurchases = $purchaseRepository->findBy(['user' => $user]);
 
-      // Delete related purchases first
-    foreach ($relatedPurchases as $purchase) {
-        $purchaseRepository->remove($purchase, true);
-    }
-    // Now you can safely delete the user
-        $userRepository->remove($user, true); 
+        // Delete related purchases first
+        foreach ($relatedPurchases as $purchase) {
+            $purchaseRepository->remove($purchase, true);
+        }
+        // Now you can safely delete the user
+            $userRepository->remove($user, true); 
 
-    return $this->redirectToRoute('admin_user_index');
+        return $this->redirectToRoute('admin_user_index');
     }
 }

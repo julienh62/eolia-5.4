@@ -86,18 +86,27 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     }
 
-/**
- * @param string $searchItem La saisie partielle de l'e-mail de l'utilisateur
- * @return User[] Returns an array of User objects
- */
-public function searchByPartialEmail($searchItem)
-{
-    return $this->createQueryBuilder('u')
-        ->where('LOWER(u.email) LIKE :searchItem')
-        ->setParameter('searchItem', '%' . strtolower($searchItem) . '%')
-        ->getQuery()
-        ->getResult();
-}
+    /**
+     * Recherche des utilisateurs par une saisie partielle de leur adresse e-mail.
+     *
+     * @param string $searchItem La saisie partielle de l'e-mail de l'utilisateur.
+     * @return User[] Retourne un tableau d'objets User.
+     */
+    public function searchByPartialEmail($searchItem)
+    {
+        // Crée une requête pour récupérer les utilisateurs
+        return $this->createQueryBuilder('u')
+             // Ajoute une condition pour rechercher les e-mails 
+             //correspondant partiellement à la saisie
+            ->where('LOWER(u.email) LIKE :searchItem')
+            /*  Associe la valeur de la saisie à la clause WHERE, 
+            en l'entourant de `%` pour rechercher des correspondances partielles*/
+            ->setParameter('searchItem', '%' . strtolower($searchItem) . '%')
+            // Exécute la requête 
+            ->getQuery()
+           // retourne les résultats
+            ->getResult();
+    }
 
 
 
