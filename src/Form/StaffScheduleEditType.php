@@ -3,6 +3,9 @@
 namespace App\Form;
 
 use App\Entity\StaffSchedule;
+use App\Entity\Category;
+use App\Repository\CategoryRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,7 +25,18 @@ class StaffScheduleEditType extends CalendarType
         ->add('end', DateTimeType::class, [
             'date_widget' => 'single_text',
             'label' => 'End',
-        ]);    
+        ])
+        ->add('category', EntityType::class, [
+            'class' => Category::class,
+            'query_builder' => function (CategoryRepository $er) { // CategoryRepository
+                return $er->createQueryBuilder('c')
+                    ->andWhere('c.activity = :activity')
+                    ->setParameter('activity', false);
+            },
+            'choice_label' => 'titleCategory',
+            'label' => 'Catégorie',
+        ]);  
+        ;    
        
     }
 

@@ -164,7 +164,7 @@ public function getActivityByCategoryTitle(string $categoryTitle)
 /**
  * @return Calendar[] Returns an array of Calendar objects
  */
-public function filter($filter, $min, $begin, $end, $category): array
+public function filter($filter, $min, $begin, $end, $id, $category): array
 {
     $conn = $this->getEntityManager()->getConnection();
 
@@ -182,7 +182,14 @@ public function filter($filter, $min, $begin, $end, $category): array
             'begin' => $begin,
             'end' => $end,
             'min' => $min,
+
         ];
+
+            // Vérifiez si l'ID est spécifié, si oui, ajoutez la condition à la requête
+            if ($id !== null) {
+                $sql .= ' AND cal.id = :id';
+                $parameters['id'] = $id;
+            }
 
         // Check if the category is 'all', if not, add category filter
         if ($category !== 'all') {
@@ -190,13 +197,13 @@ public function filter($filter, $min, $begin, $end, $category): array
             $parameters['category'] = $category;
         }
             // Before executing the query
-dump($sql);
-dump([
+//dump($sql);
+/*dump([
     'begin' => $begin,
     'end' => $end,
     'min' => $min,
     'category' => $category
-]);
+]);*/
 
 $stmt = $conn->executeQuery($sql, [
     'begin' => $begin,

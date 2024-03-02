@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use App\Entity\Category;
+use App\Repository\CategoryRepository;
 use App\Entity\Activity;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -40,8 +41,16 @@ class ActivityEditType extends CalendarType
                 ],
                 'divisor' => 100
             ])
-          //  ->add('modifiedPrice')
-    ;
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'query_builder' => function (CategoryRepository $er) { // CategoryRepository
+                    return $er->createQueryBuilder('c')
+                        ->andWhere('c.activity = :activity')
+                        ->setParameter('activity', true);
+                },
+                'choice_label' => 'titleCategory',
+                'label' => 'Catégorie',
+            ]);
             
     }
 

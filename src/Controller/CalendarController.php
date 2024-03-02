@@ -56,10 +56,11 @@ class CalendarController extends AbstractController
         $min = $request->get("min");
         $begin = $request->get("begin");
         $end = $request->get("end");
+        $id = $request->get("id");
         $category = $request->get("category");
     
         // Filtrer les séances du calendrier en fonction des paramètres
-        $calendars = $calendarRepository->filter($filter, $min, $begin, $end, $category);
+        $calendars = $calendarRepository->filter($filter, $min, $begin, $end,$id, $category);
     
         // Formater les dates des séances avec le service Formatdate
         foreach ($calendars as &$calendarData) {
@@ -74,6 +75,8 @@ class CalendarController extends AbstractController
            // Ajouter l'URL pour la séance en utilisant son ID
             $calendarData['url'] = $this->generateUrl('app_activitie_show', ['id' => $calendarData['id']]);
           // dd($calendarData['url']);
+
+      
 
         }
 

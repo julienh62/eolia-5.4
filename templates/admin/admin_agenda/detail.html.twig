@@ -3,219 +3,113 @@
 {% block title %}Calendar{% endblock %}
 
 {% block body %}
-
+ <h2>Type de creneau  ; {{ typeCalendar }}</h2>
 {% if activitie  %}
 
-
-
-    <h1> Détail de la séances {{ calendar.title }} </h1>
-    <h2> {{  formattedStartDate  }}</h2>
-      {% for staff in calendar.staffs %}
-                    <h2> Staff:  {{ staff.fullName }} </h2>
-                  {% endfor %}
+    <h1>Détail de la séance {{ calendar.title }}</h1>
+   
+    <h2>{{ formattedStartDate }}</h2>
+    {% for staff in calendar.staffs %}
+        <h2> Staff: {{ staff.fullName }} </h2>
+    {% endfor %}
     <h3>Disponibilité {{ calendar.stock }}/{{ calendar.stock + sommequantitecommande }}</h3>
 
-    <div class ="show-detail">
+    <div class="show-detail">
         {% for item in image %}
-            {#   {{ dump(pimage) }}   #}
             {% if item.image is not null %}
                 <img class="imgsite" src="{{ item.image }}" alt="Image de {{ calendar.title }}">
             {% endif %}
         {% endfor %}
-    <h2> <a href="{{ path('admin_agenda_list_print', {'id': calendar.id}) }}">Liste des utilisateurs à imprimer </a></h2>
-
+        <h2><a href="{{ path('admin_agenda_list_print', {'id': calendar.id}) }}">Liste des utilisateurs à imprimer</a></h2>
     </div>
 
-    </tr>
     <table class="table">
         <tbody>
-
-
-     
-
-
-    
-         {#   <th>Quantité-commandée</th>
-         
-           {{ dump(calendarQuantityClient.quantity) }} 
-           <td>{{ calendarQuantityClient.quantity }}</td> #}
-        
-
         <tr>
             <th>Nom du client</th>
             <th>Quantité commandée</th>
-          <!--  <th>numero commande client</th>-->
             <th>Id client</th>
-           <th>Action</th> 
-           <th>Action</th> 
+            <th>Action</th>
+            <th>Action</th>
         </tr>
-                {% for clientName, totals in clientTotals %}
-                    <tr>
-                        <td>{{ clientName }}</td>
-                        <td>{{totals.totalQuantity }}</td>
-                     <!--   <td>{#  {{  totals.purchaseId}}#}</td> -->
-                        <td>{{  totals.userId}}</td>
-
-                <td>
-                    <a href="  {{ path('admin_calendar_add_user', {'id': id}) }}">Ajouter </a>
-                </td>
-                  {#     <td><a href="{{ path('delete_user_purchase', {'id':id, 'userId':totals.userId} ) }}" data-confirm=
-                  "Êtes-vous sûr de vouloir supprimer la commande de cet utilisateur?">Supprimer </a></td>#}
-                      <td><a href="{{ path('all_userid_show', { 'id':totals.userId }) }}"> ouvrir les commandes du client </a></td>
-                    </tr>
-
-
-                        {% endfor %}
-
-
-
-
-<hr>
-           <tr>
+        {% for clientName, totals in clientTotals %}
+            <tr>
+                <td>{{ clientName }}</td>
+                <td>{{ totals.totalQuantity }}</td>
+                <td>{{ totals.userId }}</td>
+                <td><a href="{{ path('admin_calendar_add_user', {'id': id}) }}">Ajouter </a></td>
+                <td><a href="{{ path('all_userid_show', {'id': totals.userId}) }}"> ouvrir les commandes du client </a></td>
+            </tr>
+        {% endfor %}
+        <hr>
+        <tr>
             <th>Total </th>
-          <td>  {{ sommequantitecommande }} </td>
-          </tr>
-  <tr>
+            <td>{{ sommequantitecommande }}</td>
+        </tr>
+        <tr>
             <th>Quantité-restante</th>
             <td>{{ calendar.stock }}</td>
         </tr>
-       
         <tr>
             <th>Titre</th>
             <td>{{ calendar.title }}</td>
         </tr>
-
         <tr>
             <th>Date de début</th>
-            <td>{{ formattedStartDate ? formattedStartDate| trans : ''  }}</td>
+            <td>{{ formattedStartDate ? formattedStartDate|trans : '' }}</td>
         </tr>
         <tr>
             <th>Date de fin</th>
-            <td>{{ formattedEndDate ? formattedEndDate| trans : '' }}</td>
+            <td>{{ formattedEndDate ? formattedEndDate|trans : '' }}</td>
         </tr>
         <tr>
             <th>Prix</th>
-            <td>{{ calendar.price | amount   }}</td>
+            <td>{{ calendar.price | amount }}</td>
         </tr>
-
-
-
         <tr>
             <th>Id activité</th>
             <td>{{ calendar.id }}</td>
         </tr>
-   
-
-
         </tbody>
     </table>
 
-
-
+    <div class="action">
+        <a href="{{ path('admin_calendar_add_user', {'id': id}) }}">Ajouter un utilisateur</a>
+    </div>
 
     <div class="action">
-                
-
-                <a href="{{ path('admin_calendar_add_user', {'id': id}) }}">Ajouter un utilisateur</a>
-
-              
-    </div>
-
-     <div class="action"> 
         <a href="{{ path('app_admin_agenda') }}">Retour au calendrier</a>
-
-        <a href="{{ path('admin_activity_edit', {'id': calendar.id}) }}">Modifier</a>      
-                 {{ include('admin/calendar/_delete_form.html.twig') }}  
+        <a href="{{ path('admin_activity_edit', {'id': calendar.id}) }}">Modifier</a>
+        {{ include('admin/calendar/_delete_form.html.twig') }}
     </div>
 
+{% else %}
 
-
-
-
-
-           {% else %}
-
-
-
-  <table class="table">
+    <table class="table">
         <tbody>
-
-
-     
-
-
-    
-         {#   <th>Quantité-commandée</th>
-         
-           {{ dump(calendarQuantityClient.quantity) }} 
-           <td>{{ calendarQuantityClient.quantity }}</td> #}
-        
-
-        
-
-<hr>
-          
         <tr>
             <th>Titre</th>
             <td>{{ calendar.title }}</td>
         </tr>
-
         <tr>
             <th>Date de début</th>
-            <td>{{ formattedStartDate ? formattedStartDate| trans : ''  }}</td>
+            <td>{{ formattedStartDate ? formattedStartDate|trans : '' }}</td>
         </tr>
         <tr>
             <th>Date de fin</th>
-            <td>{{ formattedEndDate ? formattedEndDate| trans : '' }}</td>
+            <td>{{ formattedEndDate ? formattedEndDate|trans : '' }}</td>
         </tr>
-      
-
-
-   
-
-
         </tbody>
     </table>
 
-
-     <div class="action"> 
+    <div class="action">
         <a href="{{ path('app_admin_agenda') }}">Retour au calendrier</a>
-
-        <a href="{{ path('admin_staff_edit', {'id': calendar.id}) }}">Modifier staffSchedule</a>      
-               {  {{ include('admin/calendar/_delete_form.html.twig') }}  
+        {% if not activitie %}
+            <a href="{{ path('admin_staff_edit', {'id': calendar.id}) }}">Modifier staffSchedule</a>
+        {% endif %}
+        {{ include('admin/calendar/_delete_form.html.twig') }}
     </div>
-
-
-
-
-
 
 {% endif %}
 
-
-
-
-
-   
-     
-   
-
-
-
-
-{% endblock %}
-
-{% block javascripts %}
-<script>
-    // Sélectionnez tous les éléments avec l'attribut data-confirm
-    const confirmButtons = document.querySelectorAll('[data-confirm]');
-
-    // Attachez un gestionnaire d'événements clic à chaque bouton
-    confirmButtons.forEach(button => {
-        button.addEventListener('click', function (e) {
-
-            }
-        });
-    });
-</script>
 {% endblock %}

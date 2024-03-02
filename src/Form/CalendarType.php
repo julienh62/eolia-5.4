@@ -50,7 +50,7 @@ class CalendarType extends AbstractType
                 ]
             ])
         
-            ->add('category')
+           ->add('category')
           
 
         ;

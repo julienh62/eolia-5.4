@@ -515,17 +515,18 @@ iframe {
   max-width: 600px;
   padding: 20px;
 }
-#activity_edit_start_time, #activity_edit_end_time
-{
+
+#activity_edit_start_time, #activity_edit_end_time, #activity_start_time, #activity_end_time, #activity_category, 
+#activity_edit_category, #staff_schedule_start_time, #staff_schedule_end_time {
  
    margin: 4rem
 }
 #activity_edit_start_time_minute, #activity_edit_start_time_hour
-, #activity_edit_end_time_hour, #activity_edit_end_time_minute {
- font-size:16px;
-}
-.required {
-  margin: 2rem;
+, #activity_edit_end_time_hour, #activity_edit_end_time_minute , #activity_start_time_hour,
+ #activity_start_time_minute, #activity_end_time_hour ,#activity_end_time_minute, #activity_category,
+  #activity_edit_category , #staff_schedule_start_time_hour, #staff_schedule_start_time_minute, 
+  #staff_schedule_end_time_hour, #staff_schedule_end_time_minute, #staff_schedule_category {
+ font-size:18px;
 }
 
 .registration-form label[for="registrationForm_plainPassword"] {

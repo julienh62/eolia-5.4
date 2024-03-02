@@ -144,6 +144,7 @@ class AdminAgendaDetailController extends AbstractController
             'staffs' => $staffs,
             'userId' => $userId,
             'image' => $image,
+            'typeCalendar' => $typeCalendar
           
           //  'price' => $price
         ]);
