@@ -12,9 +12,8 @@ input.addEventListener('input', function() {
     // l'utilisateur saisit quelque chose
 });
 
- // Récupère le contenu de l'input en supprimant les espaces blancs avant et après
+// Récupère le contenu de l'input en supprimant les espaces blancs avant et après
 
-users.forEach(user => {
 function searchUser() {
     let searchTerm = input.value.trim();
     if (searchTerm === '') {

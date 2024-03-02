@@ -23,41 +23,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminCalendarController extends AbstractController
 {
 
- /*  #[Route('admin/calendar', name: 'app_admin_calendar_index', methods: ['GET'])]
-    public function index(CalendarRepository $calendarRepository, ActivityRepository $activityRepository,
-      Formatdate $formatdateService , StaffScheduleRepository $staffScheduleRepository): Response
-    {
-        $calendars = $calendarRepository->findAll();
-     //   $activities = $activityRepository->findAll();
-     //   $staffSchedules = $staffScheduleRepository->findAll();
-
-     
-
-      // Obtenez le nom de la classe de l'entité Calendar
-      $typeCalendar = (new \ReflectionClass(Calendar::class))->getShortName();
-
-        setlocale(LC_TIME, 'fr_FR');
-
-   
-        // Formate les dates avec le service Formatdate
-        foreach ($calendars as $calendar) {
-            $calendar->formattedStartDate = $formatdateService->formatCustomDate($calendar->getStart());
-            $calendar->formattedEndDate = $formatdateService->formatCustomDate($calendar->getEnd());
-        }
-
-        return $this->render('admin/admin_calendar/index.html.twig', [
-          //  'staffSchedules' => $staffSchedules,
-            //'activities' => $activities,
-                'calendars' => $calendars,
-                'typeCalendar' => $typeCalendar
-        ]);
-    }  */
-
     #[Route('admin/createCalendarChoose', name: 'app_admin_formChooseCalendar')]
     public function chooseLocationForm(Request $request): Response
     {
         $clickedDate = $request->cookies->get('clickedDate');
-      
         // dd($clickedDate);
         
         return $this->render('admin/admin_calendar/chooseCalendar.html.twig', [
@@ -97,8 +66,7 @@ class AdminCalendarController extends AbstractController
             return $response;
     }
 
-             //   return $this->redirectToRoute('app_admin_calendar_index', [], Response::HTTP_SEE_OTHER);
-          //  }
+           
                 // dd($form);
             return $this->render('admin/admin_calendar/new.html.twig', [
                 'calendar' => $calendar,

@@ -74,59 +74,7 @@ class CalendarRepository extends ServiceEntityRepository
     }
 
 
-    
- 
-//    /**
-//     * @return Calendar[] Returns an array of Calendar objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
 
-//    public function findOneBySomeField($value): ?Calendar
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
-
- /**
-     * @return Calendar[] Returns an array of Calendar objects
-     */
- /*   public function getAllChar()
-    {
-        return $this->createQueryBuilder('s')
-          ->where("s.category = 1 ")
-          ->orderBy("s.start", "desc")
-          ->getQuery()
-          ->getResult()
-       ;
-    }
-
-/**
-     * @return Calendar[] Returns an array of Calendar objects
-     */
-  /*  public function getAll()
-    {
-    
-        return $this->createQueryBuilder('s')
-          ->orderBy("s.start", "desc")
-          ->getQuery()
-          ->getResult()
-       ;
-    }
-*/
 
 
 public function getAllCharCataKid()

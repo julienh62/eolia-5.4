@@ -119,7 +119,7 @@ class AdminUserController extends AbstractController
         return $this->json($users, 200, [], ['groups' => 'user:read']);
     }
 
-// UserController.php
+
 
     #[Route('searchphone/{phone}', name: 'user_searchphone')]
     public function searchByPhone(UserRepository $userRepository, $phone = null): JsonResponse

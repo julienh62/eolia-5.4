@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         //console.log("FormSearchActivity : QueryString :", queryString);
 
-        // Envoyez une requête Ajax GET avec la chaîne de requête
+        // Envoyez une requête fetch GET avec la chaîne de requête
         fetch('/filter?' + queryString, {
             method: 'GET'
         })
@@ -70,15 +70,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     const calendarItem = document.createElement('div');
                     calendarItem.classList.add('calendar-item');
 
-                    // Créez du contenu HTML pour chaque calendrier
-                    calendarItem.innerHTML = `
+                    // Créez du contenu HTML pour chaque calendrier avec un lien vers les détails de la séance
+                        calendarItem.innerHTML = `
+                        <a href="${calendar.url}">
                         <p>${calendar.title}</p>
                         <p>Start: ${calendar.formattedStartDate}</p>
                         <p>End: ${calendar.formattedEndDate}</p>
                         <p>Price: ${(calendar.price / 100).toFixed(2)} €</p>       
                         <p>Stock: ${calendar.stock}</p>
+                        <p>Voir la séance</p>
+                    </a>
                     `;
-
                     // Ajoutez l'élément du calendrier à la liste
                     calendarList.appendChild(calendarItem);
 
@@ -87,6 +89,9 @@ document.addEventListener("DOMContentLoaded", function() {
                         const separator = document.createElement('hr');
                         calendarList.appendChild(separator);
                     }
+
+                     // Affichez l'URL de la séance dans la console
+                     console.log("URL de la séance :", calendar.url);
                 });
             }
 
