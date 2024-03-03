@@ -11,7 +11,7 @@
              <a href="{{ path('app_agenda') }}"> Toutes les activités</a> 
                  {% for category in generateCategoryLinks() %}
                  {#url_encode Twig convertit tous les caractères spéciaux et les caractères non sécurisés en leur équivalent codé en pourcentage (également appelé URL encoding).#}
-                <a class="asous" href="{{ path('app_agenda_by_category', {'categoryTitle': category.titleCategory|url_encode}) }}">{{ category.titleCategory }}</a>
+                <a class="asous" href="{{ path('app_agenda_by_category', {'categoryTitle': category.titleCategory }) }}">{{ category.titleCategory }}</a>
               {% endfor %}
             </div>
               {#{{ category.titleCategory|e }} #}

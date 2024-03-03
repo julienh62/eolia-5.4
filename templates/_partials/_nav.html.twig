@@ -9,7 +9,7 @@
             <div class="content">
               <a class="asous" href="{{ path('app_agenda')}}"> Toutes les activités</a>
               {% for category in generateCategoryLinks() %}
-                <a class="asous" href="{{ path('app_agenda_by_category', {'categoryTitle': category.titleCategory}) }}">{{ category.titleCategory }}</a>
+                    <a class="asous" href="{{ path('app_agenda_by_category', {'categoryTitle': category.titleCategory }) }}">{{ category.titleCategory }}</a>
               {% endfor %}
             </div>
     </div>

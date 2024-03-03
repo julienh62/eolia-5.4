@@ -18,20 +18,6 @@ abstract class AbstractAgendaController extends AbstractController
 
     }
 
- /*   protected function renderAgendaByCategory(string $categoryTitle, ): Response
-    {
-        $image = $this->calendarRepository->getCategoryImage($categoryTitle);
-        $data = $this->eventService->getEventData($categoryTitle);
-
-        return $this->render('agenda/agenda.html.twig', [
-            'data' => $data,
-            'categoryTitle' => $categoryTitle,
-            'image' => $image,
-        ]);
-    }
-}*/
-
-
 
         protected function renderAgendaByCategory(string $categoryTitle): Response
         {

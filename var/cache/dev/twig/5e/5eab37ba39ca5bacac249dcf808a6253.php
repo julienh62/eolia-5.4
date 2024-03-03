@@ -62,7 +62,7 @@ class __TwigTemplate_20d613f9199e2191f871309e34ff5fe2 extends Template
         $context['_seq'] = twig_ensure_traversable($this->extensions['App\Twig\GenerateLinkExtension']->generateCategoryLinks());
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
             // line 12
-            echo "                <a class=\"asous\" href=\"";
+            echo "                    <a class=\"asous\" href=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_by_category", ["categoryTitle" => twig_get_attribute($this->env, $this->source, $context["category"], "titleCategory", [], "any", false, false, false, 12)]), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "titleCategory", [], "any", false, false, false, 12), "html", null, true);
@@ -230,7 +230,7 @@ if (montantPanier !== 0.0) {
             <div class=\"content\">
               <a class=\"asous\" href=\"{{ path('app_agenda')}}\"> Toutes les activités</a>
               {% for category in generateCategoryLinks() %}
-                <a class=\"asous\" href=\"{{ path('app_agenda_by_category', {'categoryTitle': category.titleCategory}) }}\">{{ category.titleCategory }}</a>
+                    <a class=\"asous\" href=\"{{ path('app_agenda_by_category', {'categoryTitle': category.titleCategory }) }}\">{{ category.titleCategory }}</a>
               {% endfor %}
             </div>
     </div>

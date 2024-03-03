@@ -66,7 +66,7 @@ class __TwigTemplate_19a20dab5ee67dc8395285adc8ec260c extends Template
             echo "                 ";
             // line 14
             echo "                <a class=\"asous\" href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_by_category", ["categoryTitle" => twig_urlencode_filter(twig_get_attribute($this->env, $this->source, $context["category"], "titleCategory", [], "any", false, false, false, 14))]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_agenda_by_category", ["categoryTitle" => twig_get_attribute($this->env, $this->source, $context["category"], "titleCategory", [], "any", false, false, false, 14)]), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "titleCategory", [], "any", false, false, false, 14), "html", null, true);
             echo "</a>
@@ -262,7 +262,7 @@ if (montantPanier !== 0.0) {
              <a href=\"{{ path('app_agenda') }}\"> Toutes les activités</a> 
                  {% for category in generateCategoryLinks() %}
                  {#url_encode Twig convertit tous les caractères spéciaux et les caractères non sécurisés en leur équivalent codé en pourcentage (également appelé URL encoding).#}
-                <a class=\"asous\" href=\"{{ path('app_agenda_by_category', {'categoryTitle': category.titleCategory|url_encode}) }}\">{{ category.titleCategory }}</a>
+                <a class=\"asous\" href=\"{{ path('app_agenda_by_category', {'categoryTitle': category.titleCategory }) }}\">{{ category.titleCategory }}</a>
               {% endfor %}
             </div>
               {#{{ category.titleCategory|e }} #}
