@@ -247,14 +247,18 @@ console.log(\"coucou\");
                 //agrandir depuis le haut de la cellule
                 eventResizableFromStart: true,
 
-              //crée un objet (event et oldevent(date d'origine)) à chaque fois que je clique un rdv
+             
+              // Créer un objet (event et oldevent(date d'origine)) à chaque fois que je clique un rendez-vous
+              // convertir les caractères non-ASCII et certains caractères spéciaux en une 
+              //représentation sécurisée qui peut être transmise via les URL. 
                 eventClick: function(e) {
-                    let id = e.event.id;
-                 //   let url = \"https://127.0.0.1:8000/admin/calendarshowuser/\" + id;
-                   // window.location.href = url;
-                       let url = \"https://127.0.0.1:8000/admin/agendadetail/\" + id;
+                    let id = encodeURIComponent(e.event.id);
+                    let url = \"https://127.0.0.1:8000/admin/agendadetail/\" + id;
                     window.location.href = url;
                 },
+
+
+
 
                 // Action lors du clic sur une date
                 dateClick: function(info) {
@@ -270,8 +274,16 @@ console.log(\"coucou\");
 
 
             // Ouvrir la page de création de séance
-              var url = 'https://127.0.0.1:8000/admin/createCalendarChoose';
-          window.location.href = url;
+           //   var url = 'https://127.0.0.1:8000/admin/createCalendarChoose';
+             // window.location.href = url;
+
+            // Ouvrir la page de création de séance
+            let baseUrl = 'https://127.0.0.1:8000/admin/';
+            let path = 'createCalendarChoose';
+            let url = baseUrl + encodeURIComponent(path);
+            window.location.href = url;
+
+
            
 
                 }
@@ -458,14 +470,18 @@ console.log(\"coucou\");
                 //agrandir depuis le haut de la cellule
                 eventResizableFromStart: true,
 
-              //crée un objet (event et oldevent(date d'origine)) à chaque fois que je clique un rdv
+             
+              // Créer un objet (event et oldevent(date d'origine)) à chaque fois que je clique un rendez-vous
+              // convertir les caractères non-ASCII et certains caractères spéciaux en une 
+              //représentation sécurisée qui peut être transmise via les URL. 
                 eventClick: function(e) {
-                    let id = e.event.id;
-                 //   let url = \"https://127.0.0.1:8000/admin/calendarshowuser/\" + id;
-                   // window.location.href = url;
-                       let url = \"https://127.0.0.1:8000/admin/agendadetail/\" + id;
+                    let id = encodeURIComponent(e.event.id);
+                    let url = \"https://127.0.0.1:8000/admin/agendadetail/\" + id;
                     window.location.href = url;
                 },
+
+
+
 
                 // Action lors du clic sur une date
                 dateClick: function(info) {
@@ -481,8 +497,16 @@ console.log(\"coucou\");
 
 
             // Ouvrir la page de création de séance
-              var url = 'https://127.0.0.1:8000/admin/createCalendarChoose';
-          window.location.href = url;
+           //   var url = 'https://127.0.0.1:8000/admin/createCalendarChoose';
+             // window.location.href = url;
+
+            // Ouvrir la page de création de séance
+            let baseUrl = 'https://127.0.0.1:8000/admin/';
+            let path = 'createCalendarChoose';
+            let url = baseUrl + encodeURIComponent(path);
+            window.location.href = url;
+
+
            
 
                 }

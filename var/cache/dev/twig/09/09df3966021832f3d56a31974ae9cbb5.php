@@ -215,13 +215,11 @@ class __TwigTemplate_0205a1cc4a0d319b24f97fead5ad28b2 extends Template
                     });
 
                     calendar.on('eventClick', (e) => {
-                        let donnees = {
-                            \"id\": e.event.id
-                        };
-                        let id = donnees.id;
-                        let url = \"https://127.0.0.1:8000/activitieshow/\" + id;
-                        window.location.href = url;
+                    let encodedId = encodeURIComponent(e.event.id);
+                    let url = \"https://127.0.0.1:8000/activitieshow/\" + encodedId;
+                    window.location.href = url;
                     });
+
 
                     calendar.render();
                     updateCalendarDuration();
@@ -373,13 +371,11 @@ class __TwigTemplate_0205a1cc4a0d319b24f97fead5ad28b2 extends Template
                     });
 
                     calendar.on('eventClick', (e) => {
-                        let donnees = {
-                            \"id\": e.event.id
-                        };
-                        let id = donnees.id;
-                        let url = \"https://127.0.0.1:8000/activitieshow/\" + id;
-                        window.location.href = url;
+                    let encodedId = encodeURIComponent(e.event.id);
+                    let url = \"https://127.0.0.1:8000/activitieshow/\" + encodedId;
+                    window.location.href = url;
                     });
+
 
                     calendar.render();
                     updateCalendarDuration();

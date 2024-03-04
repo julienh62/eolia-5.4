@@ -107,14 +107,12 @@
 
                     });
 
-                    calendar.on('eventClick', (e) => {
-                        let donnees = {
-                            "id": e.event.id
-                        };
-                        let id = donnees.id;
-                        let url = "https://127.0.0.1:8000/activitieshow/" + id;
+                        calendar.on('eventClick', (e) => {
+                        let encodedId = encodeURIComponent(e.event.id);
+                        let url = "https://127.0.0.1:8000/activitieshow/" + encodedId;
                         window.location.href = url;
-                    });
+                        });
+
 
                     calendar.render();
                     updateCalendarDuration(); // Initial call to set the calendar duration

@@ -5,12 +5,11 @@
 {% block body %}
    <div class="milieu">
     <h1> {{ activity.title }}</h1>
-    {#   {% for item in picture %}
-         {#   {{ dump(picture) }}   #}
-    {#       {% if item.picture is not null %}
-             <!--  <img class="imgsite" src="{#{{ item.picture }} " alt="Image de {#{{ activity.title }}">-->
-           {% endif %}
-       {% endfor %}  #}
+     
+       
+        <img class="imgsite" src="{{ asset('uploads/images/' ~ activity.category.image) }}" alt="{{ activity.title }} Baie de Somme">
+
+
 
 
        <table class="table">
@@ -57,7 +56,7 @@
 {% if activity.stock > 0 %}
      <div class="milieu">
            <a href="{{ path('cart_add', {'id': activity.id}) }}">Ajouter au panier</a>
-          <a href="{{ path('app_activitie_index') }}">Retour à la liste</a>
+          <a href="{{ path('app_calendar_filter') }}">Retour à la liste</a>
     </div>
 {% else %}
     <div class="milieu">
