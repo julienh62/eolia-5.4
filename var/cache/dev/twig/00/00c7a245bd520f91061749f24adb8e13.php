@@ -273,9 +273,6 @@ console.log(\"coucou\");
                
 
 
-            // Ouvrir la page de création de séance
-           //   var url = 'https://127.0.0.1:8000/admin/createCalendarChoose';
-             // window.location.href = url;
 
             // Ouvrir la page de création de séance
             let baseUrl = 'https://127.0.0.1:8000/admin/';
@@ -496,9 +493,6 @@ console.log(\"coucou\");
                
 
 
-            // Ouvrir la page de création de séance
-           //   var url = 'https://127.0.0.1:8000/admin/createCalendarChoose';
-             // window.location.href = url;
 
             // Ouvrir la page de création de séance
             let baseUrl = 'https://127.0.0.1:8000/admin/';
