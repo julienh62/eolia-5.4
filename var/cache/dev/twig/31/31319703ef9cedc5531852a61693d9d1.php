@@ -94,7 +94,7 @@ class __TwigTemplate_12f2f491ebac4e50b2b2ffd9e9a0fd99 extends Template
 
     <a href=\"";
         // line 10
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_staff_index");
         echo "\">Retour à la liste</a>
 
     ";
@@ -145,7 +145,7 @@ class __TwigTemplate_12f2f491ebac4e50b2b2ffd9e9a0fd99 extends Template
 
     {{ include('admin/admin_staff/_form.html.twig', {'button_label': 'Enregistrer'}) }}
 
-    <a href=\"{{ path('app_admin_staff_index') }}\">Retour à la liste</a>
+    <a href=\"{{ path('admin_staff_index') }}\">Retour à la liste</a>
 
     {{ include('admin/admin_staff/_delete_form.html.twig') }}
 {% endblock %}

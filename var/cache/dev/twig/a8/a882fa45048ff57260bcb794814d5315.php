@@ -56,7 +56,7 @@ class __TwigTemplate_48e367444105b21e2db23a076a42494f extends Template
 \t\t\t\t\t\t
 \t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"";
         // line 9
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_staff_index");
         echo " \">Staffs</a>
 
 \t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"";
@@ -144,7 +144,7 @@ function myFunction() {
       
 \t\t\t\t\t\t\t <a class=\"dropdown-item\" href=\"{{ path('app_admin_agenda')  }} \">Séances</a>
 \t\t\t\t\t\t
-\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"{{ path('app_admin_staff_index')  }} \">Staffs</a>
+\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"{{ path('admin_staff_index')  }} \">Staffs</a>
 
 \t\t\t\t\t\t\t<a class=\"dropdown-item\" href=\"{{ path('app_admin_category_index')  }} \">Catégories </a>
 \t\t\t\t\t

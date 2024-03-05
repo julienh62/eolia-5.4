@@ -117,13 +117,13 @@ class __TwigTemplate_ff5f659630b2ee12058ebbdcb325e3d5 extends Template
                 <td class=\"colonnetableaux\">
                     <a href=\"";
             // line 27
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_show", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 27)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_staff_show", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 27)]), "html", null, true);
             echo "\"> Voir </a>
                 </td>
                 <td class=\"colonnetableaux\">
                     <a href=\"";
             // line 30
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 30)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_staff_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 30)]), "html", null, true);
             echo "\"> éditer </a>
                 </td>
              
@@ -159,13 +159,13 @@ class __TwigTemplate_ff5f659630b2ee12058ebbdcb325e3d5 extends Template
                 <p>
                     <a href=\"";
             // line 46
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_show", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 46)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_staff_show", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 46)]), "html", null, true);
             echo "\">Voir</a>
                 </p>
                 <p>
                     <a href=\"";
             // line 49
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 49)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_staff_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["staff"], "id", [], "any", false, false, false, 49)]), "html", null, true);
             echo "\"> Éditer </a>
                 </p>
        
@@ -194,7 +194,7 @@ class __TwigTemplate_ff5f659630b2ee12058ebbdcb325e3d5 extends Template
   </div>
        <a class=\"asous\" href=\"";
         // line 66
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_new");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_staff_new");
         echo "\">Créer un nouveau staff</a>
 ";
         
@@ -257,10 +257,10 @@ class __TwigTemplate_ff5f659630b2ee12058ebbdcb325e3d5 extends Template
                 <td class=\"colonnetableaux\">{{ staff.fullName }}</td>
                 
                 <td class=\"colonnetableaux\">
-                    <a href=\"{{ path('app_admin_staff_show', {'id': staff.id}) }}\"> Voir </a>
+                    <a href=\"{{ path('admin_staff_show', {'id': staff.id}) }}\"> Voir </a>
                 </td>
                 <td class=\"colonnetableaux\">
-                    <a href=\"{{ path('app_admin_staff_edit', {'id': staff.id}) }}\"> éditer </a>
+                    <a href=\"{{ path('admin_staff_edit', {'id': staff.id}) }}\"> éditer </a>
                 </td>
              
         {% else %}
@@ -276,10 +276,10 @@ class __TwigTemplate_ff5f659630b2ee12058ebbdcb325e3d5 extends Template
        {% for staff in staff %}
                <p>{{ staff.fullName }}</p>
                 <p>
-                    <a href=\"{{ path('app_admin_staff_show', {'id': staff.id}) }}\">Voir</a>
+                    <a href=\"{{ path('admin_staff_show', {'id': staff.id}) }}\">Voir</a>
                 </p>
                 <p>
-                    <a href=\"{{ path('app_admin_staff_edit', {'id': staff.id}) }}\"> Éditer </a>
+                    <a href=\"{{ path('admin_staff_edit', {'id': staff.id}) }}\"> Éditer </a>
                 </p>
        
       
@@ -296,7 +296,7 @@ class __TwigTemplate_ff5f659630b2ee12058ebbdcb325e3d5 extends Template
         
    
   </div>
-       <a class=\"asous\" href=\"{{ path('app_admin_staff_new') }}\">Créer un nouveau staff</a>
+       <a class=\"asous\" href=\"{{ path('admin_staff_new') }}\">Créer un nouveau staff</a>
 {% endblock %}
 
 

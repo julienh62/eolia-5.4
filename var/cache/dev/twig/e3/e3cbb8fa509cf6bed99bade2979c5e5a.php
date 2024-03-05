@@ -94,7 +94,7 @@ class __TwigTemplate_cd7d22271d6aa777fb6c0aade9b06ae1 extends Template
 
     <a href=\"";
         // line 10
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_staff_index");
         echo "\">Retour à la liste</a>
 ";
         
@@ -140,7 +140,7 @@ class __TwigTemplate_cd7d22271d6aa777fb6c0aade9b06ae1 extends Template
 
     {{ include('admin/admin_staff/_form.html.twig') }}
 
-    <a href=\"{{ path('app_admin_staff_index') }}\">Retour à la liste</a>
+    <a href=\"{{ path('admin_staff_index') }}\">Retour à la liste</a>
 {% endblock %}
 ", "admin/admin_staff/new.html.twig", "C:\\wamp64\\www\\symfony\\eolia-5.4\\templates\\admin\\admin_staff\\new.html.twig");
     }

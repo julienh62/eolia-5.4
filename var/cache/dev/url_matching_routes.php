@@ -18,8 +18,8 @@ return [
         '/admin/category/new' => [[['_route' => 'app_admin_category_new', '_controller' => 'App\\Controller\\Admin\\AdminCategoryController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/admin/categorysetting' => [[['_route' => 'app_admin_category_setting_index', '_controller' => 'App\\Controller\\Admin\\AdminCategorySettingController::index'], null, ['GET' => 0], null, true, false, null]],
         '/admin/categorysetting/new' => [[['_route' => 'app_admin_category_setting_new', '_controller' => 'App\\Controller\\Admin\\AdminCategorySettingController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/admin/staff' => [[['_route' => 'app_admin_staff_index', '_controller' => 'App\\Controller\\Admin\\AdminStaffController::index'], null, ['GET' => 0], null, true, false, null]],
-        '/admin/staff/new' => [[['_route' => 'app_admin_staff_new', '_controller' => 'App\\Controller\\Admin\\AdminStaffController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/admin/staff' => [[['_route' => 'admin_staff_index', '_controller' => 'App\\Controller\\Admin\\AdminStaffController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/admin/staff/new' => [[['_route' => 'admin_staff_new', '_controller' => 'App\\Controller\\Admin\\AdminStaffController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/admin/staffschedule' => [[['_route' => 'app_admin_staff_schedule_index', '_controller' => 'App\\Controller\\Admin\\AdminStaffScheduleController::index'], null, ['GET' => 0], null, true, false, null]],
         '/admin/user' => [[['_route' => 'admin_user_index', '_controller' => 'App\\Controller\\Admin\\AdminUserController::index'], null, ['GET' => 0], null, false, false, null]],
         '/admin/user/new' => [[['_route' => 'admin_user_new', '_controller' => 'App\\Controller\\Admin\\AdminUserController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
@@ -51,161 +51,157 @@ return [
         0 => '{^(?'
                 .'|/a(?'
                     .'|dmin/(?'
-                        .'|([^/]++)/edit(?'
-                            .'|(*:36)'
-                            .'|staffschedule(*:56)'
-                        .')'
+                        .'|([^/]++)/edit(*:33)'
                         .'|a(?'
                             .'|ctivity/([^/]++)(?'
-                                .'|(*:87)'
-                                .'|/edit(*:99)'
-                                .'|(*:106)'
+                                .'|(*:63)'
+                                .'|/edit(*:75)'
+                                .'|(*:82)'
                             .')'
                             .'|genda(?'
-                                .'|detail/([^/]++)(*:138)'
-                                .'|listtoprint/([^/]++)(*:166)'
+                                .'|detail/([^/]++)(*:113)'
+                                .'|listtoprint/([^/]++)(*:141)'
                             .')'
                         .')'
                         .'|ca(?'
                             .'|lendar(?'
                                 .'|adduser(?'
-                                    .'|/([^/]++)(*:209)'
-                                    .'|quantity/([^/]++)/([^/]++)(*:243)'
+                                    .'|/([^/]++)(*:184)'
+                                    .'|quantity/([^/]++)/([^/]++)(*:218)'
                                 .')'
                                 .'|/(?'
-                                    .'|new/([^/]++)(*:268)'
-                                    .'|([^/]++)(*:284)'
+                                    .'|new/([^/]++)(*:243)'
+                                    .'|([^/]++)(*:259)'
                                 .')'
-                                .'|delete/([^/]++)(*:308)'
+                                .'|delete/([^/]++)(*:283)'
                             .')'
                             .'|tegory(?'
                                 .'|/([^/]++)(?'
-                                    .'|(*:338)'
-                                    .'|/edit(*:351)'
-                                    .'|(*:359)'
+                                    .'|(*:313)'
+                                    .'|/edit(*:326)'
+                                    .'|(*:334)'
                                 .')'
                                 .'|setting/([^/]++)(?'
-                                    .'|(*:387)'
-                                    .'|/edit(*:400)'
-                                    .'|(*:408)'
+                                    .'|(*:362)'
+                                    .'|/edit(*:375)'
+                                    .'|(*:383)'
                                 .')'
                             .')'
                         .')'
-                        .'|edit/([^/]++)/([^/]++)(*:441)'
+                        .'|edit/([^/]++)/([^/]++)(*:416)'
                         .'|purchase(?'
-                            .'|/user/([^/]++)(*:474)'
-                            .'|itemdelete/([^/]++)(*:501)'
+                            .'|/user/([^/]++)(*:449)'
+                            .'|itemdelete/([^/]++)(*:476)'
                         .')'
                         .'|staff(?'
                             .'|/([^/]++)(?'
-                                .'|(*:530)'
-                                .'|/edit(*:543)'
-                                .'|(*:551)'
+                                .'|(*:505)'
+                                .'|/edit(*:518)'
+                                .'|(*:526)'
                             .')'
                             .'|schedule/([^/]++)(?'
-                                .'|(*:580)'
-                                .'|/edit(*:593)'
-                                .'|(*:601)'
+                                .'|(*:555)'
+                                .'|/edit(*:568)'
+                                .'|(*:576)'
                             .')'
                         .')'
                         .'|user(?'
                             .'|/(?'
-                                .'|([^/]++)(*:630)'
-                                .'|delete/([^/]++)(*:653)'
+                                .'|([^/]++)(*:605)'
+                                .'|delete/([^/]++)(*:628)'
                             .')'
-                            .'|showall/([^/]++)(*:678)'
-                            .'|idshowall/([^/]++)(*:704)'
+                            .'|showall/([^/]++)(*:653)'
+                            .'|idshowall/([^/]++)(*:679)'
                         .')'
-                        .'|/admin/calendarshowlienpaiement/([^/]++)/([^/]++)(*:762)'
+                        .'|/admin/calendarshowlienpaiement/([^/]++)/([^/]++)(*:737)'
                     .')'
-                    .'|genda/([^/]++)(*:785)'
-                    .'|ctivitieshow/([^/]++)(*:814)'
+                    .'|genda/([^/]++)(*:760)'
+                    .'|ctivitieshow/([^/]++)(*:789)'
                 .')'
                 .'|/search(?'
-                    .'|(?:/([^/]++))?(*:847)'
-                    .'|name(?:/([^/]++))?(*:873)'
-                    .'|phone(?:/([^/]++))?(*:900)'
+                    .'|(?:/([^/]++))?(*:822)'
+                    .'|name(?:/([^/]++))?(*:848)'
+                    .'|phone(?:/([^/]++))?(*:875)'
                 .')'
                 .'|/cart/(?'
-                    .'|add/(\\d+)(*:927)'
+                    .'|add/(\\d+)(*:902)'
                     .'|de(?'
-                        .'|lete/(\\d+)(*:950)'
-                        .'|crement/(\\d+)(*:971)'
+                        .'|lete/(\\d+)(*:925)'
+                        .'|crement/(\\d+)(*:946)'
                     .')'
                 .')'
                 .'|/purchase/(?'
-                    .'|pay/([0-9]+)(*:1006)'
-                    .'|terminate/([0-9]+)(*:1033)'
+                    .'|pay/([0-9]+)(*:981)'
+                    .'|terminate/([0-9]+)(*:1007)'
                 .')'
-                .'|/forgot\\-mdp/([^/]++)(*:1064)'
+                .'|/forgot\\-mdp/([^/]++)(*:1038)'
                 .'|/_(?'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:1104)'
-                    .'|wdt/([^/]++)(*:1125)'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:1078)'
+                    .'|wdt/([^/]++)(*:1099)'
                     .'|profiler/([^/]++)(?'
                         .'|/(?'
-                            .'|search/results(*:1172)'
-                            .'|router(*:1187)'
+                            .'|search/results(*:1146)'
+                            .'|router(*:1161)'
                             .'|exception(?'
-                                .'|(*:1208)'
-                                .'|\\.css(*:1222)'
+                                .'|(*:1182)'
+                                .'|\\.css(*:1196)'
                             .')'
                         .')'
-                        .'|(*:1233)'
+                        .'|(*:1207)'
                     .')'
                 .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
-        36 => [[['_route' => 'admin_activity_edit', '_controller' => 'App\\Controller\\Admin\\AdminCalendarController::activityEdit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        56 => [[['_route' => 'admin_staff_edit', '_controller' => 'App\\Controller\\Admin\\AdminCalendarController::staffEdit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        87 => [[['_route' => 'app_admin_activitie_show', '_controller' => 'App\\Controller\\Admin\\AdminActivitieController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        99 => [[['_route' => 'app_admin_activitie_edit', '_controller' => 'App\\Controller\\Admin\\AdminActivitieController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        106 => [[['_route' => 'app_admin_activitie_delete', '_controller' => 'App\\Controller\\Admin\\AdminActivitieController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        138 => [[['_route' => 'admin_agenda_detail', '_controller' => 'App\\Controller\\Admin\\AdminAgendaDetailController::showusercalendarpurchase'], ['id'], ['GET' => 0], null, false, true, null]],
-        166 => [[['_route' => 'admin_agenda_list_print', '_controller' => 'App\\Controller\\Admin\\AdminAgendaDetailController::calendarshowlistuserpurchase'], ['id'], ['GET' => 0], null, false, true, null]],
-        209 => [[['_route' => 'admin_calendar_add_user', '_controller' => 'App\\Controller\\Admin\\AdminCalendarAddUserController::calendarAddUser'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        243 => [[['_route' => 'admin_calendar_add_user_quantity', '_controller' => 'App\\Controller\\Admin\\AdminCalendarAddUserQuantityController::calendarAddUserQuantity'], ['id', 'newUserId'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        268 => [[['_route' => 'app_admin_calendar_new', '_controller' => 'App\\Controller\\Admin\\AdminCalendarController::new'], ['typeCalendar'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        284 => [[['_route' => 'app_admin_calendar_show', '_controller' => 'App\\Controller\\Admin\\AdminCalendarController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        308 => [[['_route' => 'admin_calendar_delete', '_controller' => 'App\\Controller\\Admin\\AdminCalendarController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        338 => [[['_route' => 'app_admin_category_show', '_controller' => 'App\\Controller\\Admin\\AdminCategoryController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        351 => [[['_route' => 'app_admin_category_edit', '_controller' => 'App\\Controller\\Admin\\AdminCategoryController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        359 => [[['_route' => 'app_admin_category_delete', '_controller' => 'App\\Controller\\Admin\\AdminCategoryController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        387 => [[['_route' => 'app_admin_category_setting_show', '_controller' => 'App\\Controller\\Admin\\AdminCategorySettingController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        400 => [[['_route' => 'app_admin_category_setting_edit', '_controller' => 'App\\Controller\\Admin\\AdminCategorySettingController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        408 => [[['_route' => 'app_admin_category_setting_delete', '_controller' => 'App\\Controller\\Admin\\AdminCategorySettingController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        441 => [[['_route' => 'admin_calendar_edit', '_controller' => 'App\\Controller\\Admin\\AdminCalendarController::edit'], ['id', 'typeCalendar'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        474 => [[['_route' => 'admin_user_purchase', '_controller' => 'App\\Controller\\Admin\\AdminPurchaseUserController::index'], ['id'], ['GET' => 0], null, false, true, null]],
-        501 => [[['_route' => 'delete_purchaseitem', '_controller' => 'App\\Controller\\Admin\\PurchaseItem\\PurchaseItemController::delete'], ['id'], null, null, false, true, null]],
-        530 => [[['_route' => 'app_admin_staff_show', '_controller' => 'App\\Controller\\Admin\\AdminStaffController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        543 => [[['_route' => 'app_admin_staff_edit', '_controller' => 'App\\Controller\\Admin\\AdminStaffController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        551 => [[['_route' => 'app_admin_staff_delete', '_controller' => 'App\\Controller\\Admin\\AdminStaffController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        580 => [[['_route' => 'app_admin_staff_schedule_show', '_controller' => 'App\\Controller\\Admin\\AdminStaffScheduleController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        593 => [[['_route' => 'app_admin_staff_schedule_edit', '_controller' => 'App\\Controller\\Admin\\AdminStaffScheduleController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        601 => [[['_route' => 'app_admin_staff_schedule_delete', '_controller' => 'App\\Controller\\Admin\\AdminStaffScheduleController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        630 => [[['_route' => 'admin_user_show', '_controller' => 'App\\Controller\\Admin\\AdminUserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        653 => [[['_route' => 'admin_user_delete', '_controller' => 'App\\Controller\\Admin\\AdminUserController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
-        678 => [[['_route' => 'all_user_show', '_controller' => 'App\\Controller\\Admin\\AdminUserShowController::showUser'], ['fullName'], null, null, false, true, null]],
-        704 => [[['_route' => 'all_userid_show', '_controller' => 'App\\Controller\\Admin\\AdminUserShowController::showUserId'], ['id'], null, null, false, true, null]],
-        762 => [[['_route' => 'admin_calendar_show_lien_paiement', '_controller' => 'App\\Controller\\Admin\\AdminUserShowController::SendLienPayment'], ['purchaseId', 'id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        785 => [[['_route' => 'app_agenda_by_category', '_controller' => 'App\\Controller\\AgendaByCategoryController::renderAgendaByCategory'], ['categoryTitle'], null, null, false, true, null]],
-        814 => [[['_route' => 'app_activitie_show', '_controller' => 'App\\Controller\\ActivitieController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        847 => [[['_route' => 'user_search', 'searchItem' => null, '_controller' => 'App\\Controller\\Admin\\AdminUserController::searchUser'], ['searchItem'], null, null, false, true, null]],
-        873 => [[['_route' => 'user_searchname', 'searchItemName' => null, '_controller' => 'App\\Controller\\Admin\\AdminUserController::searchUserName'], ['searchItemName'], null, null, false, true, null]],
-        900 => [[['_route' => 'user_searchphone', 'phone' => null, '_controller' => 'App\\Controller\\Admin\\AdminUserController::searchByPhone'], ['phone'], null, null, false, true, null]],
-        927 => [[['_route' => 'cart_add', '_controller' => 'App\\Controller\\CartController::add'], ['id'], null, null, false, true, null]],
-        950 => [[['_route' => 'cart_delete', '_controller' => 'App\\Controller\\CartController::delete'], ['id'], null, null, false, true, null]],
-        971 => [[['_route' => 'cart_decrement', '_controller' => 'App\\Controller\\CartController::decrement'], ['id'], null, null, false, true, null]],
-        1006 => [[['_route' => 'purchase_payment_form', '_controller' => 'App\\Controller\\Purchase\\PurchasePaymentController::showCardForm'], ['id'], null, null, false, true, null]],
-        1033 => [[['_route' => 'purchase_payment_success', '_controller' => 'App\\Controller\\Purchase\\PurchasePaymentSuccessController::success'], ['id'], null, null, false, true, null]],
-        1064 => [[['_route' => 'reset_pass', '_controller' => 'App\\Controller\\SecurityController::resetPass'], ['token'], null, null, false, true, null]],
-        1104 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        1125 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        1172 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        1187 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        1208 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        1222 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        1233 => [
+        33 => [[['_route' => 'admin_activity_edit', '_controller' => 'App\\Controller\\Admin\\AdminCalendarController::activityEdit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        63 => [[['_route' => 'app_admin_activitie_show', '_controller' => 'App\\Controller\\Admin\\AdminActivitieController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        75 => [[['_route' => 'app_admin_activitie_edit', '_controller' => 'App\\Controller\\Admin\\AdminActivitieController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        82 => [[['_route' => 'app_admin_activitie_delete', '_controller' => 'App\\Controller\\Admin\\AdminActivitieController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        113 => [[['_route' => 'admin_agenda_detail', '_controller' => 'App\\Controller\\Admin\\AdminAgendaDetailController::showusercalendarpurchase'], ['id'], ['GET' => 0], null, false, true, null]],
+        141 => [[['_route' => 'admin_agenda_list_print', '_controller' => 'App\\Controller\\Admin\\AdminAgendaDetailController::calendarshowlistuserpurchase'], ['id'], ['GET' => 0], null, false, true, null]],
+        184 => [[['_route' => 'admin_calendar_add_user', '_controller' => 'App\\Controller\\Admin\\AdminCalendarAddUserController::calendarAddUser'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        218 => [[['_route' => 'admin_calendar_add_user_quantity', '_controller' => 'App\\Controller\\Admin\\AdminCalendarAddUserQuantityController::calendarAddUserQuantity'], ['id', 'newUserId'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        243 => [[['_route' => 'app_admin_calendar_new', '_controller' => 'App\\Controller\\Admin\\AdminCalendarController::new'], ['typeCalendar'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        259 => [[['_route' => 'app_admin_calendar_show', '_controller' => 'App\\Controller\\Admin\\AdminCalendarController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        283 => [[['_route' => 'admin_calendar_delete', '_controller' => 'App\\Controller\\Admin\\AdminCalendarController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        313 => [[['_route' => 'app_admin_category_show', '_controller' => 'App\\Controller\\Admin\\AdminCategoryController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        326 => [[['_route' => 'app_admin_category_edit', '_controller' => 'App\\Controller\\Admin\\AdminCategoryController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        334 => [[['_route' => 'app_admin_category_delete', '_controller' => 'App\\Controller\\Admin\\AdminCategoryController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        362 => [[['_route' => 'app_admin_category_setting_show', '_controller' => 'App\\Controller\\Admin\\AdminCategorySettingController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        375 => [[['_route' => 'app_admin_category_setting_edit', '_controller' => 'App\\Controller\\Admin\\AdminCategorySettingController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        383 => [[['_route' => 'app_admin_category_setting_delete', '_controller' => 'App\\Controller\\Admin\\AdminCategorySettingController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        416 => [[['_route' => 'admin_calendar_edit', '_controller' => 'App\\Controller\\Admin\\AdminCalendarController::edit'], ['id', 'typeCalendar'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        449 => [[['_route' => 'admin_user_purchase', '_controller' => 'App\\Controller\\Admin\\AdminPurchaseUserController::index'], ['id'], ['GET' => 0], null, false, true, null]],
+        476 => [[['_route' => 'delete_purchaseitem', '_controller' => 'App\\Controller\\Admin\\PurchaseItem\\PurchaseItemController::delete'], ['id'], null, null, false, true, null]],
+        505 => [[['_route' => 'admin_staff_show', '_controller' => 'App\\Controller\\Admin\\AdminStaffController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        518 => [[['_route' => 'admin_staff_edit', '_controller' => 'App\\Controller\\Admin\\AdminStaffController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        526 => [[['_route' => 'admin_staff_delete', '_controller' => 'App\\Controller\\Admin\\AdminStaffController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        555 => [[['_route' => 'app_admin_staff_schedule_show', '_controller' => 'App\\Controller\\Admin\\AdminStaffScheduleController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        568 => [[['_route' => 'app_admin_staff_schedule_edit', '_controller' => 'App\\Controller\\Admin\\AdminStaffScheduleController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        576 => [[['_route' => 'app_admin_staff_schedule_delete', '_controller' => 'App\\Controller\\Admin\\AdminStaffScheduleController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        605 => [[['_route' => 'admin_user_show', '_controller' => 'App\\Controller\\Admin\\AdminUserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        628 => [[['_route' => 'admin_user_delete', '_controller' => 'App\\Controller\\Admin\\AdminUserController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
+        653 => [[['_route' => 'all_user_show', '_controller' => 'App\\Controller\\Admin\\AdminUserShowController::showUser'], ['fullName'], null, null, false, true, null]],
+        679 => [[['_route' => 'all_userid_show', '_controller' => 'App\\Controller\\Admin\\AdminUserShowController::showUserId'], ['id'], null, null, false, true, null]],
+        737 => [[['_route' => 'admin_calendar_show_lien_paiement', '_controller' => 'App\\Controller\\Admin\\AdminUserShowController::SendLienPayment'], ['purchaseId', 'id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        760 => [[['_route' => 'app_agenda_by_category', '_controller' => 'App\\Controller\\AgendaByCategoryController::renderAgendaByCategory'], ['categoryTitle'], null, null, false, true, null]],
+        789 => [[['_route' => 'app_activitie_show', '_controller' => 'App\\Controller\\ActivitieController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        822 => [[['_route' => 'user_search', 'searchItem' => null, '_controller' => 'App\\Controller\\Admin\\AdminUserController::searchUser'], ['searchItem'], null, null, false, true, null]],
+        848 => [[['_route' => 'user_searchname', 'searchItemName' => null, '_controller' => 'App\\Controller\\Admin\\AdminUserController::searchUserName'], ['searchItemName'], null, null, false, true, null]],
+        875 => [[['_route' => 'user_searchphone', 'phone' => null, '_controller' => 'App\\Controller\\Admin\\AdminUserController::searchByPhone'], ['phone'], null, null, false, true, null]],
+        902 => [[['_route' => 'cart_add', '_controller' => 'App\\Controller\\CartController::add'], ['id'], null, null, false, true, null]],
+        925 => [[['_route' => 'cart_delete', '_controller' => 'App\\Controller\\CartController::delete'], ['id'], null, null, false, true, null]],
+        946 => [[['_route' => 'cart_decrement', '_controller' => 'App\\Controller\\CartController::decrement'], ['id'], null, null, false, true, null]],
+        981 => [[['_route' => 'purchase_payment_form', '_controller' => 'App\\Controller\\Purchase\\PurchasePaymentController::showCardForm'], ['id'], null, null, false, true, null]],
+        1007 => [[['_route' => 'purchase_payment_success', '_controller' => 'App\\Controller\\Purchase\\PurchasePaymentSuccessController::success'], ['id'], null, null, false, true, null]],
+        1038 => [[['_route' => 'reset_pass', '_controller' => 'App\\Controller\\SecurityController::resetPass'], ['token'], null, null, false, true, null]],
+        1078 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        1099 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        1146 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        1161 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        1182 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        1196 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        1207 => [
             [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

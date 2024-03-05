@@ -44,10 +44,8 @@ class AdminCategoryController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             
-           
                     /** @var UploadedFile $imageFile */
                     $imageFile = $form->get('image')->getData();
-
 
                     if ($imageFile) {
                         $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -69,7 +67,6 @@ class AdminCategoryController extends AbstractController
                         $category->setImage($newFilename);
                     }
             
-
             $entityManager->persist($category);
             $entityManager->flush();
 

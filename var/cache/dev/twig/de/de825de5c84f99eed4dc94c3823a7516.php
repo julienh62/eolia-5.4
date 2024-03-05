@@ -41,7 +41,7 @@ class __TwigTemplate_da121916ceaf02160b365c57840ab20f extends Template
 
         // line 1
         echo "<form method=\"post\" action=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["staff"]) || array_key_exists("staff", $context) ? $context["staff"] : (function () { throw new RuntimeError('Variable "staff" does not exist.', 1, $this->source); })()), "id", [], "any", false, false, false, 1)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_staff_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["staff"]) || array_key_exists("staff", $context) ? $context["staff"] : (function () { throw new RuntimeError('Variable "staff" does not exist.', 1, $this->source); })()), "id", [], "any", false, false, false, 1)]), "html", null, true);
         echo "\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"";
         // line 2
@@ -84,7 +84,7 @@ class __TwigTemplate_da121916ceaf02160b365c57840ab20f extends Template
 
     public function getSourceContext()
     {
-        return new Source("<form method=\"post\" action=\"{{ path('app_admin_staff_delete', {'id': staff.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+        return new Source("<form method=\"post\" action=\"{{ path('admin_staff_delete', {'id': staff.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ staff.id) }}\">
     <button class=\"btn\">Supprimer</button>
 </form>

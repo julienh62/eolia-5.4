@@ -108,12 +108,12 @@ class __TwigTemplate_649a7632d7e0b08ab1415abee1593309 extends Template
 
     <a href=\"";
         // line 21
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_staff_index");
         echo "\">Retour à la liste</a>
 
     <a href=\"";
         // line 23
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_staff_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["staff"]) || array_key_exists("staff", $context) ? $context["staff"] : (function () { throw new RuntimeError('Variable "staff" does not exist.', 23, $this->source); })()), "id", [], "any", false, false, false, 23)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_staff_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["staff"]) || array_key_exists("staff", $context) ? $context["staff"] : (function () { throw new RuntimeError('Variable "staff" does not exist.', 23, $this->source); })()), "id", [], "any", false, false, false, 23)]), "html", null, true);
         echo "\">modifier</a>
 
     ";
@@ -175,9 +175,9 @@ class __TwigTemplate_649a7632d7e0b08ab1415abee1593309 extends Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_admin_staff_index') }}\">Retour à la liste</a>
+    <a href=\"{{ path('admin_staff_index') }}\">Retour à la liste</a>
 
-    <a href=\"{{ path('app_admin_staff_edit', {'id': staff.id}) }}\">modifier</a>
+    <a href=\"{{ path('admin_staff_edit', {'id': staff.id}) }}\">modifier</a>
 
     {{ include('admin/admin_staff/_delete_form.html.twig') }}
 {% endblock %}

@@ -5,65 +5,52 @@
 {% block body %}
     <h1>Staff index</h1>
 
-
-
-
-    
     <div class="onlydesktop">
-     <table class="tableau">
-        <thead class="tableau">
-            <tr>
-                 <th class="colonnetableau">FullName</th>
-                 <th class="colonnetableau">actions</th>
-                 <th class="colonnetableau">actions</th>
-            </tr>
-        </thead>
-        <tbody>
-          {% for staff in staff %}
-            <tr>
-                <td class="colonnetableaux">{{ staff.fullName }}</td>
+        <table class="tableau">
+            <thead class="tableau">
+                <tr>
+                    <th class="colonnetableau">FullName</th>
+                    <th class="colonnetableau">actions</th>
+                    <th class="colonnetableau">actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for staff in staff %}
+                <tr>
+                    <td class="colonnetableaux">{{ staff.fullName }}</td>
+                    
+                    <td class="colonnetableaux">
+                        <a href="{{ path('admin_staff_show', {'id': staff.id}) }}"> Voir </a>
+                    </td>
+                    <td class="colonnetableaux">
+                        <a href="{{ path('admin_staff_edit', {'id': staff.id}) }}"> éditer </a>
+                    </td>
                 
-                <td class="colonnetableaux">
-                    <a href="{{ path('app_admin_staff_show', {'id': staff.id}) }}"> Voir </a>
-                </td>
-                <td class="colonnetableaux">
-                    <a href="{{ path('app_admin_staff_edit', {'id': staff.id}) }}"> éditer </a>
-                </td>
-             
-        {% else %}
-            <tr>
-                <td>Aucune correspondance trouvée</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-  </div>
+            {% else %}
+                <tr>
+                    <td>Aucune correspondance trouvée</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-<div class="onlymobil">
+    <div class="onlymobil">
        {% for staff in staff %}
-               <p>{{ staff.fullName }}</p>
-                <p>
-                    <a href="{{ path('app_admin_staff_show', {'id': staff.id}) }}">Voir</a>
-                </p>
-                <p>
-                    <a href="{{ path('app_admin_staff_edit', {'id': staff.id}) }}"> Éditer </a>
-                </p>
-       
-      
-            
-             
-               
-              
-           
+            <p>{{ staff.fullName }}</p>
+            <p>
+                <a href="{{ path('admin_staff_show', {'id': staff.id}) }}">Voir</a>
+            </p>
+            <p>
+                <a href="{{ path('admin_staff_edit', {'id': staff.id}) }}"> Éditer </a>
+            </p>
+     
         {% else %}
-           
-                <p>Aucune Staff pour l'instant </p>
-          
+            <p>Aucune Staff pour l'instant </p>
         {% endfor %}
         
-   
-  </div>
-       <a class="asous" href="{{ path('app_admin_staff_new') }}">Créer un nouveau staff</a>
+    </div>
+       <a class="asous" href="{{ path('admin_staff_new') }}">Créer un nouveau staff</a>
 {% endblock %}
 
 
